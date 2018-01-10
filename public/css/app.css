@@ -132,10 +132,6 @@ html {
   height: 100%;
   line-height: 1;
   font-family: 'PingFang SC', 'STHeitiSC-Light', 'Helvetica-Light', arial, sans-serif, 'Droid Sans Fallback';
-  -webkit-user-select: none;
-     -moz-user-select: none;
-      -ms-user-select: none;
-          user-select: none;
   -webkit-tap-highlight-color: transparent;
   background: #fff;
 }

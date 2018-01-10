@@ -11324,7 +11324,7 @@ module.exports = g;
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(6);
-module.exports = __webpack_require__(24);
+module.exports = __webpack_require__(25);
 
 
 /***/ }),
@@ -14692,7 +14692,7 @@ exports = module.exports = __webpack_require__(0)(false);
 
 
 // module
-exports.push([module.i, "\n.homepage[data-v-09ddfc68] {\n  position: relative;\n  height: 100vh;\n  overflow: hidden;\n}\n.homepage #particles[data-v-09ddfc68] {\n  position: absolute;\n  width: 100%;\n  height: 100%;\n}\n", ""]);
+exports.push([module.i, "\n.homepage[data-v-09ddfc68] {\n  position: relative;\n  height: 100vh;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-align: center;\n      -ms-flex-align: center;\n          align-items: center;\n  -webkit-box-pack: center;\n      -ms-flex-pack: center;\n          justify-content: center;\n  overflow: hidden;\n}\n.homepage #particles[data-v-09ddfc68] {\n  position: absolute;\n  width: 100%;\n  height: 100%;\n}\n.homepage .content[data-v-09ddfc68] {\n  z-index: 1;\n  text-align: center;\n  padding: 20px 10px;\n}\n.homepage .content .avatar[data-v-09ddfc68] {\n  margin-bottom: 20px;\n}\n.homepage .content .avatar img[data-v-09ddfc68] {\n  overflow: hidden;\n  border-radius: 50%;\n  background: #fff;\n  -webkit-box-shadow: rgba(255,255,255,0.2) 0 0 0 5px, rgba(0,0,0,0.1) 0 0 5px 4px;\n          box-shadow: rgba(255,255,255,0.2) 0 0 0 5px, rgba(0,0,0,0.1) 0 0 5px 4px;\n  -webkit-transition: -webkit-transform 0.4s ease-out;\n  transition: -webkit-transform 0.4s ease-out;\n  transition: transform 0.4s ease-out;\n  transition: transform 0.4s ease-out, -webkit-transform 0.4s ease-out;\n}\n.homepage .content .avatar img[data-v-09ddfc68]:hover {\n  -webkit-transform: rotate(360deg);\n          transform: rotate(360deg);\n}\n.homepage .content .description[data-v-09ddfc68] {\n  margin-bottom: 20px;\n  font-size: 18px;\n  font-weight: bold;\n  color: #6289ad;\n}\n.homepage .content .tab .tab-item[data-v-09ddfc68] {\n  height: 40px;\n  line-height: 40px;\n  text-align: center;\n}\n.homepage .content .tab .tab-item .tab-link[data-v-09ddfc68] {\n  padding: 10px;\n  color: #9caebf;\n  font-size: 14px;\n  font-weight: 600;\n}\n", ""]);
 
 // exports
 
@@ -14705,6 +14705,27 @@ exports.push([module.i, "\n.homepage[data-v-09ddfc68] {\n  position: relative;\n
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_particles_js__ = __webpack_require__(22);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_particles_js___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_particles_js__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -16282,7 +16303,60 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "homepage" }, [
-      _c("div", { attrs: { id: "particles" } })
+      _c("div", { attrs: { id: "particles" } }),
+      _vm._v(" "),
+      _c("div", { staticClass: "content" }, [
+        _c("div", { staticClass: "avatar" }, [
+          _c("img", {
+            staticClass: "avatar-item",
+            attrs: { width: "120", height: "120", src: __webpack_require__(24) }
+          })
+        ]),
+        _vm._v(" "),
+        _c("h1", { staticClass: "description" }, [
+          _vm._v("Nothing is impossible.")
+        ]),
+        _vm._v(" "),
+        _c("ul", { staticClass: "tab" }, [
+          _c("li", { staticClass: "tab-item" }, [
+            _c("a", { staticClass: "tab-link", attrs: { to: "/blog" } }, [
+              _vm._v("Blog")
+            ])
+          ]),
+          _vm._v(" "),
+          _c("li", { staticClass: "tab-item" }, [
+            _c(
+              "a",
+              {
+                staticClass: "tab-link",
+                attrs: {
+                  href:
+                    "https://weibo.com/3090183841/profile?topnav=1&wvr=6&is_all=1",
+                  target: "_blank"
+                }
+              },
+              [_vm._v("Weibo")]
+            )
+          ]),
+          _vm._v(" "),
+          _c("li", { staticClass: "tab-item" }, [
+            _c(
+              "a",
+              {
+                staticClass: "tab-link",
+                attrs: { href: "https://github.com/overxue", target: "_blank" }
+              },
+              [_vm._v("GitHub")]
+            )
+          ]),
+          _vm._v(" "),
+          _c("li", { staticClass: "tab-item" }, [
+            _c("a", { staticClass: "tab-link", attrs: { to: "/about" } }, [
+              _vm._v("About Me")
+            ])
+          ])
+        ])
+      ])
     ])
   }
 ]
@@ -16297,6 +16371,12 @@ if (false) {
 
 /***/ }),
 /* 24 */
+/***/ (function(module, exports) {
+
+module.exports = "/images/avatar.jpg?b2736890d8e8b52b7add53c754e7d0b1";
+
+/***/ }),
+/* 25 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
