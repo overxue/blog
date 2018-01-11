@@ -1,5 +1,6 @@
 <template>
   <div class="homepage">
+    <opening></opening>
     <div id="particles"></div>
     <div class="content">
       <div class="avatar">
@@ -27,10 +28,14 @@
 
 <script type="text/ecmascript-6">
   import particles from 'particles.js'
+  import Opening from 'components/opening/opening'
 
   export default {
     mounted() {
       particlesJS.load('particles', '/particles/particles.json')
+    },
+    components: {
+      Opening
     }
   }
 </script>
@@ -41,33 +46,38 @@
   .homepage
     position: relative
     height: 100vh
-    display: flex
-    align-items: center
-    justify-content: center
     overflow: hidden
     #particles
       position: absolute
       width: 100%
       height: 100%
     .content
+      position :absolute
+      top: 0
+      left: 0
+      width: 100%
+      height: 100%
+      display: flex
+      flex-direction: column
+      align-items: center
+      justify-content: center
       z-index: 1
       text-align: center
-      padding: 20px 10px
       .avatar
         margin-bottom: 20px
         img
           overflow: hidden;
           border-radius: 50%;
           background: $color-background
-          box-shadow: rgba(255, 255, 255, 0.2) 0 0 0 5px, rgba(0, 0, 0, 0.1) 0 0 5px 4px
+          box-shadow: rgba(255, 255, 255, 0.1) 0 0 0 5px, rgba(0, 0, 0, 0.15) 0 0 5px 4px
           transition: transform .4s ease-out
         img:hover
           transform: rotate(360deg)
       .description
         margin-bottom: 20px
-        font-size: $font-size-large
         font-weight: bold
         color: $color-index
+        font-size: $font-size-large-x
       .tab
         .tab-item
           height: 40px
