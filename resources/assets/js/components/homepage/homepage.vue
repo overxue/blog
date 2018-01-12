@@ -9,17 +9,16 @@
       <h1 class="description">Nothing is impossible.</h1>
       <ul class="tab">
         <li class="tab-item">
-          <a class="tab-link" to="/blog">Blog</a>
+          <router-link class="tab-link" to="/blog">Blog</router-link>
         </li>
         <li class="tab-item">
-          <a class="tab-link" href="https://weibo.com/3090183841/profile?topnav=1&wvr=6&is_all=1"
-             target="_blank">Weibo</a>
+          <a class="tab-link" href="https://weibo.com/3090183841/profile?topnav=1&wvr=6&is_all=1" target="_blank">Weibo</a>
         </li>
         <li class="tab-item">
           <a class="tab-link" href="https://github.com/overxue" target="_blank">GitHub</a>
         </li>
         <li class="tab-item">
-          <a class="tab-link" to="/about">About Me</a>
+          <router-link class="tab-link" to="/me">About Me</router-link>
         </li>
       </ul>
     </div>
