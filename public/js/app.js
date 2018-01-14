@@ -14704,7 +14704,7 @@ exports = module.exports = __webpack_require__(0)(false);
 
 
 // module
-exports.push([module.i, "\n.homepage[data-v-09ddfc68] {\n  position: relative;\n  height: 100vh;\n  overflow: hidden;\n}\n.homepage #particles[data-v-09ddfc68] {\n  position: absolute;\n  width: 100%;\n  height: 100%;\n}\n.homepage .content[data-v-09ddfc68] {\n  position: absolute;\n  top: 0;\n  left: 0;\n  width: 100%;\n  height: 100%;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-orient: vertical;\n  -webkit-box-direction: normal;\n      -ms-flex-direction: column;\n          flex-direction: column;\n  -webkit-box-align: center;\n      -ms-flex-align: center;\n          align-items: center;\n  -webkit-box-pack: center;\n      -ms-flex-pack: center;\n          justify-content: center;\n  z-index: 1;\n  text-align: center;\n}\n.homepage .content .avatar[data-v-09ddfc68] {\n  margin-bottom: 20px;\n}\n.homepage .content .avatar img[data-v-09ddfc68] {\n  overflow: hidden;\n  border-radius: 50%;\n  background: #fff;\n  -webkit-box-shadow: rgba(255,255,255,0.1) 0 0 0 5px, rgba(0,0,0,0.15) 0 0 5px 4px;\n          box-shadow: rgba(255,255,255,0.1) 0 0 0 5px, rgba(0,0,0,0.15) 0 0 5px 4px;\n  -webkit-transition: -webkit-transform 0.4s ease-out;\n  transition: -webkit-transform 0.4s ease-out;\n  transition: transform 0.4s ease-out;\n  transition: transform 0.4s ease-out, -webkit-transform 0.4s ease-out;\n}\n.homepage .content .avatar img[data-v-09ddfc68]:hover {\n  -webkit-transform: rotate(360deg);\n          transform: rotate(360deg);\n}\n.homepage .content .description[data-v-09ddfc68] {\n  margin-bottom: 20px;\n  font-weight: bold;\n  color: #6289ad;\n  font-size: 24px;\n}\n.homepage .content .tab .tab-item[data-v-09ddfc68] {\n  height: 40px;\n  line-height: 40px;\n  text-align: center;\n}\n.homepage .content .tab .tab-item .tab-link[data-v-09ddfc68] {\n  padding: 10px;\n  color: #9caebf;\n  font-size: 14px;\n  font-weight: 600;\n}\n", ""]);
+exports.push([module.i, "\n.homepage[data-v-09ddfc68] {\n  position: relative;\n  height: 100vh;\n  overflow: hidden;\n  background: #fff;\n}\n.homepage #particles[data-v-09ddfc68] {\n  position: absolute;\n  width: 100%;\n  height: 100%;\n}\n.homepage .content[data-v-09ddfc68] {\n  position: absolute;\n  top: 0;\n  left: 0;\n  width: 100%;\n  height: 100%;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-orient: vertical;\n  -webkit-box-direction: normal;\n      -ms-flex-direction: column;\n          flex-direction: column;\n  -webkit-box-align: center;\n      -ms-flex-align: center;\n          align-items: center;\n  -webkit-box-pack: center;\n      -ms-flex-pack: center;\n          justify-content: center;\n  z-index: 1;\n  text-align: center;\n}\n.homepage .content .avatar[data-v-09ddfc68] {\n  margin-bottom: 20px;\n}\n.homepage .content .avatar img[data-v-09ddfc68] {\n  overflow: hidden;\n  border-radius: 50%;\n  background: #fff;\n  -webkit-box-shadow: rgba(255,255,255,0.1) 0 0 0 5px, rgba(0,0,0,0.15) 0 0 5px 4px;\n          box-shadow: rgba(255,255,255,0.1) 0 0 0 5px, rgba(0,0,0,0.15) 0 0 5px 4px;\n  -webkit-transition: -webkit-transform 0.4s ease-out;\n  transition: -webkit-transform 0.4s ease-out;\n  transition: transform 0.4s ease-out;\n  transition: transform 0.4s ease-out, -webkit-transform 0.4s ease-out;\n}\n.homepage .content .avatar img[data-v-09ddfc68]:hover {\n  -webkit-transform: rotate(360deg);\n          transform: rotate(360deg);\n}\n.homepage .content .description[data-v-09ddfc68] {\n  margin-bottom: 20px;\n  font-weight: bold;\n  color: #6289ad;\n  font-size: 24px;\n}\n.homepage .content .tab .tab-item[data-v-09ddfc68] {\n  height: 40px;\n  line-height: 40px;\n  text-align: center;\n}\n.homepage .content .tab .tab-item .tab-link[data-v-09ddfc68] {\n  padding: 10px;\n  color: #9caebf;\n  font-size: 14px;\n  font-weight: 600;\n}\n", ""]);
 
 // exports
 
@@ -16669,7 +16669,7 @@ exports = module.exports = __webpack_require__(0)(false);
 
 
 // module
-exports.push([module.i, "\n.blog .nav[data-v-df367330] {\n  width: 100%;\n}\n.blog .nav .nav-item[data-v-df367330] {\n  position: relative;\n  width: 100%;\n  height: 100%;\n  margin: 0 auto;\n  -webkit-box-shadow: 0px 1px 11px 2px rgba(42,42,42,0.1);\n          box-shadow: 0px 1px 11px 2px rgba(42,42,42,0.1);\n  display: none;\n}\n.blog .nav .nav-item.show[data-v-df367330] {\n  display: block;\n}\n.blog .nav .nav-item .navigation-left[data-v-df367330] {\n  height: 55px;\n  text-align: center;\n  line-height: 55px;\n}\n.blog .nav .nav-item .navigation-left a[data-v-df367330] {\n  display: inline-block;\n  font-size: 18px;\n  font-weight: 700;\n}\n.blog .nav .nav-item .navigation-right[data-v-df367330] {\n  margin: 10px 80px 20px;\n  text-align: center;\n}\n.blog .nav .nav-item .navigation-right .nav-list[data-v-df367330] {\n  display: block;\n  height: 40px;\n  line-height: 40px;\n  padding: 0 20px;\n  text-align: center;\n  font-size: 14px;\n  color: #333;\n}\n.blog .nav .nav-item .navigation-right .nav-list[data-v-df367330]:hover {\n  color: #ff9800;\n}\n.blog .nav .nav-item .navigation-right .nav-list.router-link-active[data-v-df367330] {\n  border-bottom: 2px solid #ff9800;\n  color: #ff9800;\n}\n.blog .nav .list[data-v-df367330] {\n  position: absolute;\n  top: 10px;\n  left: 10px;\n  width: 42px;\n  height: 42px;\n  border-radius: 4px;\n  -webkit-box-shadow: 1px 1px 4px rgba(0,0,0,0.2);\n          box-shadow: 1px 1px 4px rgba(0,0,0,0.2);\n}\n.blog .nav .list>i[data-v-df367330] {\n  position: absolute;\n  left: 8px;\n  display: block;\n  width: 26px;\n  height: 4px;\n  -webkit-transition: all 0.2s linear;\n  transition: all 0.2s linear;\n  border-radius: 4px;\n  background: #444;\n}\n.blog .nav .list>i[data-v-df367330]:first-child {\n  top: 10px;\n}\n.blog .nav .list>i[data-v-df367330]:nth-child(2) {\n  top: 19px;\n}\n.blog .nav .list>i[data-v-df367330]:nth-child(3) {\n  top: 28px;\n}\n.blog .nav .list .a[data-v-df367330] {\n  -webkit-transform: translateY(9px) rotate(-45deg);\n          transform: translateY(9px) rotate(-45deg);\n}\n.blog .nav .list .b[data-v-df367330] {\n  opacity: 0;\n}\n.blog .nav .list .c[data-v-df367330] {\n  -webkit-transform: translateY(-9px) rotate(45deg);\n          transform: translateY(-9px) rotate(45deg);\n}\n@media screen and (min-width: 768px) {\n.blog .nav[data-v-df367330] {\n    height: 58px;\n    -webkit-box-shadow: 0px 1px 11px 2px rgba(42,42,42,0.1);\n            box-shadow: 0px 1px 11px 2px rgba(42,42,42,0.1);\n    border-top: 4px solid #ff9800;\n    background: #fff;\n}\n.blog .nav .nav-item[data-v-df367330] {\n    width: 750px;\n    -webkit-box-shadow: none;\n            box-shadow: none;\n    display: block;\n}\n.blog .nav .nav-item .navigation-left[data-v-df367330] {\n    float: left;\n    height: 58px;\n    line-height: 58px;\n}\n.blog .nav .nav-item .navigation-left a[data-v-df367330] {\n    display: block;\n}\n.blog .nav .nav-item .navigation-right[data-v-df367330] {\n    margin: 0;\n    float: right;\n    font-size: 0;\n}\n.blog .nav .nav-item .navigation-right .nav-list[data-v-df367330] {\n    display: inline-block;\n    height: 56px;\n    line-height: 55px;\n}\n.blog .nav .list[data-v-df367330] {\n    display: none;\n}\n}\n@media screen and (min-width: 992px) {\n.blog .nav .nav-item[data-v-df367330] {\n    width: 970px;\n}\n}\n@media screen and (min-width: 1200px) {\n.blog .nav .nav-item[data-v-df367330] {\n    width: 1170px;\n}\n}\n", ""]);
+exports.push([module.i, "\n.blog .nav[data-v-df367330] {\n  position: fixed;\n  top: 0;\n  left: 0;\n  width: 100%;\n  z-index: 1;\n  background: #fff;\n}\n.blog .nav .nav-item[data-v-df367330] {\n  position: relative;\n  width: 100%;\n  height: 100%;\n  margin: 0 auto;\n  -webkit-box-shadow: 0px 1px 11px 2px rgba(42,42,42,0.1);\n          box-shadow: 0px 1px 11px 2px rgba(42,42,42,0.1);\n  display: none;\n  -webkit-transition: all 0.3s ease-out;\n  transition: all 0.3s ease-out;\n}\n.blog .nav .nav-item.show[data-v-df367330] {\n  display: block;\n}\n.blog .nav .nav-item .navigation-left[data-v-df367330] {\n  height: 55px;\n  text-align: center;\n  line-height: 55px;\n}\n.blog .nav .nav-item .navigation-left a[data-v-df367330] {\n  display: inline-block;\n  font-size: 18px;\n  font-weight: 700;\n}\n.blog .nav .nav-item .navigation-right[data-v-df367330] {\n  margin: 10px 80px 20px;\n  text-align: center;\n}\n.blog .nav .nav-item .navigation-right .nav-list[data-v-df367330] {\n  display: block;\n  height: 40px;\n  line-height: 40px;\n  padding: 0 20px;\n  text-align: center;\n  font-size: 14px;\n  color: #333;\n}\n.blog .nav .nav-item .navigation-right .nav-list[data-v-df367330]:hover {\n  color: #ff9800;\n}\n.blog .nav .nav-item .navigation-right .nav-list.router-link-active[data-v-df367330] {\n  border-bottom: 2px solid #ff9800;\n  color: #ff9800;\n}\n.blog .nav .nav-more-btn[data-v-df367330] {\n  position: absolute;\n  top: 10px;\n  left: 10px;\n  width: 42px;\n  height: 42px;\n  border-radius: 4px;\n  -webkit-box-shadow: 1px 1px 4px rgba(0,0,0,0.2);\n          box-shadow: 1px 1px 4px rgba(0,0,0,0.2);\n  z-index: 1;\n  background: #fff;\n}\n.blog .nav .nav-more-btn>i[data-v-df367330] {\n  position: absolute;\n  left: 8px;\n  display: block;\n  width: 26px;\n  height: 4px;\n  -webkit-transition: all 0.2s linear;\n  transition: all 0.2s linear;\n  border-radius: 4px;\n  background: #444;\n}\n.blog .nav .nav-more-btn>i[data-v-df367330]:first-child {\n  top: 10px;\n}\n.blog .nav .nav-more-btn>i[data-v-df367330]:nth-child(2) {\n  top: 19px;\n}\n.blog .nav .nav-more-btn>i[data-v-df367330]:nth-child(3) {\n  top: 28px;\n}\n.blog .nav .nav-more-btn .first[data-v-df367330] {\n  -webkit-transform: translateY(9px) rotate(-45deg);\n          transform: translateY(9px) rotate(-45deg);\n}\n.blog .nav .nav-more-btn .second[data-v-df367330] {\n  opacity: 0;\n}\n.blog .nav .nav-more-btn .three[data-v-df367330] {\n  -webkit-transform: translateY(-9px) rotate(45deg);\n          transform: translateY(-9px) rotate(45deg);\n}\n.blog .pages .header[data-v-df367330] {\n  position: relative;\n  padding: 75px 0 20px;\n  background: #fafafa;\n}\n.blog .pages .header[data-v-df367330]:before {\n  content: \"\";\n  position: absolute;\n  left: 0;\n  bottom: 0;\n  width: 100%;\n  height: 50px;\n  background: #fff;\n  background-image: -webkit-gradient(linear, left top, left bottom, from(#fafafa), to(#fff));\n  background-image: linear-gradient(#fafafa, #fff);\n}\n.blog .pages .header .mac[data-v-df367330] {\n  position: relative;\n  width: 15rem;\n  height: 7.5rem;\n  margin: auto;\n  padding-top: 1.5rem;\n  text-align: center;\n  background: #fafafa;\n  background: -webkit-gradient(linear, left top, right bottom, from(#fff), to(#eee));\n  background: linear-gradient(to right bottom, #fff, #eee);\n  border: 6px solid #222;\n  border-width: 6px 6px 8px;\n  border-radius: 8px 8px 0 0;\n}\n.blog .pages .header .mac[data-v-df367330]:after {\n  content: \"\";\n  position: absolute;\n  width: 134%;\n  left: -17%;\n  bottom: -14px;\n  height: 6px;\n  border-radius: 0 0 40px 40px/0 0 5px 5px;\n  background: #ccc;\n}\n.blog .pages .header .mac .logo[data-v-df367330] {\n  margin-bottom: 10px;\n  font-size: 3.5rem;\n  color: #000;\n}\n.blog .pages .header .mac .logo .l-icon[data-v-df367330] {\n  font-family: layIcon;\n  font-style: normal;\n}\n.blog .pages .header .mac .logo .l-icon[data-v-df367330]:after {\n  content: \"E\";\n}\n.blog .pages .header .mac p[data-v-df367330] {\n  font-size: 1rem;\n  color: #333;\n}\n.blog .pages .articleListPage-tags-cnt[data-v-df367330] {\n  margin-bottom: 20px;\n}\n.blog .pages .articleListPage-tags-cnt .articleListPage-tags[data-v-df367330] {\n  position: static !important;\n  width: 100%;\n  background: #fff;\n  border-bottom: 1px solid #c4cdd4;\n  z-index: 5;\n}\n.blog .pages .articleListPage-tags-cnt .articleListPage-tags .grid-row[data-v-df367330] {\n  width: 100%;\n  position: relative;\n  margin: auto;\n  zoom: 1;\n  -webkit-transition: all 0.3s ease-out;\n  transition: all 0.3s ease-out;\n}\n.blog .pages .articleListPage-tags-cnt .articleListPage-tags .grid-row[data-v-df367330]:after {\n  content: \".\";\n  display: block;\n  height: 0;\n  clear: both;\n  visibility: hidden;\n}\n.blog .pages .articleListPage-tags-cnt .articleListPage-tags .grid-row .content[data-v-df367330] {\n  padding: 12px 0 5px 10px;\n}\n.blog .pages .articleListPage-tags-cnt .articleListPage-tags .grid-row .content a[data-v-df367330] {\n  position: relative;\n  display: inline-block;\n  max-width: 100%;\n  height: 24px;\n  margin: 0 10px 5px 0;\n  line-height: 24px;\n  padding: 0 8px 0 18px;\n  border-radius: 0 4px 4px 0;\n  background: #eee;\n  font-size: 12px;\n  color: #333;\n  overflow: hidden;\n  text-overflow: ellipsis;\n  white-space: nowrap;\n  -webkit-box-sizing: border-box;\n          box-sizing: border-box;\n}\n.blog .pages .articleListPage-tags-cnt .articleListPage-tags .grid-row .content a[data-v-df367330]:before {\n  position: absolute;\n  content: \"\";\n  top: 0;\n  left: 0;\n  width: 0;\n  height: 0;\n  border-width: 12px 12px 12px 0;\n  border-color: #fff transparent;\n  border-style: solid;\n}\n.blog .pages .articleListPage-tags-cnt .articleListPage-tags .grid-row .content a[data-v-df367330]:after {\n  position: absolute;\n  content: \"\";\n  width: 4px;\n  height: 4px;\n  top: 10px;\n  left: 8px;\n  border-radius: 100%;\n  background: #fff;\n}\n.blog .pages .articleListPage-tags-cnt .articleListPage-tags .grid-row .content a.active[data-v-df367330] {\n  background: #f70;\n  color: #fff;\n}\n.blog .pages .article[data-v-df367330] {\n  margin: 0 10px;\n}\n.blog .pages .article .article-item[data-v-df367330] {\n  margin-bottom: 20px;\n}\n.blog .pages .article .article-item .article-list[data-v-df367330] {\n  background: #fff;\n  padding: 20px;\n  margin-bottom: 20px;\n}\n.blog .pages .article .article-item .article-list .title[data-v-df367330] {\n  line-height: 20px;\n}\n.blog .pages .article .article-item .article-list .title a[data-v-df367330] {\n  font-size: 20px;\n  font-weight: 600;\n  color: #3d464d !important;\n}\n.blog .pages .article .article-item .article-list .introduction[data-v-df367330] {\n  margin: 10px 0;\n}\n.blog .pages .article .article-item .article-list .readmore[data-v-df367330] {\n  width: 80px;\n  line-height: 40px;\n  margin-top: 10px;\n  text-align: center;\n}\n@media screen and (min-width: 768px) {\n.blog .nav[data-v-df367330] {\n    height: 58px;\n    -webkit-box-shadow: 0px 1px 11px 2px rgba(42,42,42,0.1);\n            box-shadow: 0px 1px 11px 2px rgba(42,42,42,0.1);\n    border-top: 4px solid #ff9800;\n    background: #fff;\n}\n.blog .nav .nav-item[data-v-df367330] {\n    width: 750px;\n    -webkit-box-shadow: none;\n            box-shadow: none;\n    display: block;\n}\n.blog .nav .nav-item .navigation-left[data-v-df367330] {\n    float: left;\n    height: 58px;\n    line-height: 58px;\n}\n.blog .nav .nav-item .navigation-left a[data-v-df367330] {\n    display: block;\n}\n.blog .nav .nav-item .navigation-right[data-v-df367330] {\n    margin: 0;\n    float: right;\n    font-size: 0;\n}\n.blog .nav .nav-item .navigation-right .nav-list[data-v-df367330] {\n    display: inline-block;\n    height: 56px;\n    line-height: 55px;\n}\n.blog .nav .nav-more-btn[data-v-df367330] {\n    display: none;\n}\n.blog .pages .articleListPage-tags-cnt .articleListPage-tags .grid-row[data-v-df367330] {\n    width: 750px;\n}\n.blog .pages .article[data-v-df367330] {\n    margin: 0 auto;\n    width: 750px;\n}\n.blog .pages .article .article-item .article-list[data-v-df367330] {\n    padding: 20px 40px 20px 20px;\n}\n}\n@media screen and (min-width: 992px) {\n.blog .nav .nav-item[data-v-df367330] {\n    width: 970px;\n}\n.blog .pages .articleListPage-tags-cnt .articleListPage-tags .grid-row[data-v-df367330] {\n    width: 970px;\n}\n.blog .pages .article[data-v-df367330] {\n    margin: 0 auto;\n    width: 970px;\n}\n.blog .pages .article .article-item .article-list[data-v-df367330] {\n    padding: 20px 40px 20px 20px;\n}\n}\n@media screen and (min-width: 1200px) {\n.blog .nav .nav-item[data-v-df367330] {\n    width: 1170px;\n}\n.blog .pages .articleListPage-tags-cnt .articleListPage-tags .grid-row[data-v-df367330] {\n    width: 1170px;\n}\n.blog .pages .article[data-v-df367330] {\n    margin: 0 auto;\n    width: 1170px;\n}\n.blog .pages .article .article-item .article-list[data-v-df367330] {\n    padding: 20px 40px 20px 20px;\n}\n}\n", ""]);
 
 // exports
 
@@ -16704,24 +16704,95 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
-      a: false,
-      b: false,
-      c: false,
-      detailShow: false
+      first: false,
+      second: false,
+      three: false,
+      showNavigation: false
     };
   },
 
   methods: {
-    showList: function showList() {
-      this.a = !this.a;
-      this.b = !this.b;
-      this.c = !this.c;
-      this.navigation = !this.navigation;
-      this.detailShow = !this.detailShow;
+    showNav: function showNav() {
+      this.first = !this.first;
+      this.showNavigation = !this.showNavigation;
     }
   }
 });
@@ -16736,77 +16807,216 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "blog" }, [
     _c("div", { staticClass: "nav" }, [
-      _c("div", { staticClass: "nav-item", class: { show: _vm.detailShow } }, [
-        _c(
-          "div",
-          { staticClass: "navigation-left" },
-          [
-            _c("router-link", { attrs: { to: "/" } }, [
-              _vm._v("XueCong's blog")
-            ])
-          ],
-          1
-        ),
-        _vm._v(" "),
-        _c(
-          "div",
-          { staticClass: "navigation-right" },
-          [
-            _c(
-              "router-link",
-              { staticClass: "nav-list", attrs: { to: "/blog" } },
-              [_vm._v("博文")]
-            ),
-            _vm._v(" "),
-            _c(
-              "a",
-              {
-                staticClass: "nav-list",
-                attrs: {
-                  href:
-                    "https://weibo.com/3090183841/profile?topnav=1&wvr=6&is_all=1",
-                  target: "_blank"
-                }
-              },
-              [_vm._v("微博")]
-            ),
-            _vm._v(" "),
-            _c(
-              "a",
-              {
-                staticClass: "nav-list",
-                attrs: { href: "https://github.com/overxue", target: "_blank" }
-              },
-              [_vm._v("GitHub")]
-            ),
-            _vm._v(" "),
-            _c(
-              "router-link",
-              { staticClass: "nav-list", attrs: { to: "/me" } },
-              [_vm._v("关于我")]
-            )
-          ],
-          1
-        )
-      ]),
-      _vm._v(" "),
       _c(
         "div",
-        { ref: "list", staticClass: "list", on: { click: _vm.showList } },
+        { staticClass: "nav-item", class: { show: _vm.showNavigation } },
         [
-          _c("i", { class: { a: _vm.a } }),
+          _c(
+            "div",
+            { staticClass: "navigation-left" },
+            [
+              _c("router-link", { attrs: { to: "/" } }, [
+                _vm._v("XueCong's blog")
+              ])
+            ],
+            1
+          ),
           _vm._v(" "),
-          _c("i", { class: { b: _vm.a } }),
-          _vm._v(" "),
-          _c("i", { class: { c: _vm.a } })
+          _c(
+            "div",
+            { staticClass: "navigation-right" },
+            [
+              _c(
+                "router-link",
+                { staticClass: "nav-list", attrs: { to: "/blog" } },
+                [_vm._v("博文")]
+              ),
+              _vm._v(" "),
+              _c(
+                "a",
+                {
+                  staticClass: "nav-list",
+                  attrs: {
+                    href:
+                      "https://weibo.com/3090183841/profile?topnav=1&wvr=6&is_all=1",
+                    target: "_blank"
+                  }
+                },
+                [_vm._v("微博")]
+              ),
+              _vm._v(" "),
+              _c(
+                "a",
+                {
+                  staticClass: "nav-list",
+                  attrs: {
+                    href: "https://github.com/overxue",
+                    target: "_blank"
+                  }
+                },
+                [_vm._v("GitHub")]
+              ),
+              _vm._v(" "),
+              _c(
+                "router-link",
+                { staticClass: "nav-list", attrs: { to: "/me" } },
+                [_vm._v("关于我")]
+              )
+            ],
+            1
+          )
         ]
-      )
+      ),
+      _vm._v(" "),
+      _c("div", { staticClass: "nav-more-btn", on: { click: _vm.showNav } }, [
+        _c("i", { class: { first: _vm.first } }),
+        _vm._v(" "),
+        _c("i", { class: { second: _vm.first } }),
+        _vm._v(" "),
+        _c("i", { class: { three: _vm.first } })
+      ])
     ]),
     _vm._v(" "),
-    _c("div", { staticClass: "content" })
+    _vm._m(0)
   ])
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "pages" }, [
+      _c("div", { staticClass: "header" }, [
+        _c("div", { staticClass: "mac" }, [
+          _c("div", { staticClass: "logo" }, [
+            _c("i", { staticClass: "l-icon l-icon-layLogo" })
+          ]),
+          _vm._v(" "),
+          _c("p", [_vm._v("哈哈哈哈哈哈哈哈哈")])
+        ])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "articleListPage-tags-cnt" }, [
+        _c("div", [
+          _c("div", { staticClass: "articleListPage-tags" }, [
+            _c("div", { staticClass: "grid-row" }, [
+              _c("div", { staticClass: "content" }, [
+                _c("a", { staticClass: "active", attrs: { href: "" } }, [
+                  _vm._v("全部标签")
+                ]),
+                _vm._v(" "),
+                _c("a", { attrs: { href: "" } }, [
+                  _vm._v("作品"),
+                  _c("span", [_vm._v("19")])
+                ]),
+                _vm._v(" "),
+                _c("a", { attrs: { href: "" } }, [
+                  _vm._v("作品"),
+                  _c("span", [_vm._v("19")])
+                ]),
+                _vm._v(" "),
+                _c("a", { attrs: { href: "" } }, [
+                  _vm._v("作品"),
+                  _c("span", [_vm._v("19")])
+                ]),
+                _vm._v(" "),
+                _c("a", { attrs: { href: "" } }, [
+                  _vm._v("作品"),
+                  _c("span", [_vm._v("19")])
+                ]),
+                _vm._v(" "),
+                _c("a", { attrs: { href: "" } }, [
+                  _vm._v("作品"),
+                  _c("span", [_vm._v("19")])
+                ]),
+                _vm._v(" "),
+                _c("a", { attrs: { href: "" } }, [
+                  _vm._v("作品"),
+                  _c("span", [_vm._v("19")])
+                ]),
+                _vm._v(" "),
+                _c("a", { attrs: { href: "" } }, [
+                  _vm._v("作品"),
+                  _c("span", [_vm._v("19")])
+                ])
+              ])
+            ])
+          ])
+        ])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "article" }, [
+        _c("div", { staticClass: "article-item" }, [
+          _c("div", { staticClass: "article-list" }, [
+            _c("h1", { staticClass: "title" }, [
+              _c("a", { attrs: { href: "" } }, [
+                _vm._v("诡异的 java.io.IOException")
+              ])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "introduction" }, [
+              _c("span", { staticClass: "author" }, [_vm._v("作者：薛聪")])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "article-content" }, [
+              _vm._v(
+                "\n            背景 上一篇我们讲到如何获取全民K歌歌曲信息（上一篇：这是一个获取全民K歌歌曲信息的composer包），那么这一篇我将继续带领大家实现一个开箱即用全民K歌版网页播放器。这里我们主要使用的一个开源网页播放器APlayer（github.com/MoePlayer/APlayer）。为了方便我们这里直接使用cdn外链的方式来使用。 代码 [……\n          "
+              )
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "readmore" }, [
+              _c("a", { attrs: { href: "" } }, [_vm._v("阅读更多")])
+            ])
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "article-list" }, [
+            _c("h1", { staticClass: "title" }, [
+              _c("a", { attrs: { href: "" } }, [
+                _vm._v("诡异的 java.io.IOException")
+              ])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "introduction" }, [
+              _c("span", { staticClass: "author" }, [_vm._v("作者：薛聪")])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "article-content" }, [
+              _vm._v(
+                "\n            背景 上一篇我们讲到如何获取全民K歌歌曲信息（上一篇：这是一个获取全民K歌歌曲信息的composer包），那么这一篇我将继续带领大家实现一个开箱即用全民K歌版网页播放器。这里我们主要使用的一个开源网页播放器APlayer（github.com/MoePlayer/APlayer）。为了方便我们这里直接使用cdn外链的方式来使用。 代码 [……\n          "
+              )
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "readmore" }, [
+              _c("a", { attrs: { href: "" } }, [_vm._v("阅读更多")])
+            ])
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "article-list" }, [
+            _c("h1", { staticClass: "title" }, [
+              _c("a", { attrs: { href: "" } }, [
+                _vm._v("诡异的 java.io.IOException")
+              ])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "introduction" }, [
+              _c("span", { staticClass: "author" }, [_vm._v("作者：薛聪")])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "article-content" }, [
+              _vm._v(
+                "\n            背景 上一篇我们讲到如何获取全民K歌歌曲信息（上一篇：这是一个获取全民K歌歌曲信息的composer包），那么这一篇我将继续带领大家实现一个开箱即用全民K歌版网页播放器。这里我们主要使用的一个开源网页播放器APlayer（github.com/MoePlayer/APlayer）。为了方便我们这里直接使用cdn外链的方式来使用。 代码 [……\n          "
+              )
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "readmore" }, [
+              _c("a", { attrs: { href: "" } }, [_vm._v("阅读更多")])
+            ])
+          ])
+        ])
+      ])
+    ])
+  }
+]
 render._withStripped = true
 module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {

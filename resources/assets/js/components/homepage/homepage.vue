@@ -46,6 +46,7 @@
     position: relative
     height: 100vh
     overflow: hidden
+    background: #fff
     #particles
       position: absolute
       width: 100%
