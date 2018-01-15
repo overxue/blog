@@ -18,184 +18,186 @@
         <i :class="{'three':first}"></i>
       </div>
     </div>
-    <div class="pages">
-      <div class="header">
-        <div class="mac">
-          <div class="logo">
-            <i class="l-icon l-icon-layLogo"></i>
-          </div>
-          <p>哈哈哈哈哈哈哈哈哈</p>
-        </div>
-      </div>
-      <div class="articleListPage-tags-cnt">
-        <div>
-          <div class="articleListPage-tags">
-            <div class="grid-row">
-              <div class="content">
-                <a href="" class="active">全部标签</a>
-                <a href="">作品<span>19</span></a>
-                <a href="">作品<span>19</span></a>
-                <a href="">作品<span>19</span></a>
-                <a href="">作品<span>19</span></a>
-                <a href="">作品<span>19</span></a>
-                <a href="">作品<span>19</span></a>
-                <a href="">作品<span>19</span></a>
-              </div>
+    <div class="pages" ref="menuWrapper">
+      <div>
+        <div class="header">
+          <div class="mac">
+            <div class="logo">
+              <i class="l-icon l-icon-layLogo"></i>
             </div>
+            <p>哈哈哈哈哈哈哈哈哈</p>
           </div>
         </div>
-      </div>
-      <div class="article">
-        <div class="article-item">
-          <div class="article-list">
-            <div class="label"><span>new</span></div>
-            <h1 class="title">
-              <a href="">诡异的 java.io.IOException</a>
-            </h1>
-            <div class="introduction">
-                <i class="icon-user">
-                  <span class="user">XueCong</span>
-                </i>
-                <i class="icon-clock">
-                  <span class="time">1小时前</span>
-                </i>
-                <i class="icon-eye">
-                  <span class="view">120</span>
-                </i>
-            </div>
-            <div class="article-content">
-              背景 上一篇我们讲到如何获取全民K歌歌曲信息（上一篇：这是一个获取全民K歌歌曲信息的composer包），那么这一篇我将继续带领大家实现一个开箱即用全民K歌版网页播放器。这里我们主要使用的一个开源网页播放器APlayer（github.com/MoePlayer/APlayer）。为了方便我们这里直接使用cdn外链的方式来使用。 代码 [……
-            </div>
-            <div class="readmore">
-              <div class="left">
-                <i class="icon-price-tags"></i>
-                <a href="" class="tage">php</a>
-                <a href="" class="tage">Linux</a>
-                <a href="" class="tage">javascript</a>
-              </div>
-              <div class="right">
-                <a href="" class="readmore">阅读全文 <span>>></span></a>
+        <div class="articleListPage-tags-cnt">
+          <div>
+            <div class="articleListPage-tags">
+              <div class="grid-row">
+                <div class="content">
+                  <a href="" class="active">全部标签</a>
+                  <a href="">作品<span>19</span></a>
+                  <a href="">作品<span>19</span></a>
+                  <a href="">作品<span>19</span></a>
+                  <a href="">作品<span>19</span></a>
+                  <a href="">作品<span>19</span></a>
+                  <a href="">作品<span>19</span></a>
+                  <a href="">作品<span>19</span></a>
+                </div>
               </div>
             </div>
           </div>
-          <div class="article-list">
-            <div class="label"><span>new</span></div>
-            <h1 class="title">
-              <a href="">诡异的 java.io.IOException</a>
-            </h1>
-            <div class="introduction">
-                <i class="icon-user">
-                  <span class="user">XueCong</span>
-                </i>
-                <i class="icon-clock">
-                  <span class="time">1小时前</span>
-                </i>
-                <i class="icon-eye">
-                  <span class="view">120</span>
-                </i>
-            </div>
-            <div class="article-content">
-              背景 上一篇我们讲到如何获取全民K歌歌曲信息（上一篇：这是一个获取全民K歌歌曲信息的composer包），那么这一篇我将继续带领大家实现一个开箱即用全民K歌版网页播放器。这里我们主要使用的一个开源网页播放器APlayer（github.com/MoePlayer/APlayer）。为了方便我们这里直接使用cdn外链的方式来使用。 代码 [……
-            </div>
-            <div class="readmore">
-              <div class="left">
-                <i class="icon-price-tags"></i>
-                <a href="" class="tage">php</a>
-                <a href="" class="tage">Linux</a>
-                <a href="" class="tage">javascript</a>
+        </div>
+        <div class="article">
+          <div class="article-item">
+            <div class="article-list">
+              <div class="label"><span>new</span></div>
+              <h1 class="title">
+                <a href="">诡异的 java.io.IOException</a>
+              </h1>
+              <div class="introduction">
+                  <i class="icon-user">
+                    <span class="user">XueCong</span>
+                  </i>
+                  <i class="icon-clock">
+                    <span class="time">1小时前</span>
+                  </i>
+                  <i class="icon-eye">
+                    <span class="view">120</span>
+                  </i>
               </div>
-              <div class="right">
-                <a href="" class="readmore">阅读全文 <span>>></span></a>
+              <div class="article-content">
+                背景 上一篇我们讲到如何获取全民K歌歌曲信息（上一篇：这是一个获取全民K歌歌曲信息的composer包），那么这一篇我将继续带领大家实现一个开箱即用全民K歌版网页播放器。这里我们主要使用的一个开源网页播放器APlayer（github.com/MoePlayer/APlayer）。为了方便我们这里直接使用cdn外链的方式来使用。 代码 [……
               </div>
-            </div>
-          </div>
-          <div class="article-list">
-            <h1 class="title">
-              <a href="">诡异的 java.io.IOException</a>
-            </h1>
-            <div class="introduction">
-                <i class="icon-user">
-                  <span class="user">XueCong</span>
-                </i>
-                <i class="icon-clock">
-                  <span class="time">1小时前</span>
-                </i>
-                <i class="icon-eye">
-                  <span class="view">120</span>
-                </i>
-            </div>
-            <div class="article-content">
-              背景 上一篇我们讲到如何获取全民K歌歌曲信息（上一篇：这是一个获取全民K歌歌曲信息的composer包），那么这一篇我将继续带领大家实现一个开箱即用全民K歌版网页播放器。这里我们主要使用的一个开源网页播放器APlayer（github.com/MoePlayer/APlayer）。为了方便我们这里直接使用cdn外链的方式来使用。 代码 [……
-            </div>
-            <div class="readmore">
-              <div class="left">
-                <i class="icon-price-tags"></i>
-                <a href="" class="tage">php</a>
-                <a href="" class="tage">Linux</a>
-                <a href="" class="tage">javascript</a>
-              </div>
-              <div class="right">
-                <a href="" class="readmore">阅读全文 <span>>></span></a>
+              <div class="readmore">
+                <div class="left">
+                  <i class="icon-price-tags"></i>
+                  <a href="" class="tage">php</a>
+                  <a href="" class="tage">Linux</a>
+                  <a href="" class="tage">javascript</a>
+                </div>
+                <div class="right">
+                  <a href="" class="readmore">阅读全文 <span>>></span></a>
+                </div>
               </div>
             </div>
-          </div>
-          <div class="article-list">
-            <h1 class="title">
-              <a href="">诡异的 java.io.IOException</a>
-            </h1>
-            <div class="introduction">
-                <i class="icon-user">
-                  <span class="user">XueCong</span>
-                </i>
-                <i class="icon-clock">
-                  <span class="time">1小时前</span>
-                </i>
-                <i class="icon-eye">
-                  <span class="view">120</span>
-                </i>
-            </div>
-            <div class="article-content">
-              背景 上一篇我们讲到如何获取全民K歌歌曲信息（上一篇：这是一个获取全民K歌歌曲信息的composer包），那么这一篇我将继续带领大家实现一个开箱即用全民K歌版网页播放器。这里我们主要使用的一个开源网页播放器APlayer（github.com/MoePlayer/APlayer）。为了方便我们这里直接使用cdn外链的方式来使用。 代码 [……
-            </div>
-            <div class="readmore">
-              <div class="left">
-                <i class="icon-price-tags"></i>
-                <a href="" class="tage">php</a>
-                <a href="" class="tage">Linux</a>
-                <a href="" class="tage">javascript</a>
+            <div class="article-list">
+              <div class="label"><span>new</span></div>
+              <h1 class="title">
+                <a href="">诡异的 java.io.IOException</a>
+              </h1>
+              <div class="introduction">
+                  <i class="icon-user">
+                    <span class="user">XueCong</span>
+                  </i>
+                  <i class="icon-clock">
+                    <span class="time">1小时前</span>
+                  </i>
+                  <i class="icon-eye">
+                    <span class="view">120</span>
+                  </i>
               </div>
-              <div class="right">
-                <a href="" class="readmore">阅读全文 <span>>></span></a>
+              <div class="article-content">
+                背景 上一篇我们讲到如何获取全民K歌歌曲信息（上一篇：这是一个获取全民K歌歌曲信息的composer包），那么这一篇我将继续带领大家实现一个开箱即用全民K歌版网页播放器。这里我们主要使用的一个开源网页播放器APlayer（github.com/MoePlayer/APlayer）。为了方便我们这里直接使用cdn外链的方式来使用。 代码 [……
+              </div>
+              <div class="readmore">
+                <div class="left">
+                  <i class="icon-price-tags"></i>
+                  <a href="" class="tage">php</a>
+                  <a href="" class="tage">Linux</a>
+                  <a href="" class="tage">javascript</a>
+                </div>
+                <div class="right">
+                  <a href="" class="readmore">阅读全文 <span>>></span></a>
+                </div>
               </div>
             </div>
-          </div>
-          <div class="article-list">
-            <h1 class="title">
-              <a href="">诡异的 java.io.IOException</a>
-            </h1>
-            <div class="introduction">
-                <i class="icon-user">
-                  <span class="user">XueCong</span>
-                </i>
-                <i class="icon-clock">
-                  <span class="time">1小时前</span>
-                </i>
-                <i class="icon-eye">
-                  <span class="view">120</span>
-                </i>
-            </div>
-            <div class="article-content">
-              背景 上一篇我们讲到如何获取全民K歌歌曲信息（上一篇：这是一个获取全民K歌歌曲信息的composer包），那么这一篇我将继续带领大家实现一个开箱即用全民K歌版网页播放器。这里我们主要使用的一个开源网页播放器APlayer（github.com/MoePlayer/APlayer）。为了方便我们这里直接使用cdn外链的方式来使用。 代码 [……
-            </div>
-            <div class="readmore">
-              <div class="left">
-                <i class="icon-price-tags"></i>
-                <a href="" class="tage">php</a>
-                <a href="" class="tage">Linux</a>
-                <a href="" class="tage">javascript</a>
+            <div class="article-list">
+              <h1 class="title">
+                <a href="">诡异的 java.io.IOException</a>
+              </h1>
+              <div class="introduction">
+                  <i class="icon-user">
+                    <span class="user">XueCong</span>
+                  </i>
+                  <i class="icon-clock">
+                    <span class="time">1小时前</span>
+                  </i>
+                  <i class="icon-eye">
+                    <span class="view">120</span>
+                  </i>
               </div>
-              <div class="right">
-                <a href="" class="readmore">阅读全文 <span>>></span></a>
+              <div class="article-content">
+                背景 上一篇我们讲到如何获取全民K歌歌曲信息（上一篇：这是一个获取全民K歌歌曲信息的composer包），那么这一篇我将继续带领大家实现一个开箱即用全民K歌版网页播放器。这里我们主要使用的一个开源网页播放器APlayer（github.com/MoePlayer/APlayer）。为了方便我们这里直接使用cdn外链的方式来使用。 代码 [……
+              </div>
+              <div class="readmore">
+                <div class="left">
+                  <i class="icon-price-tags"></i>
+                  <a href="" class="tage">php</a>
+                  <a href="" class="tage">Linux</a>
+                  <a href="" class="tage">javascript</a>
+                </div>
+                <div class="right">
+                  <a href="" class="readmore">阅读全文 <span>>></span></a>
+                </div>
+              </div>
+            </div>
+            <div class="article-list">
+              <h1 class="title">
+                <a href="">诡异的 java.io.IOException</a>
+              </h1>
+              <div class="introduction">
+                  <i class="icon-user">
+                    <span class="user">XueCong</span>
+                  </i>
+                  <i class="icon-clock">
+                    <span class="time">1小时前</span>
+                  </i>
+                  <i class="icon-eye">
+                    <span class="view">120</span>
+                  </i>
+              </div>
+              <div class="article-content">
+                背景 上一篇我们讲到如何获取全民K歌歌曲信息（上一篇：这是一个获取全民K歌歌曲信息的composer包），那么这一篇我将继续带领大家实现一个开箱即用全民K歌版网页播放器。这里我们主要使用的一个开源网页播放器APlayer（github.com/MoePlayer/APlayer）。为了方便我们这里直接使用cdn外链的方式来使用。 代码 [……
+              </div>
+              <div class="readmore">
+                <div class="left">
+                  <i class="icon-price-tags"></i>
+                  <a href="" class="tage">php</a>
+                  <a href="" class="tage">Linux</a>
+                  <a href="" class="tage">javascript</a>
+                </div>
+                <div class="right">
+                  <a href="" class="readmore">阅读全文 <span>>></span></a>
+                </div>
+              </div>
+            </div>
+            <div class="article-list">
+              <h1 class="title">
+                <a href="">诡异的 java.io.IOException</a>
+              </h1>
+              <div class="introduction">
+                  <i class="icon-user">
+                    <span class="user">XueCong</span>
+                  </i>
+                  <i class="icon-clock">
+                    <span class="time">1小时前</span>
+                  </i>
+                  <i class="icon-eye">
+                    <span class="view">120</span>
+                  </i>
+              </div>
+              <div class="article-content">
+                背景 上一篇我们讲到如何获取全民K歌歌曲信息（上一篇：这是一个获取全民K歌歌曲信息的composer包），那么这一篇我将继续带领大家实现一个开箱即用全民K歌版网页播放器。这里我们主要使用的一个开源网页播放器APlayer（github.com/MoePlayer/APlayer）。为了方便我们这里直接使用cdn外链的方式来使用。 代码 [……
+              </div>
+              <div class="readmore">
+                <div class="left">
+                  <i class="icon-price-tags"></i>
+                  <a href="" class="tage">php</a>
+                  <a href="" class="tage">Linux</a>
+                  <a href="" class="tage">javascript</a>
+                </div>
+                <div class="right">
+                  <a href="" class="readmore">阅读全文 <span>>></span></a>
+                </div>
               </div>
             </div>
           </div>
@@ -212,6 +214,8 @@
 </template>
 
 <script type="text/ecmascript-6">
+  import BScroll from 'better-scroll'
+
   export default {
     data() {
       return {
@@ -222,10 +226,19 @@
       }
     },
     created() {
-      var isMobile = !!navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i);
-      if(isMobile) {}
+      var isMobile = !!navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i)
+
+      if(isMobile) {
+        this.$nextTick(() => {
+          // this._initScroll()
+        })
+      }
     },
     methods: {
+      _initScroll() {
+        this.meunScroll = new BScroll(this.$refs.menuWrapper, {})
+      },
+
       showNav() {
         this.first = !this.first
         this.showNavigation = !this.showNavigation
@@ -238,10 +251,11 @@
   @import "../../../stylus/variable.styl"
 
   .blog
-    min-height:100%;
-    margin:0;
-    padding:0;
-    position:relative;
+    position:relative
+    min-height:100%
+    margin:0
+    padding:0
+    background: #dee3e7
     .nav
       position: fixed
       top: 0
@@ -256,7 +270,7 @@
         margin: 0 auto
         box-shadow: 0px 1px 11px 2px rgba(42, 42, 42, 0.1)
         display: none
-        transition: all 0.3s ease-out;
+        transition: all 0.3s ease-out
         &.show
           display: block
         .navigation-left
@@ -316,7 +330,11 @@
           transform: translateY(-9px) rotate(45deg)
     .pages
       position: relative
-      padding-bottom: 60px;
+      padding-bottom: 60px
+      // position: absolute
+      // top: 0
+      // bottom: 0
+      // overflow: hidden
       .header
         position: relative
         padding: 75px 0 20px
@@ -551,6 +569,8 @@
         .nav-more-btn
           display: none
       .pages
+        position: relative
+        padding-bottom: 60px
         .articleListPage-tags-cnt
           .articleListPage-tags
             .grid-row
