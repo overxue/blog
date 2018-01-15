@@ -11324,7 +11324,7 @@ module.exports = g;
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(6);
-module.exports = __webpack_require__(41);
+module.exports = __webpack_require__(46);
 
 
 /***/ }),
@@ -11482,6 +11482,9 @@ module.exports = function listToStyles (parentId, list) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_components_navigation_navigation__ = __webpack_require__(55);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_components_navigation_navigation___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_components_navigation_navigation__);
+//
 //
 //
 //
@@ -11489,7 +11492,13 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 
-/* harmony default export */ __webpack_exports__["default"] = ({});
+
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  components: {
+    Navigation: __WEBPACK_IMPORTED_MODULE_0_components_navigation_navigation___default.a
+  }
+});
 
 /***/ }),
 /* 12 */
@@ -11499,7 +11508,12 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { attrs: { id: "app" } }, [_c("router-view")], 1)
+  return _c(
+    "div",
+    { attrs: { id: "app" } },
+    [_c("navigation"), _vm._v(" "), _c("router-view")],
+    1
+  )
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -11967,6 +11981,9 @@ process.umask = function() { return 0; };
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_components_blog_blog___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_components_blog_blog__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_components_me_me__ = __webpack_require__(36);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_components_me_me___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_components_me_me__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_components_blogdetail_blogdetail__ = __webpack_require__(41);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_components_blogdetail_blogdetail___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5_components_blogdetail_blogdetail__);
+
 
 
 
@@ -11985,6 +12002,9 @@ __WEBPACK_IMPORTED_MODULE_0_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_1_vue_
   }, {
     path: '/me',
     component: __WEBPACK_IMPORTED_MODULE_4_components_me_me___default.a
+  }, {
+    path: '/blog/:id',
+    component: __WEBPACK_IMPORTED_MODULE_5_components_blogdetail_blogdetail___default.a
   }]
 }));
 
@@ -14704,7 +14724,7 @@ exports = module.exports = __webpack_require__(0)(false);
 
 
 // module
-exports.push([module.i, "\n.homepage[data-v-09ddfc68] {\n  position: relative;\n  height: 100vh;\n  overflow: hidden;\n  background: #fff;\n}\n.homepage #particles[data-v-09ddfc68] {\n  position: absolute;\n  width: 100%;\n  height: 100%;\n}\n.homepage .content[data-v-09ddfc68] {\n  position: absolute;\n  top: 0;\n  left: 0;\n  width: 100%;\n  height: 100%;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-orient: vertical;\n  -webkit-box-direction: normal;\n      -ms-flex-direction: column;\n          flex-direction: column;\n  -webkit-box-align: center;\n      -ms-flex-align: center;\n          align-items: center;\n  -webkit-box-pack: center;\n      -ms-flex-pack: center;\n          justify-content: center;\n  z-index: 1;\n  text-align: center;\n}\n.homepage .content .avatar[data-v-09ddfc68] {\n  margin-bottom: 20px;\n}\n.homepage .content .avatar img[data-v-09ddfc68] {\n  overflow: hidden;\n  border-radius: 50%;\n  background: #fff;\n  -webkit-box-shadow: rgba(255,255,255,0.1) 0 0 0 5px, rgba(0,0,0,0.15) 0 0 5px 4px;\n          box-shadow: rgba(255,255,255,0.1) 0 0 0 5px, rgba(0,0,0,0.15) 0 0 5px 4px;\n  -webkit-transition: -webkit-transform 0.4s ease-out;\n  transition: -webkit-transform 0.4s ease-out;\n  transition: transform 0.4s ease-out;\n  transition: transform 0.4s ease-out, -webkit-transform 0.4s ease-out;\n}\n.homepage .content .avatar img[data-v-09ddfc68]:hover {\n  -webkit-transform: rotate(360deg);\n          transform: rotate(360deg);\n}\n.homepage .content .description[data-v-09ddfc68] {\n  margin-bottom: 20px;\n  font-weight: bold;\n  color: #6289ad;\n  font-size: 24px;\n}\n.homepage .content .tab .tab-item[data-v-09ddfc68] {\n  height: 40px;\n  line-height: 40px;\n  text-align: center;\n}\n.homepage .content .tab .tab-item .tab-link[data-v-09ddfc68] {\n  padding: 10px;\n  color: #9caebf;\n  font-size: 14px;\n  font-weight: 600;\n}\n", ""]);
+exports.push([module.i, "\n.homepage[data-v-09ddfc68] {\n  position: relative;\n  height: 100vh;\n  overflow: hidden;\n  background: #fff;\n  z-index: 3;\n}\n.homepage #particles[data-v-09ddfc68] {\n  position: absolute;\n  width: 100%;\n  height: 100%;\n}\n.homepage .content[data-v-09ddfc68] {\n  position: absolute;\n  top: 0;\n  left: 0;\n  width: 100%;\n  height: 100%;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-orient: vertical;\n  -webkit-box-direction: normal;\n      -ms-flex-direction: column;\n          flex-direction: column;\n  -webkit-box-align: center;\n      -ms-flex-align: center;\n          align-items: center;\n  -webkit-box-pack: center;\n      -ms-flex-pack: center;\n          justify-content: center;\n  z-index: 3;\n  text-align: center;\n}\n.homepage .content .avatar[data-v-09ddfc68] {\n  margin-bottom: 20px;\n}\n.homepage .content .avatar img[data-v-09ddfc68] {\n  overflow: hidden;\n  border-radius: 50%;\n  background: #fff;\n  -webkit-box-shadow: rgba(255,255,255,0.1) 0 0 0 5px, rgba(0,0,0,0.15) 0 0 5px 4px;\n          box-shadow: rgba(255,255,255,0.1) 0 0 0 5px, rgba(0,0,0,0.15) 0 0 5px 4px;\n  -webkit-transition: -webkit-transform 0.4s ease-out;\n  transition: -webkit-transform 0.4s ease-out;\n  transition: transform 0.4s ease-out;\n  transition: transform 0.4s ease-out, -webkit-transform 0.4s ease-out;\n}\n.homepage .content .avatar img[data-v-09ddfc68]:hover {\n  -webkit-transform: rotate(360deg);\n          transform: rotate(360deg);\n}\n.homepage .content .description[data-v-09ddfc68] {\n  margin-bottom: 20px;\n  font-weight: bold;\n  color: #6289ad;\n  font-size: 24px;\n}\n.homepage .content .tab .tab-item[data-v-09ddfc68] {\n  height: 40px;\n  line-height: 40px;\n  text-align: center;\n}\n.homepage .content .tab .tab-item .tab-link[data-v-09ddfc68] {\n  padding: 10px;\n  color: #9caebf;\n  font-size: 14px;\n  font-weight: 600;\n}\n", ""]);
 
 // exports
 
@@ -16392,7 +16412,7 @@ exports = module.exports = __webpack_require__(0)(false);
 
 
 // module
-exports.push([module.i, "\n.opening .app_mask[data-v-9cc4cb4c] {\n  position: fixed;\n  top: 0;\n  left: 0;\n  z-index: 2;\n  width: 100%;\n  height: 100%;\n  background: #fff;\n}\n.opening .app_mask[data-v-9cc4cb4c]:before {\n  content: \"\";\n  position: absolute;\n  width: 104%;\n  height: 1px;\n  top: 50%;\n  left: -2%;\n  background: #9caebf;\n  -webkit-transform: rotate(-15deg);\n          transform: rotate(-15deg);\n}\n.opening .app_mask.app_mask_out[data-v-9cc4cb4c] {\n  opacity: 0;\n  -webkit-transition: all 0.2s ease-in;\n  transition: all 0.2s ease-in;\n  -webkit-transition-delay: 0.6s;\n          transition-delay: 0.6s;\n  z-index: 0;\n}\n.opening .app_mask.app_mask_out[data-v-9cc4cb4c]:before {\n  width: 0;\n  left: 50%;\n  -webkit-transition: all 0.3s ease;\n  transition: all 0.3s ease;\n  -webkit-transition-delay: 0.2s;\n          transition-delay: 0.2s;\n}\n.opening .app_mask.app_mask_out .app_mask_cnt[data-v-9cc4cb4c] {\n  -webkit-transform: scale(0);\n          transform: scale(0);\n  -webkit-transition: all 0.15s ease-in;\n  transition: all 0.15s ease-in;\n}\n.opening .app_mask .app_mask_cnt[data-v-9cc4cb4c] {\n  position: absolute;\n  top: 50%;\n  left: 50%;\n  width: 50px;\n  height: 50px;\n  margin: -25px 0 0 -25px;\n}\n.opening .app_mask .app_mask_cnt .l-loading[data-v-9cc4cb4c] {\n  position: relative;\n  display: block;\n  margin: auto;\n  height: 50px;\n  width: 50px;\n  border: 1px solid #9caebf;\n  border-radius: 50%;\n  background: #fff;\n  -webkit-animation: loading-rond-data-v-9cc4cb4c 1s infinite;\n          animation: loading-rond-data-v-9cc4cb4c 1s infinite;\n}\n.opening .app_mask .app_mask_cnt .l-loading[data-v-9cc4cb4c]:after {\n  content: \"\";\n  position: absolute;\n  height: 10px;\n  width: 10px;\n  top: 5px;\n  left: 0;\n  background: #6289ad;\n  border-radius: 50%;\n}\n@-webkit-keyframes loading-rond-data-v-9cc4cb4c {\n0% {\n    -webkit-transform: rotate(0deg);\n            transform: rotate(0deg);\n}\nto {\n    -webkit-transform: rotate(0.5turn);\n            transform: rotate(0.5turn);\n}\n}\n@keyframes loading-rond-data-v-9cc4cb4c {\n0% {\n    -webkit-transform: rotate(0deg);\n            transform: rotate(0deg);\n}\nto {\n    -webkit-transform: rotate(0.5turn);\n            transform: rotate(0.5turn);\n}\n}\n", ""]);
+exports.push([module.i, "\n.opening .app_mask[data-v-9cc4cb4c] {\n  position: fixed;\n  top: 0;\n  left: 0;\n  z-index: 5;\n  width: 100%;\n  height: 100%;\n  background: #fff;\n}\n.opening .app_mask[data-v-9cc4cb4c]:before {\n  content: \"\";\n  position: absolute;\n  width: 104%;\n  height: 1px;\n  top: 50%;\n  left: -2%;\n  background: #9caebf;\n  -webkit-transform: rotate(-15deg);\n          transform: rotate(-15deg);\n}\n.opening .app_mask.app_mask_out[data-v-9cc4cb4c] {\n  opacity: 0;\n  -webkit-transition: all 0.2s ease-in;\n  transition: all 0.2s ease-in;\n  -webkit-transition-delay: 0.6s;\n          transition-delay: 0.6s;\n  z-index: 0;\n}\n.opening .app_mask.app_mask_out[data-v-9cc4cb4c]:before {\n  width: 0;\n  left: 50%;\n  -webkit-transition: all 0.3s ease;\n  transition: all 0.3s ease;\n  -webkit-transition-delay: 0.2s;\n          transition-delay: 0.2s;\n}\n.opening .app_mask.app_mask_out .app_mask_cnt[data-v-9cc4cb4c] {\n  -webkit-transform: scale(0);\n          transform: scale(0);\n  -webkit-transition: all 0.15s ease-in;\n  transition: all 0.15s ease-in;\n}\n.opening .app_mask .app_mask_cnt[data-v-9cc4cb4c] {\n  position: absolute;\n  top: 50%;\n  left: 50%;\n  width: 50px;\n  height: 50px;\n  margin: -25px 0 0 -25px;\n}\n.opening .app_mask .app_mask_cnt .l-loading[data-v-9cc4cb4c] {\n  position: relative;\n  display: block;\n  margin: auto;\n  height: 50px;\n  width: 50px;\n  border: 1px solid #9caebf;\n  border-radius: 50%;\n  background: #fff;\n  -webkit-animation: loading-rond-data-v-9cc4cb4c 1s infinite;\n          animation: loading-rond-data-v-9cc4cb4c 1s infinite;\n}\n.opening .app_mask .app_mask_cnt .l-loading[data-v-9cc4cb4c]:after {\n  content: \"\";\n  position: absolute;\n  height: 10px;\n  width: 10px;\n  top: 5px;\n  left: 0;\n  background: #6289ad;\n  border-radius: 50%;\n}\n@-webkit-keyframes loading-rond-data-v-9cc4cb4c {\n0% {\n    -webkit-transform: rotate(0deg);\n            transform: rotate(0deg);\n}\nto {\n    -webkit-transform: rotate(0.5turn);\n            transform: rotate(0.5turn);\n}\n}\n@keyframes loading-rond-data-v-9cc4cb4c {\n0% {\n    -webkit-transform: rotate(0deg);\n            transform: rotate(0deg);\n}\nto {\n    -webkit-transform: rotate(0.5turn);\n            transform: rotate(0.5turn);\n}\n}\n", ""]);
 
 // exports
 
@@ -16669,7 +16689,7 @@ exports = module.exports = __webpack_require__(0)(false);
 
 
 // module
-exports.push([module.i, "\n.blog[data-v-df367330] {\n  position: relative;\n  min-height: 100%;\n  margin: 0;\n  padding: 0;\n  background: #dee3e7;\n}\n.blog .nav[data-v-df367330] {\n  position: fixed;\n  top: 0;\n  left: 0;\n  width: 100%;\n  z-index: 1;\n  background: #fff;\n}\n.blog .nav .nav-item[data-v-df367330] {\n  position: relative;\n  width: 100%;\n  height: 100%;\n  margin: 0 auto;\n  -webkit-box-shadow: 0px 1px 11px 2px rgba(42,42,42,0.1);\n          box-shadow: 0px 1px 11px 2px rgba(42,42,42,0.1);\n  display: none;\n  -webkit-transition: all 0.3s ease-out;\n  transition: all 0.3s ease-out;\n}\n.blog .nav .nav-item.show[data-v-df367330] {\n  display: block;\n}\n.blog .nav .nav-item .navigation-left[data-v-df367330] {\n  height: 55px;\n  text-align: center;\n  line-height: 55px;\n}\n.blog .nav .nav-item .navigation-left a[data-v-df367330] {\n  display: inline-block;\n  font-size: 18px;\n  font-weight: 700;\n}\n.blog .nav .nav-item .navigation-right[data-v-df367330] {\n  margin: 10px 80px 20px;\n  text-align: center;\n}\n.blog .nav .nav-item .navigation-right .nav-list[data-v-df367330] {\n  display: block;\n  height: 40px;\n  line-height: 40px;\n  padding: 0 20px;\n  text-align: center;\n  font-size: 14px;\n  color: #333;\n}\n.blog .nav .nav-item .navigation-right .nav-list[data-v-df367330]:hover {\n  color: #ff9800;\n}\n.blog .nav .nav-item .navigation-right .nav-list.router-link-active[data-v-df367330] {\n  border-bottom: 2px solid #ff9800;\n  color: #ff9800;\n}\n.blog .nav .nav-more-btn[data-v-df367330] {\n  position: absolute;\n  top: 10px;\n  left: 10px;\n  width: 42px;\n  height: 42px;\n  border-radius: 4px;\n  -webkit-box-shadow: 1px 1px 4px rgba(0,0,0,0.2);\n          box-shadow: 1px 1px 4px rgba(0,0,0,0.2);\n  z-index: 1;\n  background: #fff;\n}\n.blog .nav .nav-more-btn>i[data-v-df367330] {\n  position: absolute;\n  left: 8px;\n  display: block;\n  width: 26px;\n  height: 4px;\n  -webkit-transition: all 0.2s linear;\n  transition: all 0.2s linear;\n  border-radius: 4px;\n  background: #444;\n}\n.blog .nav .nav-more-btn>i[data-v-df367330]:first-child {\n  top: 10px;\n}\n.blog .nav .nav-more-btn>i[data-v-df367330]:nth-child(2) {\n  top: 19px;\n}\n.blog .nav .nav-more-btn>i[data-v-df367330]:nth-child(3) {\n  top: 28px;\n}\n.blog .nav .nav-more-btn .first[data-v-df367330] {\n  -webkit-transform: translateY(9px) rotate(-45deg);\n          transform: translateY(9px) rotate(-45deg);\n}\n.blog .nav .nav-more-btn .second[data-v-df367330] {\n  opacity: 0;\n}\n.blog .nav .nav-more-btn .three[data-v-df367330] {\n  -webkit-transform: translateY(-9px) rotate(45deg);\n          transform: translateY(-9px) rotate(45deg);\n}\n.blog .pages[data-v-df367330] {\n  position: relative;\n  padding-bottom: 60px;\n}\n.blog .pages .header[data-v-df367330] {\n  position: relative;\n  padding: 75px 0 20px;\n  background: #fafafa;\n}\n.blog .pages .header[data-v-df367330]:before {\n  content: \"\";\n  position: absolute;\n  left: 0;\n  bottom: 0;\n  width: 100%;\n  height: 50px;\n  background: #fff;\n  background-image: -webkit-gradient(linear, left top, left bottom, from(#fafafa), to(#fff));\n  background-image: linear-gradient(#fafafa, #fff);\n}\n.blog .pages .header .mac[data-v-df367330] {\n  position: relative;\n  width: 15rem;\n  height: 7.5rem;\n  margin: auto;\n  padding-top: 1.5rem;\n  text-align: center;\n  background: #fafafa;\n  background: -webkit-gradient(linear, left top, right bottom, from(#fff), to(#eee));\n  background: linear-gradient(to right bottom, #fff, #eee);\n  border: 6px solid #222;\n  border-width: 6px 6px 8px;\n  border-radius: 8px 8px 0 0;\n}\n.blog .pages .header .mac[data-v-df367330]:after {\n  content: \"\";\n  position: absolute;\n  width: 134%;\n  left: -17%;\n  bottom: -14px;\n  height: 6px;\n  border-radius: 0 0 40px 40px/0 0 5px 5px;\n  background: #ccc;\n}\n.blog .pages .header .mac .logo[data-v-df367330] {\n  margin-bottom: 10px;\n  font-size: 3.5rem;\n  color: #000;\n}\n.blog .pages .header .mac .logo .l-icon[data-v-df367330] {\n  font-family: layIcon;\n  font-style: normal;\n}\n.blog .pages .header .mac .logo .l-icon[data-v-df367330]:after {\n  content: \"E\";\n}\n.blog .pages .header .mac p[data-v-df367330] {\n  font-size: 1rem;\n  color: #333;\n}\n.blog .pages .articleListPage-tags-cnt[data-v-df367330] {\n  margin-bottom: 20px;\n}\n.blog .pages .articleListPage-tags-cnt .articleListPage-tags[data-v-df367330] {\n  position: static !important;\n  width: 100%;\n  background: #fff;\n  border-bottom: 1px solid #c4cdd4;\n  z-index: 5;\n}\n.blog .pages .articleListPage-tags-cnt .articleListPage-tags .grid-row[data-v-df367330] {\n  width: 100%;\n  position: relative;\n  margin: auto;\n  zoom: 1;\n  -webkit-transition: all 0.3s ease-out;\n  transition: all 0.3s ease-out;\n}\n.blog .pages .articleListPage-tags-cnt .articleListPage-tags .grid-row[data-v-df367330]:after {\n  content: \".\";\n  display: block;\n  height: 0;\n  clear: both;\n  visibility: hidden;\n}\n.blog .pages .articleListPage-tags-cnt .articleListPage-tags .grid-row .content[data-v-df367330] {\n  padding: 12px 0 5px 10px;\n}\n.blog .pages .articleListPage-tags-cnt .articleListPage-tags .grid-row .content a[data-v-df367330] {\n  position: relative;\n  display: inline-block;\n  max-width: 100%;\n  height: 24px;\n  margin: 0 10px 5px 0;\n  line-height: 24px;\n  padding: 0 8px 0 18px;\n  border-radius: 0 4px 4px 0;\n  background: #eee;\n  font-size: 12px;\n  color: #333;\n  overflow: hidden;\n  text-overflow: ellipsis;\n  white-space: nowrap;\n  -webkit-box-sizing: border-box;\n          box-sizing: border-box;\n}\n.blog .pages .articleListPage-tags-cnt .articleListPage-tags .grid-row .content a[data-v-df367330]:before {\n  position: absolute;\n  content: \"\";\n  top: 0;\n  left: 0;\n  width: 0;\n  height: 0;\n  border-width: 12px 12px 12px 0;\n  border-color: #fff transparent;\n  border-style: solid;\n}\n.blog .pages .articleListPage-tags-cnt .articleListPage-tags .grid-row .content a[data-v-df367330]:after {\n  position: absolute;\n  content: \"\";\n  width: 4px;\n  height: 4px;\n  top: 10px;\n  left: 8px;\n  border-radius: 100%;\n  background: #fff;\n}\n.blog .pages .articleListPage-tags-cnt .articleListPage-tags .grid-row .content a.active[data-v-df367330] {\n  background: #f70;\n  color: #fff;\n}\n.blog .pages .article[data-v-df367330] {\n  margin: 0 10px;\n}\n.blog .pages .article .article-item[data-v-df367330] {\n  margin-bottom: 20px;\n}\n.blog .pages .article .article-item .article-list[data-v-df367330] {\n  position: relative;\n  background: #fff;\n  padding: 20px;\n  margin-bottom: 20px;\n}\n.blog .pages .article .article-item .article-list .label[data-v-df367330] {\n  position: absolute;\n  top: 0;\n  right: 0;\n  width: 30px;\n  height: 30px;\n  background: #f70;\n  -webkit-box-shadow: -1px 1px 2px #000;\n          box-shadow: -1px 1px 2px #000;\n}\n.blog .pages .article .article-item .article-list .label[data-v-df367330]:before {\n  position: absolute;\n  content: \"\";\n  width: 0;\n  height: 0;\n  top: 0;\n  right: 0;\n  border: 1px solid #fff;\n  border-width: 0 30px 30px 0;\n  border-color: transparent transparent #fff;\n}\n.blog .pages .article .article-item .article-list .label span[data-v-df367330] {\n  position: absolute;\n  display: block;\n  top: 0;\n  right: 0;\n  width: 100%;\n  height: 100%;\n  -webkit-transform: rotate(45deg) scale(0.8);\n  transform: rotate(45deg) scale(0.8);\n  text-align: center;\n  line-height: 15px;\n  color: #fff;\n}\n.blog .pages .article .article-item .article-list .title[data-v-df367330] {\n  line-height: 20px;\n}\n.blog .pages .article .article-item .article-list .title a[data-v-df367330] {\n  font-size: 20px;\n  font-weight: 600;\n  color: #3d464d !important;\n}\n.blog .pages .article .article-item .article-list .introduction[data-v-df367330] {\n  margin: 15px 0;\n}\n.blog .pages .article .article-item .article-list .introduction .icon-user[data-v-df367330],\n.blog .pages .article .article-item .article-list .introduction .icon-clock[data-v-df367330],\n.blog .pages .article .article-item .article-list .introduction .icon-eye[data-v-df367330] {\n  color: #95a5a6;\n  font-size: 14px;\n  line-height: 14px;\n  margin-right: 10px;\n}\n.blog .pages .article .article-item .article-list .introduction .icon-user .user[data-v-df367330],\n.blog .pages .article .article-item .article-list .introduction .icon-clock .user[data-v-df367330],\n.blog .pages .article .article-item .article-list .introduction .icon-eye .user[data-v-df367330],\n.blog .pages .article .article-item .article-list .introduction .icon-user .time[data-v-df367330],\n.blog .pages .article .article-item .article-list .introduction .icon-clock .time[data-v-df367330],\n.blog .pages .article .article-item .article-list .introduction .icon-eye .time[data-v-df367330],\n.blog .pages .article .article-item .article-list .introduction .icon-user .view[data-v-df367330],\n.blog .pages .article .article-item .article-list .introduction .icon-clock .view[data-v-df367330],\n.blog .pages .article .article-item .article-list .introduction .icon-eye .view[data-v-df367330] {\n  margin-left: 5px;\n  font-size: 14px;\n  line-height: 14px;\n}\n.blog .pages .article .article-item .article-list .readmore[data-v-df367330] {\n  width: 100%;\n  margin-top: 15px;\n  margin-bottom: 30px;\n}\n.blog .pages .article .article-item .article-list .readmore .left[data-v-df367330] {\n  float: left;\n}\n.blog .pages .article .article-item .article-list .readmore .left .icon-price-tags[data-v-df367330] {\n  margin-right: 5px;\n  font-size: 14px;\n  line-height: 15px;\n  color: #f70;\n}\n.blog .pages .article .article-item .article-list .readmore .left .tage[data-v-df367330] {\n  color: #333;\n  font-size: 14px;\n  background: #eee;\n  margin: 5px 5px 0 0;\n  padding: 1px 5px;\n  border-radius: 4px;\n  margin-top: 2px;\n}\n.blog .pages .article .article-item .article-list .readmore .right[data-v-df367330] {\n  float: right;\n}\n.blog .pages .article .article-item .article-list .readmore .right .readmore[data-v-df367330] {\n  color: #f70;\n  font-size: 14px;\n  font-weight: 600;\n  line-height: 14px;\n}\n.blog .footer[data-v-df367330] {\n  position: absolute;\n  bottom: 0;\n  left: 0;\n  width: 100%;\n  height: 60px;\n  -webkit-box-shadow: 0 0 10px #202020;\n          box-shadow: 0 0 10px #202020;\n  background: rgba(27,33,34,0.92);\n}\n.blog .footer .footer-item[data-v-df367330] {\n  margin: 0 10px;\n  line-height: 60px;\n}\n.blog .footer .footer-item .pull-left[data-v-df367330] {\n  float: left;\n  color: #c1c1c1;\n  font-size: 14px;\n}\n.blog .footer .footer-item .pull-right[data-v-df367330] {\n  display: none;\n}\n@media screen and (min-width: 768px) {\n.blog .nav[data-v-df367330] {\n    height: 58px;\n    -webkit-box-shadow: 0px 1px 11px 2px rgba(42,42,42,0.1);\n            box-shadow: 0px 1px 11px 2px rgba(42,42,42,0.1);\n    border-top: 4px solid #ff9800;\n    background: #fff;\n}\n.blog .nav .nav-item[data-v-df367330] {\n    width: 750px;\n    -webkit-box-shadow: none;\n            box-shadow: none;\n    display: block;\n}\n.blog .nav .nav-item .navigation-left[data-v-df367330] {\n    float: left;\n    height: 58px;\n    line-height: 58px;\n}\n.blog .nav .nav-item .navigation-left a[data-v-df367330] {\n    display: block;\n}\n.blog .nav .nav-item .navigation-right[data-v-df367330] {\n    margin: 0;\n    float: right;\n    font-size: 0;\n}\n.blog .nav .nav-item .navigation-right .nav-list[data-v-df367330] {\n    display: inline-block;\n    height: 56px;\n    line-height: 55px;\n}\n.blog .nav .nav-more-btn[data-v-df367330] {\n    display: none;\n}\n.blog .pages[data-v-df367330] {\n    position: relative;\n    padding-bottom: 60px;\n}\n.blog .pages .articleListPage-tags-cnt .articleListPage-tags .grid-row[data-v-df367330] {\n    width: 750px;\n}\n.blog .pages .article[data-v-df367330] {\n    margin: 0 auto;\n    width: 750px;\n}\n.blog .pages .article .article-item .article-list[data-v-df367330] {\n    padding: 20px 40px 20px 20px;\n}\n.blog .footer .footer-item[data-v-df367330] {\n    margin: 0 auto;\n    width: 750px;\n}\n.blog .footer .footer-item .pull-right[data-v-df367330] {\n    display: block;\n    float: right;\n    color: #c1c1c1;\n    font-size: 14px;\n}\n}\n@media screen and (min-width: 992px) {\n.blog .nav .nav-item[data-v-df367330] {\n    width: 970px;\n}\n.blog .pages .articleListPage-tags-cnt .articleListPage-tags .grid-row[data-v-df367330] {\n    width: 970px;\n}\n.blog .pages .article[data-v-df367330] {\n    width: 970px;\n}\n.blog .footer .footer-item[data-v-df367330] {\n    width: 970px;\n}\n}\n@media screen and (min-width: 1200px) {\n.blog .nav .nav-item[data-v-df367330] {\n    width: 1170px;\n}\n.blog .pages .articleListPage-tags-cnt .articleListPage-tags .grid-row[data-v-df367330] {\n    width: 1170px;\n}\n.blog .pages .article[data-v-df367330] {\n    width: 1170px;\n}\n.blog .footer .footer-item[data-v-df367330] {\n    width: 1170px;\n}\n}\n", ""]);
+exports.push([module.i, "\n.blog[data-v-df367330] {\n  position: relative;\n  min-height: 100%;\n  margin: 0;\n  padding: 0;\n  background: #dee3e7;\n}\n.blog .pages[data-v-df367330] {\n  position: relative;\n  padding-bottom: 60px;\n  overflow: hidden;\n}\n.blog .pages .header[data-v-df367330] {\n  position: relative;\n  padding: 75px 0 20px;\n  background: #fafafa;\n}\n.blog .pages .header[data-v-df367330]:before {\n  content: \"\";\n  position: absolute;\n  left: 0;\n  bottom: 0;\n  width: 100%;\n  height: 50px;\n  background: #fff;\n  background-image: -webkit-gradient(linear, left top, left bottom, from(#fafafa), to(#fff));\n  background-image: linear-gradient(#fafafa, #fff);\n}\n.blog .pages .header .mac[data-v-df367330] {\n  position: relative;\n  width: 15rem;\n  height: 7.5rem;\n  margin: auto;\n  padding-top: 1.5rem;\n  text-align: center;\n  background: #fafafa;\n  background: -webkit-gradient(linear, left top, right bottom, from(#fff), to(#eee));\n  background: linear-gradient(to right bottom, #fff, #eee);\n  border: 6px solid #222;\n  border-width: 6px 6px 8px;\n  border-radius: 8px 8px 0 0;\n}\n.blog .pages .header .mac[data-v-df367330]:after {\n  content: \"\";\n  position: absolute;\n  width: 134%;\n  left: -17%;\n  bottom: -14px;\n  height: 6px;\n  border-radius: 0 0 40px 40px/0 0 5px 5px;\n  background: #ccc;\n}\n.blog .pages .header .mac .logo[data-v-df367330] {\n  margin-bottom: 10px;\n  font-size: 3.5rem;\n  color: #000;\n}\n.blog .pages .header .mac .logo .l-icon[data-v-df367330] {\n  font-family: layIcon;\n  font-style: normal;\n}\n.blog .pages .header .mac .logo .l-icon[data-v-df367330]:after {\n  content: \"E\";\n}\n.blog .pages .header .mac p[data-v-df367330] {\n  font-size: 1rem;\n  color: #333;\n}\n.blog .pages .articleListPage-tags-cnt[data-v-df367330] {\n  margin-bottom: 20px;\n}\n.blog .pages .articleListPage-tags-cnt .articleListPage-tags[data-v-df367330] {\n  position: static !important;\n  width: 100%;\n  background: #fff;\n  border-bottom: 1px solid #c4cdd4;\n  z-index: 5;\n}\n.blog .pages .articleListPage-tags-cnt .articleListPage-tags .grid-row[data-v-df367330] {\n  width: 100%;\n  position: relative;\n  margin: auto;\n  zoom: 1;\n  -webkit-transition: all 0.3s ease-out;\n  transition: all 0.3s ease-out;\n}\n.blog .pages .articleListPage-tags-cnt .articleListPage-tags .grid-row[data-v-df367330]:after {\n  content: \".\";\n  display: block;\n  height: 0;\n  clear: both;\n  visibility: hidden;\n}\n.blog .pages .articleListPage-tags-cnt .articleListPage-tags .grid-row .content[data-v-df367330] {\n  padding: 12px 0 5px 10px;\n}\n.blog .pages .articleListPage-tags-cnt .articleListPage-tags .grid-row .content a[data-v-df367330] {\n  position: relative;\n  display: inline-block;\n  max-width: 100%;\n  height: 24px;\n  margin: 0 10px 5px 0;\n  line-height: 24px;\n  padding: 0 8px 0 18px;\n  border-radius: 0 4px 4px 0;\n  background: #eee;\n  font-size: 12px;\n  color: #333;\n  overflow: hidden;\n  text-overflow: ellipsis;\n  white-space: nowrap;\n  -webkit-box-sizing: border-box;\n          box-sizing: border-box;\n}\n.blog .pages .articleListPage-tags-cnt .articleListPage-tags .grid-row .content a[data-v-df367330]:before {\n  position: absolute;\n  content: \"\";\n  top: 0;\n  left: 0;\n  width: 0;\n  height: 0;\n  border-width: 12px 12px 12px 0;\n  border-color: #fff transparent;\n  border-style: solid;\n}\n.blog .pages .articleListPage-tags-cnt .articleListPage-tags .grid-row .content a[data-v-df367330]:after {\n  position: absolute;\n  content: \"\";\n  width: 4px;\n  height: 4px;\n  top: 10px;\n  left: 8px;\n  border-radius: 100%;\n  background: #fff;\n}\n.blog .pages .articleListPage-tags-cnt .articleListPage-tags .grid-row .content a.active[data-v-df367330] {\n  background: #f70;\n  color: #fff;\n}\n.blog .pages .article[data-v-df367330] {\n  margin: 0 10px;\n}\n.blog .pages .article .article-item[data-v-df367330] {\n  margin-bottom: 20px;\n}\n.blog .pages .article .article-item .article-list[data-v-df367330] {\n  position: relative;\n  background: #fff;\n  padding: 20px;\n  margin-bottom: 20px;\n}\n.blog .pages .article .article-item .article-list .label[data-v-df367330] {\n  position: absolute;\n  top: 0;\n  right: 0;\n  width: 30px;\n  height: 30px;\n  background: #f70;\n  -webkit-box-shadow: -1px 1px 2px #000;\n          box-shadow: -1px 1px 2px #000;\n}\n.blog .pages .article .article-item .article-list .label[data-v-df367330]:before {\n  position: absolute;\n  content: \"\";\n  width: 0;\n  height: 0;\n  top: 0;\n  right: 0;\n  border: 1px solid #fff;\n  border-width: 0 30px 30px 0;\n  border-color: transparent transparent #fff;\n}\n.blog .pages .article .article-item .article-list .label span[data-v-df367330] {\n  position: absolute;\n  display: block;\n  top: 0;\n  right: 0;\n  width: 100%;\n  height: 100%;\n  -webkit-transform: rotate(45deg) scale(0.8);\n  transform: rotate(45deg) scale(0.8);\n  text-align: center;\n  line-height: 15px;\n  color: #fff;\n}\n.blog .pages .article .article-item .article-list .title[data-v-df367330] {\n  line-height: 20px;\n}\n.blog .pages .article .article-item .article-list .title a[data-v-df367330] {\n  font-size: 20px;\n  font-weight: 600;\n  color: #3d464d !important;\n}\n.blog .pages .article .article-item .article-list .introduction[data-v-df367330] {\n  margin: 15px 0;\n}\n.blog .pages .article .article-item .article-list .introduction .icon-user[data-v-df367330],\n.blog .pages .article .article-item .article-list .introduction .icon-clock[data-v-df367330],\n.blog .pages .article .article-item .article-list .introduction .icon-eye[data-v-df367330] {\n  color: #95a5a6;\n  font-size: 14px;\n  line-height: 14px;\n  margin-right: 10px;\n}\n.blog .pages .article .article-item .article-list .introduction .icon-user .user[data-v-df367330],\n.blog .pages .article .article-item .article-list .introduction .icon-clock .user[data-v-df367330],\n.blog .pages .article .article-item .article-list .introduction .icon-eye .user[data-v-df367330],\n.blog .pages .article .article-item .article-list .introduction .icon-user .time[data-v-df367330],\n.blog .pages .article .article-item .article-list .introduction .icon-clock .time[data-v-df367330],\n.blog .pages .article .article-item .article-list .introduction .icon-eye .time[data-v-df367330],\n.blog .pages .article .article-item .article-list .introduction .icon-user .view[data-v-df367330],\n.blog .pages .article .article-item .article-list .introduction .icon-clock .view[data-v-df367330],\n.blog .pages .article .article-item .article-list .introduction .icon-eye .view[data-v-df367330] {\n  margin-left: 5px;\n  font-size: 14px;\n  line-height: 14px;\n}\n.blog .pages .article .article-item .article-list .readmore[data-v-df367330] {\n  width: 100%;\n  margin-top: 15px;\n  margin-bottom: 30px;\n}\n.blog .pages .article .article-item .article-list .readmore .left[data-v-df367330] {\n  float: left;\n}\n.blog .pages .article .article-item .article-list .readmore .left .icon-price-tags[data-v-df367330] {\n  margin-right: 5px;\n  font-size: 14px;\n  line-height: 15px;\n  color: #f70;\n}\n.blog .pages .article .article-item .article-list .readmore .left .tage[data-v-df367330] {\n  color: #333;\n  font-size: 14px;\n  background: #eee;\n  margin: 5px 5px 0 0;\n  padding: 1px 5px;\n  border-radius: 4px;\n  margin-top: 2px;\n}\n.blog .pages .article .article-item .article-list .readmore .right[data-v-df367330] {\n  float: right;\n}\n.blog .pages .article .article-item .article-list .readmore .right .readmore[data-v-df367330] {\n  color: #f70;\n  font-size: 14px;\n  font-weight: 600;\n  line-height: 14px;\n}\n.blog .footer[data-v-df367330] {\n  position: absolute;\n  bottom: 0;\n  left: 0;\n  width: 100%;\n  height: 60px;\n  -webkit-box-shadow: 0 0 10px #202020;\n          box-shadow: 0 0 10px #202020;\n  background: rgba(27,33,34,0.92);\n}\n.blog .footer .footer-item[data-v-df367330] {\n  margin: 0 10px;\n  line-height: 60px;\n}\n.blog .footer .footer-item .pull-left[data-v-df367330] {\n  float: left;\n  color: #c1c1c1;\n  font-size: 14px;\n}\n.blog .footer .footer-item .pull-right[data-v-df367330] {\n  display: none;\n}\n@media screen and (min-width: 768px) {\n.blog .pages[data-v-df367330] {\n    position: relative;\n    padding-bottom: 60px;\n}\n.blog .pages .articleListPage-tags-cnt .articleListPage-tags .grid-row[data-v-df367330] {\n    width: 750px;\n}\n.blog .pages .article[data-v-df367330] {\n    margin: 0 auto;\n    width: 750px;\n}\n.blog .pages .article .article-item .article-list[data-v-df367330] {\n    padding: 20px 40px 20px 20px;\n}\n.blog .footer .footer-item[data-v-df367330] {\n    margin: 0 auto;\n    width: 750px;\n}\n.blog .footer .footer-item .pull-right[data-v-df367330] {\n    display: block;\n    float: right;\n    color: #c1c1c1;\n    font-size: 14px;\n}\n}\n@media screen and (min-width: 992px) {\n.blog .pages .articleListPage-tags-cnt .articleListPage-tags .grid-row[data-v-df367330] {\n    width: 970px;\n}\n.blog .pages .article[data-v-df367330] {\n    width: 970px;\n}\n.blog .footer .footer-item[data-v-df367330] {\n    width: 970px;\n}\n}\n@media screen and (min-width: 1200px) {\n.blog .pages .articleListPage-tags-cnt .articleListPage-tags .grid-row[data-v-df367330] {\n    width: 1170px;\n}\n.blog .pages .article[data-v-df367330] {\n    width: 1170px;\n}\n.blog .footer .footer-item[data-v-df367330] {\n    width: 1170px;\n}\n}\n", ""]);
 
 // exports
 
@@ -16681,23 +16701,6 @@ exports.push([module.i, "\n.blog[data-v-df367330] {\n  position: relative;\n  mi
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_better_scroll__ = __webpack_require__(34);
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 //
 //
 //
@@ -19072,417 +19075,398 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "blog" }, [
-    _c("div", { staticClass: "nav" }, [
-      _c(
-        "div",
-        { staticClass: "nav-item", class: { show: _vm.showNavigation } },
-        [
-          _c(
-            "div",
-            { staticClass: "navigation-left" },
-            [
-              _c("router-link", { attrs: { to: "/" } }, [
-                _vm._v("XueCong's blog")
-              ])
-            ],
-            1
-          ),
+  return _c(
+    "div",
+    { staticClass: "blog" },
+    [
+      _c("div", { ref: "menuWrapper", staticClass: "pages" }, [
+        _c("div", [
+          _vm._m(0),
           _vm._v(" "),
-          _c(
-            "div",
-            { staticClass: "navigation-right" },
-            [
-              _c(
-                "router-link",
-                { staticClass: "nav-list", attrs: { to: "/blog" } },
-                [_vm._v("博文")]
-              ),
+          _vm._m(1),
+          _vm._v(" "),
+          _c("div", { staticClass: "article" }, [
+            _c("div", { staticClass: "article-item" }, [
+              _c("div", { staticClass: "article-list" }, [
+                _vm._m(2),
+                _vm._v(" "),
+                _c(
+                  "h1",
+                  { staticClass: "title" },
+                  [
+                    _c("router-link", { attrs: { to: "/blog/1" } }, [
+                      _vm._v("诡异的 java.io.IOException")
+                    ])
+                  ],
+                  1
+                ),
+                _vm._v(" "),
+                _vm._m(3),
+                _vm._v(" "),
+                _c("div", { staticClass: "article-content" }, [
+                  _vm._v(
+                    "\n              背景 上一篇我们讲到如何获取全民K歌歌曲信息（上一篇：这是一个获取全民K歌歌曲信息的composer包），那么这一篇我将继续带领大家实现一个开箱即用全民K歌版网页播放器。这里我们主要使用的一个开源网页播放器为了方便我们这里直接使用cdn外链的方式来使用。 代码 [……\n            "
+                  )
+                ]),
+                _vm._v(" "),
+                _vm._m(4)
+              ]),
               _vm._v(" "),
-              _c(
-                "a",
-                {
-                  staticClass: "nav-list",
-                  attrs: {
-                    href:
-                      "https://weibo.com/3090183841/profile?topnav=1&wvr=6&is_all=1",
-                    target: "_blank"
-                  }
-                },
-                [_vm._v("微博")]
-              ),
+              _vm._m(5),
               _vm._v(" "),
-              _c(
-                "a",
-                {
-                  staticClass: "nav-list",
-                  attrs: {
-                    href: "https://github.com/overxue",
-                    target: "_blank"
-                  }
-                },
-                [_vm._v("GitHub")]
-              ),
+              _vm._m(6),
               _vm._v(" "),
-              _c(
-                "router-link",
-                { staticClass: "nav-list", attrs: { to: "/me" } },
-                [_vm._v("关于我")]
-              )
-            ],
-            1
-          )
-        ]
-      ),
+              _vm._m(7),
+              _vm._v(" "),
+              _vm._m(8)
+            ])
+          ])
+        ])
+      ]),
       _vm._v(" "),
-      _c("div", { staticClass: "nav-more-btn", on: { click: _vm.showNav } }, [
-        _c("i", { class: { first: _vm.first } }),
-        _vm._v(" "),
-        _c("i", { class: { second: _vm.first } }),
-        _vm._v(" "),
-        _c("i", { class: { three: _vm.first } })
-      ])
-    ]),
-    _vm._v(" "),
-    _c("div", { ref: "menuWrapper", staticClass: "pages" }, [_vm._m(0)]),
-    _vm._v(" "),
-    _vm._m(1)
-  ])
+      _vm._m(9),
+      _vm._v(" "),
+      _c("router-view")
+    ],
+    1
+  )
 }
 var staticRenderFns = [
   function() {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", [
-      _c("div", { staticClass: "header" }, [
-        _c("div", { staticClass: "mac" }, [
-          _c("div", { staticClass: "logo" }, [
-            _c("i", { staticClass: "l-icon l-icon-layLogo" })
-          ]),
-          _vm._v(" "),
-          _c("p", [_vm._v("哈哈哈哈哈哈哈哈哈")])
-        ])
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "articleListPage-tags-cnt" }, [
-        _c("div", [
-          _c("div", { staticClass: "articleListPage-tags" }, [
-            _c("div", { staticClass: "grid-row" }, [
-              _c("div", { staticClass: "content" }, [
-                _c("a", { staticClass: "active", attrs: { href: "" } }, [
-                  _vm._v("全部标签")
-                ]),
-                _vm._v(" "),
-                _c("a", { attrs: { href: "" } }, [
-                  _vm._v("作品"),
-                  _c("span", [_vm._v("19")])
-                ]),
-                _vm._v(" "),
-                _c("a", { attrs: { href: "" } }, [
-                  _vm._v("作品"),
-                  _c("span", [_vm._v("19")])
-                ]),
-                _vm._v(" "),
-                _c("a", { attrs: { href: "" } }, [
-                  _vm._v("作品"),
-                  _c("span", [_vm._v("19")])
-                ]),
-                _vm._v(" "),
-                _c("a", { attrs: { href: "" } }, [
-                  _vm._v("作品"),
-                  _c("span", [_vm._v("19")])
-                ]),
-                _vm._v(" "),
-                _c("a", { attrs: { href: "" } }, [
-                  _vm._v("作品"),
-                  _c("span", [_vm._v("19")])
-                ]),
-                _vm._v(" "),
-                _c("a", { attrs: { href: "" } }, [
-                  _vm._v("作品"),
-                  _c("span", [_vm._v("19")])
-                ]),
-                _vm._v(" "),
-                _c("a", { attrs: { href: "" } }, [
-                  _vm._v("作品"),
-                  _c("span", [_vm._v("19")])
-                ])
+    return _c("div", { staticClass: "header" }, [
+      _c("div", { staticClass: "mac" }, [
+        _c("div", { staticClass: "logo" }, [
+          _c("i", { staticClass: "l-icon l-icon-layLogo" })
+        ]),
+        _vm._v(" "),
+        _c("p", [_vm._v("哈哈哈哈哈哈哈哈哈")])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "articleListPage-tags-cnt" }, [
+      _c("div", [
+        _c("div", { staticClass: "articleListPage-tags" }, [
+          _c("div", { staticClass: "grid-row" }, [
+            _c("div", { staticClass: "content" }, [
+              _c("a", { staticClass: "active", attrs: { href: "" } }, [
+                _vm._v("全部标签")
+              ]),
+              _vm._v(" "),
+              _c("a", { attrs: { href: "" } }, [
+                _vm._v("作品"),
+                _c("span", [_vm._v("19")])
+              ]),
+              _vm._v(" "),
+              _c("a", { attrs: { href: "" } }, [
+                _vm._v("作品"),
+                _c("span", [_vm._v("19")])
+              ]),
+              _vm._v(" "),
+              _c("a", { attrs: { href: "" } }, [
+                _vm._v("作品"),
+                _c("span", [_vm._v("19")])
+              ]),
+              _vm._v(" "),
+              _c("a", { attrs: { href: "" } }, [
+                _vm._v("作品"),
+                _c("span", [_vm._v("19")])
+              ]),
+              _vm._v(" "),
+              _c("a", { attrs: { href: "" } }, [
+                _vm._v("作品"),
+                _c("span", [_vm._v("19")])
+              ]),
+              _vm._v(" "),
+              _c("a", { attrs: { href: "" } }, [
+                _vm._v("作品"),
+                _c("span", [_vm._v("19")])
+              ]),
+              _vm._v(" "),
+              _c("a", { attrs: { href: "" } }, [
+                _vm._v("作品"),
+                _c("span", [_vm._v("19")])
               ])
             ])
           ])
         ])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "label" }, [_c("span", [_vm._v("new")])])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "introduction" }, [
+      _c("i", { staticClass: "icon-user" }, [
+        _c("span", { staticClass: "user" }, [_vm._v("XueCong")])
       ]),
       _vm._v(" "),
-      _c("div", { staticClass: "article" }, [
-        _c("div", { staticClass: "article-item" }, [
-          _c("div", { staticClass: "article-list" }, [
-            _c("div", { staticClass: "label" }, [_c("span", [_vm._v("new")])]),
-            _vm._v(" "),
-            _c("h1", { staticClass: "title" }, [
-              _c("a", { attrs: { href: "" } }, [
-                _vm._v("诡异的 java.io.IOException")
-              ])
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "introduction" }, [
-              _c("i", { staticClass: "icon-user" }, [
-                _c("span", { staticClass: "user" }, [_vm._v("XueCong")])
-              ]),
-              _vm._v(" "),
-              _c("i", { staticClass: "icon-clock" }, [
-                _c("span", { staticClass: "time" }, [_vm._v("1小时前")])
-              ]),
-              _vm._v(" "),
-              _c("i", { staticClass: "icon-eye" }, [
-                _c("span", { staticClass: "view" }, [_vm._v("120")])
-              ])
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "article-content" }, [
-              _vm._v(
-                "\n              背景 上一篇我们讲到如何获取全民K歌歌曲信息（上一篇：这是一个获取全民K歌歌曲信息的composer包），那么这一篇我将继续带领大家实现一个开箱即用全民K歌版网页播放器。这里我们主要使用的一个开源网页播放器APlayer（github.com/MoePlayer/APlayer）。为了方便我们这里直接使用cdn外链的方式来使用。 代码 [……\n            "
-              )
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "readmore" }, [
-              _c("div", { staticClass: "left" }, [
-                _c("i", { staticClass: "icon-price-tags" }),
-                _vm._v(" "),
-                _c("a", { staticClass: "tage", attrs: { href: "" } }, [
-                  _vm._v("php")
-                ]),
-                _vm._v(" "),
-                _c("a", { staticClass: "tage", attrs: { href: "" } }, [
-                  _vm._v("Linux")
-                ]),
-                _vm._v(" "),
-                _c("a", { staticClass: "tage", attrs: { href: "" } }, [
-                  _vm._v("javascript")
-                ])
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "right" }, [
-                _c("a", { staticClass: "readmore", attrs: { href: "" } }, [
-                  _vm._v("阅读全文 "),
-                  _c("span", [_vm._v(">>")])
-                ])
-              ])
-            ])
+      _c("i", { staticClass: "icon-clock" }, [
+        _c("span", { staticClass: "time" }, [_vm._v("1小时前")])
+      ]),
+      _vm._v(" "),
+      _c("i", { staticClass: "icon-eye" }, [
+        _c("span", { staticClass: "view" }, [_vm._v("120")])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "readmore" }, [
+      _c("div", { staticClass: "left" }, [
+        _c("i", { staticClass: "icon-price-tags" }),
+        _vm._v(" "),
+        _c("a", { staticClass: "tage", attrs: { href: "" } }, [_vm._v("php")]),
+        _vm._v(" "),
+        _c("a", { staticClass: "tage", attrs: { href: "" } }, [
+          _vm._v("Linux")
+        ]),
+        _vm._v(" "),
+        _c("a", { staticClass: "tage", attrs: { href: "" } }, [
+          _vm._v("javascript")
+        ])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "right" }, [
+        _c("a", { staticClass: "readmore", attrs: { href: "" } }, [
+          _vm._v("阅读全文 "),
+          _c("span", [_vm._v(">>")])
+        ])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "article-list" }, [
+      _c("div", { staticClass: "label" }, [_c("span", [_vm._v("new")])]),
+      _vm._v(" "),
+      _c("h1", { staticClass: "title" }, [
+        _c("a", { attrs: { href: "" } }, [_vm._v("诡异的 java.io.IOException")])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "introduction" }, [
+        _c("i", { staticClass: "icon-user" }, [
+          _c("span", { staticClass: "user" }, [_vm._v("XueCong")])
+        ]),
+        _vm._v(" "),
+        _c("i", { staticClass: "icon-clock" }, [
+          _c("span", { staticClass: "time" }, [_vm._v("1小时前")])
+        ]),
+        _vm._v(" "),
+        _c("i", { staticClass: "icon-eye" }, [
+          _c("span", { staticClass: "view" }, [_vm._v("120")])
+        ])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "article-content" }, [
+        _vm._v(
+          "\n              背景 上一篇我们讲到如何获取全民K歌歌曲信息（上一篇：这是一个获取全民K歌歌曲信息的composer包），那么这一篇我将继续带领大家实现一个开箱即用全民K歌版网页播放器。这里我们主要使用的一个开源网页播放器为了方便我们这里直接使用cdn外链的方式来使用。 代码 [……\n            "
+        )
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "readmore" }, [
+        _c("div", { staticClass: "left" }, [
+          _c("i", { staticClass: "icon-price-tags" }),
+          _vm._v(" "),
+          _c("a", { staticClass: "tage", attrs: { href: "" } }, [
+            _vm._v("php")
           ]),
           _vm._v(" "),
-          _c("div", { staticClass: "article-list" }, [
-            _c("div", { staticClass: "label" }, [_c("span", [_vm._v("new")])]),
-            _vm._v(" "),
-            _c("h1", { staticClass: "title" }, [
-              _c("a", { attrs: { href: "" } }, [
-                _vm._v("诡异的 java.io.IOException")
-              ])
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "introduction" }, [
-              _c("i", { staticClass: "icon-user" }, [
-                _c("span", { staticClass: "user" }, [_vm._v("XueCong")])
-              ]),
-              _vm._v(" "),
-              _c("i", { staticClass: "icon-clock" }, [
-                _c("span", { staticClass: "time" }, [_vm._v("1小时前")])
-              ]),
-              _vm._v(" "),
-              _c("i", { staticClass: "icon-eye" }, [
-                _c("span", { staticClass: "view" }, [_vm._v("120")])
-              ])
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "article-content" }, [
-              _vm._v(
-                "\n              背景 上一篇我们讲到如何获取全民K歌歌曲信息（上一篇：这是一个获取全民K歌歌曲信息的composer包），那么这一篇我将继续带领大家实现一个开箱即用全民K歌版网页播放器。这里我们主要使用的一个开源网页播放器APlayer（github.com/MoePlayer/APlayer）。为了方便我们这里直接使用cdn外链的方式来使用。 代码 [……\n            "
-              )
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "readmore" }, [
-              _c("div", { staticClass: "left" }, [
-                _c("i", { staticClass: "icon-price-tags" }),
-                _vm._v(" "),
-                _c("a", { staticClass: "tage", attrs: { href: "" } }, [
-                  _vm._v("php")
-                ]),
-                _vm._v(" "),
-                _c("a", { staticClass: "tage", attrs: { href: "" } }, [
-                  _vm._v("Linux")
-                ]),
-                _vm._v(" "),
-                _c("a", { staticClass: "tage", attrs: { href: "" } }, [
-                  _vm._v("javascript")
-                ])
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "right" }, [
-                _c("a", { staticClass: "readmore", attrs: { href: "" } }, [
-                  _vm._v("阅读全文 "),
-                  _c("span", [_vm._v(">>")])
-                ])
-              ])
-            ])
+          _c("a", { staticClass: "tage", attrs: { href: "" } }, [
+            _vm._v("Linux")
           ]),
           _vm._v(" "),
-          _c("div", { staticClass: "article-list" }, [
-            _c("h1", { staticClass: "title" }, [
-              _c("a", { attrs: { href: "" } }, [
-                _vm._v("诡异的 java.io.IOException")
-              ])
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "introduction" }, [
-              _c("i", { staticClass: "icon-user" }, [
-                _c("span", { staticClass: "user" }, [_vm._v("XueCong")])
-              ]),
-              _vm._v(" "),
-              _c("i", { staticClass: "icon-clock" }, [
-                _c("span", { staticClass: "time" }, [_vm._v("1小时前")])
-              ]),
-              _vm._v(" "),
-              _c("i", { staticClass: "icon-eye" }, [
-                _c("span", { staticClass: "view" }, [_vm._v("120")])
-              ])
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "article-content" }, [
-              _vm._v(
-                "\n              背景 上一篇我们讲到如何获取全民K歌歌曲信息（上一篇：这是一个获取全民K歌歌曲信息的composer包），那么这一篇我将继续带领大家实现一个开箱即用全民K歌版网页播放器。这里我们主要使用的一个开源网页播放器APlayer（github.com/MoePlayer/APlayer）。为了方便我们这里直接使用cdn外链的方式来使用。 代码 [……\n            "
-              )
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "readmore" }, [
-              _c("div", { staticClass: "left" }, [
-                _c("i", { staticClass: "icon-price-tags" }),
-                _vm._v(" "),
-                _c("a", { staticClass: "tage", attrs: { href: "" } }, [
-                  _vm._v("php")
-                ]),
-                _vm._v(" "),
-                _c("a", { staticClass: "tage", attrs: { href: "" } }, [
-                  _vm._v("Linux")
-                ]),
-                _vm._v(" "),
-                _c("a", { staticClass: "tage", attrs: { href: "" } }, [
-                  _vm._v("javascript")
-                ])
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "right" }, [
-                _c("a", { staticClass: "readmore", attrs: { href: "" } }, [
-                  _vm._v("阅读全文 "),
-                  _c("span", [_vm._v(">>")])
-                ])
-              ])
-            ])
+          _c("a", { staticClass: "tage", attrs: { href: "" } }, [
+            _vm._v("javascript")
+          ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "right" }, [
+          _c("a", { staticClass: "readmore", attrs: { href: "" } }, [
+            _vm._v("阅读全文 "),
+            _c("span", [_vm._v(">>")])
+          ])
+        ])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "article-list" }, [
+      _c("h1", { staticClass: "title" }, [
+        _c("a", { attrs: { href: "" } }, [_vm._v("诡异的 java.io.IOException")])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "introduction" }, [
+        _c("i", { staticClass: "icon-user" }, [
+          _c("span", { staticClass: "user" }, [_vm._v("XueCong")])
+        ]),
+        _vm._v(" "),
+        _c("i", { staticClass: "icon-clock" }, [
+          _c("span", { staticClass: "time" }, [_vm._v("1小时前")])
+        ]),
+        _vm._v(" "),
+        _c("i", { staticClass: "icon-eye" }, [
+          _c("span", { staticClass: "view" }, [_vm._v("120")])
+        ])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "article-content" }, [
+        _vm._v(
+          "\n              背景 上一篇我们讲到如何获取全民K歌歌曲信息（上一篇：这是一个获取全民K歌歌曲信息的composer包），那么这一篇我将继续带领大家实现一个开箱即用全民K歌版网页播放器。这里我们主要使用的一个开源网页播放器为了方便我们这里直接使用cdn外链的方式来使用。 代码 [……\n            "
+        )
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "readmore" }, [
+        _c("div", { staticClass: "left" }, [
+          _c("i", { staticClass: "icon-price-tags" }),
+          _vm._v(" "),
+          _c("a", { staticClass: "tage", attrs: { href: "" } }, [
+            _vm._v("php")
           ]),
           _vm._v(" "),
-          _c("div", { staticClass: "article-list" }, [
-            _c("h1", { staticClass: "title" }, [
-              _c("a", { attrs: { href: "" } }, [
-                _vm._v("诡异的 java.io.IOException")
-              ])
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "introduction" }, [
-              _c("i", { staticClass: "icon-user" }, [
-                _c("span", { staticClass: "user" }, [_vm._v("XueCong")])
-              ]),
-              _vm._v(" "),
-              _c("i", { staticClass: "icon-clock" }, [
-                _c("span", { staticClass: "time" }, [_vm._v("1小时前")])
-              ]),
-              _vm._v(" "),
-              _c("i", { staticClass: "icon-eye" }, [
-                _c("span", { staticClass: "view" }, [_vm._v("120")])
-              ])
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "article-content" }, [
-              _vm._v(
-                "\n              背景 上一篇我们讲到如何获取全民K歌歌曲信息（上一篇：这是一个获取全民K歌歌曲信息的composer包），那么这一篇我将继续带领大家实现一个开箱即用全民K歌版网页播放器。这里我们主要使用的一个开源网页播放器APlayer（github.com/MoePlayer/APlayer）。为了方便我们这里直接使用cdn外链的方式来使用。 代码 [……\n            "
-              )
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "readmore" }, [
-              _c("div", { staticClass: "left" }, [
-                _c("i", { staticClass: "icon-price-tags" }),
-                _vm._v(" "),
-                _c("a", { staticClass: "tage", attrs: { href: "" } }, [
-                  _vm._v("php")
-                ]),
-                _vm._v(" "),
-                _c("a", { staticClass: "tage", attrs: { href: "" } }, [
-                  _vm._v("Linux")
-                ]),
-                _vm._v(" "),
-                _c("a", { staticClass: "tage", attrs: { href: "" } }, [
-                  _vm._v("javascript")
-                ])
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "right" }, [
-                _c("a", { staticClass: "readmore", attrs: { href: "" } }, [
-                  _vm._v("阅读全文 "),
-                  _c("span", [_vm._v(">>")])
-                ])
-              ])
-            ])
+          _c("a", { staticClass: "tage", attrs: { href: "" } }, [
+            _vm._v("Linux")
           ]),
           _vm._v(" "),
-          _c("div", { staticClass: "article-list" }, [
-            _c("h1", { staticClass: "title" }, [
-              _c("a", { attrs: { href: "" } }, [
-                _vm._v("诡异的 java.io.IOException")
-              ])
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "introduction" }, [
-              _c("i", { staticClass: "icon-user" }, [
-                _c("span", { staticClass: "user" }, [_vm._v("XueCong")])
-              ]),
-              _vm._v(" "),
-              _c("i", { staticClass: "icon-clock" }, [
-                _c("span", { staticClass: "time" }, [_vm._v("1小时前")])
-              ]),
-              _vm._v(" "),
-              _c("i", { staticClass: "icon-eye" }, [
-                _c("span", { staticClass: "view" }, [_vm._v("120")])
-              ])
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "article-content" }, [
-              _vm._v(
-                "\n              背景 上一篇我们讲到如何获取全民K歌歌曲信息（上一篇：这是一个获取全民K歌歌曲信息的composer包），那么这一篇我将继续带领大家实现一个开箱即用全民K歌版网页播放器。这里我们主要使用的一个开源网页播放器APlayer（github.com/MoePlayer/APlayer）。为了方便我们这里直接使用cdn外链的方式来使用。 代码 [……\n            "
-              )
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "readmore" }, [
-              _c("div", { staticClass: "left" }, [
-                _c("i", { staticClass: "icon-price-tags" }),
-                _vm._v(" "),
-                _c("a", { staticClass: "tage", attrs: { href: "" } }, [
-                  _vm._v("php")
-                ]),
-                _vm._v(" "),
-                _c("a", { staticClass: "tage", attrs: { href: "" } }, [
-                  _vm._v("Linux")
-                ]),
-                _vm._v(" "),
-                _c("a", { staticClass: "tage", attrs: { href: "" } }, [
-                  _vm._v("javascript")
-                ])
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "right" }, [
-                _c("a", { staticClass: "readmore", attrs: { href: "" } }, [
-                  _vm._v("阅读全文 "),
-                  _c("span", [_vm._v(">>")])
-                ])
-              ])
-            ])
+          _c("a", { staticClass: "tage", attrs: { href: "" } }, [
+            _vm._v("javascript")
+          ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "right" }, [
+          _c("a", { staticClass: "readmore", attrs: { href: "" } }, [
+            _vm._v("阅读全文 "),
+            _c("span", [_vm._v(">>")])
+          ])
+        ])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "article-list" }, [
+      _c("h1", { staticClass: "title" }, [
+        _c("a", { attrs: { href: "" } }, [_vm._v("诡异的 java.io.IOException")])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "introduction" }, [
+        _c("i", { staticClass: "icon-user" }, [
+          _c("span", { staticClass: "user" }, [_vm._v("XueCong")])
+        ]),
+        _vm._v(" "),
+        _c("i", { staticClass: "icon-clock" }, [
+          _c("span", { staticClass: "time" }, [_vm._v("1小时前")])
+        ]),
+        _vm._v(" "),
+        _c("i", { staticClass: "icon-eye" }, [
+          _c("span", { staticClass: "view" }, [_vm._v("120")])
+        ])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "article-content" }, [
+        _vm._v(
+          "\n              背景 上一篇我们讲到如何获取全民K歌歌曲信息（上一篇：这是一个获取全民K歌歌曲信息的composer包），那么这一篇我将继续带领大家实现一个开箱即用全民K歌版网页播放器。这里我们主要使用的一个开源网页播放器为了方便我们这里直接使用cdn外链的方式来使用。 代码 [……\n            "
+        )
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "readmore" }, [
+        _c("div", { staticClass: "left" }, [
+          _c("i", { staticClass: "icon-price-tags" }),
+          _vm._v(" "),
+          _c("a", { staticClass: "tage", attrs: { href: "" } }, [
+            _vm._v("php")
+          ]),
+          _vm._v(" "),
+          _c("a", { staticClass: "tage", attrs: { href: "" } }, [
+            _vm._v("Linux")
+          ]),
+          _vm._v(" "),
+          _c("a", { staticClass: "tage", attrs: { href: "" } }, [
+            _vm._v("javascript")
+          ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "right" }, [
+          _c("a", { staticClass: "readmore", attrs: { href: "" } }, [
+            _vm._v("阅读全文 "),
+            _c("span", [_vm._v(">>")])
+          ])
+        ])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "article-list" }, [
+      _c("h1", { staticClass: "title" }, [
+        _c("a", { attrs: { href: "" } }, [_vm._v("诡异的 java.io.IOException")])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "introduction" }, [
+        _c("i", { staticClass: "icon-user" }, [
+          _c("span", { staticClass: "user" }, [_vm._v("XueCong")])
+        ]),
+        _vm._v(" "),
+        _c("i", { staticClass: "icon-clock" }, [
+          _c("span", { staticClass: "time" }, [_vm._v("1小时前")])
+        ]),
+        _vm._v(" "),
+        _c("i", { staticClass: "icon-eye" }, [
+          _c("span", { staticClass: "view" }, [_vm._v("120")])
+        ])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "article-content" }, [
+        _vm._v(
+          "\n              背景 上一篇我们讲到如何获取全民K歌歌曲信息（上一篇：这是一个获取全民K歌歌曲信息的composer包），那么这一篇我将继续带领大家实现一个开箱即用全民K歌版网页播放器。这里我们主要使用的一个开源网页播放器为了方便我们这里直接使用cdn外链的方式来使用。 代码 [……\n            "
+        )
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "readmore" }, [
+        _c("div", { staticClass: "left" }, [
+          _c("i", { staticClass: "icon-price-tags" }),
+          _vm._v(" "),
+          _c("a", { staticClass: "tage", attrs: { href: "" } }, [
+            _vm._v("php")
+          ]),
+          _vm._v(" "),
+          _c("a", { staticClass: "tage", attrs: { href: "" } }, [
+            _vm._v("Linux")
+          ]),
+          _vm._v(" "),
+          _c("a", { staticClass: "tage", attrs: { href: "" } }, [
+            _vm._v("javascript")
+          ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "right" }, [
+          _c("a", { staticClass: "readmore", attrs: { href: "" } }, [
+            _vm._v("阅读全文 "),
+            _c("span", [_vm._v(">>")])
           ])
         ])
       ])
@@ -19649,9 +19633,960 @@ if (false) {
 
 /***/ }),
 /* 41 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+function injectStyle (ssrContext) {
+  if (disposed) return
+  __webpack_require__(42)
+}
+var normalizeComponent = __webpack_require__(2)
+/* script */
+var __vue_script__ = __webpack_require__(44)
+/* template */
+var __vue_template__ = __webpack_require__(45)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = injectStyle
+/* scopeId */
+var __vue_scopeId__ = "data-v-6fb08288"
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/assets/js/components/blogdetail/blogdetail.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-6fb08288", Component.options)
+  } else {
+    hotAPI.reload("data-v-6fb08288", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 42 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(43);
+if(typeof content === 'string') content = [[module.i, content, '']];
+if(content.locals) module.exports = content.locals;
+// add the styles to the DOM
+var update = __webpack_require__(1)("becdb248", content, false);
+// Hot Module Replacement
+if(false) {
+ // When the styles change, update the <style> tags
+ if(!content.locals) {
+   module.hot.accept("!!../../../../../node_modules/css-loader/index.js!../../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-6fb08288\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../../node_modules/stylus-loader/index.js!../../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./blogdetail.vue", function() {
+     var newContent = require("!!../../../../../node_modules/css-loader/index.js!../../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-6fb08288\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../../node_modules/stylus-loader/index.js!../../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./blogdetail.vue");
+     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+     update(newContent);
+   });
+ }
+ // When the module is disposed, remove the <style> tags
+ module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+/* 43 */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(0)(false);
+// imports
+
+
+// module
+exports.push([module.i, "\n.blogdetail[data-v-6fb08288] {\n  height: 100%;\n  background: #dee3e7;\n}\n.blogdetail .page .blog-detail[data-v-6fb08288] {\n  padding: 80px 0;\n  background: #dee3e7;\n}\n.blogdetail .page .blog-detail .blog-detail-contaner[data-v-6fb08288] {\n  max-width: 1000px;\n  margin: 0 auto;\n  background: #fff;\n}\n.blogdetail .page .blog-detail .blog-detail-contaner .header[data-v-6fb08288] {\n  position: relative;\n  padding-top: 44%;\n  background-color: #eee;\n  background-size: cover;\n  background-position: 50%;\n}\n.blogdetail .page .blog-detail .blog-detail-contaner .header .header-cover[data-v-6fb08288] {\n  position: absolute;\n  width: 100%;\n  height: 100%;\n  top: 0;\n  left: 0;\n  overflow: hidden;\n}\n.blogdetail .page .blog-detail .blog-detail-contaner .header .header-cover.no-cover[data-v-6fb08288] {\n  background: #1f3747;\n  background-image: -webkit-linear-gradient(left, #1f3747, #293d31);\n}\n.blogdetail .page .blog-detail .blog-detail-contaner .header .header-body[data-v-6fb08288] {\n  position: absolute;\n  top: 70px;\n  left: 70px;\n}\n.blogdetail .page .blog-detail .blog-detail-contaner .header .header-body .tit[data-v-6fb08288] {\n  margin-bottom: 15px;\n  line-height: 1.2;\n  font-size: 26px;\n  font-weight: 500;\n  color: #fff;\n}\n.blogdetail .page .blog-detail .blog-detail-contaner .header .header-body .article-info[data-v-6fb08288] {\n  width: 50%;\n  margin-bottom: 50px;\n  color: #fff;\n  opacity: 0.8;\n}\n.blogdetail .page .blog-detail .blog-detail-contaner .article-section[data-v-6fb08288] {\n  padding: 5em 8em;\n}\n.blogdetail .page .blog-detail .blog-detail-contaner .article-section .caption[data-v-6fb08288] {\n  padding: 0 20px;\n}\n.blogdetail .page .blog-detail .blog-detail-contaner .article-section .caption .titl[data-v-6fb08288] {\n  margin-bottom: 0.4em;\n  font-size: 1.8rem;\n}\n.blogdetail .page .blog-detail .blog-detail-contaner .article-section .caption .time[data-v-6fb08288] {\n  font-size: 14px;\n}\n.blogdetail .page .blog-detail .blog-detail-contaner .article-section .article[data-v-6fb08288] {\n  padding: 40px 20px;\n  font-size: 1rem;\n  line-height: 1.6;\n  word-wrap: break-word;\n  background: #fff;\n}\n.blogdetail .page .blog-detail .blog-detail-contaner .article-section .article[data-v-6fb08288]:before {\n  display: table;\n  content: \"\";\n}\n", ""]);
+
+// exports
+
+
+/***/ }),
+/* 44 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({});
+
+/***/ }),
+/* 45 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _vm._m(0)
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "blogdetail" }, [
+      _c("div", { staticClass: "page" }, [
+        _c("div", { staticClass: "blog-detail" }, [
+          _c("div", { staticClass: "blog-detail-contaner" }, [
+            _c("div", { staticClass: "header" }, [
+              _c("div", { staticClass: "header-cover no-cover" }),
+              _vm._v(" "),
+              _c("div", { staticClass: "header-body" }, [
+                _c("div", { staticClass: "tit" }, [
+                  _vm._v("VUE如何重载当前视图")
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "article-info" }, [
+                  _c("span", [
+                    _vm._v(
+                      "今天小剧来分享在使用 vue 时遇到一个问题，困扰小剧比较长时间。概括下来就是：vue 项目如何在不修改 URL 的前提下主动 reload 当前 router？\n              "
+                    )
+                  ])
+                ])
+              ])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "article-section" }, [
+              _c("div", { staticClass: "caption" }, [
+                _c("h1", { staticClass: "titl" }, [
+                  _vm._v("VUE如何重载当前视图")
+                ]),
+                _vm._v(" "),
+                _c("p", { staticClass: "time" }, [
+                  _vm._v("发布时间："),
+                  _c("span", [_vm._v("2017-10-09 ")])
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "article" }, [
+                _c("p", [
+                  _vm._v(
+                    "今天小剧来分享在使用 vue 时遇到一个问题，困扰小剧比较长时间。"
+                  )
+                ]),
+                _vm._v(" "),
+                _c("p", [
+                  _vm._v(
+                    "概括下来就是：vue 项目如何在不修改 URL 的前提下主动 reload 当前 router？"
+                  )
+                ]),
+                _vm._v(" "),
+                _c("h2", { attrs: { id: "" } }, [_vm._v("先来说下场景")]),
+                _vm._v(" "),
+                _c("p", [
+                  _vm._v(
+                    "项目的业务模型中有一个独立的模块，用于处理全局数据：project，首先 project list 是一个可以进行切换的列表，其次还有一个当前选中的 project 项。所有 View Model 在初始化时都会依赖当前选中的 project。"
+                  )
+                ]),
+                _vm._v(" "),
+                _c("h2", { attrs: { id: "" } }, [_vm._v("那么问题来了")]),
+                _vm._v(" "),
+                _c("p", [
+                  _vm._v(
+                    "一个 View Model 已经被渲染完毕后，切换 project 时该如何操作？"
+                  )
+                ]),
+                _vm._v(" "),
+                _c("p", [_vm._v("仔细思考之后，发现有三个可行性较高的方案：")]),
+                _vm._v(" "),
+                _c("h3", { attrs: { id: "1" } }, [
+                  _vm._v("1、重新设计路由规则")
+                ]),
+                _vm._v(" "),
+                _c("p", [
+                  _vm._v(
+                    "通过场景分析可以看出来 project 是一个基础性字段，因此可以考虑将 project 字段显式地体现在 URL 上。在切换 project 时直接更新当前路由即可实现 View Model 的更新。"
+                  )
+                ]),
+                _vm._v(" "),
+                _c("p", [
+                  _vm._v(
+                    "然而实际项目中此类基础字段还不少，如果全部体现在路由上既会导致 URL 冗长，又需要处理各种字符转码的问题。所以此方案暂不考虑。"
+                  )
+                ]),
+                _vm._v(" "),
+                _c("h3", { attrs: { id: "2viewmodelproject" } }, [
+                  _vm._v("2、View Model 监听 project 变动")
+                ]),
+                _vm._v(" "),
+                _c("p", [
+                  _vm._v(
+                    "这是一种比较常规的解决方案，也比较容易实行。具体做法是：View Model 内部去监听 project，每当值发生改变时，主动更新自身数据。"
+                  )
+                ]),
+                _vm._v(" "),
+                _c("p", [
+                  _vm._v(
+                    "监听方案可以用 vuex，也可以通过全局的自定义事件来实现，如："
+                  )
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "highlight javascript" }, [
+                  _c("div", [
+                    _c("span", { staticClass: "keywords" }, [_vm._v("var")]),
+                    _vm._v(" bus = "),
+                    _c("span", { staticClass: "keywords" }, [_vm._v("new")]),
+                    _vm._v(" Vue();")
+                  ]),
+                  _c("div", [
+                    _c("span", { staticClass: "comment" }, [
+                      _vm._v("// project 模块触发事件")
+                    ])
+                  ]),
+                  _c("div", [
+                    _vm._v("bus.$emit("),
+                    _c("span", { staticClass: "string" }, [
+                      _vm._v("'project-switched'")
+                    ]),
+                    _vm._v(", "),
+                    _c("span", { staticClass: "string" }, [
+                      _vm._v("'nanjin-1'")
+                    ]),
+                    _vm._v(");")
+                  ]),
+                  _c("div"),
+                  _c("div", [
+                    _c("span", { staticClass: "comment" }, [
+                      _vm._v("// 在 View Model 中监听事件")
+                    ])
+                  ]),
+                  _c("div", [
+                    _vm._v("bus.$on("),
+                    _c("span", { staticClass: "string" }, [
+                      _vm._v("'project-switched'")
+                    ]),
+                    _vm._v(", "),
+                    _c("span", { staticClass: "keywords" }, [
+                      _vm._v("function")
+                    ]),
+                    _vm._v(" (projectName) {")
+                  ]),
+                  _c("div", [
+                    _c("span", { staticClass: "comment" }, [_vm._v("// ...")])
+                  ]),
+                  _c("div", [_vm._v("});")])
+                ]),
+                _vm._v(" "),
+                _c("p", [
+                  _vm._v(
+                    "看起来很美好的实现方案，分析之后发现其仍然存在不少弊端，如："
+                  )
+                ]),
+                _vm._v(" "),
+                _c("ul", [
+                  _c("li", [
+                    _vm._v(
+                      "无论是 vuex 还是自定义事件，其监听都是全局的，也就是 View Model 被销毁时监听仍然存在，需要手动在 View Model 生命周期结束的时候解除监听；"
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c("li", [
+                    _vm._v(
+                      "每个 View Model 都需要进行监听、解除监听的重复操作，实现起来相对冗余；"
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c("li", [
+                    _vm._v(
+                      "事件处理相对分散，不利于排查问题，且后期维护成本较高"
+                    )
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("p", [
+                  _vm._v(
+                    "分析之后发现，此方案虽然可以很好的解决问题，粒度也较细，但是存在一些弊端，可以作为备选方案。"
+                  )
+                ]),
+                _vm._v(" "),
+                _c("h3", { attrs: { id: "3projectrouterviewmodel" } }, [
+                  _vm._v("3、project 切换后通过 router 去重载当前 View Model")
+                ]),
+                _vm._v(" "),
+                _c("p", [
+                  _vm._v(
+                    "此方案是借鉴了在 angular 项目中的经验，当 view 需要重载时，直接执行 "
+                  ),
+                  _c("code", [_vm._v("$route.reload()")]),
+                  _vm._v(" 即可重新初始化当前视图。")
+                ]),
+                _vm._v(" "),
+                _c("p", [
+                  _vm._v(
+                    "虽然重载 router 下整个 view 这种方案粒度较粗，但优势在于改动范围小，只需要在 project 切换时执行重载即可。"
+                  )
+                ]),
+                _vm._v(" "),
+                _c("p", [
+                  _vm._v(
+                    "可以算是一种简单、高效、易维护方案，在这三个方案中算是一个相对最优解。"
+                  )
+                ]),
+                _vm._v(" "),
+                _c("h2", { attrs: { id: "" } }, [
+                  _vm._v("问题就这样解决了 ？")
+                ]),
+                _vm._v(" "),
+                _c("p", [
+                  _vm._v("本以为到这儿问题就已经轻松愉快地解决了，在翻阅 "),
+                  _c(
+                    "a",
+                    { attrs: { href: "https://router.vuejs.org/zh-cn/" } },
+                    [_vm._v("vue-router文档")]
+                  ),
+                  _vm._v(" 后眉头一皱，却发现事情并不简单。")
+                ]),
+                _vm._v(" "),
+                _c("p", [_vm._v("因为 vue router 不支持 reload 方法。")]),
+                _vm._v(" "),
+                _c("p", [
+                  _vm._v(
+                    "按照惯例，这类使用场景较高 API 一般在 issue 中都会有人去反馈。于是小剧分别在 vue、vue-router 两个项目中去找反馈。"
+                  )
+                ]),
+                _vm._v(" "),
+                _c("p", [
+                  _vm._v(
+                    "结果正如小剧预料，有不少反馈表示需要 reload 或者替代方案。比较主流的讨论集中在这个 issue 中："
+                  ),
+                  _c(
+                    "a",
+                    {
+                      attrs: {
+                        href: "https://github.com/vuejs/vue-router/issues/296"
+                      }
+                    },
+                    [_vm._v("[Feature] #296")]
+                  ),
+                  _vm._v(" 「A reload method like location.reload() 」。")
+                ]),
+                _vm._v(" "),
+                _c("p", [
+                  _vm._v(
+                    "尤大神及其他 Contributor 均表示数据驱动的模型下不需要 reload 方法，更倾向于小剧前面提到的第二种方案。"
+                  )
+                ]),
+                _vm._v(" "),
+                _c("p", [
+                  _vm._v(
+                    "虽然听起来很有道理，但小剧还是想要可以直接 reload 的方法。"
+                  )
+                ]),
+                _vm._v(" "),
+                _c("h2", { attrs: { id: "routerreload" } }, [
+                  _vm._v("有哪些 router reload 的替代方法")
+                ]),
+                _vm._v(" "),
+                _c("p", [
+                  _vm._v(
+                    "终于到了点题的时候了，VUE 项目下如何重载当前 router 对应的视图？"
+                  )
+                ]),
+                _vm._v(" "),
+                _c("p", [
+                  _vm._v(
+                    "结合自己的思考和 issue 中其他同仁的讨论，小剧总结大致有这么几种方法可以作为替代："
+                  )
+                ]),
+                _vm._v(" "),
+                _c("ul", [
+                  _c("li", [_vm._v("简单粗暴型：location.reload")]),
+                  _vm._v(" "),
+                  _c("li", [
+                    _vm._v(
+                      "数据驱动型：通过将 View Model 的数据重置到初始化前来实现"
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c("li", [
+                    _vm._v(
+                      "曲线救国型：先将 history replace 至一个中转页面，再 replace 回最初页面"
+                    )
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("p", [
+                  _vm._v(
+                    "第一种方案可谓粗暴至极，单页应用中异步通信相对较多，刷新页面也会引起用户直观的刷新感知，因此不建议使用此操作。"
+                  )
+                ]),
+                _vm._v(" "),
+                _c("p", [
+                  _vm._v(
+                    "第二种方案看起来并无不妥，因为 vue 本身是数据驱动，控制了数据也就控制了视图表现，但是实际处理中却会丢失各个生命周期中进行的一些操作，因此也并不靠谱儿。"
+                  )
+                ]),
+                _vm._v(" "),
+                _c("p", [
+                  _vm._v(
+                    "第三种方案看起来略显猥琐，实际使用起来却非常简单，既不会增加额外的历史记录，也不存在体验上的问题。"
+                  )
+                ]),
+                _vm._v(" "),
+                _c("p", [
+                  _vm._v(
+                    "因此，在官方暂不提供 reload 方法支持的情况下，第三种方案可以视为最佳解决方案。"
+                  )
+                ]),
+                _vm._v(" "),
+                _c("h2", { attrs: { id: "" } }, [_vm._v("那该如何操作呢 ？")]),
+                _vm._v(" "),
+                _c("blockquote", [
+                  _c("p", [
+                    _vm._v(
+                      "曲线救国型：先将 history replace 至一个中转页面，再 replace 回最初页面"
+                    )
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("p", [
+                  _vm._v(
+                    "先来看下小剧上面的描述，简单来看其实只有两次跳转而已，关键点在于跳转方法的选用上。push 方法会在浏览器的历史记录中增加一次访问记录，而 replace 不会。我们引入的这一次跳转本质上不希望引起用户的感知，所以 replace 方法在这里再合适不过了。"
+                  )
+                ]),
+                _vm._v(" "),
+                _c("p", [
+                  _vm._v("另外就是中转页的处理上，如果你配置了通配符 "),
+                  _c("code", [_vm._v("path: '*'")]),
+                  _vm._v(
+                    " 并且有重定向，那么中转页的 path 必须在路由中做对应配置。如果没有，中转页的 path 你可以写路由配置中任何不存在的路径。"
+                  )
+                ]),
+                _vm._v(" "),
+                _c("p", [
+                  _vm._v(
+                    "还有就是两次 replace 操作在一个调用栈中进行，而且开始和结束的 path 也相同，极大可能会被浏览器忽略，所以可以引入一个定时器进行延时操作。"
+                  )
+                ]),
+                _vm._v(" "),
+                _c("p", [_vm._v("方法大致如下方代码所示。")]),
+                _vm._v(" "),
+                _c("div", { staticClass: "highlight javascript" }, [
+                  _c("div", [
+                    _c("span", { staticClass: "keywords" }, [
+                      _vm._v("function")
+                    ]),
+                    _vm._v(" reloadRoute($router) {")
+                  ]),
+                  _c("div", [
+                    _c("span", { staticClass: "keywords" }, [_vm._v("var")]),
+                    _vm._v(" curruntPath = $router.history.current.fullPath;")
+                  ]),
+                  _c("div", [
+                    _vm._v("  $router."),
+                    _c("span", { staticClass: "keywords" }, [
+                      _vm._v("replace")
+                    ]),
+                    _vm._v("({")
+                  ]),
+                  _c("div", [
+                    _vm._v("    path: "),
+                    _c("span", { staticClass: "string" }, [_vm._v("'/_empty'")])
+                  ]),
+                  _c("div", [_vm._v("  });")]),
+                  _c("div", [
+                    _c("span", { staticClass: "global" }, [
+                      _vm._v("setTimeout")
+                    ]),
+                    _vm._v("("),
+                    _c("span", { staticClass: "keywords" }, [
+                      _vm._v("function")
+                    ]),
+                    _vm._v(" () {")
+                  ]),
+                  _c("div", [
+                    _vm._v("    $router."),
+                    _c("span", { staticClass: "keywords" }, [
+                      _vm._v("replace")
+                    ]),
+                    _vm._v("({")
+                  ]),
+                  _c("div", [_vm._v("      path: curruntPath")]),
+                  _c("div", [_vm._v("    });")]),
+                  _c("div", [_vm._v("  });")]),
+                  _c("div", [_vm._v("}")])
+                ]),
+                _vm._v(" "),
+                _c("p", [
+                  _vm._v(
+                    "写到这儿，我们已经解决了 VUE 项目下重载当前 router 对应的视图的问题，猥琐但有效。"
+                  )
+                ]),
+                _vm._v(" "),
+                _c("hr"),
+                _vm._v(" "),
+                _c("p", [
+                  _vm._v("PS：视图重载这类需求的场景其实蛮多的，举几个例子：")
+                ]),
+                _vm._v(" "),
+                _c("ul", [
+                  _c("li", [_vm._v("本文列举的 project 切换的场景")]),
+                  _vm._v(" "),
+                  _c("li", [
+                    _vm._v("全局刷新交互，如设计可用于强制刷新内容的按钮")
+                  ]),
+                  _vm._v(" "),
+                  _c("li", [
+                    _vm._v(
+                      "一个登录、匿名均可访问的应用，在弹窗登录后统一刷新当前视图"
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c("li", [
+                    _vm._v("其他因全局、基础数据变动而需要刷新视图的场景")
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("p", [_vm._v("最后，期待官方提供 reload 方法。")])
+              ]),
+              _vm._v(" "),
+              _c(
+                "div",
+                {
+                  staticClass: "sns-share",
+                  attrs: {
+                    "data-text":
+                      "今天小剧来分享在使用 vue 时遇到一个问题，困扰小剧比较长时间。概括下来就是：vue 项目如何在不修改 URL 的前提下主动 reload 当前 router？",
+                    "data-url": "http://bh-lay.com/blog/15f0084b4b0",
+                    "data-title": "VUE如何重载当前视图",
+                    "data-img": ""
+                  }
+                },
+                [
+                  _c(
+                    "a",
+                    {
+                      attrs: {
+                        href: "#",
+                        title: "分享至新浪微博",
+                        "data-shareto": "weibo"
+                      }
+                    },
+                    [
+                      _c("i", { staticClass: "l-icon l-icon-weibo" }),
+                      _vm._v(" "),
+                      _c("span", [_vm._v("分享")])
+                    ]
+                  )
+                ]
+              )
+            ])
+          ])
+        ])
+      ])
+    ])
+  }
+]
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-6fb08288", module.exports)
+  }
+}
+
+/***/ }),
+/* 46 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 47 */,
+/* 48 */,
+/* 49 */,
+/* 50 */,
+/* 51 */,
+/* 52 */,
+/* 53 */,
+/* 54 */,
+/* 55 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+function injectStyle (ssrContext) {
+  if (disposed) return
+  __webpack_require__(56)
+}
+var normalizeComponent = __webpack_require__(2)
+/* script */
+var __vue_script__ = __webpack_require__(58)
+/* template */
+var __vue_template__ = __webpack_require__(59)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = injectStyle
+/* scopeId */
+var __vue_scopeId__ = "data-v-28f9f3e8"
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/assets/js/components/navigation/navigation.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-28f9f3e8", Component.options)
+  } else {
+    hotAPI.reload("data-v-28f9f3e8", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 56 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(57);
+if(typeof content === 'string') content = [[module.i, content, '']];
+if(content.locals) module.exports = content.locals;
+// add the styles to the DOM
+var update = __webpack_require__(1)("7ecdaf7c", content, false);
+// Hot Module Replacement
+if(false) {
+ // When the styles change, update the <style> tags
+ if(!content.locals) {
+   module.hot.accept("!!../../../../../node_modules/css-loader/index.js!../../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-28f9f3e8\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../../node_modules/stylus-loader/index.js!../../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./navigation.vue", function() {
+     var newContent = require("!!../../../../../node_modules/css-loader/index.js!../../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-28f9f3e8\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../../node_modules/stylus-loader/index.js!../../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./navigation.vue");
+     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+     update(newContent);
+   });
+ }
+ // When the module is disposed, remove the <style> tags
+ module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+/* 57 */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(0)(false);
+// imports
+
+
+// module
+exports.push([module.i, "\n.navigation[data-v-28f9f3e8] {\n  position: fixed;\n  top: 0;\n  left: 0;\n  width: 100%;\n  z-index: 1;\n  background: #fff;\n}\n.navigation .nav-item[data-v-28f9f3e8] {\n  position: relative;\n  width: 100%;\n  height: 100%;\n  margin: 0 auto;\n  -webkit-box-shadow: 0px 1px 11px 2px rgba(42,42,42,0.1);\n          box-shadow: 0px 1px 11px 2px rgba(42,42,42,0.1);\n  display: none;\n  -webkit-transition: all 0.3s ease-out;\n  transition: all 0.3s ease-out;\n}\n.navigation .nav-item.show[data-v-28f9f3e8] {\n  display: block;\n}\n.navigation .nav-item .navigation-left[data-v-28f9f3e8] {\n  height: 55px;\n  text-align: center;\n  line-height: 55px;\n}\n.navigation .nav-item .navigation-left a[data-v-28f9f3e8] {\n  display: inline-block;\n  font-size: 18px;\n  font-weight: 700;\n}\n.navigation .nav-item .navigation-right[data-v-28f9f3e8] {\n  margin: 10px 80px 20px;\n  text-align: center;\n}\n.navigation .nav-item .navigation-right .nav-list[data-v-28f9f3e8] {\n  display: block;\n  height: 40px;\n  line-height: 40px;\n  padding: 0 20px;\n  text-align: center;\n  font-size: 14px;\n  color: #333;\n}\n.navigation .nav-item .navigation-right .nav-list[data-v-28f9f3e8]:hover {\n  color: #ff9800;\n}\n.navigation .nav-item .navigation-right .nav-list.router-link-active[data-v-28f9f3e8] {\n  border-bottom: 2px solid #ff9800;\n  color: #ff9800;\n}\n.navigation .nav-more-btn[data-v-28f9f3e8] {\n  position: absolute;\n  top: 10px;\n  left: 10px;\n  width: 42px;\n  height: 42px;\n  border-radius: 4px;\n  -webkit-box-shadow: 1px 1px 4px rgba(0,0,0,0.2);\n          box-shadow: 1px 1px 4px rgba(0,0,0,0.2);\n  z-index: 1;\n  background: #fff;\n}\n.navigation .nav-more-btn>i[data-v-28f9f3e8] {\n  position: absolute;\n  left: 8px;\n  display: block;\n  width: 26px;\n  height: 4px;\n  -webkit-transition: all 0.2s linear;\n  transition: all 0.2s linear;\n  border-radius: 4px;\n  background: #444;\n}\n.navigation .nav-more-btn>i[data-v-28f9f3e8]:first-child {\n  top: 10px;\n}\n.navigation .nav-more-btn>i[data-v-28f9f3e8]:nth-child(2) {\n  top: 19px;\n}\n.navigation .nav-more-btn>i[data-v-28f9f3e8]:nth-child(3) {\n  top: 28px;\n}\n.navigation .nav-more-btn .first[data-v-28f9f3e8] {\n  -webkit-transform: translateY(9px) rotate(-45deg);\n          transform: translateY(9px) rotate(-45deg);\n}\n.navigation .nav-more-btn .second[data-v-28f9f3e8] {\n  opacity: 0;\n}\n.navigation .nav-more-btn .three[data-v-28f9f3e8] {\n  -webkit-transform: translateY(-9px) rotate(45deg);\n          transform: translateY(-9px) rotate(45deg);\n}\n@media screen and (min-width: 768px) {\n.navigation[data-v-28f9f3e8] {\n    height: 58px;\n    -webkit-box-shadow: 0px 1px 11px 2px rgba(42,42,42,0.1);\n            box-shadow: 0px 1px 11px 2px rgba(42,42,42,0.1);\n    border-top: 4px solid #ff9800;\n    background: #fff;\n}\n.navigation .nav-item[data-v-28f9f3e8] {\n    width: 750px;\n    -webkit-box-shadow: none;\n            box-shadow: none;\n    display: block;\n}\n.navigation .nav-item .navigation-left[data-v-28f9f3e8] {\n    float: left;\n    height: 58px;\n    line-height: 58px;\n}\n.navigation .nav-item .navigation-left a[data-v-28f9f3e8] {\n    display: block;\n}\n.navigation .nav-item .navigation-right[data-v-28f9f3e8] {\n    margin: 0;\n    float: right;\n    font-size: 0;\n}\n.navigation .nav-item .navigation-right .nav-list[data-v-28f9f3e8] {\n    display: inline-block;\n    height: 56px;\n    line-height: 55px;\n}\n.navigation .nav-more-btn[data-v-28f9f3e8] {\n    display: none;\n}\n}\n@media screen and (min-width: 992px) {\n.navigation .nav-item[data-v-28f9f3e8] {\n    width: 970px;\n}\n}\n@media screen and (min-width: 1200px) {\n.navigation .nav-item[data-v-28f9f3e8] {\n    width: 1170px;\n}\n}\n", ""]);
+
+// exports
+
+
+/***/ }),
+/* 58 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  data: function data() {
+    return {
+      first: false,
+      second: false,
+      three: false,
+      showNavigation: false
+    };
+  },
+
+  methods: {
+    showNav: function showNav() {
+      this.first = !this.first;
+      this.showNavigation = !this.showNavigation;
+    }
+  }
+});
+
+/***/ }),
+/* 59 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "navigation" }, [
+    _c(
+      "div",
+      { staticClass: "nav-item", class: { show: _vm.showNavigation } },
+      [
+        _c(
+          "div",
+          { staticClass: "navigation-left" },
+          [
+            _c("router-link", { attrs: { to: "/" } }, [
+              _vm._v("XueCong's blog")
+            ])
+          ],
+          1
+        ),
+        _vm._v(" "),
+        _c(
+          "div",
+          { staticClass: "navigation-right" },
+          [
+            _c(
+              "router-link",
+              { staticClass: "nav-list", attrs: { to: "/blog" } },
+              [_vm._v("博文")]
+            ),
+            _vm._v(" "),
+            _c(
+              "a",
+              {
+                staticClass: "nav-list",
+                attrs: {
+                  href:
+                    "https://weibo.com/3090183841/profile?topnav=1&wvr=6&is_all=1",
+                  target: "_blank"
+                }
+              },
+              [_vm._v("微博")]
+            ),
+            _vm._v(" "),
+            _c(
+              "a",
+              {
+                staticClass: "nav-list",
+                attrs: { href: "https://github.com/overxue", target: "_blank" }
+              },
+              [_vm._v("GitHub")]
+            ),
+            _vm._v(" "),
+            _c(
+              "router-link",
+              { staticClass: "nav-list", attrs: { to: "/me" } },
+              [_vm._v("关于我")]
+            )
+          ],
+          1
+        )
+      ]
+    ),
+    _vm._v(" "),
+    _c("div", { staticClass: "nav-more-btn", on: { click: _vm.showNav } }, [
+      _c("i", { class: { first: _vm.first } }),
+      _vm._v(" "),
+      _c("i", { class: { second: _vm.first } }),
+      _vm._v(" "),
+      _c("i", { class: { three: _vm.first } })
+    ])
+  ])
+}
+var staticRenderFns = []
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-28f9f3e8", module.exports)
+  }
+}
 
 /***/ })
 /******/ ]);

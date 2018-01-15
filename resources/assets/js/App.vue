@@ -1,11 +1,18 @@
 <template>
   <div id="app">
+    <navigation></navigation>
     <router-view></router-view>
   </div>
 </template>
 
 <script type="text/ecmascript-6">
-  export default {}
+  import Navigation from 'components/navigation/navigation'
+
+  export default {
+    components: {
+      Navigation
+    }
+  }
 </script>
 
 <style scoped lang="stylus" rel="stylesheet/stylus">

@@ -47,6 +47,7 @@
     height: 100vh
     overflow: hidden
     background: #fff
+    z-index: 3
     #particles
       position: absolute
       width: 100%
@@ -61,7 +62,7 @@
       flex-direction: column
       align-items: center
       justify-content: center
-      z-index: 1
+      z-index: 3
       text-align: center
       .avatar
         margin-bottom: 20px
