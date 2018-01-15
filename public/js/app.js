@@ -11438,7 +11438,7 @@ exports = module.exports = __webpack_require__(0)(false);
 
 
 // module
-exports.push([module.i, "", ""]);
+exports.push([module.i, "\n#app[data-v-66ab2f82] {\n  height: 100%;\n}\n", ""]);
 
 // exports
 
@@ -11967,6 +11967,9 @@ process.umask = function() { return 0; };
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_components_blog_blog___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_components_blog_blog__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_components_me_me__ = __webpack_require__(35);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_components_me_me___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_components_me_me__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_components_test_test__ = __webpack_require__(44);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_components_test_test___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5_components_test_test__);
+
 
 
 
@@ -11985,6 +11988,9 @@ __WEBPACK_IMPORTED_MODULE_0_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_1_vue_
   }, {
     path: '/me',
     component: __WEBPACK_IMPORTED_MODULE_4_components_me_me___default.a
+  }, {
+    path: '/test',
+    component: __WEBPACK_IMPORTED_MODULE_5_components_test_test___default.a
   }]
 }));
 
@@ -16669,7 +16675,7 @@ exports = module.exports = __webpack_require__(0)(false);
 
 
 // module
-exports.push([module.i, "\n.blog .nav[data-v-df367330] {\n  position: fixed;\n  top: 0;\n  left: 0;\n  width: 100%;\n  z-index: 1;\n  background: #fff;\n}\n.blog .nav .nav-item[data-v-df367330] {\n  position: relative;\n  width: 100%;\n  height: 100%;\n  margin: 0 auto;\n  -webkit-box-shadow: 0px 1px 11px 2px rgba(42,42,42,0.1);\n          box-shadow: 0px 1px 11px 2px rgba(42,42,42,0.1);\n  display: none;\n  -webkit-transition: all 0.3s ease-out;\n  transition: all 0.3s ease-out;\n}\n.blog .nav .nav-item.show[data-v-df367330] {\n  display: block;\n}\n.blog .nav .nav-item .navigation-left[data-v-df367330] {\n  height: 55px;\n  text-align: center;\n  line-height: 55px;\n}\n.blog .nav .nav-item .navigation-left a[data-v-df367330] {\n  display: inline-block;\n  font-size: 18px;\n  font-weight: 700;\n}\n.blog .nav .nav-item .navigation-right[data-v-df367330] {\n  margin: 10px 80px 20px;\n  text-align: center;\n}\n.blog .nav .nav-item .navigation-right .nav-list[data-v-df367330] {\n  display: block;\n  height: 40px;\n  line-height: 40px;\n  padding: 0 20px;\n  text-align: center;\n  font-size: 14px;\n  color: #333;\n}\n.blog .nav .nav-item .navigation-right .nav-list[data-v-df367330]:hover {\n  color: #ff9800;\n}\n.blog .nav .nav-item .navigation-right .nav-list.router-link-active[data-v-df367330] {\n  border-bottom: 2px solid #ff9800;\n  color: #ff9800;\n}\n.blog .nav .nav-more-btn[data-v-df367330] {\n  position: absolute;\n  top: 10px;\n  left: 10px;\n  width: 42px;\n  height: 42px;\n  border-radius: 4px;\n  -webkit-box-shadow: 1px 1px 4px rgba(0,0,0,0.2);\n          box-shadow: 1px 1px 4px rgba(0,0,0,0.2);\n  z-index: 1;\n  background: #fff;\n}\n.blog .nav .nav-more-btn>i[data-v-df367330] {\n  position: absolute;\n  left: 8px;\n  display: block;\n  width: 26px;\n  height: 4px;\n  -webkit-transition: all 0.2s linear;\n  transition: all 0.2s linear;\n  border-radius: 4px;\n  background: #444;\n}\n.blog .nav .nav-more-btn>i[data-v-df367330]:first-child {\n  top: 10px;\n}\n.blog .nav .nav-more-btn>i[data-v-df367330]:nth-child(2) {\n  top: 19px;\n}\n.blog .nav .nav-more-btn>i[data-v-df367330]:nth-child(3) {\n  top: 28px;\n}\n.blog .nav .nav-more-btn .first[data-v-df367330] {\n  -webkit-transform: translateY(9px) rotate(-45deg);\n          transform: translateY(9px) rotate(-45deg);\n}\n.blog .nav .nav-more-btn .second[data-v-df367330] {\n  opacity: 0;\n}\n.blog .nav .nav-more-btn .three[data-v-df367330] {\n  -webkit-transform: translateY(-9px) rotate(45deg);\n          transform: translateY(-9px) rotate(45deg);\n}\n.blog .pages .header[data-v-df367330] {\n  position: relative;\n  padding: 75px 0 20px;\n  background: #fafafa;\n}\n.blog .pages .header[data-v-df367330]:before {\n  content: \"\";\n  position: absolute;\n  left: 0;\n  bottom: 0;\n  width: 100%;\n  height: 50px;\n  background: #fff;\n  background-image: -webkit-gradient(linear, left top, left bottom, from(#fafafa), to(#fff));\n  background-image: linear-gradient(#fafafa, #fff);\n}\n.blog .pages .header .mac[data-v-df367330] {\n  position: relative;\n  width: 15rem;\n  height: 7.5rem;\n  margin: auto;\n  padding-top: 1.5rem;\n  text-align: center;\n  background: #fafafa;\n  background: -webkit-gradient(linear, left top, right bottom, from(#fff), to(#eee));\n  background: linear-gradient(to right bottom, #fff, #eee);\n  border: 6px solid #222;\n  border-width: 6px 6px 8px;\n  border-radius: 8px 8px 0 0;\n}\n.blog .pages .header .mac[data-v-df367330]:after {\n  content: \"\";\n  position: absolute;\n  width: 134%;\n  left: -17%;\n  bottom: -14px;\n  height: 6px;\n  border-radius: 0 0 40px 40px/0 0 5px 5px;\n  background: #ccc;\n}\n.blog .pages .header .mac .logo[data-v-df367330] {\n  margin-bottom: 10px;\n  font-size: 3.5rem;\n  color: #000;\n}\n.blog .pages .header .mac .logo .l-icon[data-v-df367330] {\n  font-family: layIcon;\n  font-style: normal;\n}\n.blog .pages .header .mac .logo .l-icon[data-v-df367330]:after {\n  content: \"E\";\n}\n.blog .pages .header .mac p[data-v-df367330] {\n  font-size: 1rem;\n  color: #333;\n}\n.blog .pages .articleListPage-tags-cnt[data-v-df367330] {\n  margin-bottom: 20px;\n}\n.blog .pages .articleListPage-tags-cnt .articleListPage-tags[data-v-df367330] {\n  position: static !important;\n  width: 100%;\n  background: #fff;\n  border-bottom: 1px solid #c4cdd4;\n  z-index: 5;\n}\n.blog .pages .articleListPage-tags-cnt .articleListPage-tags .grid-row[data-v-df367330] {\n  width: 100%;\n  position: relative;\n  margin: auto;\n  zoom: 1;\n  -webkit-transition: all 0.3s ease-out;\n  transition: all 0.3s ease-out;\n}\n.blog .pages .articleListPage-tags-cnt .articleListPage-tags .grid-row[data-v-df367330]:after {\n  content: \".\";\n  display: block;\n  height: 0;\n  clear: both;\n  visibility: hidden;\n}\n.blog .pages .articleListPage-tags-cnt .articleListPage-tags .grid-row .content[data-v-df367330] {\n  padding: 12px 0 5px 10px;\n}\n.blog .pages .articleListPage-tags-cnt .articleListPage-tags .grid-row .content a[data-v-df367330] {\n  position: relative;\n  display: inline-block;\n  max-width: 100%;\n  height: 24px;\n  margin: 0 10px 5px 0;\n  line-height: 24px;\n  padding: 0 8px 0 18px;\n  border-radius: 0 4px 4px 0;\n  background: #eee;\n  font-size: 12px;\n  color: #333;\n  overflow: hidden;\n  text-overflow: ellipsis;\n  white-space: nowrap;\n  -webkit-box-sizing: border-box;\n          box-sizing: border-box;\n}\n.blog .pages .articleListPage-tags-cnt .articleListPage-tags .grid-row .content a[data-v-df367330]:before {\n  position: absolute;\n  content: \"\";\n  top: 0;\n  left: 0;\n  width: 0;\n  height: 0;\n  border-width: 12px 12px 12px 0;\n  border-color: #fff transparent;\n  border-style: solid;\n}\n.blog .pages .articleListPage-tags-cnt .articleListPage-tags .grid-row .content a[data-v-df367330]:after {\n  position: absolute;\n  content: \"\";\n  width: 4px;\n  height: 4px;\n  top: 10px;\n  left: 8px;\n  border-radius: 100%;\n  background: #fff;\n}\n.blog .pages .articleListPage-tags-cnt .articleListPage-tags .grid-row .content a.active[data-v-df367330] {\n  background: #f70;\n  color: #fff;\n}\n.blog .pages .article[data-v-df367330] {\n  margin: 0 10px;\n}\n.blog .pages .article .article-item[data-v-df367330] {\n  margin-bottom: 20px;\n}\n.blog .pages .article .article-item .article-list[data-v-df367330] {\n  background: #fff;\n  padding: 20px;\n  margin-bottom: 20px;\n}\n.blog .pages .article .article-item .article-list .title[data-v-df367330] {\n  line-height: 20px;\n}\n.blog .pages .article .article-item .article-list .title a[data-v-df367330] {\n  font-size: 20px;\n  font-weight: 600;\n  color: #3d464d !important;\n}\n.blog .pages .article .article-item .article-list .introduction[data-v-df367330] {\n  margin: 10px 0;\n}\n.blog .pages .article .article-item .article-list .readmore[data-v-df367330] {\n  width: 80px;\n  line-height: 40px;\n  margin-top: 10px;\n  text-align: center;\n}\n@media screen and (min-width: 768px) {\n.blog .nav[data-v-df367330] {\n    height: 58px;\n    -webkit-box-shadow: 0px 1px 11px 2px rgba(42,42,42,0.1);\n            box-shadow: 0px 1px 11px 2px rgba(42,42,42,0.1);\n    border-top: 4px solid #ff9800;\n    background: #fff;\n}\n.blog .nav .nav-item[data-v-df367330] {\n    width: 750px;\n    -webkit-box-shadow: none;\n            box-shadow: none;\n    display: block;\n}\n.blog .nav .nav-item .navigation-left[data-v-df367330] {\n    float: left;\n    height: 58px;\n    line-height: 58px;\n}\n.blog .nav .nav-item .navigation-left a[data-v-df367330] {\n    display: block;\n}\n.blog .nav .nav-item .navigation-right[data-v-df367330] {\n    margin: 0;\n    float: right;\n    font-size: 0;\n}\n.blog .nav .nav-item .navigation-right .nav-list[data-v-df367330] {\n    display: inline-block;\n    height: 56px;\n    line-height: 55px;\n}\n.blog .nav .nav-more-btn[data-v-df367330] {\n    display: none;\n}\n.blog .pages .articleListPage-tags-cnt .articleListPage-tags .grid-row[data-v-df367330] {\n    width: 750px;\n}\n.blog .pages .article[data-v-df367330] {\n    margin: 0 auto;\n    width: 750px;\n}\n.blog .pages .article .article-item .article-list[data-v-df367330] {\n    padding: 20px 40px 20px 20px;\n}\n}\n@media screen and (min-width: 992px) {\n.blog .nav .nav-item[data-v-df367330] {\n    width: 970px;\n}\n.blog .pages .articleListPage-tags-cnt .articleListPage-tags .grid-row[data-v-df367330] {\n    width: 970px;\n}\n.blog .pages .article[data-v-df367330] {\n    margin: 0 auto;\n    width: 970px;\n}\n.blog .pages .article .article-item .article-list[data-v-df367330] {\n    padding: 20px 40px 20px 20px;\n}\n}\n@media screen and (min-width: 1200px) {\n.blog .nav .nav-item[data-v-df367330] {\n    width: 1170px;\n}\n.blog .pages .articleListPage-tags-cnt .articleListPage-tags .grid-row[data-v-df367330] {\n    width: 1170px;\n}\n.blog .pages .article[data-v-df367330] {\n    margin: 0 auto;\n    width: 1170px;\n}\n.blog .pages .article .article-item .article-list[data-v-df367330] {\n    padding: 20px 40px 20px 20px;\n}\n}\n", ""]);
+exports.push([module.i, "\n.blog[data-v-df367330] {\n  min-height: 100%;\n  margin: 0;\n  padding: 0;\n  position: relative;\n}\n.blog .nav[data-v-df367330] {\n  position: fixed;\n  top: 0;\n  left: 0;\n  width: 100%;\n  z-index: 1;\n  background: #fff;\n}\n.blog .nav .nav-item[data-v-df367330] {\n  position: relative;\n  width: 100%;\n  height: 100%;\n  margin: 0 auto;\n  -webkit-box-shadow: 0px 1px 11px 2px rgba(42,42,42,0.1);\n          box-shadow: 0px 1px 11px 2px rgba(42,42,42,0.1);\n  display: none;\n  -webkit-transition: all 0.3s ease-out;\n  transition: all 0.3s ease-out;\n}\n.blog .nav .nav-item.show[data-v-df367330] {\n  display: block;\n}\n.blog .nav .nav-item .navigation-left[data-v-df367330] {\n  height: 55px;\n  text-align: center;\n  line-height: 55px;\n}\n.blog .nav .nav-item .navigation-left a[data-v-df367330] {\n  display: inline-block;\n  font-size: 18px;\n  font-weight: 700;\n}\n.blog .nav .nav-item .navigation-right[data-v-df367330] {\n  margin: 10px 80px 20px;\n  text-align: center;\n}\n.blog .nav .nav-item .navigation-right .nav-list[data-v-df367330] {\n  display: block;\n  height: 40px;\n  line-height: 40px;\n  padding: 0 20px;\n  text-align: center;\n  font-size: 14px;\n  color: #333;\n}\n.blog .nav .nav-item .navigation-right .nav-list[data-v-df367330]:hover {\n  color: #ff9800;\n}\n.blog .nav .nav-item .navigation-right .nav-list.router-link-active[data-v-df367330] {\n  border-bottom: 2px solid #ff9800;\n  color: #ff9800;\n}\n.blog .nav .nav-more-btn[data-v-df367330] {\n  position: absolute;\n  top: 10px;\n  left: 10px;\n  width: 42px;\n  height: 42px;\n  border-radius: 4px;\n  -webkit-box-shadow: 1px 1px 4px rgba(0,0,0,0.2);\n          box-shadow: 1px 1px 4px rgba(0,0,0,0.2);\n  z-index: 1;\n  background: #fff;\n}\n.blog .nav .nav-more-btn>i[data-v-df367330] {\n  position: absolute;\n  left: 8px;\n  display: block;\n  width: 26px;\n  height: 4px;\n  -webkit-transition: all 0.2s linear;\n  transition: all 0.2s linear;\n  border-radius: 4px;\n  background: #444;\n}\n.blog .nav .nav-more-btn>i[data-v-df367330]:first-child {\n  top: 10px;\n}\n.blog .nav .nav-more-btn>i[data-v-df367330]:nth-child(2) {\n  top: 19px;\n}\n.blog .nav .nav-more-btn>i[data-v-df367330]:nth-child(3) {\n  top: 28px;\n}\n.blog .nav .nav-more-btn .first[data-v-df367330] {\n  -webkit-transform: translateY(9px) rotate(-45deg);\n          transform: translateY(9px) rotate(-45deg);\n}\n.blog .nav .nav-more-btn .second[data-v-df367330] {\n  opacity: 0;\n}\n.blog .nav .nav-more-btn .three[data-v-df367330] {\n  -webkit-transform: translateY(-9px) rotate(45deg);\n          transform: translateY(-9px) rotate(45deg);\n}\n.blog .pages[data-v-df367330] {\n  position: relative;\n  padding-bottom: 60px;\n}\n.blog .pages .header[data-v-df367330] {\n  position: relative;\n  padding: 75px 0 20px;\n  background: #fafafa;\n}\n.blog .pages .header[data-v-df367330]:before {\n  content: \"\";\n  position: absolute;\n  left: 0;\n  bottom: 0;\n  width: 100%;\n  height: 50px;\n  background: #fff;\n  background-image: -webkit-gradient(linear, left top, left bottom, from(#fafafa), to(#fff));\n  background-image: linear-gradient(#fafafa, #fff);\n}\n.blog .pages .header .mac[data-v-df367330] {\n  position: relative;\n  width: 15rem;\n  height: 7.5rem;\n  margin: auto;\n  padding-top: 1.5rem;\n  text-align: center;\n  background: #fafafa;\n  background: -webkit-gradient(linear, left top, right bottom, from(#fff), to(#eee));\n  background: linear-gradient(to right bottom, #fff, #eee);\n  border: 6px solid #222;\n  border-width: 6px 6px 8px;\n  border-radius: 8px 8px 0 0;\n}\n.blog .pages .header .mac[data-v-df367330]:after {\n  content: \"\";\n  position: absolute;\n  width: 134%;\n  left: -17%;\n  bottom: -14px;\n  height: 6px;\n  border-radius: 0 0 40px 40px/0 0 5px 5px;\n  background: #ccc;\n}\n.blog .pages .header .mac .logo[data-v-df367330] {\n  margin-bottom: 10px;\n  font-size: 3.5rem;\n  color: #000;\n}\n.blog .pages .header .mac .logo .l-icon[data-v-df367330] {\n  font-family: layIcon;\n  font-style: normal;\n}\n.blog .pages .header .mac .logo .l-icon[data-v-df367330]:after {\n  content: \"E\";\n}\n.blog .pages .header .mac p[data-v-df367330] {\n  font-size: 1rem;\n  color: #333;\n}\n.blog .pages .articleListPage-tags-cnt[data-v-df367330] {\n  margin-bottom: 20px;\n}\n.blog .pages .articleListPage-tags-cnt .articleListPage-tags[data-v-df367330] {\n  position: static !important;\n  width: 100%;\n  background: #fff;\n  border-bottom: 1px solid #c4cdd4;\n  z-index: 5;\n}\n.blog .pages .articleListPage-tags-cnt .articleListPage-tags .grid-row[data-v-df367330] {\n  width: 100%;\n  position: relative;\n  margin: auto;\n  zoom: 1;\n  -webkit-transition: all 0.3s ease-out;\n  transition: all 0.3s ease-out;\n}\n.blog .pages .articleListPage-tags-cnt .articleListPage-tags .grid-row[data-v-df367330]:after {\n  content: \".\";\n  display: block;\n  height: 0;\n  clear: both;\n  visibility: hidden;\n}\n.blog .pages .articleListPage-tags-cnt .articleListPage-tags .grid-row .content[data-v-df367330] {\n  padding: 12px 0 5px 10px;\n}\n.blog .pages .articleListPage-tags-cnt .articleListPage-tags .grid-row .content a[data-v-df367330] {\n  position: relative;\n  display: inline-block;\n  max-width: 100%;\n  height: 24px;\n  margin: 0 10px 5px 0;\n  line-height: 24px;\n  padding: 0 8px 0 18px;\n  border-radius: 0 4px 4px 0;\n  background: #eee;\n  font-size: 12px;\n  color: #333;\n  overflow: hidden;\n  text-overflow: ellipsis;\n  white-space: nowrap;\n  -webkit-box-sizing: border-box;\n          box-sizing: border-box;\n}\n.blog .pages .articleListPage-tags-cnt .articleListPage-tags .grid-row .content a[data-v-df367330]:before {\n  position: absolute;\n  content: \"\";\n  top: 0;\n  left: 0;\n  width: 0;\n  height: 0;\n  border-width: 12px 12px 12px 0;\n  border-color: #fff transparent;\n  border-style: solid;\n}\n.blog .pages .articleListPage-tags-cnt .articleListPage-tags .grid-row .content a[data-v-df367330]:after {\n  position: absolute;\n  content: \"\";\n  width: 4px;\n  height: 4px;\n  top: 10px;\n  left: 8px;\n  border-radius: 100%;\n  background: #fff;\n}\n.blog .pages .articleListPage-tags-cnt .articleListPage-tags .grid-row .content a.active[data-v-df367330] {\n  background: #f70;\n  color: #fff;\n}\n.blog .pages .article[data-v-df367330] {\n  margin: 0 10px;\n}\n.blog .pages .article .article-item[data-v-df367330] {\n  margin-bottom: 20px;\n}\n.blog .pages .article .article-item .article-list[data-v-df367330] {\n  position: relative;\n  background: #fff;\n  padding: 20px;\n  margin-bottom: 20px;\n}\n.blog .pages .article .article-item .article-list .label[data-v-df367330] {\n  position: absolute;\n  top: 0;\n  right: 0;\n  width: 30px;\n  height: 30px;\n  background: #f70;\n  -webkit-box-shadow: -1px 1px 2px #000;\n          box-shadow: -1px 1px 2px #000;\n}\n.blog .pages .article .article-item .article-list .label[data-v-df367330]:before {\n  position: absolute;\n  content: \"\";\n  width: 0;\n  height: 0;\n  top: 0;\n  right: 0;\n  border: 1px solid #fff;\n  border-width: 0 30px 30px 0;\n  border-color: transparent transparent #fff;\n}\n.blog .pages .article .article-item .article-list .label span[data-v-df367330] {\n  position: absolute;\n  display: block;\n  top: 0;\n  right: 0;\n  width: 100%;\n  height: 100%;\n  -webkit-transform: rotate(45deg) scale(0.8);\n  transform: rotate(45deg) scale(0.8);\n  text-align: center;\n  line-height: 15px;\n  color: #fff;\n}\n.blog .pages .article .article-item .article-list .title[data-v-df367330] {\n  line-height: 20px;\n}\n.blog .pages .article .article-item .article-list .title a[data-v-df367330] {\n  font-size: 20px;\n  font-weight: 600;\n  color: #3d464d !important;\n}\n.blog .pages .article .article-item .article-list .introduction[data-v-df367330] {\n  margin: 15px 0;\n}\n.blog .pages .article .article-item .article-list .introduction .icon-user[data-v-df367330],\n.blog .pages .article .article-item .article-list .introduction .icon-clock[data-v-df367330],\n.blog .pages .article .article-item .article-list .introduction .icon-eye[data-v-df367330] {\n  color: #95a5a6;\n  font-size: 14px;\n  line-height: 14px;\n  margin-right: 10px;\n}\n.blog .pages .article .article-item .article-list .introduction .icon-user .user[data-v-df367330],\n.blog .pages .article .article-item .article-list .introduction .icon-clock .user[data-v-df367330],\n.blog .pages .article .article-item .article-list .introduction .icon-eye .user[data-v-df367330],\n.blog .pages .article .article-item .article-list .introduction .icon-user .time[data-v-df367330],\n.blog .pages .article .article-item .article-list .introduction .icon-clock .time[data-v-df367330],\n.blog .pages .article .article-item .article-list .introduction .icon-eye .time[data-v-df367330],\n.blog .pages .article .article-item .article-list .introduction .icon-user .view[data-v-df367330],\n.blog .pages .article .article-item .article-list .introduction .icon-clock .view[data-v-df367330],\n.blog .pages .article .article-item .article-list .introduction .icon-eye .view[data-v-df367330] {\n  margin-left: 5px;\n  font-size: 14px;\n  line-height: 14px;\n}\n.blog .pages .article .article-item .article-list .readmore[data-v-df367330] {\n  width: 100%;\n  margin-top: 15px;\n  margin-bottom: 30px;\n}\n.blog .pages .article .article-item .article-list .readmore .left[data-v-df367330] {\n  float: left;\n}\n.blog .pages .article .article-item .article-list .readmore .left .icon-price-tags[data-v-df367330] {\n  margin-right: 5px;\n  font-size: 14px;\n  line-height: 15px;\n  color: #f70;\n}\n.blog .pages .article .article-item .article-list .readmore .left .tage[data-v-df367330] {\n  color: #333;\n  font-size: 14px;\n  background: #eee;\n  margin: 5px 5px 0 0;\n  padding: 1px 5px;\n  border-radius: 4px;\n  margin-top: 2px;\n}\n.blog .pages .article .article-item .article-list .readmore .right[data-v-df367330] {\n  float: right;\n}\n.blog .pages .article .article-item .article-list .readmore .right .readmore[data-v-df367330] {\n  color: #f70;\n  font-size: 14px;\n  font-weight: 600;\n  line-height: 14px;\n}\n.blog .footer[data-v-df367330] {\n  position: absolute;\n  bottom: 0;\n  left: 0;\n  width: 100%;\n  height: 60px;\n  -webkit-box-shadow: 0 0 10px #202020;\n          box-shadow: 0 0 10px #202020;\n  background: rgba(27,33,34,0.92);\n}\n.blog .footer .footer-item[data-v-df367330] {\n  margin: 0 10px;\n  line-height: 60px;\n}\n.blog .footer .footer-item .pull-left[data-v-df367330] {\n  float: left;\n  color: #c1c1c1;\n  font-size: 14px;\n}\n.blog .footer .footer-item .pull-right[data-v-df367330] {\n  display: none;\n}\n@media screen and (min-width: 768px) {\n.blog .nav[data-v-df367330] {\n    height: 58px;\n    -webkit-box-shadow: 0px 1px 11px 2px rgba(42,42,42,0.1);\n            box-shadow: 0px 1px 11px 2px rgba(42,42,42,0.1);\n    border-top: 4px solid #ff9800;\n    background: #fff;\n}\n.blog .nav .nav-item[data-v-df367330] {\n    width: 750px;\n    -webkit-box-shadow: none;\n            box-shadow: none;\n    display: block;\n}\n.blog .nav .nav-item .navigation-left[data-v-df367330] {\n    float: left;\n    height: 58px;\n    line-height: 58px;\n}\n.blog .nav .nav-item .navigation-left a[data-v-df367330] {\n    display: block;\n}\n.blog .nav .nav-item .navigation-right[data-v-df367330] {\n    margin: 0;\n    float: right;\n    font-size: 0;\n}\n.blog .nav .nav-item .navigation-right .nav-list[data-v-df367330] {\n    display: inline-block;\n    height: 56px;\n    line-height: 55px;\n}\n.blog .nav .nav-more-btn[data-v-df367330] {\n    display: none;\n}\n.blog .pages .articleListPage-tags-cnt .articleListPage-tags .grid-row[data-v-df367330] {\n    width: 750px;\n}\n.blog .pages .article[data-v-df367330] {\n    margin: 0 auto;\n    width: 750px;\n}\n.blog .pages .article .article-item .article-list[data-v-df367330] {\n    padding: 20px 40px 20px 20px;\n}\n.blog .footer .footer-item[data-v-df367330] {\n    margin: 0 auto;\n    width: 750px;\n}\n.blog .footer .footer-item .pull-right[data-v-df367330] {\n    display: block;\n    float: right;\n    color: #c1c1c1;\n    font-size: 14px;\n}\n}\n@media screen and (min-width: 992px) {\n.blog .nav .nav-item[data-v-df367330] {\n    width: 970px;\n}\n.blog .pages .articleListPage-tags-cnt .articleListPage-tags .grid-row[data-v-df367330] {\n    width: 970px;\n}\n.blog .pages .article[data-v-df367330] {\n    width: 970px;\n}\n.blog .footer .footer-item[data-v-df367330] {\n    width: 970px;\n}\n}\n@media screen and (min-width: 1200px) {\n.blog .nav .nav-item[data-v-df367330] {\n    width: 1170px;\n}\n.blog .pages .articleListPage-tags-cnt .articleListPage-tags .grid-row[data-v-df367330] {\n    width: 1170px;\n}\n.blog .pages .article[data-v-df367330] {\n    width: 1170px;\n}\n.blog .footer .footer-item[data-v-df367330] {\n    width: 1170px;\n}\n}\n", ""]);
 
 // exports
 
@@ -16778,6 +16784,121 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
@@ -16787,6 +16908,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       three: false,
       showNavigation: false
     };
+  },
+  created: function created() {
+    var isMobile = !!navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i);
+    if (isMobile) {}
   },
 
   methods: {
@@ -16877,7 +17002,9 @@ var render = function() {
       ])
     ]),
     _vm._v(" "),
-    _vm._m(0)
+    _vm._m(0),
+    _vm._v(" "),
+    _vm._m(1)
   ])
 }
 var staticRenderFns = [
@@ -16948,6 +17075,8 @@ var staticRenderFns = [
       _c("div", { staticClass: "article" }, [
         _c("div", { staticClass: "article-item" }, [
           _c("div", { staticClass: "article-list" }, [
+            _c("div", { staticClass: "label" }, [_c("span", [_vm._v("new")])]),
+            _vm._v(" "),
             _c("h1", { staticClass: "title" }, [
               _c("a", { attrs: { href: "" } }, [
                 _vm._v("诡异的 java.io.IOException")
@@ -16955,7 +17084,17 @@ var staticRenderFns = [
             ]),
             _vm._v(" "),
             _c("div", { staticClass: "introduction" }, [
-              _c("span", { staticClass: "author" }, [_vm._v("作者：薛聪")])
+              _c("i", { staticClass: "icon-user" }, [
+                _c("span", { staticClass: "user" }, [_vm._v("XueCong")])
+              ]),
+              _vm._v(" "),
+              _c("i", { staticClass: "icon-clock" }, [
+                _c("span", { staticClass: "time" }, [_vm._v("1小时前")])
+              ]),
+              _vm._v(" "),
+              _c("i", { staticClass: "icon-eye" }, [
+                _c("span", { staticClass: "view" }, [_vm._v("120")])
+              ])
             ]),
             _vm._v(" "),
             _c("div", { staticClass: "article-content" }, [
@@ -16965,7 +17104,83 @@ var staticRenderFns = [
             ]),
             _vm._v(" "),
             _c("div", { staticClass: "readmore" }, [
-              _c("a", { attrs: { href: "" } }, [_vm._v("阅读更多")])
+              _c("div", { staticClass: "left" }, [
+                _c("i", { staticClass: "icon-price-tags" }),
+                _vm._v(" "),
+                _c("a", { staticClass: "tage", attrs: { href: "" } }, [
+                  _vm._v("php")
+                ]),
+                _vm._v(" "),
+                _c("a", { staticClass: "tage", attrs: { href: "" } }, [
+                  _vm._v("Linux")
+                ]),
+                _vm._v(" "),
+                _c("a", { staticClass: "tage", attrs: { href: "" } }, [
+                  _vm._v("javascript")
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "right" }, [
+                _c("a", { staticClass: "readmore", attrs: { href: "" } }, [
+                  _vm._v("阅读全文 "),
+                  _c("span", [_vm._v(">>")])
+                ])
+              ])
+            ])
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "article-list" }, [
+            _c("div", { staticClass: "label" }, [_c("span", [_vm._v("new")])]),
+            _vm._v(" "),
+            _c("h1", { staticClass: "title" }, [
+              _c("a", { attrs: { href: "" } }, [
+                _vm._v("诡异的 java.io.IOException")
+              ])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "introduction" }, [
+              _c("i", { staticClass: "icon-user" }, [
+                _c("span", { staticClass: "user" }, [_vm._v("XueCong")])
+              ]),
+              _vm._v(" "),
+              _c("i", { staticClass: "icon-clock" }, [
+                _c("span", { staticClass: "time" }, [_vm._v("1小时前")])
+              ]),
+              _vm._v(" "),
+              _c("i", { staticClass: "icon-eye" }, [
+                _c("span", { staticClass: "view" }, [_vm._v("120")])
+              ])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "article-content" }, [
+              _vm._v(
+                "\n            背景 上一篇我们讲到如何获取全民K歌歌曲信息（上一篇：这是一个获取全民K歌歌曲信息的composer包），那么这一篇我将继续带领大家实现一个开箱即用全民K歌版网页播放器。这里我们主要使用的一个开源网页播放器APlayer（github.com/MoePlayer/APlayer）。为了方便我们这里直接使用cdn外链的方式来使用。 代码 [……\n          "
+              )
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "readmore" }, [
+              _c("div", { staticClass: "left" }, [
+                _c("i", { staticClass: "icon-price-tags" }),
+                _vm._v(" "),
+                _c("a", { staticClass: "tage", attrs: { href: "" } }, [
+                  _vm._v("php")
+                ]),
+                _vm._v(" "),
+                _c("a", { staticClass: "tage", attrs: { href: "" } }, [
+                  _vm._v("Linux")
+                ]),
+                _vm._v(" "),
+                _c("a", { staticClass: "tage", attrs: { href: "" } }, [
+                  _vm._v("javascript")
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "right" }, [
+                _c("a", { staticClass: "readmore", attrs: { href: "" } }, [
+                  _vm._v("阅读全文 "),
+                  _c("span", [_vm._v(">>")])
+                ])
+              ])
             ])
           ]),
           _vm._v(" "),
@@ -16977,7 +17192,17 @@ var staticRenderFns = [
             ]),
             _vm._v(" "),
             _c("div", { staticClass: "introduction" }, [
-              _c("span", { staticClass: "author" }, [_vm._v("作者：薛聪")])
+              _c("i", { staticClass: "icon-user" }, [
+                _c("span", { staticClass: "user" }, [_vm._v("XueCong")])
+              ]),
+              _vm._v(" "),
+              _c("i", { staticClass: "icon-clock" }, [
+                _c("span", { staticClass: "time" }, [_vm._v("1小时前")])
+              ]),
+              _vm._v(" "),
+              _c("i", { staticClass: "icon-eye" }, [
+                _c("span", { staticClass: "view" }, [_vm._v("120")])
+              ])
             ]),
             _vm._v(" "),
             _c("div", { staticClass: "article-content" }, [
@@ -16987,7 +17212,28 @@ var staticRenderFns = [
             ]),
             _vm._v(" "),
             _c("div", { staticClass: "readmore" }, [
-              _c("a", { attrs: { href: "" } }, [_vm._v("阅读更多")])
+              _c("div", { staticClass: "left" }, [
+                _c("i", { staticClass: "icon-price-tags" }),
+                _vm._v(" "),
+                _c("a", { staticClass: "tage", attrs: { href: "" } }, [
+                  _vm._v("php")
+                ]),
+                _vm._v(" "),
+                _c("a", { staticClass: "tage", attrs: { href: "" } }, [
+                  _vm._v("Linux")
+                ]),
+                _vm._v(" "),
+                _c("a", { staticClass: "tage", attrs: { href: "" } }, [
+                  _vm._v("javascript")
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "right" }, [
+                _c("a", { staticClass: "readmore", attrs: { href: "" } }, [
+                  _vm._v("阅读全文 "),
+                  _c("span", [_vm._v(">>")])
+                ])
+              ])
             ])
           ]),
           _vm._v(" "),
@@ -16999,7 +17245,17 @@ var staticRenderFns = [
             ]),
             _vm._v(" "),
             _c("div", { staticClass: "introduction" }, [
-              _c("span", { staticClass: "author" }, [_vm._v("作者：薛聪")])
+              _c("i", { staticClass: "icon-user" }, [
+                _c("span", { staticClass: "user" }, [_vm._v("XueCong")])
+              ]),
+              _vm._v(" "),
+              _c("i", { staticClass: "icon-clock" }, [
+                _c("span", { staticClass: "time" }, [_vm._v("1小时前")])
+              ]),
+              _vm._v(" "),
+              _c("i", { staticClass: "icon-eye" }, [
+                _c("span", { staticClass: "view" }, [_vm._v("120")])
+              ])
             ]),
             _vm._v(" "),
             _c("div", { staticClass: "article-content" }, [
@@ -17009,9 +17265,106 @@ var staticRenderFns = [
             ]),
             _vm._v(" "),
             _c("div", { staticClass: "readmore" }, [
-              _c("a", { attrs: { href: "" } }, [_vm._v("阅读更多")])
+              _c("div", { staticClass: "left" }, [
+                _c("i", { staticClass: "icon-price-tags" }),
+                _vm._v(" "),
+                _c("a", { staticClass: "tage", attrs: { href: "" } }, [
+                  _vm._v("php")
+                ]),
+                _vm._v(" "),
+                _c("a", { staticClass: "tage", attrs: { href: "" } }, [
+                  _vm._v("Linux")
+                ]),
+                _vm._v(" "),
+                _c("a", { staticClass: "tage", attrs: { href: "" } }, [
+                  _vm._v("javascript")
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "right" }, [
+                _c("a", { staticClass: "readmore", attrs: { href: "" } }, [
+                  _vm._v("阅读全文 "),
+                  _c("span", [_vm._v(">>")])
+                ])
+              ])
+            ])
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "article-list" }, [
+            _c("h1", { staticClass: "title" }, [
+              _c("a", { attrs: { href: "" } }, [
+                _vm._v("诡异的 java.io.IOException")
+              ])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "introduction" }, [
+              _c("i", { staticClass: "icon-user" }, [
+                _c("span", { staticClass: "user" }, [_vm._v("XueCong")])
+              ]),
+              _vm._v(" "),
+              _c("i", { staticClass: "icon-clock" }, [
+                _c("span", { staticClass: "time" }, [_vm._v("1小时前")])
+              ]),
+              _vm._v(" "),
+              _c("i", { staticClass: "icon-eye" }, [
+                _c("span", { staticClass: "view" }, [_vm._v("120")])
+              ])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "article-content" }, [
+              _vm._v(
+                "\n            背景 上一篇我们讲到如何获取全民K歌歌曲信息（上一篇：这是一个获取全民K歌歌曲信息的composer包），那么这一篇我将继续带领大家实现一个开箱即用全民K歌版网页播放器。这里我们主要使用的一个开源网页播放器APlayer（github.com/MoePlayer/APlayer）。为了方便我们这里直接使用cdn外链的方式来使用。 代码 [……\n          "
+              )
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "readmore" }, [
+              _c("div", { staticClass: "left" }, [
+                _c("i", { staticClass: "icon-price-tags" }),
+                _vm._v(" "),
+                _c("a", { staticClass: "tage", attrs: { href: "" } }, [
+                  _vm._v("php")
+                ]),
+                _vm._v(" "),
+                _c("a", { staticClass: "tage", attrs: { href: "" } }, [
+                  _vm._v("Linux")
+                ]),
+                _vm._v(" "),
+                _c("a", { staticClass: "tage", attrs: { href: "" } }, [
+                  _vm._v("javascript")
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "right" }, [
+                _c("a", { staticClass: "readmore", attrs: { href: "" } }, [
+                  _vm._v("阅读全文 "),
+                  _c("span", [_vm._v(">>")])
+                ])
+              ])
             ])
           ])
+        ])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "footer" }, [
+      _c("div", { staticClass: "footer-item" }, [
+        _c("p", { staticClass: "pull-left" }, [
+          _vm._v("Powered By Laravel And Vue "),
+          _c(
+            "span",
+            {
+              staticStyle: { color: "rgb(226, 117, 117)", "font-size": "14px" }
+            },
+            [_vm._v("❤")]
+          )
+        ]),
+        _vm._v(" "),
+        _c("p", { staticClass: "pull-right" }, [
+          _vm._v("© Blog 2018. All rights reserved.")
         ])
       ])
     ])
@@ -17157,6 +17510,150 @@ if (false) {
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 41 */,
+/* 42 */,
+/* 43 */,
+/* 44 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+function injectStyle (ssrContext) {
+  if (disposed) return
+  __webpack_require__(45)
+}
+var normalizeComponent = __webpack_require__(2)
+/* script */
+var __vue_script__ = __webpack_require__(47)
+/* template */
+var __vue_template__ = __webpack_require__(48)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = injectStyle
+/* scopeId */
+var __vue_scopeId__ = "data-v-83bd4730"
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/assets/js/components/test/test.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-83bd4730", Component.options)
+  } else {
+    hotAPI.reload("data-v-83bd4730", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 45 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(46);
+if(typeof content === 'string') content = [[module.i, content, '']];
+if(content.locals) module.exports = content.locals;
+// add the styles to the DOM
+var update = __webpack_require__(1)("6844e8c2", content, false);
+// Hot Module Replacement
+if(false) {
+ // When the styles change, update the <style> tags
+ if(!content.locals) {
+   module.hot.accept("!!../../../../../node_modules/css-loader/index.js!../../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-83bd4730\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../../node_modules/stylus-loader/index.js!../../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./test.vue", function() {
+     var newContent = require("!!../../../../../node_modules/css-loader/index.js!../../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-83bd4730\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../../node_modules/stylus-loader/index.js!../../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./test.vue");
+     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+     update(newContent);
+   });
+ }
+ // When the module is disposed, remove the <style> tags
+ module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+/* 46 */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(0)(false);
+// imports
+
+
+// module
+exports.push([module.i, "\n.test[data-v-83bd4730] {\n  min-height: 100%;\n  margin: 0;\n  padding: 0;\n  position: relative;\n}\n.test .header[data-v-83bd4730] {\n  background-color: #ffe4c4;\n}\n.test .contner[data-v-83bd4730] {\n  padding-bottom: 100px;\n  background-color: #bdb76b;\n}\n.test .footer[data-v-83bd4730] {\n  position: absolute;\n  bottom: 0;\n  width: 100%;\n  height: 100px;\n  background-color: #ffc0cb;\n}\n", ""]);
+
+// exports
+
+
+/***/ }),
+/* 47 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({});
+
+/***/ }),
+/* 48 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _vm._m(0)
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "test" }, [
+      _c("div", { staticClass: "header" }, [_vm._v("哈哈")]),
+      _vm._v(" "),
+      _c("div", { staticClass: "contner" }, [_vm._v("main content")]),
+      _vm._v(" "),
+      _c("div", { staticClass: "footer" })
+    ])
+  }
+]
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-83bd4730", module.exports)
+  }
+}
 
 /***/ })
 /******/ ]);

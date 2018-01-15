@@ -48,17 +48,65 @@
       <div class="article">
         <div class="article-item">
           <div class="article-list">
+            <div class="label"><span>new</span></div>
             <h1 class="title">
               <a href="">诡异的 java.io.IOException</a>
             </h1>
             <div class="introduction">
-              <span class="author">作者：薛聪</span>
+                <i class="icon-user">
+                  <span class="user">XueCong</span>
+                </i>
+                <i class="icon-clock">
+                  <span class="time">1小时前</span>
+                </i>
+                <i class="icon-eye">
+                  <span class="view">120</span>
+                </i>
             </div>
             <div class="article-content">
               背景 上一篇我们讲到如何获取全民K歌歌曲信息（上一篇：这是一个获取全民K歌歌曲信息的composer包），那么这一篇我将继续带领大家实现一个开箱即用全民K歌版网页播放器。这里我们主要使用的一个开源网页播放器APlayer（github.com/MoePlayer/APlayer）。为了方便我们这里直接使用cdn外链的方式来使用。 代码 [……
             </div>
             <div class="readmore">
-              <a href="">阅读更多</a>
+              <div class="left">
+                <i class="icon-price-tags"></i>
+                <a href="" class="tage">php</a>
+                <a href="" class="tage">Linux</a>
+                <a href="" class="tage">javascript</a>
+              </div>
+              <div class="right">
+                <a href="" class="readmore">阅读全文 <span>>></span></a>
+              </div>
+            </div>
+          </div>
+          <div class="article-list">
+            <div class="label"><span>new</span></div>
+            <h1 class="title">
+              <a href="">诡异的 java.io.IOException</a>
+            </h1>
+            <div class="introduction">
+                <i class="icon-user">
+                  <span class="user">XueCong</span>
+                </i>
+                <i class="icon-clock">
+                  <span class="time">1小时前</span>
+                </i>
+                <i class="icon-eye">
+                  <span class="view">120</span>
+                </i>
+            </div>
+            <div class="article-content">
+              背景 上一篇我们讲到如何获取全民K歌歌曲信息（上一篇：这是一个获取全民K歌歌曲信息的composer包），那么这一篇我将继续带领大家实现一个开箱即用全民K歌版网页播放器。这里我们主要使用的一个开源网页播放器APlayer（github.com/MoePlayer/APlayer）。为了方便我们这里直接使用cdn外链的方式来使用。 代码 [……
+            </div>
+            <div class="readmore">
+              <div class="left">
+                <i class="icon-price-tags"></i>
+                <a href="" class="tage">php</a>
+                <a href="" class="tage">Linux</a>
+                <a href="" class="tage">javascript</a>
+              </div>
+              <div class="right">
+                <a href="" class="readmore">阅读全文 <span>>></span></a>
+              </div>
             </div>
           </div>
           <div class="article-list">
@@ -66,13 +114,29 @@
               <a href="">诡异的 java.io.IOException</a>
             </h1>
             <div class="introduction">
-              <span class="author">作者：薛聪</span>
+                <i class="icon-user">
+                  <span class="user">XueCong</span>
+                </i>
+                <i class="icon-clock">
+                  <span class="time">1小时前</span>
+                </i>
+                <i class="icon-eye">
+                  <span class="view">120</span>
+                </i>
             </div>
             <div class="article-content">
               背景 上一篇我们讲到如何获取全民K歌歌曲信息（上一篇：这是一个获取全民K歌歌曲信息的composer包），那么这一篇我将继续带领大家实现一个开箱即用全民K歌版网页播放器。这里我们主要使用的一个开源网页播放器APlayer（github.com/MoePlayer/APlayer）。为了方便我们这里直接使用cdn外链的方式来使用。 代码 [……
             </div>
             <div class="readmore">
-              <a href="">阅读更多</a>
+              <div class="left">
+                <i class="icon-price-tags"></i>
+                <a href="" class="tage">php</a>
+                <a href="" class="tage">Linux</a>
+                <a href="" class="tage">javascript</a>
+              </div>
+              <div class="right">
+                <a href="" class="readmore">阅读全文 <span>>></span></a>
+              </div>
             </div>
           </div>
           <div class="article-list">
@@ -80,17 +144,68 @@
               <a href="">诡异的 java.io.IOException</a>
             </h1>
             <div class="introduction">
-              <span class="author">作者：薛聪</span>
+                <i class="icon-user">
+                  <span class="user">XueCong</span>
+                </i>
+                <i class="icon-clock">
+                  <span class="time">1小时前</span>
+                </i>
+                <i class="icon-eye">
+                  <span class="view">120</span>
+                </i>
             </div>
             <div class="article-content">
               背景 上一篇我们讲到如何获取全民K歌歌曲信息（上一篇：这是一个获取全民K歌歌曲信息的composer包），那么这一篇我将继续带领大家实现一个开箱即用全民K歌版网页播放器。这里我们主要使用的一个开源网页播放器APlayer（github.com/MoePlayer/APlayer）。为了方便我们这里直接使用cdn外链的方式来使用。 代码 [……
             </div>
             <div class="readmore">
-              <a href="">阅读更多</a>
+              <div class="left">
+                <i class="icon-price-tags"></i>
+                <a href="" class="tage">php</a>
+                <a href="" class="tage">Linux</a>
+                <a href="" class="tage">javascript</a>
+              </div>
+              <div class="right">
+                <a href="" class="readmore">阅读全文 <span>>></span></a>
+              </div>
             </div>
           </div>
-
+          <div class="article-list">
+            <h1 class="title">
+              <a href="">诡异的 java.io.IOException</a>
+            </h1>
+            <div class="introduction">
+                <i class="icon-user">
+                  <span class="user">XueCong</span>
+                </i>
+                <i class="icon-clock">
+                  <span class="time">1小时前</span>
+                </i>
+                <i class="icon-eye">
+                  <span class="view">120</span>
+                </i>
+            </div>
+            <div class="article-content">
+              背景 上一篇我们讲到如何获取全民K歌歌曲信息（上一篇：这是一个获取全民K歌歌曲信息的composer包），那么这一篇我将继续带领大家实现一个开箱即用全民K歌版网页播放器。这里我们主要使用的一个开源网页播放器APlayer（github.com/MoePlayer/APlayer）。为了方便我们这里直接使用cdn外链的方式来使用。 代码 [……
+            </div>
+            <div class="readmore">
+              <div class="left">
+                <i class="icon-price-tags"></i>
+                <a href="" class="tage">php</a>
+                <a href="" class="tage">Linux</a>
+                <a href="" class="tage">javascript</a>
+              </div>
+              <div class="right">
+                <a href="" class="readmore">阅读全文 <span>>></span></a>
+              </div>
+            </div>
+          </div>
         </div>
+      </div>
+    </div>
+    <div class="footer">
+      <div class="footer-item">
+        <p class="pull-left">Powered By Laravel And Vue <span style="color: rgb(226, 117, 117); font-size: 14px;">❤</span></p>
+        <p class="pull-right">© Blog 2018. All rights reserved.</p>
       </div>
     </div>
   </div>
@@ -106,6 +221,10 @@
           showNavigation: false
       }
     },
+    created() {
+      var isMobile = !!navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i);
+      if(isMobile) {}
+    },
     methods: {
       showNav() {
         this.first = !this.first
@@ -119,6 +238,10 @@
   @import "../../../stylus/variable.styl"
 
   .blog
+    min-height:100%;
+    margin:0;
+    padding:0;
+    position:relative;
     .nav
       position: fixed
       top: 0
@@ -192,6 +315,8 @@
         .three
           transform: translateY(-9px) rotate(45deg)
     .pages
+      position: relative
+      padding-bottom: 60px;
       .header
         position: relative
         padding: 75px 0 20px
@@ -303,9 +428,40 @@
         .article-item
           margin-bottom: 20px
           .article-list
+            position: relative
             background: #fff
             padding: 20px
             margin-bottom: 20px
+            .label
+              position: absolute
+              top: 0
+              right: 0
+              width: 30px
+              height: 30px
+              background: #f70
+              box-shadow: -1px 1px 2px #000
+              &:before
+                position: absolute
+                content: ""
+                width: 0
+                height: 0
+                top: 0
+                right: 0
+                border: 1px solid #fff
+                border-width: 0 30px 30px 0
+                border-color: transparent transparent #fff
+              span
+                position: absolute
+                display: block
+                top: 0
+                right: 0
+                width: 100%
+                height: 100%
+                -webkit-transform: rotate(45deg) scale(.8)
+                transform: rotate(45deg) scale(.8)
+                text-align: center
+                line-height: 15px
+                color: #fff
             .title
               line-height: 20px
               a
@@ -313,17 +469,59 @@
                 font-weight: 600
                 color: #3d464d!important
             .introduction
-              margin: 10px 0
+              margin: 15px 0
+              .icon-user, .icon-clock, .icon-eye
+                color: #95a5a6
+                font-size: 14px
+                line-height: 14px
+                margin-right: 10px
+                .user, .time, .view
+                  margin-left: 5px
+                  font-size: 14px
+                  line-height: 14px
             .readmore
-              width: 80px
-              line-height: 40px
-              margin-top: 10px
-              text-align: center
-
-
-
-
-
+              width: 100%
+              margin-top: 15px
+              margin-bottom: 30px
+              .left
+                float: left
+                .icon-price-tags
+                  margin-right: 5px
+                  font-size: 14px
+                  line-height: 15px
+                  color: #f70
+                .tage
+                  color: #333
+                  font-size: 14px
+                  background: #eee
+                  margin: 5px 5px 0 0
+                  padding: 1px 5px
+                  border-radius: 4px
+                  margin-top: 2px
+              .right
+                float: right
+                .readmore
+                  color: #f70
+                  font-size: 14px
+                  font-weight: 600
+                  line-height: 14px
+    .footer
+      position:absolute
+      bottom:0
+      left: 0
+      width: 100%
+      height: 60px
+      box-shadow: 0 0 10px #202020
+      background: rgba(27,33,34,.92)
+      .footer-item
+        margin: 0 10px
+        line-height: 60px
+        .pull-left
+          float: left
+          color: #c1c1c1
+          font-size: 14px
+        .pull-right
+          display: none
   // >= 768
   @media screen and (min-width: 768px)
     .blog
@@ -363,6 +561,15 @@
           .article-item
             .article-list
               padding: 20px 40px 20px 20px
+      .footer
+        .footer-item
+          margin: 0 auto
+          width: 750px
+          .pull-right
+            display: block
+            float: right
+            color: #c1c1c1
+            font-size: 14px
 
 
   // >= 992
@@ -377,11 +584,11 @@
             .grid-row
               width:970px
         .article
-          margin: 0 auto
           width: 970px
-          .article-item
-            .article-list
-              padding: 20px 40px 20px 20px
+      .footer
+        .footer-item
+          width: 970px
+
   // 大于等于 1200
   @media screen and (min-width: 1200px)
     .blog
@@ -394,9 +601,8 @@
             .grid-row
               width:1170px
         .article
-          margin: 0 auto
           width: 1170px
-          .article-item
-            .article-list
-              padding: 20px 40px 20px 20px
+      .footer
+        .footer-item
+          width: 1170px
 </style>
