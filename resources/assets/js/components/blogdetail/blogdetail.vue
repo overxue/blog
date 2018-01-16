@@ -139,6 +139,22 @@
               </a>
             </div>
           </div>
+          <div class="comments-section">
+            <div class="comments_frame">
+              <div class="l_comments">
+                <div class="l_com_sendBox">
+                  <div class="l_sendBox">
+                    <textarea name="content" id="id_comment" placeholder="评论屌一点，BUG少一点！"></textarea>
+                    <div class="l_send_footer">
+                      <div class="l_send_right">
+                        <a href="" class="l_send_submit">评论</a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -221,8 +237,47 @@
                   display: block;
                   line-height: 30px;
                   font-size: 14px;
-
-
+          .comments-section
+            position: relative
+            padding: 2em 1em;
+            background: #f5f8fa
+            border: 1px solid #edf0f3
+            &:before
+              position: absolute
+              content: ""
+              top: -1rem
+              left: 50%
+              margin-left: -2rem
+              width: 0
+              height: 0
+              border-style: solid
+              border-color: transparent transparent #f5f8fa
+              border-width: 0 2rem 1rem
+            .comments_frame
+              .l_comments
+                .l_com_sendBox
+                  margin-bottom: 20px
+                  background: #fff
+                  border-radius: 2px
+                  box-shadow: 0 0 2px rgba(0,0,0,.2)
+                  .l_sendBox
+                    padding: 20px 20px 20px 20px
+                    background: #fff
+                    .l_send_footer
+                      height: 30px
+                      padding-top: 10px
+                      .l_send_right
+                        float: right
+                        .l_send_submit
+                          display: inline-block;
+                          padding: 0 20px;
+                          font-size: 12px;
+                          height: 30px;
+                          line-height: 30px;
+                          color: #fff;
+                          background: #f90;
+                          border-radius: 2px;
+                          transition: all .1s linear;
 
   @media screen and (min-width: 768px)
     .blogdetail
@@ -249,6 +304,8 @@
                 opacity: .8
             .article-section
               padding: 5em 8em
+            .comments-section
+              padding: 2em 8em 4em
   // >= 992
   // @media screen and (min-width: 992px)
 

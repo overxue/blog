@@ -11324,7 +11324,7 @@ module.exports = g;
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(6);
-module.exports = __webpack_require__(51);
+module.exports = __webpack_require__(52);
 
 
 /***/ }),
@@ -12206,7 +12206,7 @@ process.umask = function() { return 0; };
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_components_blog_blog___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_components_blog_blog__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_components_me_me__ = __webpack_require__(41);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_components_me_me___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_components_me_me__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_components_blogdetail_blogdetail__ = __webpack_require__(46);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_components_blogdetail_blogdetail__ = __webpack_require__(47);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_components_blogdetail_blogdetail___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5_components_blogdetail_blogdetail__);
 
 
@@ -19898,7 +19898,7 @@ var staticRenderFns = [
                       attrs: {
                         width: "120",
                         height: "120",
-                        src: __webpack_require__(60)
+                        src: __webpack_require__(46)
                       }
                     })
                   ]),
@@ -19978,18 +19978,24 @@ if (false) {
 
 /***/ }),
 /* 46 */
+/***/ (function(module, exports) {
+
+module.exports = "/images/avatar.jpg?fec8909ab83866bda0dc9ca0b07b6e2e";
+
+/***/ }),
+/* 47 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__(47)
+  __webpack_require__(48)
 }
 var normalizeComponent = __webpack_require__(2)
 /* script */
-var __vue_script__ = __webpack_require__(49)
+var __vue_script__ = __webpack_require__(50)
 /* template */
-var __vue_template__ = __webpack_require__(50)
+var __vue_template__ = __webpack_require__(51)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -20028,13 +20034,13 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 47 */
+/* 48 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(48);
+var content = __webpack_require__(49);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
@@ -20054,7 +20060,7 @@ if(false) {
 }
 
 /***/ }),
-/* 48 */
+/* 49 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(0)(false);
@@ -20062,13 +20068,13 @@ exports = module.exports = __webpack_require__(0)(false);
 
 
 // module
-exports.push([module.i, "\n.blogdetail[data-v-6fb08288] {\n  height: 100%;\n  background: #dee3e7;\n}\n.blogdetail .page .blog-detail[data-v-6fb08288] {\n  padding: 0;\n  background: #dee3e7;\n}\n.blogdetail .page .blog-detail .blog-detail-contaner[data-v-6fb08288] {\n  max-width: 1000px;\n  margin: 0 auto;\n  background: #fff;\n}\n.blogdetail .page .blog-detail .blog-detail-contaner .header[data-v-6fb08288] {\n  position: relative;\n  padding-top: 44%;\n  background-color: #eee;\n  background-size: cover;\n  background-position: 50%;\n}\n.blogdetail .page .blog-detail .blog-detail-contaner .header .header-cover[data-v-6fb08288] {\n  position: absolute;\n  width: 100%;\n  height: 100%;\n  top: 0;\n  left: 0;\n  overflow: hidden;\n}\n.blogdetail .page .blog-detail .blog-detail-contaner .header .header-cover.no-cover[data-v-6fb08288] {\n  background: #1f3747;\n  background-image: -webkit-linear-gradient(left, #1f3747, #293d31);\n}\n.blogdetail .page .blog-detail .blog-detail-contaner .header .header-body[data-v-6fb08288] {\n  display: none;\n}\n.blogdetail .page .blog-detail .blog-detail-contaner .article-section[data-v-6fb08288] {\n  padding: 1em 0;\n}\n.blogdetail .page .blog-detail .blog-detail-contaner .article-section .caption[data-v-6fb08288] {\n  padding: 0 20px;\n}\n.blogdetail .page .blog-detail .blog-detail-contaner .article-section .caption .titl[data-v-6fb08288] {\n  margin-bottom: 0.4em;\n  font-size: 1.8rem;\n}\n.blogdetail .page .blog-detail .blog-detail-contaner .article-section .caption .time[data-v-6fb08288] {\n  font-size: 14px;\n}\n.blogdetail .page .blog-detail .blog-detail-contaner .article-section .article[data-v-6fb08288] {\n  padding: 40px 20px;\n  font-size: 1rem;\n  line-height: 1.6;\n  word-wrap: break-word;\n  background: #fff;\n}\n.blogdetail .page .blog-detail .blog-detail-contaner .article-section .article[data-v-6fb08288]:before {\n  display: table;\n  content: \"\";\n}\n.blogdetail .page .blog-detail .blog-detail-contaner .article-section .sns-share[data-v-6fb08288] {\n  padding: 2em 0 2em;\n  text-align: center;\n}\n.blogdetail .page .blog-detail .blog-detail-contaner .article-section .sns-share a[data-v-6fb08288] {\n  display: inline-block;\n  width: 80px;\n  height: 80px;\n  margin: 0 1em;\n  border-radius: 50%;\n  font-size: 1.2rem;\n  color: #fff;\n  background: #fa7d3c;\n}\n.blogdetail .page .blog-detail .blog-detail-contaner .article-section .sns-share a i[data-v-6fb08288] {\n  display: block;\n  padding-top: 10px;\n  line-height: 30px;\n  font-size: 30px;\n}\n.blogdetail .page .blog-detail .blog-detail-contaner .article-section .sns-share a .l-icon[data-v-6fb08288] {\n  font-family: layIcon;\n  font-style: normal;\n}\n.blogdetail .page .blog-detail .blog-detail-contaner .article-section .sns-share a span[data-v-6fb08288] {\n  display: block;\n  line-height: 30px;\n  font-size: 14px;\n}\n@media screen and (min-width: 768px) {\n.blogdetail .page .blog-detail[data-v-6fb08288] {\n    padding: 80px 0;\n}\n.blogdetail .page .blog-detail .blog-detail-contaner .header .header-body[data-v-6fb08288] {\n    display: block;\n    position: absolute;\n    top: 70px;\n    left: 70px;\n}\n.blogdetail .page .blog-detail .blog-detail-contaner .header .tit[data-v-6fb08288] {\n    margin-bottom: 15px;\n    line-height: 1.2;\n    font-size: 26px;\n    font-weight: 500;\n    color: #fff;\n}\n.blogdetail .page .blog-detail .blog-detail-contaner .header .article-info[data-v-6fb08288] {\n    width: 50%;\n    margin-bottom: 50px;\n    color: #fff;\n    opacity: 0.8;\n}\n.blogdetail .page .blog-detail .blog-detail-contaner .article-section[data-v-6fb08288] {\n    padding: 5em 8em;\n}\n}\n", ""]);
+exports.push([module.i, "\n.blogdetail[data-v-6fb08288] {\n  height: 100%;\n  background: #dee3e7;\n}\n.blogdetail .page .blog-detail[data-v-6fb08288] {\n  padding: 0;\n  background: #dee3e7;\n}\n.blogdetail .page .blog-detail .blog-detail-contaner[data-v-6fb08288] {\n  max-width: 1000px;\n  margin: 0 auto;\n  background: #fff;\n}\n.blogdetail .page .blog-detail .blog-detail-contaner .header[data-v-6fb08288] {\n  position: relative;\n  padding-top: 44%;\n  background-color: #eee;\n  background-size: cover;\n  background-position: 50%;\n}\n.blogdetail .page .blog-detail .blog-detail-contaner .header .header-cover[data-v-6fb08288] {\n  position: absolute;\n  width: 100%;\n  height: 100%;\n  top: 0;\n  left: 0;\n  overflow: hidden;\n}\n.blogdetail .page .blog-detail .blog-detail-contaner .header .header-cover.no-cover[data-v-6fb08288] {\n  background: #1f3747;\n  background-image: -webkit-linear-gradient(left, #1f3747, #293d31);\n}\n.blogdetail .page .blog-detail .blog-detail-contaner .header .header-body[data-v-6fb08288] {\n  display: none;\n}\n.blogdetail .page .blog-detail .blog-detail-contaner .article-section[data-v-6fb08288] {\n  padding: 1em 0;\n}\n.blogdetail .page .blog-detail .blog-detail-contaner .article-section .caption[data-v-6fb08288] {\n  padding: 0 20px;\n}\n.blogdetail .page .blog-detail .blog-detail-contaner .article-section .caption .titl[data-v-6fb08288] {\n  margin-bottom: 0.4em;\n  font-size: 1.8rem;\n}\n.blogdetail .page .blog-detail .blog-detail-contaner .article-section .caption .time[data-v-6fb08288] {\n  font-size: 14px;\n}\n.blogdetail .page .blog-detail .blog-detail-contaner .article-section .article[data-v-6fb08288] {\n  padding: 40px 20px;\n  font-size: 1rem;\n  line-height: 1.6;\n  word-wrap: break-word;\n  background: #fff;\n}\n.blogdetail .page .blog-detail .blog-detail-contaner .article-section .article[data-v-6fb08288]:before {\n  display: table;\n  content: \"\";\n}\n.blogdetail .page .blog-detail .blog-detail-contaner .article-section .sns-share[data-v-6fb08288] {\n  padding: 2em 0 2em;\n  text-align: center;\n}\n.blogdetail .page .blog-detail .blog-detail-contaner .article-section .sns-share a[data-v-6fb08288] {\n  display: inline-block;\n  width: 80px;\n  height: 80px;\n  margin: 0 1em;\n  border-radius: 50%;\n  font-size: 1.2rem;\n  color: #fff;\n  background: #fa7d3c;\n}\n.blogdetail .page .blog-detail .blog-detail-contaner .article-section .sns-share a i[data-v-6fb08288] {\n  display: block;\n  padding-top: 10px;\n  line-height: 30px;\n  font-size: 30px;\n}\n.blogdetail .page .blog-detail .blog-detail-contaner .article-section .sns-share a .l-icon[data-v-6fb08288] {\n  font-family: layIcon;\n  font-style: normal;\n}\n.blogdetail .page .blog-detail .blog-detail-contaner .article-section .sns-share a span[data-v-6fb08288] {\n  display: block;\n  line-height: 30px;\n  font-size: 14px;\n}\n.blogdetail .page .blog-detail .blog-detail-contaner .comments-section[data-v-6fb08288] {\n  position: relative;\n  padding: 2em 1em;\n  background: #f5f8fa;\n  border: 1px solid #edf0f3;\n}\n.blogdetail .page .blog-detail .blog-detail-contaner .comments-section[data-v-6fb08288]:before {\n  position: absolute;\n  content: \"\";\n  top: -1rem;\n  left: 50%;\n  margin-left: -2rem;\n  width: 0;\n  height: 0;\n  border-style: solid;\n  border-color: transparent transparent #f5f8fa;\n  border-width: 0 2rem 1rem;\n}\n.blogdetail .page .blog-detail .blog-detail-contaner .comments-section .comments_frame .l_comments .l_com_sendBox[data-v-6fb08288] {\n  margin-bottom: 20px;\n  background: #fff;\n  border-radius: 2px;\n  -webkit-box-shadow: 0 0 2px rgba(0,0,0,0.2);\n          box-shadow: 0 0 2px rgba(0,0,0,0.2);\n}\n.blogdetail .page .blog-detail .blog-detail-contaner .comments-section .comments_frame .l_comments .l_com_sendBox .l_sendBox[data-v-6fb08288] {\n  padding: 20px 20px 20px 20px;\n  background: #fff;\n}\n.blogdetail .page .blog-detail .blog-detail-contaner .comments-section .comments_frame .l_comments .l_com_sendBox .l_sendBox .l_send_footer[data-v-6fb08288] {\n  height: 30px;\n  padding-top: 10px;\n}\n.blogdetail .page .blog-detail .blog-detail-contaner .comments-section .comments_frame .l_comments .l_com_sendBox .l_sendBox .l_send_footer .l_send_right[data-v-6fb08288] {\n  float: right;\n}\n.blogdetail .page .blog-detail .blog-detail-contaner .comments-section .comments_frame .l_comments .l_com_sendBox .l_sendBox .l_send_footer .l_send_right .l_send_submit[data-v-6fb08288] {\n  display: inline-block;\n  padding: 0 20px;\n  font-size: 12px;\n  height: 30px;\n  line-height: 30px;\n  color: #fff;\n  background: #f90;\n  border-radius: 2px;\n  -webkit-transition: all 0.1s linear;\n  transition: all 0.1s linear;\n}\n@media screen and (min-width: 768px) {\n.blogdetail .page .blog-detail[data-v-6fb08288] {\n    padding: 80px 0;\n}\n.blogdetail .page .blog-detail .blog-detail-contaner .header .header-body[data-v-6fb08288] {\n    display: block;\n    position: absolute;\n    top: 70px;\n    left: 70px;\n}\n.blogdetail .page .blog-detail .blog-detail-contaner .header .tit[data-v-6fb08288] {\n    margin-bottom: 15px;\n    line-height: 1.2;\n    font-size: 26px;\n    font-weight: 500;\n    color: #fff;\n}\n.blogdetail .page .blog-detail .blog-detail-contaner .header .article-info[data-v-6fb08288] {\n    width: 50%;\n    margin-bottom: 50px;\n    color: #fff;\n    opacity: 0.8;\n}\n.blogdetail .page .blog-detail .blog-detail-contaner .article-section[data-v-6fb08288] {\n    padding: 5em 8em;\n}\n.blogdetail .page .blog-detail .blog-detail-contaner .comments-section[data-v-6fb08288] {\n    padding: 2em 8em 4em;\n}\n}\n", ""]);
 
 // exports
 
 
 /***/ }),
-/* 49 */
+/* 50 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -20220,11 +20226,27 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({});
 
 /***/ }),
-/* 50 */
+/* 51 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -20360,6 +20382,37 @@ var staticRenderFns = [
                   ])
                 ]
               )
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "comments-section" }, [
+              _c("div", { staticClass: "comments_frame" }, [
+                _c("div", { staticClass: "l_comments" }, [
+                  _c("div", { staticClass: "l_com_sendBox" }, [
+                    _c("div", { staticClass: "l_sendBox" }, [
+                      _c("textarea", {
+                        attrs: {
+                          name: "content",
+                          id: "id_comment",
+                          placeholder: "评论屌一点，BUG少一点！"
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "l_send_footer" }, [
+                        _c("div", { staticClass: "l_send_right" }, [
+                          _c(
+                            "a",
+                            {
+                              staticClass: "l_send_submit",
+                              attrs: { href: "" }
+                            },
+                            [_vm._v("评论")]
+                          )
+                        ])
+                      ])
+                    ])
+                  ])
+                ])
+              ])
             ])
           ])
         ])
@@ -20377,24 +20430,10 @@ if (false) {
 }
 
 /***/ }),
-/* 51 */
+/* 52 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
-
-/***/ }),
-/* 52 */,
-/* 53 */,
-/* 54 */,
-/* 55 */,
-/* 56 */,
-/* 57 */,
-/* 58 */,
-/* 59 */,
-/* 60 */
-/***/ (function(module, exports) {
-
-module.exports = "/images/avatar.jpg?fec8909ab83866bda0dc9ca0b07b6e2e";
 
 /***/ })
 /******/ ]);
