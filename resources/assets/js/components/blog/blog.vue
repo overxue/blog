@@ -192,7 +192,6 @@
         <p class="pull-right">© Blog 2018. All rights reserved.</p>
       </div>
     </div>
-    <router-view></router-view>
   </div>
 </template>
 
@@ -241,10 +240,7 @@
     background: #dee3e7
     .pages
       position: relative
-      padding-bottom: 60px
-      // position: absolute
-      // top: 0
-      // bottom: 0
+      padding-bottom: 50px
       overflow: hidden
       .header
         position: relative
@@ -439,14 +435,14 @@
       bottom:0
       left: 0
       width: 100%
-      height: 60px
+      height: 50px
       box-shadow: 0 0 10px #202020
       background: rgba(27,33,34,.92)
       .footer-item
         margin: 0 10px
-        line-height: 60px
+        line-height: 50px
+        text-align: center
         .pull-left
-          float: left
           color: #c1c1c1
           font-size: 14px
         .pull-right
@@ -455,7 +451,6 @@
   @media screen and (min-width: 768px)
     .blog
       .pages
-        position: relative
         padding-bottom: 60px
         .articleListPage-tags-cnt
           .articleListPage-tags
@@ -468,9 +463,13 @@
             .article-list
               padding: 20px 40px 20px 20px
       .footer
+        height: 60px
         .footer-item
           margin: 0 auto
+          line-height: 60px
           width: 750px
+          .pull-left
+            float: left
           .pull-right
             display: block
             float: right

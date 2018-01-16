@@ -39,7 +39,7 @@
 
               <h3 id="2viewmodelproject">2、View Model 监听 project 变动</h3>
 
-              <p>这是一种比较常规的解决方案，也比较容易实行。具体做法是：View Model 内部去监听 project，每当值发生改变时，主动更新自身数据。</p>
+              <!-- <p>这是一种比较常规的解决方案，也比较容易实行。具体做法是：View Model 内部去监听 project，每当值发生改变时，主动更新自身数据。</p>
 
               <p>监听方案可以用 vuex，也可以通过全局的自定义事件来实现，如：</p>
 
@@ -126,12 +126,16 @@
                 <li>其他因全局、基础数据变动而需要刷新视图的场景</li>
               </ul>
 
-              <p>最后，期待官方提供 reload 方法。</p>
+              <p>最后，期待官方提供 reload 方法。</p> -->
             </div>
             <div class="sns-share" data-text="今天小剧来分享在使用 vue 时遇到一个问题，困扰小剧比较长时间。概括下来就是：vue 项目如何在不修改 URL 的前提下主动 reload 当前 router？" data-url="http://bh-lay.com/blog/15f0084b4b0" data-title="VUE如何重载当前视图" data-img="">
               <a href="#" title="分享至新浪微博" data-shareto="weibo">
-                <i class="l-icon l-icon-weibo"></i>
+                <i class="l-icon icon-sina-weibo"></i>
                 <span>分享</span>
+              </a>
+              <a href="#" title="微信,支付宝打赏">
+                <i class="l-icon icon-money"></i>
+                <span>打赏</span>
               </a>
             </div>
           </div>
@@ -151,7 +155,7 @@
     background: #dee3e7
     .page
       .blog-detail
-        padding: 80px 0
+        padding: 0
         background: #dee3e7
         .blog-detail-contaner
           max-width: 1000px
@@ -174,22 +178,9 @@
                 background: #1f3747
                 background-image: -webkit-linear-gradient(left,#1f3747,#293d31)
             .header-body
-              position: absolute
-              top: 70px
-              left: 70px
-              .tit
-                margin-bottom: 15px
-                line-height: 1.2
-                font-size: 26px
-                font-weight: 500
-                color: #fff;
-              .article-info
-                width: 50%
-                margin-bottom: 50px
-                color: #fff
-                opacity: .8
+              display: none
           .article-section
-            padding: 5em 8em
+            padding: 1em 0
             .caption
               padding: 0 20px
               .titl
@@ -206,6 +197,64 @@
               &:before
                 display: table;
                 content: "";
+            .sns-share
+              padding: 2em 0 2em
+              text-align: center
+              a
+                display: inline-block;
+                width: 80px;
+                height: 80px;
+                margin: 0 1em;
+                border-radius: 50%;
+                font-size: 1.2rem;
+                color: #fff;
+                background: #fa7d3c;
+                i
+                  display: block;
+                  padding-top: 10px;
+                  line-height: 30px;
+                  font-size: 30px;
+                .l-icon
+                  font-family: layIcon;
+                  font-style: normal;
+                span
+                  display: block;
+                  line-height: 30px;
+                  font-size: 14px;
+
+
+
+  @media screen and (min-width: 768px)
+    .blogdetail
+      .page
+        .blog-detail
+          padding: 80px 0
+          .blog-detail-contaner
+            .header
+              .header-body
+                display: block
+                position: absolute
+                top: 70px
+                left: 70px
+              .tit
+                margin-bottom: 15px
+                line-height: 1.2
+                font-size: 26px
+                font-weight: 500
+                color: #fff;
+              .article-info
+                width: 50%
+                margin-bottom: 50px
+                color: #fff
+                opacity: .8
+            .article-section
+              padding: 5em 8em
+  // >= 992
+  // @media screen and (min-width: 992px)
+
+  // 大于等于 1200
+  // @media screen and (min-width: 1200px)
+
 
 
 

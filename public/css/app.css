@@ -137,8 +137,8 @@ html {
 }
 @font-face {
   font-family: 'icomoon';
-  src: url(/fonts/icomoon.eot?6c7ae9db67afa777f06f26bdcbc64351);
-  src: url(/fonts/icomoon.eot?6c7ae9db67afa777f06f26bdcbc64351#iefix) format('embedded-opentype'), url(/fonts/icomoon.ttf?e8bc31027396e897b6718a7c3dc5820d) format('truetype'), url(/fonts/icomoon.woff?98b6e1c01550369d2284a6e29a8e916d) format('woff'), url(/fonts/icomoon.svg?d88015e5c67bd950b590295adba46aa0#icomoon) format('svg');
+  src: url(/fonts/icomoon.eot?4201574b3092e75d4074950974054308);
+  src: url(/fonts/icomoon.eot?4201574b3092e75d4074950974054308#iefix) format('embedded-opentype'), url(/fonts/icomoon.ttf?32c494f266b3f8cde8ca7bff3c50fe78) format('truetype'), url(/fonts/icomoon.woff?75ceefa85a4144f3bb1b816bd48210ff) format('woff'), url(/fonts/icomoon.svg?8ec84e67b27da778ce05a415d6712830#icomoon) format('svg');
   font-weight: normal;
   font-style: normal;
 }
@@ -159,6 +159,9 @@ html {
 .icon-price-tags:before {
   content: "\E936";
 }
+.icon-money:before {
+  content: "\E93E";
+}
 .icon-clock:before {
   content: "\E94E";
 }
@@ -167,4 +170,7 @@ html {
 }
 .icon-eye:before {
   content: "\E9CE";
+}
+.icon-sina-weibo:before {
+  content: "\EA9A";
 }
