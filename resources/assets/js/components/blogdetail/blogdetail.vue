@@ -152,6 +152,42 @@
                     </div>
                   </div>
                 </div>
+                <div class="l_com_list">
+                  <div class="l_com_list_cnt">
+                    <div class="l_com_item">
+                      <div class="avatar">
+                        <img src="https://dn-lay.qbox.me/build/single-page/images/my-avatar_0b91c8c.jpg" onerror="L.gravatar_error_fn(this)">
+                      </div>
+                      <div class="content">
+                        <div class="caption">剧中人 </div>
+                        <div class="text">@梦梦&nbsp;卧槽神思路啊！是个粗暴的好方法，看起来比我这个方案好多了，可以尝试。
+                        </div>
+                        <div class="footer">
+                          <div class="time">22:35 2017-11-28</div>
+                          <a href="javascript:void(0)" class="btn-reply">回复</a>
+                        </div>
+                      </div>
+                    </div>
+
+
+                    <div class="l_com_item">
+                      <div class="avatar">
+                        <img src="https://dn-lay.qbox.me/build/single-page/images/my-avatar_0b91c8c.jpg" onerror="L.gravatar_error_fn(this)">
+                      </div>
+                      <div class="content">
+                        <div class="caption">剧中人 </div>
+                        <div class="text">@梦梦&nbsp;卧槽神思路啊！是个粗暴的好方法，看起来比我这个方案好多了，可以尝试。
+                        </div>
+                        <div class="footer">
+                          <div class="time">22:35 2017-11-28</div>
+                          <a href="javascript:void(0)" class="btn-reply">回复</a>
+                        </div>
+                      </div>
+                    </div>
+
+
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -278,6 +314,56 @@
                           background: #f90;
                           border-radius: 2px;
                           transition: all .1s linear;
+                .l_com_list
+                  .l_com_list_cnt
+                    overflow: hidden
+                    background: #fff
+                    border-radius: 2px
+                    box-shadow: 0 0 2px rgba(0,0,0,.2)
+                    .l_com_item
+                      position: relative
+                      padding: 15px
+                      border-top: 1px solid #eee
+                      cursor: default
+                      overflow: hidden
+                      transition: all .1s linear
+                      &:first-child
+                        border: none
+                      .avatar
+                        float: left
+                        width: 50px
+                        height: 50px
+                        border-radius: 12px
+                        overflow: hidden
+                        background: #ddd
+                        img
+                          width: 100%
+                          height: 100%
+                      .content
+                        margin-left: 60px
+                        .caption
+                          margin-bottom: 10px
+                          line-height: 18px
+                          font-size: .85rem
+                          font-weight: 500
+                        .text
+                          min-height: 20px
+                          margin-bottom: 10px
+                          line-height: 1.5
+                          font-size: .85rem
+                          color: #333
+                          word-wrap: break-word
+                          word-break: break-all
+                        .footer
+                          height: 20px
+                          line-height: 20px
+                          font-size: .85rem
+                          .time
+                            float: left
+                            color: #aaa
+                          .btn-reply
+                            color: #aaa
+                            float: right
 
   @media screen and (min-width: 768px)
     .blogdetail

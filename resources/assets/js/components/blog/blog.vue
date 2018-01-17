@@ -5,9 +5,9 @@
         <div class="header">
           <div class="mac">
             <div class="logo">
-              <i class="l-icon l-icon-layLogo"></i>
+              <img width="70" height="70" src="./php.jpg" class="avatar-item">
             </div>
-            <p>哈哈哈哈哈哈哈哈哈</p>
+            <p>一个不羁的码农,我的世界不只有coding</p>
           </div>
         </div>
         <div class="articleListPage-tags-cnt">
@@ -278,15 +278,18 @@
             background: #ccc
           .logo
             margin-bottom: 10px
-            font-size: 3.5rem
-            color: #000
-            .l-icon
-              font-family: layIcon
-              font-style: normal
-              &:after
-                content: "E"
+            // font-size: 3.5rem
+            // color: #000
+            img
+              overflow: hidden;
+              border-radius: 50%;
+              background: $color-background
+              box-shadow: rgba(255, 255, 255, 0.1) 0 0 0 5px, rgba(0, 0, 0, 0.15) 0 0 5px 4px
+              transition: transform .4s ease-out
+            img:hover
+              transform: rotate(360deg)
           p
-            font-size: 1rem
+            font-size: 13px
             color: #333
       .articleListPage-tags-cnt
         margin-bottom: 20px
