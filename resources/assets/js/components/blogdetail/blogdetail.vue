@@ -38,102 +38,13 @@
               <p>然而实际项目中此类基础字段还不少，如果全部体现在路由上既会导致 URL 冗长，又需要处理各种字符转码的问题。所以此方案暂不考虑。</p>
 
               <h3 id="2viewmodelproject">2、View Model 监听 project 变动</h3>
-
-              <!-- <p>这是一种比较常规的解决方案，也比较容易实行。具体做法是：View Model 内部去监听 project，每当值发生改变时，主动更新自身数据。</p>
-
-              <p>监听方案可以用 vuex，也可以通过全局的自定义事件来实现，如：</p>
-
-              <div class="highlight javascript"><div><span class="keywords">var</span> bus = <span class="keywords">new</span> Vue();</div><div><span class="comment">// project 模块触发事件</span></div><div>bus.$emit(<span class="string">'project-switched'</span>, <span class="string">'nanjin-1'</span>);</div><div></div><div><span class="comment">// 在 View Model 中监听事件</span></div><div>bus.$on(<span class="string">'project-switched'</span>, <span class="keywords">function</span> (projectName) {</div><div>  <span class="comment">// ...</span></div><div>});</div></div>
-
-              <p>看起来很美好的实现方案，分析之后发现其仍然存在不少弊端，如：</p>
-
-              <ul>
-              <li>无论是 vuex 还是自定义事件，其监听都是全局的，也就是 View Model 被销毁时监听仍然存在，需要手动在 View Model 生命周期结束的时候解除监听；</li>
-              <li>每个 View Model 都需要进行监听、解除监听的重复操作，实现起来相对冗余；</li>
-              <li>事件处理相对分散，不利于排查问题，且后期维护成本较高</li>
-              </ul>
-
-              <p>分析之后发现，此方案虽然可以很好的解决问题，粒度也较细，但是存在一些弊端，可以作为备选方案。</p>
-
-              <h3 id="3projectrouterviewmodel">3、project 切换后通过 router 去重载当前 View Model</h3>
-
-              <p>此方案是借鉴了在 angular 项目中的经验，当 view 需要重载时，直接执行 <code>$route.reload()</code> 即可重新初始化当前视图。</p>
-
-              <p>虽然重载 router 下整个 view 这种方案粒度较粗，但优势在于改动范围小，只需要在 project 切换时执行重载即可。</p>
-
-              <p>可以算是一种简单、高效、易维护方案，在这三个方案中算是一个相对最优解。</p>
-
-              <h2 id="">问题就这样解决了 ？</h2>
-
-              <p>本以为到这儿问题就已经轻松愉快地解决了，在翻阅 <a href="https://router.vuejs.org/zh-cn/">vue-router文档</a> 后眉头一皱，却发现事情并不简单。</p>
-
-              <p>因为 vue router 不支持 reload 方法。</p>
-
-              <p>按照惯例，这类使用场景较高 API 一般在 issue 中都会有人去反馈。于是小剧分别在 vue、vue-router 两个项目中去找反馈。</p>
-
-              <p>结果正如小剧预料，有不少反馈表示需要 reload 或者替代方案。比较主流的讨论集中在这个 issue 中：<a href="https://github.com/vuejs/vue-router/issues/296">[Feature] #296</a> 「A reload method like location.reload() 」。</p>
-
-              <p>尤大神及其他 Contributor 均表示数据驱动的模型下不需要 reload 方法，更倾向于小剧前面提到的第二种方案。</p>
-
-              <p>虽然听起来很有道理，但小剧还是想要可以直接 reload 的方法。</p>
-
-              <h2 id="routerreload">有哪些 router reload 的替代方法</h2>
-
-              <p>终于到了点题的时候了，VUE 项目下如何重载当前 router 对应的视图？</p>
-
-              <p>结合自己的思考和 issue 中其他同仁的讨论，小剧总结大致有这么几种方法可以作为替代：</p>
-
-              <ul>
-              <li>简单粗暴型：location.reload</li>
-              <li>数据驱动型：通过将 View Model 的数据重置到初始化前来实现</li>
-              <li>曲线救国型：先将 history replace 至一个中转页面，再 replace 回最初页面</li>
-              </ul>
-
-              <p>第一种方案可谓粗暴至极，单页应用中异步通信相对较多，刷新页面也会引起用户直观的刷新感知，因此不建议使用此操作。</p>
-
-              <p>第二种方案看起来并无不妥，因为 vue 本身是数据驱动，控制了数据也就控制了视图表现，但是实际处理中却会丢失各个生命周期中进行的一些操作，因此也并不靠谱儿。</p>
-
-              <p>第三种方案看起来略显猥琐，实际使用起来却非常简单，既不会增加额外的历史记录，也不存在体验上的问题。</p>
-
-              <p>因此，在官方暂不提供 reload 方法支持的情况下，第三种方案可以视为最佳解决方案。</p>
-
-              <h2 id="">那该如何操作呢 ？</h2>
-
-              <blockquote>
-                <p>曲线救国型：先将 history replace 至一个中转页面，再 replace 回最初页面</p>
-              </blockquote>
-
-              <p>先来看下小剧上面的描述，简单来看其实只有两次跳转而已，关键点在于跳转方法的选用上。push 方法会在浏览器的历史记录中增加一次访问记录，而 replace 不会。我们引入的这一次跳转本质上不希望引起用户的感知，所以 replace 方法在这里再合适不过了。</p>
-
-              <p>另外就是中转页的处理上，如果你配置了通配符 <code>path: '*'</code> 并且有重定向，那么中转页的 path 必须在路由中做对应配置。如果没有，中转页的 path 你可以写路由配置中任何不存在的路径。</p>
-
-              <p>还有就是两次 replace 操作在一个调用栈中进行，而且开始和结束的 path 也相同，极大可能会被浏览器忽略，所以可以引入一个定时器进行延时操作。</p>
-
-              <p>方法大致如下方代码所示。</p>
-
-              <div class="highlight javascript"><div><span class="keywords">function</span> reloadRoute($router) {</div><div>  <span class="keywords">var</span> curruntPath = $router.history.current.fullPath;</div><div>  $router.<span class="keywords">replace</span>({</div><div>    path: <span class="string">'/_empty'</span></div><div>  });</div><div>  <span class="global">setTimeout</span>(<span class="keywords">function</span> () {</div><div>    $router.<span class="keywords">replace</span>({</div><div>      path: curruntPath</div><div>    });</div><div>  });</div><div>}</div></div>
-
-              <p>写到这儿，我们已经解决了 VUE 项目下重载当前 router 对应的视图的问题，猥琐但有效。</p>
-
-              <hr>
-
-              <p>PS：视图重载这类需求的场景其实蛮多的，举几个例子：</p>
-
-              <ul>
-                <li>本文列举的 project 切换的场景</li>
-                <li>全局刷新交互，如设计可用于强制刷新内容的按钮</li>
-                <li>一个登录、匿名均可访问的应用，在弹窗登录后统一刷新当前视图</li>
-                <li>其他因全局、基础数据变动而需要刷新视图的场景</li>
-              </ul>
-
-              <p>最后，期待官方提供 reload 方法。</p> -->
             </div>
-            <div class="sns-share" data-text="今天小剧来分享在使用 vue 时遇到一个问题，困扰小剧比较长时间。概括下来就是：vue 项目如何在不修改 URL 的前提下主动 reload 当前 router？" data-url="http://bh-lay.com/blog/15f0084b4b0" data-title="VUE如何重载当前视图" data-img="">
+            <div class="sns-share" data-text="今天小剧来分享在使用 vue 时遇到一个问题，困扰小剧比较长时间" data-url="http://bh-lay.com/blog/15f0084b4b0" data-title="VUE如何重载当前视图" data-img="">
               <a href="#" title="分享至新浪微博" data-shareto="weibo">
                 <i class="l-icon icon-sina-weibo"></i>
                 <span>分享</span>
               </a>
-              <a href="#" title="微信,支付宝打赏">
+              <a title="微信,支付宝打赏" @click.prevent="showDetail()">
                 <i class="l-icon icon-money"></i>
                 <span>打赏</span>
               </a>
@@ -193,12 +104,42 @@
           </div>
         </div>
       </div>
+      <div class="many" v-show="detailShow" @click="hideDetail">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header" @click="hideDetail">
+              <i class="icon-cross"></i>
+            </div>
+            <div class="modal-boday">
+              <div class="title">如果觉得我的文章对您有用，请随意打赏。你的支持将鼓励我继续创作！</div>
+              <div class="img">
+                <img src="./wechat.jpg" width="300" height="300">
+                <!-- <img src="./alipay.jpg" width="300" height="300"> -->
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </template>
 
 <script type="text/ecmascript-6">
-  export default {}
+  export default {
+    data() {
+      return {
+        detailShow: false
+      }
+    },
+    methods: {
+      showDetail() {
+        this.detailShow = true
+      },
+      hideDetail() {
+        this.detailShow = false
+      }
+    }
+  }
 </script>
 
 <style scoped lang="stylus" rel="stylesheet/stylus">
@@ -364,6 +305,46 @@
                           .btn-reply
                             color: #aaa
                             float: right
+      .many
+        display: block;
+        position: fixed;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        z-index: 1050;
+        outline: 0;
+        background-color: hsla(0,0%,100%,.7);
+        text-align: center;
+        overflow-x: hidden;
+        overflow-y: auto;
+        .modal-dialog
+          width: 350px;
+          position: absolute;
+          top: 45%;
+          left: 50%;
+          transform: translate(-50%,-50%);
+          margin: 30px auto
+          .modal-content
+            box-shadow: 0 5px 25px rgba(0,0,0,.1);
+            border: 1px solid rgba(0,0,0,.1);
+            overflow: hidden;
+            position: relative;
+            background-color: #fff;
+            border-radius: 6px;
+            background-clip: padding-box;
+            outline: 0;
+            .modal-header
+              float: right
+              font-size: 15px
+              margin-top: 20px
+              margin-right: 20px
+            .modal-boday
+              padding: 20px 20px 10px 20px
+              .title
+                margin-top: 40px
+                font-size: 16px
+                line-height: 18px
 
   @media screen and (min-width: 768px)
     .blogdetail
@@ -397,8 +378,4 @@
 
   // 大于等于 1200
   // @media screen and (min-width: 1200px)
-
-
-
-
 </style>

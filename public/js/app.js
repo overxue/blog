@@ -11324,7 +11324,7 @@ module.exports = g;
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(6);
-module.exports = __webpack_require__(52);
+module.exports = __webpack_require__(54);
 
 
 /***/ }),
@@ -11343,6 +11343,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 
 // Vue.component('example-component', require('./components/ExampleComponent.vue'));
+__WEBPACK_IMPORTED_MODULE_1_vue___default.a.config.productionTip = false;
 
 var app = new __WEBPACK_IMPORTED_MODULE_1_vue___default.a({
     el: '#app',
@@ -11497,6 +11498,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
+  created: function created() {
+    console.log("一个人到底多无聊\r\n 才会把 console 当成玩具\r\n一个人究竟多堕落\r\n 才会把大好青春荒废在博客上\r\n\r\n\r\n%cfollow me %c https://github.com/overxue", "color:red", "color:green");
+  },
+
   components: {
     Navigation: __WEBPACK_IMPORTED_MODULE_0_components_navigation_navigation___default.a
   }
@@ -12204,9 +12209,9 @@ process.umask = function() { return 0; };
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_components_homepage_homepage___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_components_homepage_homepage__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_components_blog_blog__ = __webpack_require__(35);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_components_blog_blog___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_components_blog_blog__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_components_me_me__ = __webpack_require__(41);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_components_me_me__ = __webpack_require__(42);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_components_me_me___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_components_me_me__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_components_blogdetail_blogdetail__ = __webpack_require__(47);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_components_blogdetail_blogdetail__ = __webpack_require__(48);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_components_blogdetail_blogdetail___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5_components_blogdetail_blogdetail__);
 
 
@@ -17162,7 +17167,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 "use strict";
 /*!
- * better-normal-scroll v1.7.2
+ * better-normal-scroll v1.8.0
  * (c) 2016-2018 ustbhuangyi
  * Released under the MIT License.
  */
@@ -17552,7 +17557,8 @@ var DEFAULT_OPTIONS = {
   /**
    * for scrollbar
    * scrollbar: {
-   *   fade: true
+   *   fade: true,
+   *   interactive: false
    * }
    */
   scrollbar: false,
@@ -17570,7 +17576,15 @@ var DEFAULT_OPTIONS = {
    *   threshold: 50
    * }
    */
-  pullUpLoad: false
+  pullUpLoad: false,
+  /**
+   * for mouse wheel
+   * mouseWheel:{
+   *   speed: 20,
+   *   invert: false
+   * }
+   */
+  mouseWheel: false
 };
 
 function initMixin(BScroll) {
@@ -17682,6 +17696,9 @@ function initMixin(BScroll) {
     }
     if (this.options.wheel) {
       this._initWheel();
+    }
+    if (this.options.mouseWheel) {
+      this._initMouseWheel();
     }
   };
 
@@ -17839,6 +17856,11 @@ function initMixin(BScroll) {
             e.stopPropagation();
           }
         }
+        break;
+      case 'wheel':
+      case 'DOMMouseScroll':
+      case 'mousewheel':
+        this._onMouseWheel(e);
         break;
     }
   };
@@ -18957,8 +18979,11 @@ function scrollbarMixin(BScroll) {
   BScroll.prototype._initScrollbar = function () {
     var _this = this;
 
-    var _options$scrollbar$fa = this.options.scrollbar.fade,
-        fade = _options$scrollbar$fa === undefined ? true : _options$scrollbar$fa;
+    var _options$scrollbar = this.options.scrollbar,
+        _options$scrollbar$fa = _options$scrollbar.fade,
+        fade = _options$scrollbar$fa === undefined ? true : _options$scrollbar$fa,
+        _options$scrollbar$in = _options$scrollbar.interactive,
+        interactive = _options$scrollbar$in === undefined ? false : _options$scrollbar$in;
 
     this.indicators = [];
     var indicator = void 0;
@@ -18967,7 +18992,8 @@ function scrollbarMixin(BScroll) {
       indicator = {
         el: createScrollbar('horizontal'),
         direction: 'horizontal',
-        fade: fade
+        fade: fade,
+        interactive: interactive
       };
       this._insertScrollBar(indicator.el);
 
@@ -18978,7 +19004,8 @@ function scrollbarMixin(BScroll) {
       indicator = {
         el: createScrollbar('vertical'),
         direction: 'vertical',
-        fade: fade
+        fade: fade,
+        interactive: interactive
       };
       this._insertScrollBar(indicator.el);
       this.indicators.push(new Indicator(this, indicator));
@@ -19027,8 +19054,7 @@ function scrollbarMixin(BScroll) {
 
   BScroll.prototype._removeScrollBars = function () {
     for (var i = 0; i < this.indicators.length; i++) {
-      var indicator = this.indicators[i];
-      indicator.remove();
+      this.indicators[i].destroy();
     }
   };
 }
@@ -19071,7 +19097,37 @@ function Indicator(scroller, options) {
   } else {
     this.visible = 1;
   }
+
+  this.sizeRatioX = 1;
+  this.sizeRatioY = 1;
+  this.maxPosX = 0;
+  this.maxPosY = 0;
+  this.x = 0;
+  this.y = 0;
+
+  if (options.interactive) {
+    this._addDOMEvents();
+  }
 }
+
+Indicator.prototype.handleEvent = function (e) {
+  switch (e.type) {
+    case 'touchstart':
+    case 'mousedown':
+      this._start(e);
+      break;
+    case 'touchmove':
+    case 'mousemove':
+      this._move(e);
+      break;
+    case 'touchend':
+    case 'mouseup':
+    case 'touchcancel':
+    case 'mousecancel':
+      this._end(e);
+      break;
+  }
+};
 
 Indicator.prototype.refresh = function () {
   this.transitionTime();
@@ -19160,8 +19216,112 @@ Indicator.prototype.transitionTimingFunction = function (easing) {
   this.indicatorStyle[style.transitionTimingFunction] = easing;
 };
 
-Indicator.prototype.remove = function () {
+Indicator.prototype.destroy = function () {
+  this._removeDOMEvents();
   this.wrapper.parentNode.removeChild(this.wrapper);
+};
+
+Indicator.prototype._start = function (e) {
+  var point = e.touches ? e.touches[0] : e;
+
+  e.preventDefault();
+  e.stopPropagation();
+
+  this.transitionTime();
+
+  this.initiated = true;
+  this.moved = false;
+  this.lastPointX = point.pageX;
+  this.lastPointY = point.pageY;
+
+  this.startTime = getNow();
+
+  this._handleMoveEvents(addEvent);
+  this.scroller.trigger('beforeScrollStart');
+};
+
+Indicator.prototype._move = function (e) {
+  var point = e.touches ? e.touches[0] : e;
+
+  e.preventDefault();
+  e.stopPropagation();
+
+  if (!this.moved) {
+    this.scroller.trigger('scrollStart');
+  }
+
+  this.moved = true;
+
+  var deltaX = point.pageX - this.lastPointX;
+  this.lastPointX = point.pageX;
+
+  var deltaY = point.pageY - this.lastPointY;
+  this.lastPointY = point.pageY;
+
+  var newX = this.x + deltaX;
+  var newY = this.y + deltaY;
+
+  this._pos(newX, newY);
+};
+
+Indicator.prototype._end = function (e) {
+  if (!this.initiated) {
+    return;
+  }
+  this.initiated = false;
+
+  e.preventDefault();
+  e.stopPropagation();
+
+  this._handleMoveEvents(removeEvent);
+
+  var snapOption = this.scroller.options.snap;
+  if (snapOption) {
+    var speed = snapOption.speed,
+        _snapOption$easing = snapOption.easing,
+        easing = _snapOption$easing === undefined ? ease.bounce : _snapOption$easing;
+
+    var snap = this.scroller._nearestSnap(this.scroller.x, this.scroller.y);
+
+    var time = speed || Math.max(Math.max(Math.min(Math.abs(this.scroller.x - snap.x), 1000), Math.min(Math.abs(this.scroller.y - snap.y), 1000)), 300);
+
+    if (this.scroller.x !== snap.x || this.scroller.y !== snap.y) {
+      this.scroller.directionX = 0;
+      this.scroller.directionY = 0;
+      this.scroller.currentPage = snap;
+      this.scroller.scrollTo(snap.x, snap.y, time, easing);
+    }
+  }
+
+  if (this.moved) {
+    this.scroller.trigger('scrollEnd', {
+      x: this.scroller.x,
+      y: this.scroller.y
+    });
+  }
+};
+
+Indicator.prototype._pos = function (x, y) {
+  if (x < 0) {
+    x = 0;
+  } else if (x > this.maxPosX) {
+    x = this.maxPosX;
+  }
+
+  if (y < 0) {
+    y = 0;
+  } else if (y > this.maxPosY) {
+    y = this.maxPosY;
+  }
+
+  x = Math.round(x / this.sizeRatioX);
+  y = Math.round(y / this.sizeRatioY);
+
+  this.scroller.scrollTo(x, y);
+  this.scroller.trigger('scroll', {
+    x: this.scroller.x,
+    y: this.scroller.y
+  });
 };
 
 Indicator.prototype._calculate = function () {
@@ -19181,6 +19341,37 @@ Indicator.prototype._calculate = function () {
     this.maxPosX = wrapperWidth - this.indicatorWidth;
 
     this.sizeRatioX = this.maxPosX / this.scroller.maxScrollX;
+  }
+};
+
+Indicator.prototype._addDOMEvents = function () {
+  var eventOperation = addEvent;
+  this._handleDOMEvents(eventOperation);
+};
+
+Indicator.prototype._removeDOMEvents = function () {
+  var eventOperation = removeEvent;
+  this._handleDOMEvents(eventOperation);
+  this._handleMoveEvents(eventOperation);
+};
+
+Indicator.prototype._handleMoveEvents = function (eventOperation) {
+  if (!this.scroller.options.disableTouch) {
+    eventOperation(window, 'touchmove', this);
+  }
+  if (!this.scroller.options.disableMouse) {
+    eventOperation(window, 'mousemove', this);
+  }
+};
+
+Indicator.prototype._handleDOMEvents = function (eventOperation) {
+  if (!this.scroller.options.disableTouch) {
+    eventOperation(this.indicator, 'touchstart', this);
+    eventOperation(window, 'touchend', this);
+  }
+  if (!this.scroller.options.disableMouse) {
+    eventOperation(this.indicator, 'mousedown', this);
+    eventOperation(window, 'mouseup', this);
   }
 };
 
@@ -19262,6 +19453,140 @@ function pullUpMixin(BScroll) {
   };
 }
 
+function mouseWheelMixin(BScroll) {
+  BScroll.prototype._initMouseWheel = function () {
+    var _this = this;
+
+    this._handleMouseWheelEvent(addEvent);
+
+    this.on('destroy', function () {
+      clearTimeout(_this.mouseWheelTimer);
+      _this._handleMouseWheelEvent(removeEvent);
+    });
+
+    this.firstWheelOpreation = true;
+  };
+
+  BScroll.prototype._handleMouseWheelEvent = function (eventOperation) {
+    eventOperation(this.wrapper, 'wheel', this);
+    eventOperation(this.wrapper, 'mousewheel', this);
+    eventOperation(this.wrapper, 'DOMMouseScroll', this);
+  };
+
+  BScroll.prototype._onMouseWheel = function (e) {
+    var _this2 = this;
+
+    if (!this.enabled) {
+      return;
+    }
+    e.preventDefault();
+
+    if (this.firstWheelOpreation) {
+      this.trigger('scrollStart');
+    }
+    this.firstWheelOpreation = false;
+
+    clearTimeout(this.mouseWheelTimer);
+    this.mouseWheelTimer = setTimeout(function () {
+      if (!_this2.options.snap) {
+        _this2.trigger('scrollEnd', {
+          x: _this2.x,
+          y: _this2.y
+        });
+      }
+      _this2.firstWheelOpreation = true;
+    }, 400);
+
+    var _options$mouseWheel = this.options.mouseWheel,
+        _options$mouseWheel$s = _options$mouseWheel.speed,
+        speed = _options$mouseWheel$s === undefined ? 20 : _options$mouseWheel$s,
+        _options$mouseWheel$i = _options$mouseWheel.invert,
+        invert = _options$mouseWheel$i === undefined ? false : _options$mouseWheel$i;
+
+    var wheelDeltaX = void 0;
+    var wheelDeltaY = void 0;
+
+    switch (true) {
+      case 'deltaX' in e:
+        if (e.deltaMode === 1) {
+          wheelDeltaX = -e.deltaX * speed;
+          wheelDeltaY = -e.deltaY * speed;
+        } else {
+          wheelDeltaX = -e.deltaX;
+          wheelDeltaY = -e.deltaY;
+        }
+        break;
+      case 'wheelDeltaX' in e:
+        wheelDeltaX = e.wheelDeltaX / 120 * speed;
+        wheelDeltaY = e.wheelDeltaY / 120 * speed;
+        break;
+      case 'wheelDelta' in e:
+        wheelDeltaX = wheelDeltaY = e.wheelDelta / 120 * speed;
+        break;
+      case 'detail' in e:
+        wheelDeltaX = wheelDeltaY = -e.detail / 3 * speed;
+        break;
+      default:
+        return;
+    }
+
+    var direction = invert ? -1 : 1;
+    wheelDeltaX *= direction;
+    wheelDeltaY *= direction;
+
+    if (!this.hasVerticalScroll) {
+      wheelDeltaX = wheelDeltaY;
+      wheelDeltaY = 0;
+    }
+
+    var newX = void 0;
+    var newY = void 0;
+    if (this.options.snap) {
+      newX = this.currentPage.pageX;
+      newY = this.currentPage.pageY;
+
+      if (wheelDeltaX > 0) {
+        newX--;
+      } else if (wheelDeltaX < 0) {
+        newX++;
+      }
+
+      if (wheelDeltaY > 0) {
+        newY--;
+      } else if (wheelDeltaY < 0) {
+        newY++;
+      }
+
+      this._goToPage(newX, newY);
+      return;
+    }
+
+    newX = this.x + Math.round(this.hasHorizontalScroll ? wheelDeltaX : 0);
+    newY = this.y + Math.round(this.hasVerticalScroll ? wheelDeltaY : 0);
+
+    this.directionX = wheelDeltaX > 0 ? -1 : wheelDeltaX < 0 ? 1 : 0;
+    this.directionY = wheelDeltaY > 0 ? -1 : wheelDeltaY < 0 ? 1 : 0;
+
+    if (newX > 0) {
+      newX = 0;
+    } else if (newX < this.maxScrollX) {
+      newX = this.maxScrollX;
+    }
+
+    if (newY > 0) {
+      newY = 0;
+    } else if (newY < this.maxScrollY) {
+      newY = this.maxScrollY;
+    }
+
+    this.scrollTo(newX, newY);
+    this.trigger('scroll', {
+      x: this.x,
+      y: this.y
+    });
+  };
+}
+
 function BScroll(el, options) {
   this.wrapper = typeof el === 'string' ? document.querySelector(el) : el;
   if (!this.wrapper) {
@@ -19285,8 +19610,9 @@ wheelMixin(BScroll);
 scrollbarMixin(BScroll);
 pullDownMixin(BScroll);
 pullUpMixin(BScroll);
+mouseWheelMixin(BScroll);
 
-BScroll.Version = '1.7.2';
+BScroll.Version = '1.8.0';
 
 /* harmony default export */ __webpack_exports__["a"] = (BScroll);
 
@@ -19358,7 +19684,7 @@ var staticRenderFns = [
         _c("div", { staticClass: "logo" }, [
           _c("img", {
             staticClass: "avatar-item",
-            attrs: { width: "70", height: "70", src: __webpack_require__(62) }
+            attrs: { width: "70", height: "70", src: __webpack_require__(41) }
           })
         ]),
         _vm._v(" "),
@@ -19727,18 +20053,24 @@ if (false) {
 
 /***/ }),
 /* 41 */
+/***/ (function(module, exports) {
+
+module.exports = "/images/php.jpg?9255e2a035d9f27549bf8838cce2167a";
+
+/***/ }),
+/* 42 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__(42)
+  __webpack_require__(43)
 }
 var normalizeComponent = __webpack_require__(2)
 /* script */
-var __vue_script__ = __webpack_require__(44)
+var __vue_script__ = __webpack_require__(45)
 /* template */
-var __vue_template__ = __webpack_require__(45)
+var __vue_template__ = __webpack_require__(46)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -19777,13 +20109,13 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 42 */
+/* 43 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(43);
+var content = __webpack_require__(44);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
@@ -19803,7 +20135,7 @@ if(false) {
 }
 
 /***/ }),
-/* 43 */
+/* 44 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(0)(false);
@@ -19817,7 +20149,7 @@ exports.push([module.i, "\n.me[data-v-62e8c268] {\n  height: 100%;\n  background
 
 
 /***/ }),
-/* 44 */
+/* 45 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -19874,7 +20206,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony default export */ __webpack_exports__["default"] = ({});
 
 /***/ }),
-/* 45 */
+/* 46 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -19901,7 +20233,7 @@ var staticRenderFns = [
                       attrs: {
                         width: "120",
                         height: "120",
-                        src: __webpack_require__(46)
+                        src: __webpack_require__(47)
                       }
                     })
                   ]),
@@ -19980,25 +20312,25 @@ if (false) {
 }
 
 /***/ }),
-/* 46 */
+/* 47 */
 /***/ (function(module, exports) {
 
 module.exports = "/images/avatar.jpg?fec8909ab83866bda0dc9ca0b07b6e2e";
 
 /***/ }),
-/* 47 */
+/* 48 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__(48)
+  __webpack_require__(49)
 }
 var normalizeComponent = __webpack_require__(2)
 /* script */
-var __vue_script__ = __webpack_require__(50)
+var __vue_script__ = __webpack_require__(51)
 /* template */
-var __vue_template__ = __webpack_require__(51)
+var __vue_template__ = __webpack_require__(52)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -20037,13 +20369,13 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 48 */
+/* 49 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(49);
+var content = __webpack_require__(50);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
@@ -20063,7 +20395,7 @@ if(false) {
 }
 
 /***/ }),
-/* 49 */
+/* 50 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(0)(false);
@@ -20071,13 +20403,13 @@ exports = module.exports = __webpack_require__(0)(false);
 
 
 // module
-exports.push([module.i, "\n.blogdetail[data-v-6fb08288] {\n  height: 100%;\n  background: #dee3e7;\n}\n.blogdetail .page .blog-detail[data-v-6fb08288] {\n  padding: 0;\n  background: #dee3e7;\n}\n.blogdetail .page .blog-detail .blog-detail-contaner[data-v-6fb08288] {\n  max-width: 1000px;\n  margin: 0 auto;\n  background: #fff;\n}\n.blogdetail .page .blog-detail .blog-detail-contaner .header[data-v-6fb08288] {\n  position: relative;\n  padding-top: 44%;\n  background-color: #eee;\n  background-size: cover;\n  background-position: 50%;\n}\n.blogdetail .page .blog-detail .blog-detail-contaner .header .header-cover[data-v-6fb08288] {\n  position: absolute;\n  width: 100%;\n  height: 100%;\n  top: 0;\n  left: 0;\n  overflow: hidden;\n}\n.blogdetail .page .blog-detail .blog-detail-contaner .header .header-cover.no-cover[data-v-6fb08288] {\n  background: #1f3747;\n  background-image: -webkit-linear-gradient(left, #1f3747, #293d31);\n}\n.blogdetail .page .blog-detail .blog-detail-contaner .header .header-body[data-v-6fb08288] {\n  display: none;\n}\n.blogdetail .page .blog-detail .blog-detail-contaner .article-section[data-v-6fb08288] {\n  padding: 1em 0;\n}\n.blogdetail .page .blog-detail .blog-detail-contaner .article-section .caption[data-v-6fb08288] {\n  padding: 0 20px;\n}\n.blogdetail .page .blog-detail .blog-detail-contaner .article-section .caption .titl[data-v-6fb08288] {\n  margin-bottom: 0.4em;\n  font-size: 1.8rem;\n}\n.blogdetail .page .blog-detail .blog-detail-contaner .article-section .caption .time[data-v-6fb08288] {\n  font-size: 14px;\n}\n.blogdetail .page .blog-detail .blog-detail-contaner .article-section .article[data-v-6fb08288] {\n  padding: 40px 20px;\n  font-size: 1rem;\n  line-height: 1.6;\n  word-wrap: break-word;\n  background: #fff;\n}\n.blogdetail .page .blog-detail .blog-detail-contaner .article-section .article[data-v-6fb08288]:before {\n  display: table;\n  content: \"\";\n}\n.blogdetail .page .blog-detail .blog-detail-contaner .article-section .sns-share[data-v-6fb08288] {\n  padding: 2em 0 2em;\n  text-align: center;\n}\n.blogdetail .page .blog-detail .blog-detail-contaner .article-section .sns-share a[data-v-6fb08288] {\n  display: inline-block;\n  width: 80px;\n  height: 80px;\n  margin: 0 1em;\n  border-radius: 50%;\n  font-size: 1.2rem;\n  color: #fff;\n  background: #fa7d3c;\n}\n.blogdetail .page .blog-detail .blog-detail-contaner .article-section .sns-share a i[data-v-6fb08288] {\n  display: block;\n  padding-top: 10px;\n  line-height: 30px;\n  font-size: 30px;\n}\n.blogdetail .page .blog-detail .blog-detail-contaner .article-section .sns-share a .l-icon[data-v-6fb08288] {\n  font-family: layIcon;\n  font-style: normal;\n}\n.blogdetail .page .blog-detail .blog-detail-contaner .article-section .sns-share a span[data-v-6fb08288] {\n  display: block;\n  line-height: 30px;\n  font-size: 14px;\n}\n.blogdetail .page .blog-detail .blog-detail-contaner .comments-section[data-v-6fb08288] {\n  position: relative;\n  padding: 2em 1em;\n  background: #f5f8fa;\n  border: 1px solid #edf0f3;\n}\n.blogdetail .page .blog-detail .blog-detail-contaner .comments-section[data-v-6fb08288]:before {\n  position: absolute;\n  content: \"\";\n  top: -1rem;\n  left: 50%;\n  margin-left: -2rem;\n  width: 0;\n  height: 0;\n  border-style: solid;\n  border-color: transparent transparent #f5f8fa;\n  border-width: 0 2rem 1rem;\n}\n.blogdetail .page .blog-detail .blog-detail-contaner .comments-section .comments_frame .l_comments .l_com_sendBox[data-v-6fb08288] {\n  margin-bottom: 20px;\n  background: #fff;\n  border-radius: 2px;\n  -webkit-box-shadow: 0 0 2px rgba(0,0,0,0.2);\n          box-shadow: 0 0 2px rgba(0,0,0,0.2);\n}\n.blogdetail .page .blog-detail .blog-detail-contaner .comments-section .comments_frame .l_comments .l_com_sendBox .l_sendBox[data-v-6fb08288] {\n  padding: 20px 20px 20px 20px;\n  background: #fff;\n}\n.blogdetail .page .blog-detail .blog-detail-contaner .comments-section .comments_frame .l_comments .l_com_sendBox .l_sendBox .l_send_footer[data-v-6fb08288] {\n  height: 30px;\n  padding-top: 10px;\n}\n.blogdetail .page .blog-detail .blog-detail-contaner .comments-section .comments_frame .l_comments .l_com_sendBox .l_sendBox .l_send_footer .l_send_right[data-v-6fb08288] {\n  float: right;\n}\n.blogdetail .page .blog-detail .blog-detail-contaner .comments-section .comments_frame .l_comments .l_com_sendBox .l_sendBox .l_send_footer .l_send_right .l_send_submit[data-v-6fb08288] {\n  display: inline-block;\n  padding: 0 20px;\n  font-size: 12px;\n  height: 30px;\n  line-height: 30px;\n  color: #fff;\n  background: #f90;\n  border-radius: 2px;\n  -webkit-transition: all 0.1s linear;\n  transition: all 0.1s linear;\n}\n.blogdetail .page .blog-detail .blog-detail-contaner .comments-section .comments_frame .l_comments .l_com_list .l_com_list_cnt[data-v-6fb08288] {\n  overflow: hidden;\n  background: #fff;\n  border-radius: 2px;\n  -webkit-box-shadow: 0 0 2px rgba(0,0,0,0.2);\n          box-shadow: 0 0 2px rgba(0,0,0,0.2);\n}\n.blogdetail .page .blog-detail .blog-detail-contaner .comments-section .comments_frame .l_comments .l_com_list .l_com_list_cnt .l_com_item[data-v-6fb08288] {\n  position: relative;\n  padding: 15px;\n  border-top: 1px solid #eee;\n  cursor: default;\n  overflow: hidden;\n  -webkit-transition: all 0.1s linear;\n  transition: all 0.1s linear;\n}\n.blogdetail .page .blog-detail .blog-detail-contaner .comments-section .comments_frame .l_comments .l_com_list .l_com_list_cnt .l_com_item[data-v-6fb08288]:first-child {\n  border: none;\n}\n.blogdetail .page .blog-detail .blog-detail-contaner .comments-section .comments_frame .l_comments .l_com_list .l_com_list_cnt .l_com_item .avatar[data-v-6fb08288] {\n  float: left;\n  width: 50px;\n  height: 50px;\n  border-radius: 12px;\n  overflow: hidden;\n  background: #ddd;\n}\n.blogdetail .page .blog-detail .blog-detail-contaner .comments-section .comments_frame .l_comments .l_com_list .l_com_list_cnt .l_com_item .avatar img[data-v-6fb08288] {\n  width: 100%;\n  height: 100%;\n}\n.blogdetail .page .blog-detail .blog-detail-contaner .comments-section .comments_frame .l_comments .l_com_list .l_com_list_cnt .l_com_item .content[data-v-6fb08288] {\n  margin-left: 60px;\n}\n.blogdetail .page .blog-detail .blog-detail-contaner .comments-section .comments_frame .l_comments .l_com_list .l_com_list_cnt .l_com_item .content .caption[data-v-6fb08288] {\n  margin-bottom: 10px;\n  line-height: 18px;\n  font-size: 0.85rem;\n  font-weight: 500;\n}\n.blogdetail .page .blog-detail .blog-detail-contaner .comments-section .comments_frame .l_comments .l_com_list .l_com_list_cnt .l_com_item .content .text[data-v-6fb08288] {\n  min-height: 20px;\n  margin-bottom: 10px;\n  line-height: 1.5;\n  font-size: 0.85rem;\n  color: #333;\n  word-wrap: break-word;\n  word-break: break-all;\n}\n.blogdetail .page .blog-detail .blog-detail-contaner .comments-section .comments_frame .l_comments .l_com_list .l_com_list_cnt .l_com_item .content .footer[data-v-6fb08288] {\n  height: 20px;\n  line-height: 20px;\n  font-size: 0.85rem;\n}\n.blogdetail .page .blog-detail .blog-detail-contaner .comments-section .comments_frame .l_comments .l_com_list .l_com_list_cnt .l_com_item .content .footer .time[data-v-6fb08288] {\n  float: left;\n  color: #aaa;\n}\n.blogdetail .page .blog-detail .blog-detail-contaner .comments-section .comments_frame .l_comments .l_com_list .l_com_list_cnt .l_com_item .content .footer .btn-reply[data-v-6fb08288] {\n  color: #aaa;\n  float: right;\n}\n@media screen and (min-width: 768px) {\n.blogdetail .page .blog-detail[data-v-6fb08288] {\n    padding: 80px 0;\n}\n.blogdetail .page .blog-detail .blog-detail-contaner .header .header-body[data-v-6fb08288] {\n    display: block;\n    position: absolute;\n    top: 70px;\n    left: 70px;\n}\n.blogdetail .page .blog-detail .blog-detail-contaner .header .tit[data-v-6fb08288] {\n    margin-bottom: 15px;\n    line-height: 1.2;\n    font-size: 26px;\n    font-weight: 500;\n    color: #fff;\n}\n.blogdetail .page .blog-detail .blog-detail-contaner .header .article-info[data-v-6fb08288] {\n    width: 50%;\n    margin-bottom: 50px;\n    color: #fff;\n    opacity: 0.8;\n}\n.blogdetail .page .blog-detail .blog-detail-contaner .article-section[data-v-6fb08288] {\n    padding: 5em 8em;\n}\n.blogdetail .page .blog-detail .blog-detail-contaner .comments-section[data-v-6fb08288] {\n    padding: 2em 8em 4em;\n}\n}\n", ""]);
+exports.push([module.i, "\n.blogdetail[data-v-6fb08288] {\n  height: 100%;\n  background: #dee3e7;\n}\n.blogdetail .page .blog-detail[data-v-6fb08288] {\n  padding: 0;\n  background: #dee3e7;\n}\n.blogdetail .page .blog-detail .blog-detail-contaner[data-v-6fb08288] {\n  max-width: 1000px;\n  margin: 0 auto;\n  background: #fff;\n}\n.blogdetail .page .blog-detail .blog-detail-contaner .header[data-v-6fb08288] {\n  position: relative;\n  padding-top: 44%;\n  background-color: #eee;\n  background-size: cover;\n  background-position: 50%;\n}\n.blogdetail .page .blog-detail .blog-detail-contaner .header .header-cover[data-v-6fb08288] {\n  position: absolute;\n  width: 100%;\n  height: 100%;\n  top: 0;\n  left: 0;\n  overflow: hidden;\n}\n.blogdetail .page .blog-detail .blog-detail-contaner .header .header-cover.no-cover[data-v-6fb08288] {\n  background: #1f3747;\n  background-image: -webkit-linear-gradient(left, #1f3747, #293d31);\n}\n.blogdetail .page .blog-detail .blog-detail-contaner .header .header-body[data-v-6fb08288] {\n  display: none;\n}\n.blogdetail .page .blog-detail .blog-detail-contaner .article-section[data-v-6fb08288] {\n  padding: 1em 0;\n}\n.blogdetail .page .blog-detail .blog-detail-contaner .article-section .caption[data-v-6fb08288] {\n  padding: 0 20px;\n}\n.blogdetail .page .blog-detail .blog-detail-contaner .article-section .caption .titl[data-v-6fb08288] {\n  margin-bottom: 0.4em;\n  font-size: 1.8rem;\n}\n.blogdetail .page .blog-detail .blog-detail-contaner .article-section .caption .time[data-v-6fb08288] {\n  font-size: 14px;\n}\n.blogdetail .page .blog-detail .blog-detail-contaner .article-section .article[data-v-6fb08288] {\n  padding: 40px 20px;\n  font-size: 1rem;\n  line-height: 1.6;\n  word-wrap: break-word;\n  background: #fff;\n}\n.blogdetail .page .blog-detail .blog-detail-contaner .article-section .article[data-v-6fb08288]:before {\n  display: table;\n  content: \"\";\n}\n.blogdetail .page .blog-detail .blog-detail-contaner .article-section .sns-share[data-v-6fb08288] {\n  padding: 2em 0 2em;\n  text-align: center;\n}\n.blogdetail .page .blog-detail .blog-detail-contaner .article-section .sns-share a[data-v-6fb08288] {\n  display: inline-block;\n  width: 80px;\n  height: 80px;\n  margin: 0 1em;\n  border-radius: 50%;\n  font-size: 1.2rem;\n  color: #fff;\n  background: #fa7d3c;\n}\n.blogdetail .page .blog-detail .blog-detail-contaner .article-section .sns-share a i[data-v-6fb08288] {\n  display: block;\n  padding-top: 10px;\n  line-height: 30px;\n  font-size: 30px;\n}\n.blogdetail .page .blog-detail .blog-detail-contaner .article-section .sns-share a .l-icon[data-v-6fb08288] {\n  font-family: layIcon;\n  font-style: normal;\n}\n.blogdetail .page .blog-detail .blog-detail-contaner .article-section .sns-share a span[data-v-6fb08288] {\n  display: block;\n  line-height: 30px;\n  font-size: 14px;\n}\n.blogdetail .page .blog-detail .blog-detail-contaner .comments-section[data-v-6fb08288] {\n  position: relative;\n  padding: 2em 1em;\n  background: #f5f8fa;\n  border: 1px solid #edf0f3;\n}\n.blogdetail .page .blog-detail .blog-detail-contaner .comments-section[data-v-6fb08288]:before {\n  position: absolute;\n  content: \"\";\n  top: -1rem;\n  left: 50%;\n  margin-left: -2rem;\n  width: 0;\n  height: 0;\n  border-style: solid;\n  border-color: transparent transparent #f5f8fa;\n  border-width: 0 2rem 1rem;\n}\n.blogdetail .page .blog-detail .blog-detail-contaner .comments-section .comments_frame .l_comments .l_com_sendBox[data-v-6fb08288] {\n  margin-bottom: 20px;\n  background: #fff;\n  border-radius: 2px;\n  -webkit-box-shadow: 0 0 2px rgba(0,0,0,0.2);\n          box-shadow: 0 0 2px rgba(0,0,0,0.2);\n}\n.blogdetail .page .blog-detail .blog-detail-contaner .comments-section .comments_frame .l_comments .l_com_sendBox .l_sendBox[data-v-6fb08288] {\n  padding: 20px 20px 20px 20px;\n  background: #fff;\n}\n.blogdetail .page .blog-detail .blog-detail-contaner .comments-section .comments_frame .l_comments .l_com_sendBox .l_sendBox .l_send_footer[data-v-6fb08288] {\n  height: 30px;\n  padding-top: 10px;\n}\n.blogdetail .page .blog-detail .blog-detail-contaner .comments-section .comments_frame .l_comments .l_com_sendBox .l_sendBox .l_send_footer .l_send_right[data-v-6fb08288] {\n  float: right;\n}\n.blogdetail .page .blog-detail .blog-detail-contaner .comments-section .comments_frame .l_comments .l_com_sendBox .l_sendBox .l_send_footer .l_send_right .l_send_submit[data-v-6fb08288] {\n  display: inline-block;\n  padding: 0 20px;\n  font-size: 12px;\n  height: 30px;\n  line-height: 30px;\n  color: #fff;\n  background: #f90;\n  border-radius: 2px;\n  -webkit-transition: all 0.1s linear;\n  transition: all 0.1s linear;\n}\n.blogdetail .page .blog-detail .blog-detail-contaner .comments-section .comments_frame .l_comments .l_com_list .l_com_list_cnt[data-v-6fb08288] {\n  overflow: hidden;\n  background: #fff;\n  border-radius: 2px;\n  -webkit-box-shadow: 0 0 2px rgba(0,0,0,0.2);\n          box-shadow: 0 0 2px rgba(0,0,0,0.2);\n}\n.blogdetail .page .blog-detail .blog-detail-contaner .comments-section .comments_frame .l_comments .l_com_list .l_com_list_cnt .l_com_item[data-v-6fb08288] {\n  position: relative;\n  padding: 15px;\n  border-top: 1px solid #eee;\n  cursor: default;\n  overflow: hidden;\n  -webkit-transition: all 0.1s linear;\n  transition: all 0.1s linear;\n}\n.blogdetail .page .blog-detail .blog-detail-contaner .comments-section .comments_frame .l_comments .l_com_list .l_com_list_cnt .l_com_item[data-v-6fb08288]:first-child {\n  border: none;\n}\n.blogdetail .page .blog-detail .blog-detail-contaner .comments-section .comments_frame .l_comments .l_com_list .l_com_list_cnt .l_com_item .avatar[data-v-6fb08288] {\n  float: left;\n  width: 50px;\n  height: 50px;\n  border-radius: 12px;\n  overflow: hidden;\n  background: #ddd;\n}\n.blogdetail .page .blog-detail .blog-detail-contaner .comments-section .comments_frame .l_comments .l_com_list .l_com_list_cnt .l_com_item .avatar img[data-v-6fb08288] {\n  width: 100%;\n  height: 100%;\n}\n.blogdetail .page .blog-detail .blog-detail-contaner .comments-section .comments_frame .l_comments .l_com_list .l_com_list_cnt .l_com_item .content[data-v-6fb08288] {\n  margin-left: 60px;\n}\n.blogdetail .page .blog-detail .blog-detail-contaner .comments-section .comments_frame .l_comments .l_com_list .l_com_list_cnt .l_com_item .content .caption[data-v-6fb08288] {\n  margin-bottom: 10px;\n  line-height: 18px;\n  font-size: 0.85rem;\n  font-weight: 500;\n}\n.blogdetail .page .blog-detail .blog-detail-contaner .comments-section .comments_frame .l_comments .l_com_list .l_com_list_cnt .l_com_item .content .text[data-v-6fb08288] {\n  min-height: 20px;\n  margin-bottom: 10px;\n  line-height: 1.5;\n  font-size: 0.85rem;\n  color: #333;\n  word-wrap: break-word;\n  word-break: break-all;\n}\n.blogdetail .page .blog-detail .blog-detail-contaner .comments-section .comments_frame .l_comments .l_com_list .l_com_list_cnt .l_com_item .content .footer[data-v-6fb08288] {\n  height: 20px;\n  line-height: 20px;\n  font-size: 0.85rem;\n}\n.blogdetail .page .blog-detail .blog-detail-contaner .comments-section .comments_frame .l_comments .l_com_list .l_com_list_cnt .l_com_item .content .footer .time[data-v-6fb08288] {\n  float: left;\n  color: #aaa;\n}\n.blogdetail .page .blog-detail .blog-detail-contaner .comments-section .comments_frame .l_comments .l_com_list .l_com_list_cnt .l_com_item .content .footer .btn-reply[data-v-6fb08288] {\n  color: #aaa;\n  float: right;\n}\n.blogdetail .page .many[data-v-6fb08288] {\n  display: block;\n  position: fixed;\n  top: 0;\n  right: 0;\n  bottom: 0;\n  left: 0;\n  z-index: 1050;\n  outline: 0;\n  background-color: rgba(255,255,255,0.7);\n  text-align: center;\n  overflow-x: hidden;\n  overflow-y: auto;\n}\n.blogdetail .page .many .modal-dialog[data-v-6fb08288] {\n  width: 350px;\n  position: absolute;\n  top: 45%;\n  left: 50%;\n  -webkit-transform: translate(-50%, -50%);\n          transform: translate(-50%, -50%);\n  margin: 30px auto;\n}\n.blogdetail .page .many .modal-dialog .modal-content[data-v-6fb08288] {\n  -webkit-box-shadow: 0 5px 25px rgba(0,0,0,0.1);\n          box-shadow: 0 5px 25px rgba(0,0,0,0.1);\n  border: 1px solid rgba(0,0,0,0.1);\n  overflow: hidden;\n  position: relative;\n  background-color: #fff;\n  border-radius: 6px;\n  background-clip: padding-box;\n  outline: 0;\n}\n.blogdetail .page .many .modal-dialog .modal-content .modal-header[data-v-6fb08288] {\n  float: right;\n  font-size: 15px;\n  margin-top: 20px;\n  margin-right: 20px;\n}\n.blogdetail .page .many .modal-dialog .modal-content .modal-boday[data-v-6fb08288] {\n  padding: 20px 20px 10px 20px;\n}\n.blogdetail .page .many .modal-dialog .modal-content .modal-boday .title[data-v-6fb08288] {\n  margin-top: 40px;\n  font-size: 16px;\n  line-height: 18px;\n}\n@media screen and (min-width: 768px) {\n.blogdetail .page .blog-detail[data-v-6fb08288] {\n    padding: 80px 0;\n}\n.blogdetail .page .blog-detail .blog-detail-contaner .header .header-body[data-v-6fb08288] {\n    display: block;\n    position: absolute;\n    top: 70px;\n    left: 70px;\n}\n.blogdetail .page .blog-detail .blog-detail-contaner .header .tit[data-v-6fb08288] {\n    margin-bottom: 15px;\n    line-height: 1.2;\n    font-size: 26px;\n    font-weight: 500;\n    color: #fff;\n}\n.blogdetail .page .blog-detail .blog-detail-contaner .header .article-info[data-v-6fb08288] {\n    width: 50%;\n    margin-bottom: 50px;\n    color: #fff;\n    opacity: 0.8;\n}\n.blogdetail .page .blog-detail .blog-detail-contaner .article-section[data-v-6fb08288] {\n    padding: 5em 8em;\n}\n.blogdetail .page .blog-detail .blog-detail-contaner .comments-section[data-v-6fb08288] {\n    padding: 2em 8em 4em;\n}\n}\n", ""]);
 
 // exports
 
 
 /***/ }),
-/* 50 */
+/* 51 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -20208,335 +20540,339 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
-/* harmony default export */ __webpack_exports__["default"] = ({});
+/* harmony default export */ __webpack_exports__["default"] = ({
+  data: function data() {
+    return {
+      detailShow: false
+    };
+  },
+
+  methods: {
+    showDetail: function showDetail() {
+      this.detailShow = true;
+    },
+    hideDetail: function hideDetail() {
+      this.detailShow = false;
+    }
+  }
+});
 
 /***/ }),
-/* 51 */
+/* 52 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
+  return _c("div", { staticClass: "blogdetail" }, [
+    _c("div", { staticClass: "page" }, [
+      _c("div", { staticClass: "blog-detail" }, [
+        _c("div", { staticClass: "blog-detail-contaner" }, [
+          _vm._m(0),
+          _vm._v(" "),
+          _c("div", { staticClass: "article-section" }, [
+            _vm._m(1),
+            _vm._v(" "),
+            _vm._m(2),
+            _vm._v(" "),
+            _c(
+              "div",
+              {
+                staticClass: "sns-share",
+                attrs: {
+                  "data-text":
+                    "今天小剧来分享在使用 vue 时遇到一个问题，困扰小剧比较长时间",
+                  "data-url": "http://bh-lay.com/blog/15f0084b4b0",
+                  "data-title": "VUE如何重载当前视图",
+                  "data-img": ""
+                }
+              },
+              [
+                _vm._m(3),
+                _vm._v(" "),
+                _c(
+                  "a",
+                  {
+                    attrs: { title: "微信,支付宝打赏" },
+                    on: {
+                      click: function($event) {
+                        $event.preventDefault()
+                        _vm.showDetail()
+                      }
+                    }
+                  },
+                  [
+                    _c("i", { staticClass: "l-icon icon-money" }),
+                    _vm._v(" "),
+                    _c("span", [_vm._v("打赏")])
+                  ]
+                )
+              ]
+            )
+          ]),
+          _vm._v(" "),
+          _vm._m(4)
+        ])
+      ]),
+      _vm._v(" "),
+      _c(
+        "div",
+        {
+          directives: [
+            {
+              name: "show",
+              rawName: "v-show",
+              value: _vm.detailShow,
+              expression: "detailShow"
+            }
+          ],
+          staticClass: "many",
+          on: { click: _vm.hideDetail }
+        },
+        [
+          _c("div", { staticClass: "modal-dialog" }, [
+            _c("div", { staticClass: "modal-content" }, [
+              _c(
+                "div",
+                { staticClass: "modal-header", on: { click: _vm.hideDetail } },
+                [_c("i", { staticClass: "icon-cross" })]
+              ),
+              _vm._v(" "),
+              _vm._m(5)
+            ])
+          ])
+        ]
+      )
+    ])
+  ])
 }
 var staticRenderFns = [
   function() {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "blogdetail" }, [
-      _c("div", { staticClass: "page" }, [
-        _c("div", { staticClass: "blog-detail" }, [
-          _c("div", { staticClass: "blog-detail-contaner" }, [
-            _c("div", { staticClass: "header" }, [
-              _c("div", { staticClass: "header-cover no-cover" }),
+    return _c("div", { staticClass: "header" }, [
+      _c("div", { staticClass: "header-cover no-cover" }),
+      _vm._v(" "),
+      _c("div", { staticClass: "header-body" }, [
+        _c("div", { staticClass: "tit" }, [_vm._v("VUE如何重载当前视图")]),
+        _vm._v(" "),
+        _c("div", { staticClass: "article-info" }, [
+          _c("span", [
+            _vm._v(
+              "今天小剧来分享在使用 vue 时遇到一个问题，困扰小剧比较长时间。概括下来就是：vue 项目如何在不修改 URL 的前提下主动 reload 当前 router？\n              "
+            )
+          ])
+        ])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "caption" }, [
+      _c("h1", { staticClass: "titl" }, [_vm._v("VUE如何重载当前视图")]),
+      _vm._v(" "),
+      _c("p", { staticClass: "time" }, [
+        _vm._v("发布时间："),
+        _c("span", [_vm._v("2017-10-09 ")])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "article" }, [
+      _c("p", [
+        _vm._v("今天小剧来分享在使用 vue 时遇到一个问题，困扰小剧比较长时间。")
+      ]),
+      _vm._v(" "),
+      _c("p", [
+        _vm._v(
+          "概括下来就是：vue 项目如何在不修改 URL 的前提下主动 reload 当前 router？"
+        )
+      ]),
+      _vm._v(" "),
+      _c("h2", { attrs: { id: "" } }, [_vm._v("先来说下场景")]),
+      _vm._v(" "),
+      _c("p", [
+        _vm._v(
+          "项目的业务模型中有一个独立的模块，用于处理全局数据：project，首先 project list 是一个可以进行切换的列表，其次还有一个当前选中的 project 项。所有 View Model 在初始化时都会依赖当前选中的 project。"
+        )
+      ]),
+      _vm._v(" "),
+      _c("h2", { attrs: { id: "" } }, [_vm._v("那么问题来了")]),
+      _vm._v(" "),
+      _c("p", [
+        _vm._v("一个 View Model 已经被渲染完毕后，切换 project 时该如何操作？")
+      ]),
+      _vm._v(" "),
+      _c("p", [_vm._v("仔细思考之后，发现有三个可行性较高的方案：")]),
+      _vm._v(" "),
+      _c("h3", { attrs: { id: "1" } }, [_vm._v("1、重新设计路由规则")]),
+      _vm._v(" "),
+      _c("p", [
+        _vm._v(
+          "通过场景分析可以看出来 project 是一个基础性字段，因此可以考虑将 project 字段显式地体现在 URL 上。在切换 project 时直接更新当前路由即可实现 View Model 的更新。"
+        )
+      ]),
+      _vm._v(" "),
+      _c("p", [
+        _vm._v(
+          "然而实际项目中此类基础字段还不少，如果全部体现在路由上既会导致 URL 冗长，又需要处理各种字符转码的问题。所以此方案暂不考虑。"
+        )
+      ]),
+      _vm._v(" "),
+      _c("h3", { attrs: { id: "2viewmodelproject" } }, [
+        _vm._v("2、View Model 监听 project 变动")
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "a",
+      {
+        attrs: { href: "#", title: "分享至新浪微博", "data-shareto": "weibo" }
+      },
+      [
+        _c("i", { staticClass: "l-icon icon-sina-weibo" }),
+        _vm._v(" "),
+        _c("span", [_vm._v("分享")])
+      ]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "comments-section" }, [
+      _c("div", { staticClass: "comments_frame" }, [
+        _c("div", { staticClass: "l_comments" }, [
+          _c("div", { staticClass: "l_com_sendBox" }, [
+            _c("div", { staticClass: "l_sendBox" }, [
+              _c("textarea", {
+                attrs: {
+                  name: "content",
+                  id: "id_comment",
+                  placeholder: "评论屌一点，BUG少一点！"
+                }
+              }),
               _vm._v(" "),
-              _c("div", { staticClass: "header-body" }, [
-                _c("div", { staticClass: "tit" }, [
-                  _vm._v("VUE如何重载当前视图")
+              _c("div", { staticClass: "l_send_footer" }, [
+                _c("div", { staticClass: "l_send_right" }, [
+                  _c(
+                    "a",
+                    { staticClass: "l_send_submit", attrs: { href: "" } },
+                    [_vm._v("评论")]
+                  )
+                ])
+              ])
+            ])
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "l_com_list" }, [
+            _c("div", { staticClass: "l_com_list_cnt" }, [
+              _c("div", { staticClass: "l_com_item" }, [
+                _c("div", { staticClass: "avatar" }, [
+                  _c("img", {
+                    attrs: {
+                      src:
+                        "https://dn-lay.qbox.me/build/single-page/images/my-avatar_0b91c8c.jpg",
+                      onerror: "L.gravatar_error_fn(this)"
+                    }
+                  })
                 ]),
                 _vm._v(" "),
-                _c("div", { staticClass: "article-info" }, [
-                  _c("span", [
+                _c("div", { staticClass: "content" }, [
+                  _c("div", { staticClass: "caption" }, [_vm._v("剧中人 ")]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "text" }, [
                     _vm._v(
-                      "今天小剧来分享在使用 vue 时遇到一个问题，困扰小剧比较长时间。概括下来就是：vue 项目如何在不修改 URL 的前提下主动 reload 当前 router？\n              "
+                      "@梦梦 卧槽神思路啊！是个粗暴的好方法，看起来比我这个方案好多了，可以尝试。\n                      "
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "footer" }, [
+                    _c("div", { staticClass: "time" }, [
+                      _vm._v("22:35 2017-11-28")
+                    ]),
+                    _vm._v(" "),
+                    _c(
+                      "a",
+                      {
+                        staticClass: "btn-reply",
+                        attrs: { href: "javascript:void(0)" }
+                      },
+                      [_vm._v("回复")]
                     )
                   ])
                 ])
-              ])
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "article-section" }, [
-              _c("div", { staticClass: "caption" }, [
-                _c("h1", { staticClass: "titl" }, [
-                  _vm._v("VUE如何重载当前视图")
-                ]),
-                _vm._v(" "),
-                _c("p", { staticClass: "time" }, [
-                  _vm._v("发布时间："),
-                  _c("span", [_vm._v("2017-10-09 ")])
-                ])
               ]),
               _vm._v(" "),
-              _c("div", { staticClass: "article" }, [
-                _c("p", [
-                  _vm._v(
-                    "今天小剧来分享在使用 vue 时遇到一个问题，困扰小剧比较长时间。"
-                  )
+              _c("div", { staticClass: "l_com_item" }, [
+                _c("div", { staticClass: "avatar" }, [
+                  _c("img", {
+                    attrs: {
+                      src:
+                        "https://dn-lay.qbox.me/build/single-page/images/my-avatar_0b91c8c.jpg",
+                      onerror: "L.gravatar_error_fn(this)"
+                    }
+                  })
                 ]),
                 _vm._v(" "),
-                _c("p", [
-                  _vm._v(
-                    "概括下来就是：vue 项目如何在不修改 URL 的前提下主动 reload 当前 router？"
-                  )
-                ]),
-                _vm._v(" "),
-                _c("h2", { attrs: { id: "" } }, [_vm._v("先来说下场景")]),
-                _vm._v(" "),
-                _c("p", [
-                  _vm._v(
-                    "项目的业务模型中有一个独立的模块，用于处理全局数据：project，首先 project list 是一个可以进行切换的列表，其次还有一个当前选中的 project 项。所有 View Model 在初始化时都会依赖当前选中的 project。"
-                  )
-                ]),
-                _vm._v(" "),
-                _c("h2", { attrs: { id: "" } }, [_vm._v("那么问题来了")]),
-                _vm._v(" "),
-                _c("p", [
-                  _vm._v(
-                    "一个 View Model 已经被渲染完毕后，切换 project 时该如何操作？"
-                  )
-                ]),
-                _vm._v(" "),
-                _c("p", [_vm._v("仔细思考之后，发现有三个可行性较高的方案：")]),
-                _vm._v(" "),
-                _c("h3", { attrs: { id: "1" } }, [
-                  _vm._v("1、重新设计路由规则")
-                ]),
-                _vm._v(" "),
-                _c("p", [
-                  _vm._v(
-                    "通过场景分析可以看出来 project 是一个基础性字段，因此可以考虑将 project 字段显式地体现在 URL 上。在切换 project 时直接更新当前路由即可实现 View Model 的更新。"
-                  )
-                ]),
-                _vm._v(" "),
-                _c("p", [
-                  _vm._v(
-                    "然而实际项目中此类基础字段还不少，如果全部体现在路由上既会导致 URL 冗长，又需要处理各种字符转码的问题。所以此方案暂不考虑。"
-                  )
-                ]),
-                _vm._v(" "),
-                _c("h3", { attrs: { id: "2viewmodelproject" } }, [
-                  _vm._v("2、View Model 监听 project 变动")
-                ])
-              ]),
-              _vm._v(" "),
-              _c(
-                "div",
-                {
-                  staticClass: "sns-share",
-                  attrs: {
-                    "data-text":
-                      "今天小剧来分享在使用 vue 时遇到一个问题，困扰小剧比较长时间。概括下来就是：vue 项目如何在不修改 URL 的前提下主动 reload 当前 router？",
-                    "data-url": "http://bh-lay.com/blog/15f0084b4b0",
-                    "data-title": "VUE如何重载当前视图",
-                    "data-img": ""
-                  }
-                },
-                [
-                  _c(
-                    "a",
-                    {
-                      attrs: {
-                        href: "#",
-                        title: "分享至新浪微博",
-                        "data-shareto": "weibo"
-                      }
-                    },
-                    [
-                      _c("i", { staticClass: "l-icon icon-sina-weibo" }),
-                      _vm._v(" "),
-                      _c("span", [_vm._v("分享")])
-                    ]
-                  ),
+                _c("div", { staticClass: "content" }, [
+                  _c("div", { staticClass: "caption" }, [_vm._v("剧中人 ")]),
                   _vm._v(" "),
-                  _c("a", { attrs: { href: "#", title: "微信,支付宝打赏" } }, [
-                    _c("i", { staticClass: "l-icon icon-money" }),
-                    _vm._v(" "),
-                    _c("span", [_vm._v("打赏")])
-                  ])
-                ]
-              )
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "comments-section" }, [
-              _c("div", { staticClass: "comments_frame" }, [
-                _c("div", { staticClass: "l_comments" }, [
-                  _c("div", { staticClass: "l_com_sendBox" }, [
-                    _c("div", { staticClass: "l_sendBox" }, [
-                      _c("textarea", {
-                        attrs: {
-                          name: "content",
-                          id: "id_comment",
-                          placeholder: "评论屌一点，BUG少一点！"
-                        }
-                      }),
-                      _vm._v(" "),
-                      _c("div", { staticClass: "l_send_footer" }, [
-                        _c("div", { staticClass: "l_send_right" }, [
-                          _c(
-                            "a",
-                            {
-                              staticClass: "l_send_submit",
-                              attrs: { href: "" }
-                            },
-                            [_vm._v("评论")]
-                          )
-                        ])
-                      ])
-                    ])
+                  _c("div", { staticClass: "text" }, [
+                    _vm._v(
+                      "@梦梦 卧槽神思路啊！是个粗暴的好方法，看起来比我这个方案好多了，可以尝试。\n                      "
+                    )
                   ]),
                   _vm._v(" "),
-                  _c("div", { staticClass: "l_com_list" }, [
-                    _c("div", { staticClass: "l_com_list_cnt" }, [
-                      _c("div", { staticClass: "l_com_item" }, [
-                        _c("div", { staticClass: "avatar" }, [
-                          _c("img", {
-                            attrs: {
-                              src:
-                                "https://dn-lay.qbox.me/build/single-page/images/my-avatar_0b91c8c.jpg",
-                              onerror: "L.gravatar_error_fn(this)"
-                            }
-                          })
-                        ]),
-                        _vm._v(" "),
-                        _c("div", { staticClass: "content" }, [
-                          _c("div", { staticClass: "caption" }, [
-                            _vm._v("剧中人 ")
-                          ]),
-                          _vm._v(" "),
-                          _c("div", { staticClass: "text" }, [
-                            _vm._v(
-                              "@梦梦 卧槽神思路啊！是个粗暴的好方法，看起来比我这个方案好多了，可以尝试。\n                      "
-                            )
-                          ]),
-                          _vm._v(" "),
-                          _c("div", { staticClass: "footer" }, [
-                            _c("div", { staticClass: "time" }, [
-                              _vm._v("22:35 2017-11-28")
-                            ]),
-                            _vm._v(" "),
-                            _c(
-                              "a",
-                              {
-                                staticClass: "btn-reply",
-                                attrs: { href: "javascript:void(0)" }
-                              },
-                              [_vm._v("回复")]
-                            )
-                          ])
-                        ])
-                      ]),
-                      _vm._v(" "),
-                      _c("div", { staticClass: "l_com_item" }, [
-                        _c("div", { staticClass: "avatar" }, [
-                          _c("img", {
-                            attrs: {
-                              src:
-                                "https://dn-lay.qbox.me/build/single-page/images/my-avatar_0b91c8c.jpg",
-                              onerror: "L.gravatar_error_fn(this)"
-                            }
-                          })
-                        ]),
-                        _vm._v(" "),
-                        _c("div", { staticClass: "content" }, [
-                          _c("div", { staticClass: "caption" }, [
-                            _vm._v("剧中人 ")
-                          ]),
-                          _vm._v(" "),
-                          _c("div", { staticClass: "text" }, [
-                            _vm._v(
-                              "@梦梦 卧槽神思路啊！是个粗暴的好方法，看起来比我这个方案好多了，可以尝试。\n                      "
-                            )
-                          ]),
-                          _vm._v(" "),
-                          _c("div", { staticClass: "footer" }, [
-                            _c("div", { staticClass: "time" }, [
-                              _vm._v("22:35 2017-11-28")
-                            ]),
-                            _vm._v(" "),
-                            _c(
-                              "a",
-                              {
-                                staticClass: "btn-reply",
-                                attrs: { href: "javascript:void(0)" }
-                              },
-                              [_vm._v("回复")]
-                            )
-                          ])
-                        ])
-                      ])
-                    ])
+                  _c("div", { staticClass: "footer" }, [
+                    _c("div", { staticClass: "time" }, [
+                      _vm._v("22:35 2017-11-28")
+                    ]),
+                    _vm._v(" "),
+                    _c(
+                      "a",
+                      {
+                        staticClass: "btn-reply",
+                        attrs: { href: "javascript:void(0)" }
+                      },
+                      [_vm._v("回复")]
+                    )
                   ])
                 ])
               ])
             ])
           ])
         ])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "modal-boday" }, [
+      _c("div", { staticClass: "title" }, [
+        _vm._v(
+          "如果觉得我的文章对您有用，请随意打赏。你的支持将鼓励我继续创作！"
+        )
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "img" }, [
+        _c("img", {
+          attrs: { src: __webpack_require__(53), width: "300", height: "300" }
+        })
       ])
     ])
   }
@@ -20551,25 +20887,16 @@ if (false) {
 }
 
 /***/ }),
-/* 52 */
+/* 53 */
+/***/ (function(module, exports) {
+
+module.exports = "/images/wechat.jpg?506845091620c3b4838fa88fd810d7f3";
+
+/***/ }),
+/* 54 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
-
-/***/ }),
-/* 53 */,
-/* 54 */,
-/* 55 */,
-/* 56 */,
-/* 57 */,
-/* 58 */,
-/* 59 */,
-/* 60 */,
-/* 61 */,
-/* 62 */
-/***/ (function(module, exports) {
-
-module.exports = "/images/php.jpg?9255e2a035d9f27549bf8838cce2167a";
 
 /***/ })
 /******/ ]);

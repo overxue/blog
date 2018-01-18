@@ -137,8 +137,8 @@ html {
 }
 @font-face {
   font-family: 'icomoon';
-  src: url(/fonts/icomoon.eot?4201574b3092e75d4074950974054308);
-  src: url(/fonts/icomoon.eot?4201574b3092e75d4074950974054308#iefix) format('embedded-opentype'), url(/fonts/icomoon.ttf?32c494f266b3f8cde8ca7bff3c50fe78) format('truetype'), url(/fonts/icomoon.woff?75ceefa85a4144f3bb1b816bd48210ff) format('woff'), url(/fonts/icomoon.svg?8ec84e67b27da778ce05a415d6712830#icomoon) format('svg');
+  src: url(/fonts/icomoon.eot?d441846302da9f8b12812bcfc032292e);
+  src: url(/fonts/icomoon.eot?d441846302da9f8b12812bcfc032292e#iefix) format('embedded-opentype'), url(/fonts/icomoon.ttf?9d702083dc16bd853cdb00e3678dde71) format('truetype'), url(/fonts/icomoon.woff?07e7e9bfbe886d7e50d8b9dfc048598d) format('woff'), url(/fonts/icomoon.svg?176595afe82c278df5cbeeac708eed24#icomoon) format('svg');
   font-weight: normal;
   font-style: normal;
 }
@@ -170,6 +170,9 @@ html {
 }
 .icon-eye:before {
   content: "\E9CE";
+}
+.icon-cross:before {
+  content: "\EA0F";
 }
 .icon-sina-weibo:before {
   content: "\EA9A";
