@@ -837,9 +837,9 @@ beeper@^1.0.0:
   version "1.1.1"
   resolved "http://registry.npm.taobao.org/beeper/download/beeper-1.1.1.tgz#e6d5ea8c5dad001304a70b22638447f69cb2f809"
 
-better-scroll@^1.7.2:
-  version "1.7.2"
-  resolved "http://registry.npm.taobao.org/better-scroll/download/better-scroll-1.7.2.tgz#13284c34d426d87c5613da477e2f2dcc8344c61e"
+better-scroll@^1.8.0:
+  version "1.8.0"
+  resolved "http://registry.npm.taobao.org/better-scroll/download/better-scroll-1.8.0.tgz#266939b23a3b497330975c12f33d3d4839c773ee"
   dependencies:
     babel-runtime "^6.0.0"
 

@@ -186,7 +186,7 @@
         </div>
       </div>
     </div>
-    <v-footer></v-footer>
+    <!-- <v-footer></v-footer> -->
   </div>
 </template>
 
@@ -206,15 +206,22 @@
     created() {
       var isMobile = !!navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i)
 
-      if(isMobile) {
+      // if(isMobile) {
         this.$nextTick(() => {
-          // this._initScroll()
+          this._initScroll()
         })
-      }
+      // }
     },
     methods: {
       _initScroll() {
-        this.meunScroll = new BScroll(this.$refs.menuWrapper, {})
+        this.meunScroll = new BScroll(this.$refs.menuWrapper, {
+          click: true,
+          mouseWheel: {
+           speed: 20,
+           invert: false
+          }
+          // mouseWheel
+        })
       },
 
       showNav() {
@@ -238,9 +245,13 @@
     padding:0
     background: #dee3e7
     .pages
-      position: relative
-      padding-bottom: 50px
-      overflow: hidden
+      // position: relative
+      // padding-bottom: 50px
+      // overflow: hidden
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      overflow: hidden;
       .header
         position: relative
         padding: 75px 0 20px
