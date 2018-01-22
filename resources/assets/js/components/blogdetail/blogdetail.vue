@@ -44,7 +44,7 @@
                 <i class="l-icon icon-sina-weibo"></i>
                 <span>分享</span>
               </a>
-              <a title="微信,支付宝打赏" @click.prevent="showDetail()">
+              <a href="#" title="微信,支付宝打赏" @click.prevent="showDetail()">
                 <i class="l-icon icon-money"></i>
                 <span>打赏</span>
               </a>
@@ -120,11 +120,14 @@
           </div>
         </div>
       </div>
+      <v-footer></v-footer>
     </div>
   </div>
 </template>
 
 <script type="text/ecmascript-6">
+  import Footer from 'components/footer/footer'
+
   export default {
     data() {
       return {
@@ -138,15 +141,22 @@
       hideDetail() {
         this.detailShow = false
       }
+    },
+    components: {
+      'v-footer': Footer
     }
   }
 </script>
 
 <style scoped lang="stylus" rel="stylesheet/stylus">
   .blogdetail
-    height: 100%
+    position:relative
+    min-height:100%
+    margin:0
+    padding:0
     background: #dee3e7
     .page
+      padding-bottom: 50px
       .blog-detail
         padding: 0
         background: #dee3e7
@@ -349,6 +359,7 @@
   @media screen and (min-width: 768px)
     .blogdetail
       .page
+        padding-bottom: 30px
         .blog-detail
           padding: 80px 0
           .blog-detail-contaner

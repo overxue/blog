@@ -186,17 +186,13 @@
         </div>
       </div>
     </div>
-    <div class="footer">
-      <div class="footer-item">
-        <p class="pull-left">Powered By Laravel And Vue <span style="color: rgb(226, 117, 117); font-size: 14px;">❤</span></p>
-        <p class="pull-right">© Blog 2018. All rights reserved.</p>
-      </div>
-    </div>
+    <v-footer></v-footer>
   </div>
 </template>
 
 <script type="text/ecmascript-6">
   import BScroll from 'better-scroll'
+  import Footer from 'components/footer/footer'
 
   export default {
     data() {
@@ -225,6 +221,9 @@
         this.first = !this.first
         this.showNavigation = !this.showNavigation
       }
+    },
+    components: {
+      'v-footer': Footer
     }
   }
 </script>
@@ -359,7 +358,7 @@
             position: relative
             background: #fff
             padding: 20px
-            margin-bottom: 20px
+            margin-bottom: 15px
             .label
               position: absolute
               top: 0
@@ -433,28 +432,12 @@
                   font-size: 14px
                   font-weight: 600
                   line-height: 14px
-    .footer
-      position:absolute
-      bottom:0
-      left: 0
-      width: 100%
-      height: 50px
-      box-shadow: 0 0 10px #202020
-      background: rgba(27,33,34,.92)
-      .footer-item
-        margin: 0 10px
-        line-height: 50px
-        text-align: center
-        .pull-left
-          color: #c1c1c1
-          font-size: 14px
-        .pull-right
-          display: none
+
   // >= 768
   @media screen and (min-width: 768px)
     .blog
       .pages
-        padding-bottom: 60px
+        padding-bottom: 70px
         .articleListPage-tags-cnt
           .articleListPage-tags
             .grid-row
@@ -465,20 +448,7 @@
           .article-item
             .article-list
               padding: 20px 40px 20px 20px
-      .footer
-        height: 60px
-        .footer-item
-          margin: 0 auto
-          line-height: 60px
-          width: 750px
-          .pull-left
-            float: left
-          .pull-right
-            display: block
-            float: right
-            color: #c1c1c1
-            font-size: 14px
-
+              margin-bottom: 20px
 
   // >= 992
   @media screen and (min-width: 992px)
@@ -490,9 +460,6 @@
               width:970px
         .article
           width: 970px
-      .footer
-        .footer-item
-          width: 970px
 
   // 大于等于 1200
   @media screen and (min-width: 1200px)
@@ -503,8 +470,5 @@
             .grid-row
               width:1170px
         .article
-          width: 1170px
-      .footer
-        .footer-item
           width: 1170px
 </style>

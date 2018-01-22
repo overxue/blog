@@ -14,10 +14,6 @@
             </div>
           </div>
           <div class="article-section">
-            <!-- <div class="caption">
-              <h1 class="titl">VUE如何重载当前视图</h1>
-              <p class="time">发布时间：<span>2017-10-09 </span></p>
-            </div> -->
             <div class="article">
               <p>今天小剧来分享在使用 vue 时遇到一个问题，困扰小剧比较长时间。</p>
               <p>概括下来就是：vue 项目如何在不修改 URL 的前提下主动 reload 当前 router？</p>
@@ -42,19 +38,30 @@
           </div>
         </div>
       </div>
+      <v-footer></v-footer>
     </div>
   </div>
 </template>
 
 <script type="text/ecmascript-6">
-  export default {}
+  import Footer from 'components/footer/footer'
+
+  export default {
+    components: {
+      'v-footer': Footer
+    }
+  }
 </script>
 
 <style scoped lang="stylus" rel="stylesheet/stylus">
   .me
-    height: 100%
+    position:relative
+    min-height:100%
+    margin:0
+    padding:0
     background: #dee3e7
     .page
+      padding-bottom: 30px
       .blog-detail
         padding: 0
         background: #dee3e7
