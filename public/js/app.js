@@ -65,6 +65,88 @@
 /************************************************************************/
 /******/ ([
 /* 0 */
+/***/ (function(module, exports) {
+
+/*
+	MIT License http://www.opensource.org/licenses/mit-license.php
+	Author Tobias Koppers @sokra
+*/
+// css base code, injected by the css-loader
+module.exports = function(useSourceMap) {
+	var list = [];
+
+	// return the list of modules as css string
+	list.toString = function toString() {
+		return this.map(function (item) {
+			var content = cssWithMappingToString(item, useSourceMap);
+			if(item[2]) {
+				return "@media " + item[2] + "{" + content + "}";
+			} else {
+				return content;
+			}
+		}).join("");
+	};
+
+	// import a list of modules into the list
+	list.i = function(modules, mediaQuery) {
+		if(typeof modules === "string")
+			modules = [[null, modules, ""]];
+		var alreadyImportedModules = {};
+		for(var i = 0; i < this.length; i++) {
+			var id = this[i][0];
+			if(typeof id === "number")
+				alreadyImportedModules[id] = true;
+		}
+		for(i = 0; i < modules.length; i++) {
+			var item = modules[i];
+			// skip already imported module
+			// this implementation is not 100% perfect for weird media query combinations
+			//  when a module is imported multiple times with different media queries.
+			//  I hope this will never occur (Hey this way we have smaller bundles)
+			if(typeof item[0] !== "number" || !alreadyImportedModules[item[0]]) {
+				if(mediaQuery && !item[2]) {
+					item[2] = mediaQuery;
+				} else if(mediaQuery) {
+					item[2] = "(" + item[2] + ") and (" + mediaQuery + ")";
+				}
+				list.push(item);
+			}
+		}
+	};
+	return list;
+};
+
+function cssWithMappingToString(item, useSourceMap) {
+	var content = item[1] || '';
+	var cssMapping = item[3];
+	if (!cssMapping) {
+		return content;
+	}
+
+	if (useSourceMap && typeof btoa === 'function') {
+		var sourceMapping = toComment(cssMapping);
+		var sourceURLs = cssMapping.sources.map(function (source) {
+			return '/*# sourceURL=' + cssMapping.sourceRoot + source + ' */'
+		});
+
+		return [content].concat(sourceURLs).concat([sourceMapping]).join('\n');
+	}
+
+	return [content].join('\n');
+}
+
+// Adapted from convert-source-map (MIT)
+function toComment(sourceMap) {
+	// eslint-disable-next-line no-undef
+	var base64 = btoa(unescape(encodeURIComponent(JSON.stringify(sourceMap))));
+	var data = 'sourceMappingURL=data:application/json;charset=utf-8;base64,' + base64;
+
+	return '/*# ' + data + ' */';
+}
+
+
+/***/ }),
+/* 1 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /*
@@ -285,7 +367,7 @@ function applyToTag (styleElement, obj) {
 
 
 /***/ }),
-/* 1 */
+/* 2 */
 /***/ (function(module, exports) {
 
 /* globals __VUE_SSR_CONTEXT__ */
@@ -394,88 +476,6 @@ module.exports = function normalizeComponent (
 
 
 /***/ }),
-/* 2 */
-/***/ (function(module, exports) {
-
-/*
-	MIT License http://www.opensource.org/licenses/mit-license.php
-	Author Tobias Koppers @sokra
-*/
-// css base code, injected by the css-loader
-module.exports = function(useSourceMap) {
-	var list = [];
-
-	// return the list of modules as css string
-	list.toString = function toString() {
-		return this.map(function (item) {
-			var content = cssWithMappingToString(item, useSourceMap);
-			if(item[2]) {
-				return "@media " + item[2] + "{" + content + "}";
-			} else {
-				return content;
-			}
-		}).join("");
-	};
-
-	// import a list of modules into the list
-	list.i = function(modules, mediaQuery) {
-		if(typeof modules === "string")
-			modules = [[null, modules, ""]];
-		var alreadyImportedModules = {};
-		for(var i = 0; i < this.length; i++) {
-			var id = this[i][0];
-			if(typeof id === "number")
-				alreadyImportedModules[id] = true;
-		}
-		for(i = 0; i < modules.length; i++) {
-			var item = modules[i];
-			// skip already imported module
-			// this implementation is not 100% perfect for weird media query combinations
-			//  when a module is imported multiple times with different media queries.
-			//  I hope this will never occur (Hey this way we have smaller bundles)
-			if(typeof item[0] !== "number" || !alreadyImportedModules[item[0]]) {
-				if(mediaQuery && !item[2]) {
-					item[2] = mediaQuery;
-				} else if(mediaQuery) {
-					item[2] = "(" + item[2] + ") and (" + mediaQuery + ")";
-				}
-				list.push(item);
-			}
-		}
-	};
-	return list;
-};
-
-function cssWithMappingToString(item, useSourceMap) {
-	var content = item[1] || '';
-	var cssMapping = item[3];
-	if (!cssMapping) {
-		return content;
-	}
-
-	if (useSourceMap && typeof btoa === 'function') {
-		var sourceMapping = toComment(cssMapping);
-		var sourceURLs = cssMapping.sources.map(function (source) {
-			return '/*# sourceURL=' + cssMapping.sourceRoot + source + ' */'
-		});
-
-		return [content].concat(sourceURLs).concat([sourceMapping]).join('\n');
-	}
-
-	return [content].join('\n');
-}
-
-// Adapted from convert-source-map (MIT)
-function toComment(sourceMap) {
-	// eslint-disable-next-line no-undef
-	var base64 = btoa(unescape(encodeURIComponent(JSON.stringify(sourceMap))));
-	var data = 'sourceMappingURL=data:application/json;charset=utf-8;base64,' + base64;
-
-	return '/*# ' + data + ' */';
-}
-
-
-/***/ }),
 /* 3 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -484,7 +484,7 @@ function injectStyle (ssrContext) {
   if (disposed) return
   __webpack_require__(41)
 }
-var normalizeComponent = __webpack_require__(1)
+var normalizeComponent = __webpack_require__(2)
 /* script */
 var __vue_script__ = __webpack_require__(43)
 /* template */
@@ -11413,7 +11413,7 @@ function injectStyle (ssrContext) {
   if (disposed) return
   __webpack_require__(9)
 }
-var normalizeComponent = __webpack_require__(1)
+var normalizeComponent = __webpack_require__(2)
 /* script */
 var __vue_script__ = __webpack_require__(12)
 /* template */
@@ -11466,7 +11466,7 @@ var content = __webpack_require__(10);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(0)("6d90ab26", content, false);
+var update = __webpack_require__(1)("6d90ab26", content, false);
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
@@ -11485,7 +11485,7 @@ if(false) {
 /* 10 */
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(2)(false);
+exports = module.exports = __webpack_require__(0)(false);
 // imports
 
 
@@ -11567,7 +11567,7 @@ function injectStyle (ssrContext) {
   if (disposed) return
   __webpack_require__(14)
 }
-var normalizeComponent = __webpack_require__(1)
+var normalizeComponent = __webpack_require__(2)
 /* script */
 var __vue_script__ = __webpack_require__(16)
 /* template */
@@ -11620,7 +11620,7 @@ var content = __webpack_require__(15);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(0)("7ecdaf7c", content, false);
+var update = __webpack_require__(1)("7ecdaf7c", content, false);
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
@@ -11639,7 +11639,7 @@ if(false) {
 /* 15 */
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(2)(false);
+exports = module.exports = __webpack_require__(0)(false);
 // imports
 
 
@@ -14928,7 +14928,7 @@ function injectStyle (ssrContext) {
   if (disposed) return
   __webpack_require__(25)
 }
-var normalizeComponent = __webpack_require__(1)
+var normalizeComponent = __webpack_require__(2)
 /* script */
 var __vue_script__ = __webpack_require__(27)
 /* template */
@@ -14981,7 +14981,7 @@ var content = __webpack_require__(26);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(0)("50ae5411", content, false);
+var update = __webpack_require__(1)("50ae5411", content, false);
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
@@ -15000,7 +15000,7 @@ if(false) {
 /* 26 */
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(2)(false);
+exports = module.exports = __webpack_require__(0)(false);
 // imports
 
 
@@ -16616,7 +16616,7 @@ function injectStyle (ssrContext) {
   if (disposed) return
   __webpack_require__(30)
 }
-var normalizeComponent = __webpack_require__(1)
+var normalizeComponent = __webpack_require__(2)
 /* script */
 var __vue_script__ = __webpack_require__(32)
 /* template */
@@ -16669,7 +16669,7 @@ var content = __webpack_require__(31);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(0)("5ace0d3c", content, false);
+var update = __webpack_require__(1)("5ace0d3c", content, false);
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
@@ -16688,7 +16688,7 @@ if(false) {
 /* 31 */
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(2)(false);
+exports = module.exports = __webpack_require__(0)(false);
 // imports
 
 
@@ -16893,7 +16893,7 @@ function injectStyle (ssrContext) {
   if (disposed) return
   __webpack_require__(37)
 }
-var normalizeComponent = __webpack_require__(1)
+var normalizeComponent = __webpack_require__(2)
 /* script */
 var __vue_script__ = __webpack_require__(39)
 /* template */
@@ -16946,7 +16946,7 @@ var content = __webpack_require__(38);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(0)("b3f6fe1a", content, false);
+var update = __webpack_require__(1)("b3f6fe1a", content, false);
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
@@ -16965,12 +16965,12 @@ if(false) {
 /* 38 */
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(2)(false);
+exports = module.exports = __webpack_require__(0)(false);
 // imports
 
 
 // module
-exports.push([module.i, "\n.blog[data-v-df367330] {\n  position: relative;\n  min-height: 100%;\n  margin: 0;\n  padding: 0;\n  background: #dee3e7;\n}\n.blog .pages[data-v-df367330] {\n  position: absolute;\n  top: 0;\n  bottom: 0;\n  overflow: hidden;\n}\n.blog .pages .header[data-v-df367330] {\n  position: relative;\n  padding: 75px 0 20px;\n  background: #fafafa;\n}\n.blog .pages .header[data-v-df367330]:before {\n  content: \"\";\n  position: absolute;\n  left: 0;\n  bottom: 0;\n  width: 100%;\n  height: 50px;\n  background: #fff;\n  background-image: -webkit-gradient(linear, left top, left bottom, from(#fafafa), to(#fff));\n  background-image: linear-gradient(#fafafa, #fff);\n}\n.blog .pages .header .mac[data-v-df367330] {\n  position: relative;\n  width: 15rem;\n  height: 7.5rem;\n  margin: auto;\n  padding-top: 1.5rem;\n  text-align: center;\n  background: #fafafa;\n  background: -webkit-gradient(linear, left top, right bottom, from(#fff), to(#eee));\n  background: linear-gradient(to right bottom, #fff, #eee);\n  border: 6px solid #222;\n  border-width: 6px 6px 8px;\n  border-radius: 8px 8px 0 0;\n}\n.blog .pages .header .mac[data-v-df367330]:after {\n  content: \"\";\n  position: absolute;\n  width: 134%;\n  left: -17%;\n  bottom: -14px;\n  height: 6px;\n  border-radius: 0 0 40px 40px/0 0 5px 5px;\n  background: #ccc;\n}\n.blog .pages .header .mac .logo[data-v-df367330] {\n  margin-bottom: 10px;\n}\n.blog .pages .header .mac .logo img[data-v-df367330] {\n  overflow: hidden;\n  border-radius: 50%;\n  background: #fff;\n  -webkit-box-shadow: rgba(255,255,255,0.1) 0 0 0 5px, rgba(0,0,0,0.15) 0 0 5px 4px;\n          box-shadow: rgba(255,255,255,0.1) 0 0 0 5px, rgba(0,0,0,0.15) 0 0 5px 4px;\n  -webkit-transition: -webkit-transform 0.4s ease-out;\n  transition: -webkit-transform 0.4s ease-out;\n  transition: transform 0.4s ease-out;\n  transition: transform 0.4s ease-out, -webkit-transform 0.4s ease-out;\n}\n.blog .pages .header .mac .logo img[data-v-df367330]:hover {\n  -webkit-transform: rotate(360deg);\n          transform: rotate(360deg);\n}\n.blog .pages .header .mac p[data-v-df367330] {\n  font-size: 13px;\n  color: #333;\n}\n.blog .pages .articleListPage-tags-cnt[data-v-df367330] {\n  margin-bottom: 20px;\n}\n.blog .pages .articleListPage-tags-cnt .articleListPage-tags[data-v-df367330] {\n  position: static !important;\n  width: 100%;\n  background: #fff;\n  border-bottom: 1px solid #c4cdd4;\n  z-index: 5;\n}\n.blog .pages .articleListPage-tags-cnt .articleListPage-tags .grid-row[data-v-df367330] {\n  width: 100%;\n  position: relative;\n  margin: auto;\n  zoom: 1;\n  -webkit-transition: all 0.3s ease-out;\n  transition: all 0.3s ease-out;\n}\n.blog .pages .articleListPage-tags-cnt .articleListPage-tags .grid-row[data-v-df367330]:after {\n  content: \".\";\n  display: block;\n  height: 0;\n  clear: both;\n  visibility: hidden;\n}\n.blog .pages .articleListPage-tags-cnt .articleListPage-tags .grid-row .content[data-v-df367330] {\n  padding: 12px 0 5px 10px;\n}\n.blog .pages .articleListPage-tags-cnt .articleListPage-tags .grid-row .content a[data-v-df367330] {\n  position: relative;\n  display: inline-block;\n  max-width: 100%;\n  height: 24px;\n  margin: 0 10px 5px 0;\n  line-height: 24px;\n  padding: 0 8px 0 18px;\n  border-radius: 0 4px 4px 0;\n  background: #eee;\n  font-size: 12px;\n  color: #333;\n  overflow: hidden;\n  text-overflow: ellipsis;\n  white-space: nowrap;\n  -webkit-box-sizing: border-box;\n          box-sizing: border-box;\n}\n.blog .pages .articleListPage-tags-cnt .articleListPage-tags .grid-row .content a[data-v-df367330]:before {\n  position: absolute;\n  content: \"\";\n  top: 0;\n  left: 0;\n  width: 0;\n  height: 0;\n  border-width: 12px 12px 12px 0;\n  border-color: #fff transparent;\n  border-style: solid;\n}\n.blog .pages .articleListPage-tags-cnt .articleListPage-tags .grid-row .content a[data-v-df367330]:after {\n  position: absolute;\n  content: \"\";\n  width: 4px;\n  height: 4px;\n  top: 10px;\n  left: 8px;\n  border-radius: 100%;\n  background: #fff;\n}\n.blog .pages .articleListPage-tags-cnt .articleListPage-tags .grid-row .content a.active[data-v-df367330] {\n  background: #f70;\n  color: #fff;\n}\n.blog .pages .article[data-v-df367330] {\n  margin: 0 10px;\n}\n.blog .pages .article .article-item[data-v-df367330] {\n  margin-bottom: 20px;\n}\n.blog .pages .article .article-item .article-list[data-v-df367330] {\n  position: relative;\n  background: #fff;\n  padding: 20px;\n  margin-bottom: 15px;\n}\n.blog .pages .article .article-item .article-list .label[data-v-df367330] {\n  position: absolute;\n  top: 0;\n  right: 0;\n  width: 30px;\n  height: 30px;\n  background: #f70;\n  -webkit-box-shadow: -1px 1px 2px #000;\n          box-shadow: -1px 1px 2px #000;\n}\n.blog .pages .article .article-item .article-list .label[data-v-df367330]:before {\n  position: absolute;\n  content: \"\";\n  width: 0;\n  height: 0;\n  top: 0;\n  right: 0;\n  border: 1px solid #fff;\n  border-width: 0 30px 30px 0;\n  border-color: transparent transparent #fff;\n}\n.blog .pages .article .article-item .article-list .label span[data-v-df367330] {\n  position: absolute;\n  display: block;\n  top: 0;\n  right: 0;\n  width: 100%;\n  height: 100%;\n  -webkit-transform: rotate(45deg) scale(0.8);\n  transform: rotate(45deg) scale(0.8);\n  text-align: center;\n  line-height: 15px;\n  color: #fff;\n}\n.blog .pages .article .article-item .article-list .title[data-v-df367330] {\n  line-height: 20px;\n}\n.blog .pages .article .article-item .article-list .title a[data-v-df367330] {\n  font-size: 20px;\n  font-weight: 600;\n  color: #3d464d !important;\n}\n.blog .pages .article .article-item .article-list .introduction[data-v-df367330] {\n  margin: 15px 0;\n}\n.blog .pages .article .article-item .article-list .introduction .icon-user[data-v-df367330],\n.blog .pages .article .article-item .article-list .introduction .icon-clock[data-v-df367330],\n.blog .pages .article .article-item .article-list .introduction .icon-eye[data-v-df367330] {\n  color: #95a5a6;\n  font-size: 14px;\n  line-height: 14px;\n  margin-right: 10px;\n}\n.blog .pages .article .article-item .article-list .introduction .icon-user .user[data-v-df367330],\n.blog .pages .article .article-item .article-list .introduction .icon-clock .user[data-v-df367330],\n.blog .pages .article .article-item .article-list .introduction .icon-eye .user[data-v-df367330],\n.blog .pages .article .article-item .article-list .introduction .icon-user .time[data-v-df367330],\n.blog .pages .article .article-item .article-list .introduction .icon-clock .time[data-v-df367330],\n.blog .pages .article .article-item .article-list .introduction .icon-eye .time[data-v-df367330],\n.blog .pages .article .article-item .article-list .introduction .icon-user .view[data-v-df367330],\n.blog .pages .article .article-item .article-list .introduction .icon-clock .view[data-v-df367330],\n.blog .pages .article .article-item .article-list .introduction .icon-eye .view[data-v-df367330] {\n  margin-left: 5px;\n  font-size: 14px;\n  line-height: 14px;\n}\n.blog .pages .article .article-item .article-list .readmore[data-v-df367330] {\n  width: 100%;\n  margin-top: 15px;\n  margin-bottom: 30px;\n}\n.blog .pages .article .article-item .article-list .readmore .left[data-v-df367330] {\n  float: left;\n}\n.blog .pages .article .article-item .article-list .readmore .left .icon-price-tags[data-v-df367330] {\n  margin-right: 5px;\n  font-size: 14px;\n  line-height: 15px;\n  color: #f70;\n}\n.blog .pages .article .article-item .article-list .readmore .left .tage[data-v-df367330] {\n  color: #333;\n  font-size: 14px;\n  background: #eee;\n  margin: 5px 5px 0 0;\n  padding: 1px 5px;\n  border-radius: 4px;\n  margin-top: 2px;\n}\n.blog .pages .article .article-item .article-list .readmore .right[data-v-df367330] {\n  float: right;\n}\n.blog .pages .article .article-item .article-list .readmore .right .readmore[data-v-df367330] {\n  color: #f70;\n  font-size: 14px;\n  font-weight: 600;\n  line-height: 14px;\n}\n@media screen and (min-width: 768px) {\n.blog .pages[data-v-df367330] {\n    padding-bottom: 70px;\n}\n.blog .pages .articleListPage-tags-cnt .articleListPage-tags .grid-row[data-v-df367330] {\n    width: 750px;\n}\n.blog .pages .article[data-v-df367330] {\n    margin: 0 auto;\n    width: 750px;\n}\n.blog .pages .article .article-item .article-list[data-v-df367330] {\n    padding: 20px 40px 20px 20px;\n    margin-bottom: 20px;\n}\n}\n@media screen and (min-width: 992px) {\n.blog .pages .articleListPage-tags-cnt .articleListPage-tags .grid-row[data-v-df367330] {\n    width: 970px;\n}\n.blog .pages .article[data-v-df367330] {\n    width: 970px;\n}\n}\n@media screen and (min-width: 1200px) {\n.blog .pages .articleListPage-tags-cnt .articleListPage-tags .grid-row[data-v-df367330] {\n    width: 1170px;\n}\n.blog .pages .article[data-v-df367330] {\n    width: 1170px;\n}\n}\n", ""]);
+exports.push([module.i, "\n.blog[data-v-df367330] {\n  position: relative;\n  min-height: 100%;\n  margin: 0;\n  padding: 0;\n  background: #dee3e7;\n}\n.blog .pages[data-v-df367330] {\n  position: absolute;\n  top: 0;\n  bottom: 0;\n  overflow: hidden;\n  width: 100%;\n}\n.blog .pages .header[data-v-df367330] {\n  position: relative;\n  padding: 60px 0 20px;\n  background: #fafafa;\n}\n.blog .pages .header[data-v-df367330]:before {\n  content: \"\";\n  position: absolute;\n  left: 0;\n  bottom: 0;\n  width: 100%;\n  height: 50px;\n  background: #fff;\n  background-image: -webkit-gradient(linear, left top, left bottom, from(#fafafa), to(#fff));\n  background-image: linear-gradient(#fafafa, #fff);\n}\n.blog .pages .header .mac[data-v-df367330] {\n  position: relative;\n  width: 15rem;\n  height: 7.5rem;\n  margin: auto;\n  padding-top: 1.5rem;\n  text-align: center;\n  background: #fafafa;\n  background: -webkit-gradient(linear, left top, right bottom, from(#fff), to(#eee));\n  background: linear-gradient(to right bottom, #fff, #eee);\n  border: 6px solid #222;\n  border-width: 6px 6px 8px;\n  border-radius: 8px 8px 0 0;\n}\n.blog .pages .header .mac[data-v-df367330]:after {\n  content: \"\";\n  position: absolute;\n  width: 134%;\n  left: -17%;\n  bottom: -14px;\n  height: 6px;\n  border-radius: 0 0 40px 40px/0 0 5px 5px;\n  background: #ccc;\n}\n.blog .pages .header .mac .logo[data-v-df367330] {\n  margin-bottom: 10px;\n}\n.blog .pages .header .mac .logo img[data-v-df367330] {\n  overflow: hidden;\n  border-radius: 50%;\n  background: #fff;\n  -webkit-box-shadow: rgba(255,255,255,0.1) 0 0 0 5px, rgba(0,0,0,0.15) 0 0 5px 4px;\n          box-shadow: rgba(255,255,255,0.1) 0 0 0 5px, rgba(0,0,0,0.15) 0 0 5px 4px;\n  -webkit-transition: -webkit-transform 0.4s ease-out;\n  transition: -webkit-transform 0.4s ease-out;\n  transition: transform 0.4s ease-out;\n  transition: transform 0.4s ease-out, -webkit-transform 0.4s ease-out;\n}\n.blog .pages .header .mac .logo img[data-v-df367330]:hover {\n  -webkit-transform: rotate(360deg);\n          transform: rotate(360deg);\n}\n.blog .pages .header .mac p[data-v-df367330] {\n  font-size: 13px;\n  color: #333;\n}\n.blog .pages .articleListPage-tags-cnt[data-v-df367330] {\n  margin-bottom: 20px;\n}\n.blog .pages .articleListPage-tags-cnt .articleListPage-tags[data-v-df367330] {\n  position: static !important;\n  width: 100%;\n  background: #fff;\n  border-bottom: 1px solid #c4cdd4;\n  z-index: 5;\n}\n.blog .pages .articleListPage-tags-cnt .articleListPage-tags .grid-row[data-v-df367330] {\n  width: 100%;\n  position: relative;\n  margin: auto;\n  zoom: 1;\n  -webkit-transition: all 0.3s ease-out;\n  transition: all 0.3s ease-out;\n}\n.blog .pages .articleListPage-tags-cnt .articleListPage-tags .grid-row[data-v-df367330]:after {\n  content: \".\";\n  display: block;\n  height: 0;\n  clear: both;\n  visibility: hidden;\n}\n.blog .pages .articleListPage-tags-cnt .articleListPage-tags .grid-row .content[data-v-df367330] {\n  padding: 12px 0 5px 10px;\n}\n.blog .pages .articleListPage-tags-cnt .articleListPage-tags .grid-row .content a[data-v-df367330] {\n  position: relative;\n  display: inline-block;\n  max-width: 100%;\n  height: 24px;\n  margin: 0 10px 5px 0;\n  line-height: 24px;\n  padding: 0 8px 0 18px;\n  border-radius: 0 4px 4px 0;\n  background: #eee;\n  font-size: 12px;\n  color: #333;\n  overflow: hidden;\n  text-overflow: ellipsis;\n  white-space: nowrap;\n  -webkit-box-sizing: border-box;\n          box-sizing: border-box;\n}\n.blog .pages .articleListPage-tags-cnt .articleListPage-tags .grid-row .content a[data-v-df367330]:before {\n  position: absolute;\n  content: \"\";\n  top: 0;\n  left: 0;\n  width: 0;\n  height: 0;\n  border-width: 12px 12px 12px 0;\n  border-color: #fff transparent;\n  border-style: solid;\n}\n.blog .pages .articleListPage-tags-cnt .articleListPage-tags .grid-row .content a[data-v-df367330]:after {\n  position: absolute;\n  content: \"\";\n  width: 4px;\n  height: 4px;\n  top: 10px;\n  left: 8px;\n  border-radius: 100%;\n  background: #fff;\n}\n.blog .pages .articleListPage-tags-cnt .articleListPage-tags .grid-row .content a.active[data-v-df367330] {\n  background: #f70;\n  color: #fff;\n}\n.blog .pages .article[data-v-df367330] {\n  margin: 0 10px;\n}\n.blog .pages .article .article-item[data-v-df367330] {\n  padding-bottom: 55px;\n}\n.blog .pages .article .article-item .article-list[data-v-df367330] {\n  position: relative;\n  background: #fff;\n  padding: 20px;\n  margin-bottom: 15px;\n}\n.blog .pages .article .article-item .article-list .label[data-v-df367330] {\n  position: absolute;\n  top: 0;\n  right: 0;\n  width: 30px;\n  height: 30px;\n  background: #f70;\n  -webkit-box-shadow: -1px 1px 2px #000;\n          box-shadow: -1px 1px 2px #000;\n}\n.blog .pages .article .article-item .article-list .label[data-v-df367330]:before {\n  position: absolute;\n  content: \"\";\n  width: 0;\n  height: 0;\n  top: 0;\n  right: 0;\n  border: 1px solid #fff;\n  border-width: 0 30px 30px 0;\n  border-color: transparent transparent #fff;\n}\n.blog .pages .article .article-item .article-list .label span[data-v-df367330] {\n  position: absolute;\n  display: block;\n  top: 0;\n  right: 0;\n  width: 100%;\n  height: 100%;\n  -webkit-transform: rotate(45deg) scale(0.8);\n  transform: rotate(45deg) scale(0.8);\n  text-align: center;\n  line-height: 15px;\n  color: #fff;\n}\n.blog .pages .article .article-item .article-list .title[data-v-df367330] {\n  line-height: 20px;\n}\n.blog .pages .article .article-item .article-list .title a[data-v-df367330] {\n  font-size: 20px;\n  font-weight: 600;\n  color: #3d464d !important;\n}\n.blog .pages .article .article-item .article-list .introduction[data-v-df367330] {\n  margin: 15px 0;\n}\n.blog .pages .article .article-item .article-list .introduction .icon-user[data-v-df367330],\n.blog .pages .article .article-item .article-list .introduction .icon-clock[data-v-df367330],\n.blog .pages .article .article-item .article-list .introduction .icon-eye[data-v-df367330] {\n  color: #95a5a6;\n  font-size: 14px;\n  line-height: 14px;\n  margin-right: 10px;\n}\n.blog .pages .article .article-item .article-list .introduction .icon-user .user[data-v-df367330],\n.blog .pages .article .article-item .article-list .introduction .icon-clock .user[data-v-df367330],\n.blog .pages .article .article-item .article-list .introduction .icon-eye .user[data-v-df367330],\n.blog .pages .article .article-item .article-list .introduction .icon-user .time[data-v-df367330],\n.blog .pages .article .article-item .article-list .introduction .icon-clock .time[data-v-df367330],\n.blog .pages .article .article-item .article-list .introduction .icon-eye .time[data-v-df367330],\n.blog .pages .article .article-item .article-list .introduction .icon-user .view[data-v-df367330],\n.blog .pages .article .article-item .article-list .introduction .icon-clock .view[data-v-df367330],\n.blog .pages .article .article-item .article-list .introduction .icon-eye .view[data-v-df367330] {\n  margin-left: 5px;\n  font-size: 14px;\n  line-height: 14px;\n}\n.blog .pages .article .article-item .article-list .readmore[data-v-df367330] {\n  width: 100%;\n  margin-top: 15px;\n  margin-bottom: 30px;\n}\n.blog .pages .article .article-item .article-list .readmore .left[data-v-df367330] {\n  float: left;\n}\n.blog .pages .article .article-item .article-list .readmore .left .icon-price-tags[data-v-df367330] {\n  margin-right: 5px;\n  font-size: 14px;\n  line-height: 15px;\n  color: #f70;\n}\n.blog .pages .article .article-item .article-list .readmore .left .tage[data-v-df367330] {\n  color: #333;\n  font-size: 14px;\n  background: #eee;\n  margin: 5px 5px 0 0;\n  padding: 1px 5px;\n  border-radius: 4px;\n  margin-top: 2px;\n}\n.blog .pages .article .article-item .article-list .readmore .right[data-v-df367330] {\n  float: right;\n}\n.blog .pages .article .article-item .article-list .readmore .right .readmore[data-v-df367330] {\n  color: #f70;\n  font-size: 14px;\n  font-weight: 600;\n  line-height: 14px;\n}\n@media screen and (min-width: 768px) {\n.blog .pages .header[data-v-df367330] {\n    padding: 75px 0 20px;\n}\n.blog .pages .articleListPage-tags-cnt .articleListPage-tags .grid-row[data-v-df367330] {\n    width: 750px;\n}\n.blog .pages .article[data-v-df367330] {\n    margin: 0 auto;\n    width: 750px;\n}\n.blog .pages .article .article-item[data-v-df367330] {\n    padding-bottom: 65px;\n}\n.blog .pages .article .article-item .article-list[data-v-df367330] {\n    padding: 20px 40px 20px 20px;\n    margin-bottom: 20px;\n}\n}\n@media screen and (min-width: 992px) {\n.blog .pages .articleListPage-tags-cnt .articleListPage-tags .grid-row[data-v-df367330] {\n    width: 970px;\n}\n.blog .pages .article[data-v-df367330] {\n    width: 970px;\n}\n}\n@media screen and (min-width: 1200px) {\n.blog .pages .articleListPage-tags-cnt .articleListPage-tags .grid-row[data-v-df367330] {\n    width: 1170px;\n}\n.blog .pages .article[data-v-df367330] {\n    width: 1170px;\n}\n}\n", ""]);
 
 // exports
 
@@ -16984,6 +16984,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_better_scroll__ = __webpack_require__(40);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_components_footer_footer__ = __webpack_require__(3);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_components_footer_footer___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_components_footer_footer__);
+//
 //
 //
 //
@@ -17192,7 +17193,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
   created: function created() {
     var _this = this;
 
-    var isMobile = !!navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i);
+    // 判断设备
+    // var isMobile = !!navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i)
 
     // if(isMobile) {
     this.$nextTick(function () {
@@ -17203,13 +17205,13 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
   methods: {
     _initScroll: function _initScroll() {
-      this.meunScroll = new __WEBPACK_IMPORTED_MODULE_0_better_scroll__["a" /* default */](this.$refs.menuWrapper, {
+      this.meunScroll = new __WEBPACK_IMPORTED_MODULE_0_better_scroll__["a" /* default */](this.$refs.blog, {
         click: true,
         mouseWheel: {
           speed: 20,
           invert: false
-          // mouseWheel
-        } });
+        }
+      });
     },
     showNav: function showNav() {
       this.first = !this.first;
@@ -19688,7 +19690,7 @@ var content = __webpack_require__(42);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(0)("8f0160d6", content, false);
+var update = __webpack_require__(1)("8f0160d6", content, false);
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
@@ -19707,7 +19709,7 @@ if(false) {
 /* 42 */
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(2)(false);
+exports = module.exports = __webpack_require__(0)(false);
 // imports
 
 
@@ -19788,49 +19790,56 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "blog" }, [
-    _c("div", { ref: "menuWrapper", staticClass: "pages" }, [
-      _c("div", [
-        _vm._m(0),
-        _vm._v(" "),
-        _vm._m(1),
-        _vm._v(" "),
-        _c("div", { staticClass: "article" }, [
-          _c("div", { staticClass: "article-item" }, [
-            _c("div", { staticClass: "article-list" }, [
-              _vm._m(2),
-              _vm._v(" "),
-              _c(
-                "h1",
-                { staticClass: "title" },
-                [
-                  _c("router-link", { attrs: { to: "/blog/1" } }, [
-                    _vm._v("诡异的 java.io.IOException")
-                  ])
-                ],
-                1
-              ),
-              _vm._v(" "),
-              _vm._m(3),
-              _vm._v(" "),
-              _c("div", { staticClass: "article-content" }, [
-                _vm._v(
-                  "\n              背景 上一篇我们讲到如何获取全民K歌歌曲信息（上一篇：这是一个获取全民K歌歌曲信息的composer包），那么这一篇我将继续带领大家实现一个开箱即用全民K歌版网页播放器。这里我们主要使用的一个开源网页播放器为了方便我们这里直接使用cdn外链的方式来使用。 代码 [……\n            "
-                )
+    _c("div", { ref: "blog", staticClass: "pages" }, [
+      _c(
+        "div",
+        { staticStyle: { "min-height": "100%" } },
+        [
+          _vm._m(0),
+          _vm._v(" "),
+          _vm._m(1),
+          _vm._v(" "),
+          _c("div", { staticClass: "article" }, [
+            _c("div", { staticClass: "article-item" }, [
+              _c("div", { staticClass: "article-list" }, [
+                _vm._m(2),
+                _vm._v(" "),
+                _c(
+                  "h1",
+                  { staticClass: "title" },
+                  [
+                    _c("router-link", { attrs: { to: "/blog/1" } }, [
+                      _vm._v("诡异的 java.io.IOException")
+                    ])
+                  ],
+                  1
+                ),
+                _vm._v(" "),
+                _vm._m(3),
+                _vm._v(" "),
+                _c("div", { staticClass: "article-content" }, [
+                  _vm._v(
+                    "\n              背景 上一篇我们讲到如何获取全民K歌歌曲信息（上一篇：这是一个获取全民K歌歌曲信息的composer包），那么这一篇我将继续带领大家实现一个开箱即用全民K歌版网页播放器。这里我们主要使用的一个开源网页播放器为了方便我们这里直接使用cdn外链的方式来使用。 代码 [……\n            "
+                  )
+                ]),
+                _vm._v(" "),
+                _vm._m(4)
               ]),
               _vm._v(" "),
-              _vm._m(4)
-            ]),
-            _vm._v(" "),
-            _vm._m(5),
-            _vm._v(" "),
-            _vm._m(6),
-            _vm._v(" "),
-            _vm._m(7),
-            _vm._v(" "),
-            _vm._m(8)
-          ])
-        ])
-      ])
+              _vm._m(5),
+              _vm._v(" "),
+              _vm._m(6),
+              _vm._v(" "),
+              _vm._m(7),
+              _vm._v(" "),
+              _vm._m(8)
+            ])
+          ]),
+          _vm._v(" "),
+          _c("v-footer")
+        ],
+        1
+      )
     ])
   ])
 }
@@ -20203,7 +20212,7 @@ function injectStyle (ssrContext) {
   if (disposed) return
   __webpack_require__(48)
 }
-var normalizeComponent = __webpack_require__(1)
+var normalizeComponent = __webpack_require__(2)
 /* script */
 var __vue_script__ = __webpack_require__(50)
 /* template */
@@ -20256,7 +20265,7 @@ var content = __webpack_require__(49);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(0)("7b81683f", content, false);
+var update = __webpack_require__(1)("7b81683f", content, false);
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
@@ -20275,12 +20284,12 @@ if(false) {
 /* 49 */
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(2)(false);
+exports = module.exports = __webpack_require__(0)(false);
 // imports
 
 
 // module
-exports.push([module.i, "\n.me[data-v-62e8c268] {\n  position: relative;\n  min-height: 100%;\n  margin: 0;\n  padding: 0;\n  background: #dee3e7;\n}\n.me .page[data-v-62e8c268] {\n  padding-bottom: 30px;\n}\n.me .page .blog-detail[data-v-62e8c268] {\n  padding: 0;\n  background: #dee3e7;\n}\n.me .page .blog-detail .blog-detail-contaner[data-v-62e8c268] {\n  max-width: 1000px;\n  margin: 0 auto;\n  background: #fff;\n}\n.me .page .blog-detail .blog-detail-contaner .header[data-v-62e8c268] {\n  position: relative;\n  padding-top: 55%;\n  background-color: #eee;\n  background-size: cover;\n  background-position: 50%;\n}\n.me .page .blog-detail .blog-detail-contaner .header .header-cover[data-v-62e8c268] {\n  position: absolute;\n  width: 100%;\n  height: 100%;\n  top: 0;\n  left: 0;\n  overflow: hidden;\n  text-align: center;\n}\n.me .page .blog-detail .blog-detail-contaner .header .header-cover.no-cover[data-v-62e8c268] {\n  background: #1f3747;\n  background-image: -webkit-linear-gradient(left, #1f3747, #293d31);\n}\n.me .page .blog-detail .blog-detail-contaner .header .header-cover .header-body[data-v-62e8c268] {\n  display: block;\n  margin-top: 20px;\n}\n.me .page .blog-detail .blog-detail-contaner .header .header-cover .header-body .avatar img[data-v-62e8c268] {\n  overflow: hidden;\n  border-radius: 50%;\n  background: $color-background;\n  -webkit-box-shadow: rgba(255,255,255,0.1) 0 0 0 5px, rgba(0,0,0,0.15) 0 0 5px 4px;\n          box-shadow: rgba(255,255,255,0.1) 0 0 0 5px, rgba(0,0,0,0.15) 0 0 5px 4px;\n  -webkit-transition: -webkit-transform 0.4s ease-out;\n  transition: -webkit-transform 0.4s ease-out;\n  transition: transform 0.4s ease-out;\n  transition: transform 0.4s ease-out, -webkit-transform 0.4s ease-out;\n}\n.me .page .blog-detail .blog-detail-contaner .header .header-cover .header-body .avatar img[data-v-62e8c268]:hover {\n  -webkit-transform: rotate(360deg);\n          transform: rotate(360deg);\n}\n.me .page .blog-detail .blog-detail-contaner .header .header-cover .header-body .tit[data-v-62e8c268] {\n  margin-top: 15px;\n  line-height: 1.2;\n  font-size: 26px;\n  font-weight: 500;\n  color: #fff;\n}\n.me .page .blog-detail .blog-detail-contaner .article-section[data-v-62e8c268] {\n  padding: 1em 0;\n}\n.me .page .blog-detail .blog-detail-contaner .article-section .caption[data-v-62e8c268] {\n  padding: 0 20px;\n}\n.me .page .blog-detail .blog-detail-contaner .article-section .caption .titl[data-v-62e8c268] {\n  margin-bottom: 0.4em;\n  font-size: 1.8rem;\n}\n.me .page .blog-detail .blog-detail-contaner .article-section .caption .time[data-v-62e8c268] {\n  font-size: 14px;\n}\n.me .page .blog-detail .blog-detail-contaner .article-section .article[data-v-62e8c268] {\n  padding: 40px 20px;\n  font-size: 1rem;\n  line-height: 1.6;\n  word-wrap: break-word;\n  background: #fff;\n}\n.me .page .blog-detail .blog-detail-contaner .article-section .article[data-v-62e8c268]:before {\n  display: table;\n  content: \"\";\n}\n@media screen and (min-width: 768px) {\n.me .page .blog-detail[data-v-62e8c268] {\n    padding: 80px 0;\n}\n.me .page .blog-detail .blog-detail-contaner .header[data-v-62e8c268] {\n    padding-top: 44%;\n}\n.me .page .blog-detail .blog-detail-contaner .header .header-cover .header-body[data-v-62e8c268] {\n    margin-top: 100px;\n}\n.me .page .blog-detail .blog-detail-contaner .header .header-cover .header-body .avatar[data-v-62e8c268] {\n    margin-bottom: 30px;\n}\n.me .page .blog-detail .blog-detail-contaner .header .header-cover .header-body .tit[data-v-62e8c268] {\n    margin-top: 20px;\n}\n.me .page .blog-detail .blog-detail-contaner .article-section[data-v-62e8c268] {\n    padding: 5em 8em;\n}\n}\n", ""]);
+exports.push([module.i, "\n.me[data-v-62e8c268] {\n  position: relative;\n  min-height: 100%;\n  margin: 0;\n  padding: 0;\n  background: #dee3e7;\n}\n.me .page[data-v-62e8c268] {\n  position: absolute;\n  top: 0;\n  bottom: 0;\n  overflow: hidden;\n  width: 100%;\n}\n.me .page .blog-detail[data-v-62e8c268] {\n  padding: 0;\n  background: #dee3e7;\n  min-height: 100%;\n}\n.me .page .blog-detail .blog-detail-contaner[data-v-62e8c268] {\n  max-width: 1000px;\n  margin: 0 auto;\n  background: #fff;\n  padding-bottom: 30px;\n}\n.me .page .blog-detail .blog-detail-contaner .header[data-v-62e8c268] {\n  position: relative;\n  padding-top: 55%;\n  background-color: #eee;\n  background-size: cover;\n  background-position: 50%;\n}\n.me .page .blog-detail .blog-detail-contaner .header .header-cover[data-v-62e8c268] {\n  position: absolute;\n  width: 100%;\n  height: 100%;\n  top: 0;\n  left: 0;\n  overflow: hidden;\n  text-align: center;\n}\n.me .page .blog-detail .blog-detail-contaner .header .header-cover.no-cover[data-v-62e8c268] {\n  background: #1f3747;\n  background-image: -webkit-linear-gradient(left, #1f3747, #293d31);\n}\n.me .page .blog-detail .blog-detail-contaner .header .header-cover .header-body[data-v-62e8c268] {\n  display: block;\n  margin-top: 20px;\n}\n.me .page .blog-detail .blog-detail-contaner .header .header-cover .header-body .avatar img[data-v-62e8c268] {\n  overflow: hidden;\n  border-radius: 50%;\n  background: $color-background;\n  -webkit-box-shadow: rgba(255,255,255,0.1) 0 0 0 5px, rgba(0,0,0,0.15) 0 0 5px 4px;\n          box-shadow: rgba(255,255,255,0.1) 0 0 0 5px, rgba(0,0,0,0.15) 0 0 5px 4px;\n  -webkit-transition: -webkit-transform 0.4s ease-out;\n  transition: -webkit-transform 0.4s ease-out;\n  transition: transform 0.4s ease-out;\n  transition: transform 0.4s ease-out, -webkit-transform 0.4s ease-out;\n}\n.me .page .blog-detail .blog-detail-contaner .header .header-cover .header-body .avatar img[data-v-62e8c268]:hover {\n  -webkit-transform: rotate(360deg);\n          transform: rotate(360deg);\n}\n.me .page .blog-detail .blog-detail-contaner .header .header-cover .header-body .tit[data-v-62e8c268] {\n  margin-top: 15px;\n  line-height: 1.2;\n  font-size: 26px;\n  font-weight: 500;\n  color: #fff;\n}\n.me .page .blog-detail .blog-detail-contaner .article-section[data-v-62e8c268] {\n  padding: 1em 0;\n}\n.me .page .blog-detail .blog-detail-contaner .article-section .caption[data-v-62e8c268] {\n  padding: 0 20px;\n}\n.me .page .blog-detail .blog-detail-contaner .article-section .caption .titl[data-v-62e8c268] {\n  margin-bottom: 0.4em;\n  font-size: 1.8rem;\n}\n.me .page .blog-detail .blog-detail-contaner .article-section .caption .time[data-v-62e8c268] {\n  font-size: 14px;\n}\n.me .page .blog-detail .blog-detail-contaner .article-section .article[data-v-62e8c268] {\n  padding: 40px 20px;\n  font-size: 1rem;\n  line-height: 1.6;\n  word-wrap: break-word;\n  background: #fff;\n}\n.me .page .blog-detail .blog-detail-contaner .article-section .article[data-v-62e8c268]:before {\n  display: table;\n  content: \"\";\n}\n@media screen and (min-width: 768px) {\n.me .page .blog-detail[data-v-62e8c268] {\n    padding: 80px 0;\n}\n.me .page .blog-detail .blog-detail-contaner[data-v-62e8c268] {\n    padding-bottom: 0;\n}\n.me .page .blog-detail .blog-detail-contaner .header[data-v-62e8c268] {\n    padding-top: 44%;\n}\n.me .page .blog-detail .blog-detail-contaner .header .header-cover .header-body[data-v-62e8c268] {\n    margin-top: 100px;\n}\n.me .page .blog-detail .blog-detail-contaner .header .header-cover .header-body .avatar[data-v-62e8c268] {\n    margin-bottom: 30px;\n}\n.me .page .blog-detail .blog-detail-contaner .header .header-cover .header-body .tit[data-v-62e8c268] {\n    margin-top: 20px;\n}\n.me .page .blog-detail .blog-detail-contaner .article-section[data-v-62e8c268] {\n    padding: 5em 8em;\n}\n}\n", ""]);
 
 // exports
 
@@ -20291,8 +20300,9 @@ exports.push([module.i, "\n.me[data-v-62e8c268] {\n  position: relative;\n  min-
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_components_footer_footer__ = __webpack_require__(3);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_components_footer_footer___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_components_footer_footer__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_better_scroll__ = __webpack_require__(40);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_components_footer_footer__ = __webpack_require__(3);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_components_footer_footer___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_components_footer_footer__);
 //
 //
 //
@@ -20338,12 +20348,32 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+
 
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
+  created: function created() {
+    var _this = this;
+
+    this.$nextTick(function () {
+      _this._initScroll();
+    });
+  },
+
+  methods: {
+    _initScroll: function _initScroll() {
+      this.meunScroll = new __WEBPACK_IMPORTED_MODULE_0_better_scroll__["a" /* default */](this.$refs.aboutme, {
+        click: true,
+        mouseWheel: {
+          speed: 20,
+          invert: false
+        }
+      });
+    }
+  },
   components: {
-    'v-footer': __WEBPACK_IMPORTED_MODULE_0_components_footer_footer___default.a
+    'v-footer': __WEBPACK_IMPORTED_MODULE_1_components_footer_footer___default.a
   }
 });
 
@@ -20356,12 +20386,14 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "me" }, [
-    _c(
-      "div",
-      { staticClass: "page" },
-      [_vm._m(0), _vm._v(" "), _c("v-footer")],
-      1
-    )
+    _c("div", { ref: "aboutme", staticClass: "page" }, [
+      _c(
+        "div",
+        { staticClass: "blog-detail" },
+        [_vm._m(0), _vm._v(" "), _c("v-footer")],
+        1
+      )
+    ])
   ])
 }
 var staticRenderFns = [
@@ -20369,76 +20401,76 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "blog-detail" }, [
-      _c("div", { staticClass: "blog-detail-contaner" }, [
-        _c("div", { staticClass: "header" }, [
-          _c("div", { staticClass: "header-cover no-cover" }, [
-            _c("div", { staticClass: "header-body" }, [
-              _c("div", { staticClass: "avatar" }, [
-                _c("img", {
-                  staticClass: "avatar-item",
-                  attrs: {
-                    width: "120",
-                    height: "120",
-                    src: __webpack_require__(52)
-                  }
-                })
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "tit" }, [_vm._v("薛聪")])
-            ])
+    return _c("div", { staticClass: "blog-detail-contaner" }, [
+      _c("div", { staticClass: "header" }, [
+        _c("div", { staticClass: "header-cover no-cover" }, [
+          _c("div", { staticClass: "header-body" }, [
+            _c("div", { staticClass: "avatar" }, [
+              _c("img", {
+                staticClass: "avatar-item",
+                attrs: {
+                  width: "120",
+                  height: "120",
+                  src: __webpack_require__(52)
+                }
+              })
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "tit" }, [_vm._v("薛聪")])
           ])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "article-section" }, [
-          _c("div", { staticClass: "article" }, [
-            _c("p", [
-              _vm._v(
-                "今天小剧来分享在使用 vue 时遇到一个问题，困扰小剧比较长时间。"
-              )
-            ]),
-            _vm._v(" "),
-            _c("p", [
-              _vm._v(
-                "概括下来就是：vue 项目如何在不修改 URL 的前提下主动 reload 当前 router？"
-              )
-            ]),
-            _vm._v(" "),
-            _c("h2", { attrs: { id: "" } }, [_vm._v("先来说下场景")]),
-            _vm._v(" "),
-            _c("p", [
-              _vm._v(
-                "项目的业务模型中有一个独立的模块，用于处理全局数据：project，首先 project list 是一个可以进行切换的列表，其次还有一个当前选中的 project 项。所有 View Model 在初始化时都会依赖当前选中的 project。"
-              )
-            ]),
-            _vm._v(" "),
-            _c("h2", { attrs: { id: "" } }, [_vm._v("那么问题来了")]),
-            _vm._v(" "),
-            _c("p", [
-              _vm._v(
-                "一个 View Model 已经被渲染完毕后，切换 project 时该如何操作？"
-              )
-            ]),
-            _vm._v(" "),
-            _c("p", [_vm._v("仔细思考之后，发现有三个可行性较高的方案：")]),
-            _vm._v(" "),
-            _c("h3", { attrs: { id: "1" } }, [_vm._v("1、重新设计路由规则")]),
-            _vm._v(" "),
-            _c("p", [
-              _vm._v(
-                "通过场景分析可以看出来 project 是一个基础性字段，因此可以考虑将 project 字段显式地体现在 URL 上。在切换 project 时直接更新当前路由即可实现 View Model 的更新。"
-              )
-            ]),
-            _vm._v(" "),
-            _c("p", [
-              _vm._v(
-                "然而实际项目中此类基础字段还不少，如果全部体现在路由上既会导致 URL 冗长，又需要处理各种字符转码的问题。所以此方案暂不考虑。"
-              )
-            ]),
-            _vm._v(" "),
-            _c("h3", { attrs: { id: "2viewmodelproject" } }, [
-              _vm._v("2、View Model 监听 project 变动")
-            ])
+        ])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "article-section" }, [
+        _c("div", { staticClass: "article" }, [
+          _c("p", [
+            _vm._v(
+              "今天小剧来分享在使用 vue 时遇到一个问题，困扰小剧比较长时间。"
+            )
+          ]),
+          _vm._v(" "),
+          _c("p", [
+            _vm._v(
+              "概括下来就是：vue 项目如何在不修改 URL 的前提下主动 reload 当前 router？"
+            )
+          ]),
+          _vm._v(" "),
+          _c("h2", { attrs: { id: "" } }, [_vm._v("先来说下场景")]),
+          _vm._v(" "),
+          _c("p", [
+            _vm._v(
+              "项目的业务模型中有一个独立的模块，用于处理全局数据：project，首先 project list 是一个可以进行切换的列表，其次还有一个当前选中的 project 项。所有 View Model 在初始化时都会依赖当前选中的 project。"
+            )
+          ]),
+          _vm._v(" "),
+          _c("h2", { attrs: { id: "" } }, [_vm._v("那么问题来了")]),
+          _vm._v(" "),
+          _c("p", [
+            _vm._v(
+              "一个 View Model 已经被渲染完毕后，切换 project 时该如何操作？"
+            )
+          ]),
+          _vm._v(" "),
+          _c("p", [_vm._v("仔细思考之后，发现有三个可行性较高的方案：")]),
+          _vm._v(" "),
+          _c("h3", { attrs: { id: "1" } }, [_vm._v("1、重新设计路由规则")]),
+          _vm._v(" "),
+          _c("p", [
+            _vm._v(
+              "通过场景分析可以看出来 project 是一个基础性字段，因此可以考虑将 project 字段显式地体现在 URL 上。在切换 project 时直接更新当前路由即可实现 View Model 的更新。"
+            )
+          ]),
+          _vm._v(" "),
+          _c("p", [
+            _vm._v(
+              "然而实际项目中此类基础字段还不少，如果全部体现在路由上既会导致 URL 冗长，又需要处理各种字符转码的问题。所以此方案暂不考虑。"
+            )
+          ]),
+          _vm._v(" "),
+          _c("h3", { attrs: { id: "2viewmodelproject" } }, [
+            _vm._v(
+              "2、View Model 监听 project 变动sfsldfjls数量开房记录时代峻峰了基拉水电费垃圾地方了设计费暗杀令肌肤；大楼附近；阿萨德飞机；阿拉丁会计；阿来得及；阿萨德积分；阿萨德积分；奥斯卡大家；啊速度快解放；大框架房；阿萨德积分来得及发；阿萨德积分；阿萨德积分；阿萨德积分"
+            )
           ])
         ])
       ])
@@ -20469,7 +20501,7 @@ function injectStyle (ssrContext) {
   if (disposed) return
   __webpack_require__(54)
 }
-var normalizeComponent = __webpack_require__(1)
+var normalizeComponent = __webpack_require__(2)
 /* script */
 var __vue_script__ = __webpack_require__(56)
 /* template */
@@ -20522,7 +20554,7 @@ var content = __webpack_require__(55);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(0)("becdb248", content, false);
+var update = __webpack_require__(1)("becdb248", content, false);
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
@@ -20541,12 +20573,12 @@ if(false) {
 /* 55 */
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(2)(false);
+exports = module.exports = __webpack_require__(0)(false);
 // imports
 
 
 // module
-exports.push([module.i, "\n.blogdetail[data-v-6fb08288] {\n  position: relative;\n  min-height: 100%;\n  margin: 0;\n  padding: 0;\n  background: #dee3e7;\n}\n.blogdetail .page[data-v-6fb08288] {\n  padding-bottom: 50px;\n}\n.blogdetail .page .blog-detail[data-v-6fb08288] {\n  padding: 0;\n  background: #dee3e7;\n}\n.blogdetail .page .blog-detail .blog-detail-contaner[data-v-6fb08288] {\n  max-width: 1000px;\n  margin: 0 auto;\n  background: #fff;\n}\n.blogdetail .page .blog-detail .blog-detail-contaner .header[data-v-6fb08288] {\n  position: relative;\n  padding-top: 44%;\n  background-color: #eee;\n  background-size: cover;\n  background-position: 50%;\n}\n.blogdetail .page .blog-detail .blog-detail-contaner .header .header-cover[data-v-6fb08288] {\n  position: absolute;\n  width: 100%;\n  height: 100%;\n  top: 0;\n  left: 0;\n  overflow: hidden;\n}\n.blogdetail .page .blog-detail .blog-detail-contaner .header .header-cover.no-cover[data-v-6fb08288] {\n  background: #1f3747;\n  background-image: -webkit-linear-gradient(left, #1f3747, #293d31);\n}\n.blogdetail .page .blog-detail .blog-detail-contaner .header .header-body[data-v-6fb08288] {\n  display: none;\n}\n.blogdetail .page .blog-detail .blog-detail-contaner .article-section[data-v-6fb08288] {\n  padding: 1em 0;\n}\n.blogdetail .page .blog-detail .blog-detail-contaner .article-section .caption[data-v-6fb08288] {\n  padding: 0 20px;\n}\n.blogdetail .page .blog-detail .blog-detail-contaner .article-section .caption .titl[data-v-6fb08288] {\n  margin-bottom: 0.4em;\n  font-size: 1.8rem;\n}\n.blogdetail .page .blog-detail .blog-detail-contaner .article-section .caption .time[data-v-6fb08288] {\n  font-size: 14px;\n}\n.blogdetail .page .blog-detail .blog-detail-contaner .article-section .article[data-v-6fb08288] {\n  padding: 40px 20px;\n  font-size: 1rem;\n  line-height: 1.6;\n  word-wrap: break-word;\n  background: #fff;\n}\n.blogdetail .page .blog-detail .blog-detail-contaner .article-section .article[data-v-6fb08288]:before {\n  display: table;\n  content: \"\";\n}\n.blogdetail .page .blog-detail .blog-detail-contaner .article-section .sns-share[data-v-6fb08288] {\n  padding: 2em 0 2em;\n  text-align: center;\n}\n.blogdetail .page .blog-detail .blog-detail-contaner .article-section .sns-share a[data-v-6fb08288] {\n  display: inline-block;\n  width: 80px;\n  height: 80px;\n  margin: 0 1em;\n  border-radius: 50%;\n  font-size: 1.2rem;\n  color: #fff;\n  background: #fa7d3c;\n}\n.blogdetail .page .blog-detail .blog-detail-contaner .article-section .sns-share a i[data-v-6fb08288] {\n  display: block;\n  padding-top: 10px;\n  line-height: 30px;\n  font-size: 30px;\n}\n.blogdetail .page .blog-detail .blog-detail-contaner .article-section .sns-share a .l-icon[data-v-6fb08288] {\n  font-family: layIcon;\n  font-style: normal;\n}\n.blogdetail .page .blog-detail .blog-detail-contaner .article-section .sns-share a span[data-v-6fb08288] {\n  display: block;\n  line-height: 30px;\n  font-size: 14px;\n}\n.blogdetail .page .blog-detail .blog-detail-contaner .comments-section[data-v-6fb08288] {\n  position: relative;\n  padding: 2em 1em;\n  background: #f5f8fa;\n  border: 1px solid #edf0f3;\n}\n.blogdetail .page .blog-detail .blog-detail-contaner .comments-section[data-v-6fb08288]:before {\n  position: absolute;\n  content: \"\";\n  top: -1rem;\n  left: 50%;\n  margin-left: -2rem;\n  width: 0;\n  height: 0;\n  border-style: solid;\n  border-color: transparent transparent #f5f8fa;\n  border-width: 0 2rem 1rem;\n}\n.blogdetail .page .blog-detail .blog-detail-contaner .comments-section .comments_frame .l_comments .l_com_sendBox[data-v-6fb08288] {\n  margin-bottom: 20px;\n  background: #fff;\n  border-radius: 2px;\n  -webkit-box-shadow: 0 0 2px rgba(0,0,0,0.2);\n          box-shadow: 0 0 2px rgba(0,0,0,0.2);\n}\n.blogdetail .page .blog-detail .blog-detail-contaner .comments-section .comments_frame .l_comments .l_com_sendBox .l_sendBox[data-v-6fb08288] {\n  padding: 20px 20px 20px 20px;\n  background: #fff;\n}\n.blogdetail .page .blog-detail .blog-detail-contaner .comments-section .comments_frame .l_comments .l_com_sendBox .l_sendBox .l_send_footer[data-v-6fb08288] {\n  height: 30px;\n  padding-top: 10px;\n}\n.blogdetail .page .blog-detail .blog-detail-contaner .comments-section .comments_frame .l_comments .l_com_sendBox .l_sendBox .l_send_footer .l_send_right[data-v-6fb08288] {\n  float: right;\n}\n.blogdetail .page .blog-detail .blog-detail-contaner .comments-section .comments_frame .l_comments .l_com_sendBox .l_sendBox .l_send_footer .l_send_right .l_send_submit[data-v-6fb08288] {\n  display: inline-block;\n  padding: 0 20px;\n  font-size: 12px;\n  height: 30px;\n  line-height: 30px;\n  color: #fff;\n  background: #f90;\n  border-radius: 2px;\n  -webkit-transition: all 0.1s linear;\n  transition: all 0.1s linear;\n}\n.blogdetail .page .blog-detail .blog-detail-contaner .comments-section .comments_frame .l_comments .l_com_list .l_com_list_cnt[data-v-6fb08288] {\n  overflow: hidden;\n  background: #fff;\n  border-radius: 2px;\n  -webkit-box-shadow: 0 0 2px rgba(0,0,0,0.2);\n          box-shadow: 0 0 2px rgba(0,0,0,0.2);\n}\n.blogdetail .page .blog-detail .blog-detail-contaner .comments-section .comments_frame .l_comments .l_com_list .l_com_list_cnt .l_com_item[data-v-6fb08288] {\n  position: relative;\n  padding: 15px;\n  border-top: 1px solid #eee;\n  cursor: default;\n  overflow: hidden;\n  -webkit-transition: all 0.1s linear;\n  transition: all 0.1s linear;\n}\n.blogdetail .page .blog-detail .blog-detail-contaner .comments-section .comments_frame .l_comments .l_com_list .l_com_list_cnt .l_com_item[data-v-6fb08288]:first-child {\n  border: none;\n}\n.blogdetail .page .blog-detail .blog-detail-contaner .comments-section .comments_frame .l_comments .l_com_list .l_com_list_cnt .l_com_item .avatar[data-v-6fb08288] {\n  float: left;\n  width: 50px;\n  height: 50px;\n  border-radius: 12px;\n  overflow: hidden;\n  background: #ddd;\n}\n.blogdetail .page .blog-detail .blog-detail-contaner .comments-section .comments_frame .l_comments .l_com_list .l_com_list_cnt .l_com_item .avatar img[data-v-6fb08288] {\n  width: 100%;\n  height: 100%;\n}\n.blogdetail .page .blog-detail .blog-detail-contaner .comments-section .comments_frame .l_comments .l_com_list .l_com_list_cnt .l_com_item .content[data-v-6fb08288] {\n  margin-left: 60px;\n}\n.blogdetail .page .blog-detail .blog-detail-contaner .comments-section .comments_frame .l_comments .l_com_list .l_com_list_cnt .l_com_item .content .caption[data-v-6fb08288] {\n  margin-bottom: 10px;\n  line-height: 18px;\n  font-size: 0.85rem;\n  font-weight: 500;\n}\n.blogdetail .page .blog-detail .blog-detail-contaner .comments-section .comments_frame .l_comments .l_com_list .l_com_list_cnt .l_com_item .content .text[data-v-6fb08288] {\n  min-height: 20px;\n  margin-bottom: 10px;\n  line-height: 1.5;\n  font-size: 0.85rem;\n  color: #333;\n  word-wrap: break-word;\n  word-break: break-all;\n}\n.blogdetail .page .blog-detail .blog-detail-contaner .comments-section .comments_frame .l_comments .l_com_list .l_com_list_cnt .l_com_item .content .footer[data-v-6fb08288] {\n  height: 20px;\n  line-height: 20px;\n  font-size: 0.85rem;\n}\n.blogdetail .page .blog-detail .blog-detail-contaner .comments-section .comments_frame .l_comments .l_com_list .l_com_list_cnt .l_com_item .content .footer .time[data-v-6fb08288] {\n  float: left;\n  color: #aaa;\n}\n.blogdetail .page .blog-detail .blog-detail-contaner .comments-section .comments_frame .l_comments .l_com_list .l_com_list_cnt .l_com_item .content .footer .btn-reply[data-v-6fb08288] {\n  color: #aaa;\n  float: right;\n}\n.blogdetail .page .many[data-v-6fb08288] {\n  display: block;\n  position: fixed;\n  top: 0;\n  right: 0;\n  bottom: 0;\n  left: 0;\n  z-index: 1050;\n  outline: 0;\n  background-color: rgba(255,255,255,0.7);\n  text-align: center;\n  overflow-x: hidden;\n  overflow-y: auto;\n}\n.blogdetail .page .many .modal-dialog[data-v-6fb08288] {\n  width: 350px;\n  position: absolute;\n  top: 45%;\n  left: 50%;\n  -webkit-transform: translate(-50%, -50%);\n          transform: translate(-50%, -50%);\n  margin: 30px auto;\n}\n.blogdetail .page .many .modal-dialog .modal-content[data-v-6fb08288] {\n  -webkit-box-shadow: 0 5px 25px rgba(0,0,0,0.1);\n          box-shadow: 0 5px 25px rgba(0,0,0,0.1);\n  border: 1px solid rgba(0,0,0,0.1);\n  overflow: hidden;\n  position: relative;\n  background-color: #fff;\n  border-radius: 6px;\n  background-clip: padding-box;\n  outline: 0;\n}\n.blogdetail .page .many .modal-dialog .modal-content .modal-header[data-v-6fb08288] {\n  float: right;\n  font-size: 15px;\n  margin-top: 20px;\n  margin-right: 20px;\n}\n.blogdetail .page .many .modal-dialog .modal-content .modal-boday[data-v-6fb08288] {\n  padding: 20px 20px 10px 20px;\n}\n.blogdetail .page .many .modal-dialog .modal-content .modal-boday .title[data-v-6fb08288] {\n  margin-top: 40px;\n  font-size: 16px;\n  line-height: 18px;\n}\n@media screen and (min-width: 768px) {\n.blogdetail .page[data-v-6fb08288] {\n    padding-bottom: 30px;\n}\n.blogdetail .page .blog-detail[data-v-6fb08288] {\n    padding: 80px 0;\n}\n.blogdetail .page .blog-detail .blog-detail-contaner .header .header-body[data-v-6fb08288] {\n    display: block;\n    position: absolute;\n    top: 70px;\n    left: 70px;\n}\n.blogdetail .page .blog-detail .blog-detail-contaner .header .tit[data-v-6fb08288] {\n    margin-bottom: 15px;\n    line-height: 1.2;\n    font-size: 26px;\n    font-weight: 500;\n    color: #fff;\n}\n.blogdetail .page .blog-detail .blog-detail-contaner .header .article-info[data-v-6fb08288] {\n    width: 50%;\n    margin-bottom: 50px;\n    color: #fff;\n    opacity: 0.8;\n}\n.blogdetail .page .blog-detail .blog-detail-contaner .article-section[data-v-6fb08288] {\n    padding: 5em 8em;\n}\n.blogdetail .page .blog-detail .blog-detail-contaner .comments-section[data-v-6fb08288] {\n    padding: 2em 8em 4em;\n}\n}\n", ""]);
+exports.push([module.i, "\n.blogdetail[data-v-6fb08288] {\n  position: relative;\n  min-height: 100%;\n  margin: 0;\n  padding: 0;\n  background: #dee3e7;\n}\n.blogdetail .page[data-v-6fb08288] {\n  position: absolute;\n  top: 0;\n  bottom: 0;\n  overflow: hidden;\n  width: 100%;\n}\n.blogdetail .page .blog-detail[data-v-6fb08288] {\n  padding: 0;\n  background: #dee3e7;\n  min-height: 100%;\n}\n.blogdetail .page .blog-detail .blog-detail-contaner[data-v-6fb08288] {\n  max-width: 1000px;\n  margin: 0 auto;\n  background: #fff;\n  padding-bottom: 50px;\n}\n.blogdetail .page .blog-detail .blog-detail-contaner .header[data-v-6fb08288] {\n  position: relative;\n  padding-top: 44%;\n  background-color: #eee;\n  background-size: cover;\n  background-position: 50%;\n}\n.blogdetail .page .blog-detail .blog-detail-contaner .header .header-cover[data-v-6fb08288] {\n  position: absolute;\n  width: 100%;\n  height: 100%;\n  top: 0;\n  left: 0;\n  overflow: hidden;\n}\n.blogdetail .page .blog-detail .blog-detail-contaner .header .header-cover.no-cover[data-v-6fb08288] {\n  background: #1f3747;\n  background-image: -webkit-linear-gradient(left, #1f3747, #293d31);\n}\n.blogdetail .page .blog-detail .blog-detail-contaner .header .header-body[data-v-6fb08288] {\n  display: none;\n}\n.blogdetail .page .blog-detail .blog-detail-contaner .article-section[data-v-6fb08288] {\n  padding: 1em 0;\n}\n.blogdetail .page .blog-detail .blog-detail-contaner .article-section .caption[data-v-6fb08288] {\n  padding: 0 20px;\n}\n.blogdetail .page .blog-detail .blog-detail-contaner .article-section .caption .titl[data-v-6fb08288] {\n  margin-bottom: 0.4em;\n  font-size: 1.8rem;\n}\n.blogdetail .page .blog-detail .blog-detail-contaner .article-section .caption .time[data-v-6fb08288] {\n  font-size: 14px;\n}\n.blogdetail .page .blog-detail .blog-detail-contaner .article-section .article[data-v-6fb08288] {\n  padding: 40px 20px;\n  font-size: 1rem;\n  line-height: 1.6;\n  word-wrap: break-word;\n  background: #fff;\n}\n.blogdetail .page .blog-detail .blog-detail-contaner .article-section .article[data-v-6fb08288]:before {\n  display: table;\n  content: \"\";\n}\n.blogdetail .page .blog-detail .blog-detail-contaner .article-section .sns-share[data-v-6fb08288] {\n  padding: 2em 0 2em;\n  text-align: center;\n}\n.blogdetail .page .blog-detail .blog-detail-contaner .article-section .sns-share a[data-v-6fb08288] {\n  display: inline-block;\n  width: 80px;\n  height: 80px;\n  margin: 0 1em;\n  border-radius: 50%;\n  font-size: 1.2rem;\n  color: #fff;\n  background: #fa7d3c;\n}\n.blogdetail .page .blog-detail .blog-detail-contaner .article-section .sns-share a i[data-v-6fb08288] {\n  display: block;\n  padding-top: 10px;\n  line-height: 30px;\n  font-size: 30px;\n}\n.blogdetail .page .blog-detail .blog-detail-contaner .article-section .sns-share a .l-icon[data-v-6fb08288] {\n  font-family: layIcon;\n  font-style: normal;\n}\n.blogdetail .page .blog-detail .blog-detail-contaner .article-section .sns-share a span[data-v-6fb08288] {\n  display: block;\n  line-height: 30px;\n  font-size: 14px;\n}\n.blogdetail .page .blog-detail .blog-detail-contaner .comments-section[data-v-6fb08288] {\n  position: relative;\n  padding: 2em 1em;\n  background: #f5f8fa;\n  border: 1px solid #edf0f3;\n}\n.blogdetail .page .blog-detail .blog-detail-contaner .comments-section[data-v-6fb08288]:before {\n  position: absolute;\n  content: \"\";\n  top: -1rem;\n  left: 50%;\n  margin-left: -2rem;\n  width: 0;\n  height: 0;\n  border-style: solid;\n  border-color: transparent transparent #f5f8fa;\n  border-width: 0 2rem 1rem;\n}\n.blogdetail .page .blog-detail .blog-detail-contaner .comments-section .comments_frame .l_comments .l_com_sendBox[data-v-6fb08288] {\n  margin-bottom: 20px;\n  background: #fff;\n  border-radius: 2px;\n  -webkit-box-shadow: 0 0 2px rgba(0,0,0,0.2);\n          box-shadow: 0 0 2px rgba(0,0,0,0.2);\n}\n.blogdetail .page .blog-detail .blog-detail-contaner .comments-section .comments_frame .l_comments .l_com_sendBox .l_sendBox[data-v-6fb08288] {\n  padding: 20px 20px 20px 20px;\n  background: #fff;\n}\n.blogdetail .page .blog-detail .blog-detail-contaner .comments-section .comments_frame .l_comments .l_com_sendBox .l_sendBox .l_send_footer[data-v-6fb08288] {\n  height: 30px;\n  padding-top: 10px;\n}\n.blogdetail .page .blog-detail .blog-detail-contaner .comments-section .comments_frame .l_comments .l_com_sendBox .l_sendBox .l_send_footer .l_send_right[data-v-6fb08288] {\n  float: right;\n}\n.blogdetail .page .blog-detail .blog-detail-contaner .comments-section .comments_frame .l_comments .l_com_sendBox .l_sendBox .l_send_footer .l_send_right .l_send_submit[data-v-6fb08288] {\n  display: inline-block;\n  padding: 0 20px;\n  font-size: 12px;\n  height: 30px;\n  line-height: 30px;\n  color: #fff;\n  background: #f90;\n  border-radius: 2px;\n  -webkit-transition: all 0.1s linear;\n  transition: all 0.1s linear;\n}\n.blogdetail .page .blog-detail .blog-detail-contaner .comments-section .comments_frame .l_comments .l_com_list .l_com_list_cnt[data-v-6fb08288] {\n  overflow: hidden;\n  background: #fff;\n  border-radius: 2px;\n  -webkit-box-shadow: 0 0 2px rgba(0,0,0,0.2);\n          box-shadow: 0 0 2px rgba(0,0,0,0.2);\n}\n.blogdetail .page .blog-detail .blog-detail-contaner .comments-section .comments_frame .l_comments .l_com_list .l_com_list_cnt .l_com_item[data-v-6fb08288] {\n  position: relative;\n  padding: 15px;\n  border-top: 1px solid #eee;\n  cursor: default;\n  overflow: hidden;\n  -webkit-transition: all 0.1s linear;\n  transition: all 0.1s linear;\n}\n.blogdetail .page .blog-detail .blog-detail-contaner .comments-section .comments_frame .l_comments .l_com_list .l_com_list_cnt .l_com_item[data-v-6fb08288]:first-child {\n  border: none;\n}\n.blogdetail .page .blog-detail .blog-detail-contaner .comments-section .comments_frame .l_comments .l_com_list .l_com_list_cnt .l_com_item .avatar[data-v-6fb08288] {\n  float: left;\n  width: 50px;\n  height: 50px;\n  border-radius: 12px;\n  overflow: hidden;\n  background: #ddd;\n}\n.blogdetail .page .blog-detail .blog-detail-contaner .comments-section .comments_frame .l_comments .l_com_list .l_com_list_cnt .l_com_item .avatar img[data-v-6fb08288] {\n  width: 100%;\n  height: 100%;\n}\n.blogdetail .page .blog-detail .blog-detail-contaner .comments-section .comments_frame .l_comments .l_com_list .l_com_list_cnt .l_com_item .content[data-v-6fb08288] {\n  margin-left: 60px;\n}\n.blogdetail .page .blog-detail .blog-detail-contaner .comments-section .comments_frame .l_comments .l_com_list .l_com_list_cnt .l_com_item .content .caption[data-v-6fb08288] {\n  margin-bottom: 10px;\n  line-height: 18px;\n  font-size: 0.85rem;\n  font-weight: 500;\n}\n.blogdetail .page .blog-detail .blog-detail-contaner .comments-section .comments_frame .l_comments .l_com_list .l_com_list_cnt .l_com_item .content .text[data-v-6fb08288] {\n  min-height: 20px;\n  margin-bottom: 10px;\n  line-height: 1.5;\n  font-size: 0.85rem;\n  color: #333;\n  word-wrap: break-word;\n  word-break: break-all;\n}\n.blogdetail .page .blog-detail .blog-detail-contaner .comments-section .comments_frame .l_comments .l_com_list .l_com_list_cnt .l_com_item .content .footer[data-v-6fb08288] {\n  height: 20px;\n  line-height: 20px;\n  font-size: 0.85rem;\n}\n.blogdetail .page .blog-detail .blog-detail-contaner .comments-section .comments_frame .l_comments .l_com_list .l_com_list_cnt .l_com_item .content .footer .time[data-v-6fb08288] {\n  float: left;\n  color: #aaa;\n}\n.blogdetail .page .blog-detail .blog-detail-contaner .comments-section .comments_frame .l_comments .l_com_list .l_com_list_cnt .l_com_item .content .footer .btn-reply[data-v-6fb08288] {\n  color: #aaa;\n  float: right;\n}\n.blogdetail .page .many[data-v-6fb08288] {\n  display: block;\n  position: fixed;\n  top: 0;\n  right: 0;\n  bottom: 0;\n  left: 0;\n  z-index: 1050;\n  outline: 0;\n  background-color: rgba(255,255,255,0.7);\n  text-align: center;\n  overflow-x: hidden;\n  overflow-y: auto;\n}\n.blogdetail .page .many .modal-dialog[data-v-6fb08288] {\n  width: 350px;\n  position: absolute;\n  top: 45%;\n  left: 50%;\n  -webkit-transform: translate(-50%, -50%);\n          transform: translate(-50%, -50%);\n  margin: 30px auto;\n}\n.blogdetail .page .many .modal-dialog .modal-content[data-v-6fb08288] {\n  -webkit-box-shadow: 0 5px 25px rgba(0,0,0,0.1);\n          box-shadow: 0 5px 25px rgba(0,0,0,0.1);\n  border: 1px solid rgba(0,0,0,0.1);\n  overflow: hidden;\n  position: relative;\n  background-color: #fff;\n  border-radius: 6px;\n  background-clip: padding-box;\n  outline: 0;\n}\n.blogdetail .page .many .modal-dialog .modal-content .modal-header[data-v-6fb08288] {\n  float: right;\n  font-size: 15px;\n  margin-top: 20px;\n  margin-right: 20px;\n}\n.blogdetail .page .many .modal-dialog .modal-content .modal-boday[data-v-6fb08288] {\n  padding: 20px 20px 10px 20px;\n}\n.blogdetail .page .many .modal-dialog .modal-content .modal-boday .title[data-v-6fb08288] {\n  margin-top: 40px;\n  font-size: 16px;\n  line-height: 18px;\n}\n@media screen and (min-width: 768px) {\n.blogdetail .page .blog-detail[data-v-6fb08288] {\n    padding: 80px 0;\n}\n.blogdetail .page .blog-detail .blog-detail-contaner[data-v-6fb08288] {\n    padding-bottom: 0;\n}\n.blogdetail .page .blog-detail .blog-detail-contaner .header .header-body[data-v-6fb08288] {\n    display: block;\n    position: absolute;\n    top: 70px;\n    left: 70px;\n}\n.blogdetail .page .blog-detail .blog-detail-contaner .header .tit[data-v-6fb08288] {\n    margin-bottom: 15px;\n    line-height: 1.2;\n    font-size: 26px;\n    font-weight: 500;\n    color: #fff;\n}\n.blogdetail .page .blog-detail .blog-detail-contaner .header .article-info[data-v-6fb08288] {\n    width: 50%;\n    margin-bottom: 50px;\n    color: #fff;\n    opacity: 0.8;\n}\n.blogdetail .page .blog-detail .blog-detail-contaner .article-section[data-v-6fb08288] {\n    padding: 5em 8em;\n}\n.blogdetail .page .blog-detail .blog-detail-contaner .comments-section[data-v-6fb08288] {\n    padding: 2em 8em 4em;\n}\n}\n", ""]);
 
 // exports
 
@@ -20557,8 +20589,9 @@ exports.push([module.i, "\n.blogdetail[data-v-6fb08288] {\n  position: relative;
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_components_footer_footer__ = __webpack_require__(3);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_components_footer_footer___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_components_footer_footer__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_better_scroll__ = __webpack_require__(40);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_components_footer_footer__ = __webpack_require__(3);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_components_footer_footer___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_components_footer_footer__);
 //
 //
 //
@@ -20685,7 +20718,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
+
 
 
 
@@ -20695,8 +20728,24 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       detailShow: false
     };
   },
+  created: function created() {
+    var _this = this;
+
+    this.$nextTick(function () {
+      _this._initScroll();
+    });
+  },
 
   methods: {
+    _initScroll: function _initScroll() {
+      this.meunScroll = new __WEBPACK_IMPORTED_MODULE_0_better_scroll__["a" /* default */](this.$refs.blogdetail, {
+        click: true,
+        mouseWheel: {
+          speed: 20,
+          invert: false
+        }
+      });
+    },
     showDetail: function showDetail() {
       this.detailShow = true;
     },
@@ -20705,7 +20754,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     }
   },
   components: {
-    'v-footer': __WEBPACK_IMPORTED_MODULE_0_components_footer_footer___default.a
+    'v-footer': __WEBPACK_IMPORTED_MODULE_1_components_footer_footer___default.a
   }
 });
 
@@ -20718,11 +20767,11 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "blogdetail" }, [
-    _c(
-      "div",
-      { staticClass: "page" },
-      [
-        _c("div", { staticClass: "blog-detail" }, [
+    _c("div", { ref: "blogdetail", staticClass: "page" }, [
+      _c(
+        "div",
+        { staticClass: "blog-detail" },
+        [
           _c("div", { staticClass: "blog-detail-contaner" }, [
             _vm._m(0),
             _vm._v(" "),
@@ -20768,45 +20817,13 @@ var render = function() {
             ]),
             _vm._v(" "),
             _vm._m(4)
-          ])
-        ]),
-        _vm._v(" "),
-        _c(
-          "div",
-          {
-            directives: [
-              {
-                name: "show",
-                rawName: "v-show",
-                value: _vm.detailShow,
-                expression: "detailShow"
-              }
-            ],
-            staticClass: "many",
-            on: { click: _vm.hideDetail }
-          },
-          [
-            _c("div", { staticClass: "modal-dialog" }, [
-              _c("div", { staticClass: "modal-content" }, [
-                _c(
-                  "div",
-                  {
-                    staticClass: "modal-header",
-                    on: { click: _vm.hideDetail }
-                  },
-                  [_c("i", { staticClass: "icon-cross" })]
-                ),
-                _vm._v(" "),
-                _vm._m(5)
-              ])
-            ])
-          ]
-        ),
-        _vm._v(" "),
-        _c("v-footer")
-      ],
-      1
-    )
+          ]),
+          _vm._v(" "),
+          _c("v-footer")
+        ],
+        1
+      )
+    ])
   ])
 }
 var staticRenderFns = [
@@ -20945,8 +20962,7 @@ var staticRenderFns = [
                   _c("img", {
                     attrs: {
                       src:
-                        "https://dn-lay.qbox.me/build/single-page/images/my-avatar_0b91c8c.jpg",
-                      onerror: "L.gravatar_error_fn(this)"
+                        "https://dn-lay.qbox.me/build/single-page/images/my-avatar_0b91c8c.jpg"
                     }
                   })
                 ]),
@@ -21018,24 +21034,6 @@ var staticRenderFns = [
         ])
       ])
     ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "modal-boday" }, [
-      _c("div", { staticClass: "title" }, [
-        _vm._v(
-          "如果觉得我的文章对您有用，请随意打赏。你的支持将鼓励我继续创作！"
-        )
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "img" }, [
-        _c("img", {
-          attrs: { src: __webpack_require__(58), width: "300", height: "300" }
-        })
-      ])
-    ])
   }
 ]
 render._withStripped = true
@@ -21048,12 +21046,7 @@ if (false) {
 }
 
 /***/ }),
-/* 58 */
-/***/ (function(module, exports) {
-
-module.exports = "/images/wechat.jpg?506845091620c3b4838fa88fd810d7f3";
-
-/***/ }),
+/* 58 */,
 /* 59 */
 /***/ (function(module, exports) {
 

@@ -1,7 +1,7 @@
 <template>
   <div class="blog">
-    <div class="pages" ref="menuWrapper">
-      <div>
+    <div class="pages" ref="blog">
+      <div style="min-height: 100%">
         <div class="header">
           <div class="mac">
             <div class="logo">
@@ -184,6 +184,7 @@
             </div>
           </div>
         </div>
+        <v-footer></v-footer>
       </div>
     </div>
     <!-- <v-footer></v-footer> -->
@@ -204,23 +205,23 @@
       }
     },
     created() {
-      var isMobile = !!navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i)
+      // 判断设备
+      // var isMobile = !!navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i)
 
       // if(isMobile) {
-        this.$nextTick(() => {
-          this._initScroll()
-        })
+      this.$nextTick(() => {
+        this._initScroll()
+      })
       // }
     },
     methods: {
       _initScroll() {
-        this.meunScroll = new BScroll(this.$refs.menuWrapper, {
+        this.meunScroll = new BScroll(this.$refs.blog, {
           click: true,
           mouseWheel: {
            speed: 20,
            invert: false
           }
-          // mouseWheel
         })
       },
 
@@ -248,13 +249,14 @@
       // position: relative
       // padding-bottom: 50px
       // overflow: hidden
-      position: absolute;
-      top: 0;
-      bottom: 0;
-      overflow: hidden;
+      position: absolute
+      top: 0
+      bottom: 0
+      overflow: hidden
+      width: 100%
       .header
         position: relative
-        padding: 75px 0 20px
+        padding: 60px 0 20px
         background: #fafafa
         &:before
           content: ""
@@ -364,7 +366,7 @@
       .article
         margin: 0 10px
         .article-item
-          margin-bottom: 20px
+          padding-bottom: 55px
           .article-list
             position: relative
             background: #fff
@@ -448,7 +450,9 @@
   @media screen and (min-width: 768px)
     .blog
       .pages
-        padding-bottom: 70px
+        // padding-bottom: 70px
+        .header
+          padding: 75px 0 20px
         .articleListPage-tags-cnt
           .articleListPage-tags
             .grid-row
@@ -457,6 +461,7 @@
           margin: 0 auto
           width: 750px
           .article-item
+            padding-bottom: 65px
             .article-list
               padding: 20px 40px 20px 20px
               margin-bottom: 20px

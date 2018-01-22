@@ -1,6 +1,6 @@
 <template>
   <div class="me">
-    <div class="page">
+    <div class="page" ref="aboutme">
       <div class="blog-detail">
         <div class="blog-detail-contaner">
           <div class="header">
@@ -33,20 +33,37 @@
 
               <p>然而实际项目中此类基础字段还不少，如果全部体现在路由上既会导致 URL 冗长，又需要处理各种字符转码的问题。所以此方案暂不考虑。</p>
 
-              <h3 id="2viewmodelproject">2、View Model 监听 project 变动</h3>
+              <h3 id="2viewmodelproject">2、View Model 监听 project 变动sfsldfjls数量开房记录时代峻峰了基拉水电费垃圾地方了设计费暗杀令肌肤；大楼附近；阿萨德飞机；阿拉丁会计；阿来得及；阿萨德积分；阿萨德积分；奥斯卡大家；啊速度快解放；大框架房；阿萨德积分来得及发；阿萨德积分；阿萨德积分；阿萨德积分</h3>
             </div>
           </div>
         </div>
+        <v-footer></v-footer>
       </div>
-      <v-footer></v-footer>
     </div>
   </div>
 </template>
 
 <script type="text/ecmascript-6">
+  import BScroll from 'better-scroll'
   import Footer from 'components/footer/footer'
 
   export default {
+    created(){
+      this.$nextTick(() => {
+        this._initScroll()
+      })
+    },
+    methods: {
+      _initScroll() {
+        this.meunScroll = new BScroll(this.$refs.aboutme, {
+          click: true,
+          mouseWheel: {
+           speed: 20,
+           invert: false
+          }
+        })
+      }
+    },
     components: {
       'v-footer': Footer
     }
@@ -61,14 +78,21 @@
     padding:0
     background: #dee3e7
     .page
-      padding-bottom: 30px
+      // padding-bottom: 30px
+      position: absolute
+      top: 0
+      bottom: 0
+      overflow: hidden
+      width: 100%
       .blog-detail
         padding: 0
         background: #dee3e7
+        min-height: 100%
         .blog-detail-contaner
           max-width: 1000px
           margin: 0 auto
           background: #fff
+          padding-bottom: 30px
           .header
             position: relative
             padding-top: 55%
@@ -129,6 +153,7 @@
         .blog-detail
           padding: 80px 0
           .blog-detail-contaner
+            padding-bottom: 0
             .header
               padding-top: 44%
               .header-cover

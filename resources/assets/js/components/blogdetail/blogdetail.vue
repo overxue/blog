@@ -1,6 +1,6 @@
 <template>
   <div class="blogdetail">
-    <div class="page">
+    <div class="page" ref="blogdetail">
       <div class="blog-detail">
         <div class="blog-detail-contaner">
           <div class="header">
@@ -67,7 +67,7 @@
                   <div class="l_com_list_cnt">
                     <div class="l_com_item">
                       <div class="avatar">
-                        <img src="https://dn-lay.qbox.me/build/single-page/images/my-avatar_0b91c8c.jpg" onerror="L.gravatar_error_fn(this)">
+                        <img src="https://dn-lay.qbox.me/build/single-page/images/my-avatar_0b91c8c.jpg">
                       </div>
                       <div class="content">
                         <div class="caption">剧中人 </div>
@@ -103,8 +103,9 @@
             </div>
           </div>
         </div>
+        <v-footer></v-footer>
       </div>
-      <div class="many" v-show="detailShow" @click="hideDetail">
+      <!-- <div class="many" v-show="detailShow" @click="hideDetail">
         <div class="modal-dialog">
           <div class="modal-content">
             <div class="modal-header" @click="hideDetail">
@@ -114,18 +115,17 @@
               <div class="title">如果觉得我的文章对您有用，请随意打赏。你的支持将鼓励我继续创作！</div>
               <div class="img">
                 <img src="./wechat.jpg" width="300" height="300">
-                <!-- <img src="./alipay.jpg" width="300" height="300"> -->
               </div>
             </div>
           </div>
         </div>
-      </div>
-      <v-footer></v-footer>
+      </div> -->
     </div>
   </div>
 </template>
 
 <script type="text/ecmascript-6">
+  import BScroll from 'better-scroll'
   import Footer from 'components/footer/footer'
 
   export default {
@@ -134,7 +134,21 @@
         detailShow: false
       }
     },
+    created(){
+      this.$nextTick(() => {
+        this._initScroll()
+      })
+    },
     methods: {
+      _initScroll() {
+        this.meunScroll = new BScroll(this.$refs.blogdetail, {
+          click: true,
+          mouseWheel: {
+           speed: 20,
+           invert: false
+          }
+        })
+      },
       showDetail() {
         this.detailShow = true
       },
@@ -156,14 +170,21 @@
     padding:0
     background: #dee3e7
     .page
-      padding-bottom: 50px
+      // padding-bottom: 50px
+      position: absolute
+      top: 0
+      bottom: 0
+      overflow: hidden
+      width: 100%
       .blog-detail
         padding: 0
         background: #dee3e7
+        min-height: 100%
         .blog-detail-contaner
           max-width: 1000px
           margin: 0 auto
           background: #fff
+          padding-bottom: 50px
           .header
             position: relative
             padding-top: 44%
@@ -359,10 +380,11 @@
   @media screen and (min-width: 768px)
     .blogdetail
       .page
-        padding-bottom: 30px
+        // padding-bottom: 30px
         .blog-detail
           padding: 80px 0
           .blog-detail-contaner
+            padding-bottom: 0
             .header
               .header-body
                 display: block
