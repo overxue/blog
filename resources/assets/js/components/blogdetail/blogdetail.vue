@@ -44,7 +44,7 @@
                 <i class="l-icon icon-sina-weibo"></i>
                 <span>分享</span>
               </a>
-              <a href="#" title="微信,支付宝打赏" @click.prevent="showDetail()">
+              <a href="javascript:void(0)" title="微信,支付宝打赏" @click.prevent="showDetail()">
                 <i class="l-icon icon-money"></i>
                 <span>打赏</span>
               </a>
@@ -105,21 +105,22 @@
         </div>
         <v-footer></v-footer>
       </div>
-      <!-- <div class="many" v-show="detailShow" @click="hideDetail">
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header" @click="hideDetail">
-              <i class="icon-cross"></i>
-            </div>
-            <div class="modal-boday">
-              <div class="title">如果觉得我的文章对您有用，请随意打赏。你的支持将鼓励我继续创作！</div>
-              <div class="img">
-                <img src="./wechat.jpg" width="300" height="300">
-              </div>
-            </div>
+    </div>
+    <!-- 遮罩层 -->
+    <div class="many" v-show="detailShow" @click="hideDetail"></div>
+    <!-- 内容层 -->
+    <div class="modal-dialog" v-show="detailShow">
+      <div class="modal-content">
+        <div class="modal-header" @click="hideDetail">
+          <i class="icon-cross"></i>
+        </div>
+        <div class="modal-boday">
+          <div class="title">如果觉得我的文章对您有用，请随意打赏。你的支持将鼓励我继续创作！</div>
+          <div class="img">
+            <img src="./wechat.jpg" width="300" height="300">
           </div>
         </div>
-      </div> -->
+      </div>
     </div>
   </div>
 </template>
@@ -146,6 +147,9 @@
           mouseWheel: {
            speed: 20,
            invert: false
+          },
+          preventDefaultException: {
+            tagName: /^(INPUT|TEXTAREA|BUTTON|SELECT|IMG|DIV)$/
           }
         })
       },
@@ -336,46 +340,44 @@
                           .btn-reply
                             color: #aaa
                             float: right
-      .many
-        display: block;
-        position: fixed;
-        top: 0;
-        right: 0;
-        bottom: 0;
-        left: 0;
-        z-index: 1050;
+    .many
+      position: fixed
+      top: 0
+      right: 0
+      bottom: 0
+      left: 0
+      z-index: 50
+      background-color: hsla(0,0%,100%,.7)
+      text-align: center
+    .modal-dialog
+      width: 350px;
+      position: absolute;
+      top: 45%;
+      left: 50%;
+      transform: translate(-50%,-50%);
+      margin: 30px auto
+      z-index: 100
+      text-align: center
+      .modal-content
+        box-shadow: 0 5px 25px rgba(0,0,0,.1);
+        border: 1px solid rgba(0,0,0,.1);
+        overflow: hidden;
+        position: relative;
+        background-color: #fff;
+        border-radius: 6px;
+        background-clip: padding-box;
         outline: 0;
-        background-color: hsla(0,0%,100%,.7);
-        text-align: center;
-        overflow-x: hidden;
-        overflow-y: auto;
-        .modal-dialog
-          width: 350px;
-          position: absolute;
-          top: 45%;
-          left: 50%;
-          transform: translate(-50%,-50%);
-          margin: 30px auto
-          .modal-content
-            box-shadow: 0 5px 25px rgba(0,0,0,.1);
-            border: 1px solid rgba(0,0,0,.1);
-            overflow: hidden;
-            position: relative;
-            background-color: #fff;
-            border-radius: 6px;
-            background-clip: padding-box;
-            outline: 0;
-            .modal-header
-              float: right
-              font-size: 15px
-              margin-top: 20px
-              margin-right: 20px
-            .modal-boday
-              padding: 20px 20px 10px 20px
-              .title
-                margin-top: 40px
-                font-size: 16px
-                line-height: 18px
+        .modal-header
+          float: right
+          font-size: 15px
+          margin-top: 20px
+          margin-right: 20px
+        .modal-boday
+          padding: 20px 20px 10px 20px
+          .title
+            margin-top: 40px
+            font-size: 16px
+            line-height: 18px
 
   @media screen and (min-width: 768px)
     .blogdetail

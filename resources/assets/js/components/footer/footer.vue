@@ -1,7 +1,7 @@
 <template>
   <div class="footer">
     <div class="footer-item">
-      <p class="pull-left">Powered By Laravel And Vue <span style="color: rgb(226, 117, 117); font-size: 14px;">❤</span></p>
+      <p class="pull-left">Powered By <a href="https://laravel.com/" target="_blank">Laravel</a> And <a href="https://vuejs.org/" target="_blank">Vue</a> <span style="color: rgb(226, 117, 117); font-size: 14px;">❤</span></p>
       <p class="pull-right">© Blog 2018. All rights reserved.</p>
     </div>
   </div>
