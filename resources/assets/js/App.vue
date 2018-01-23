@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <navigation></navigation>
+    <navigation ref="navigation"></navigation>
     <keep-alive>
       <router-view></router-view>
     </keep-alive>

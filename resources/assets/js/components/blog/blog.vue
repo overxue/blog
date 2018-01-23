@@ -196,23 +196,13 @@
   import Footer from 'components/footer/footer'
 
   export default {
-    data() {
-      return {
-          first:false,
-          second:false,
-          three:false,
-          showNavigation: false
-      }
-    },
     created() {
       // 判断设备
       // var isMobile = !!navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i)
 
-      // if(isMobile) {
       this.$nextTick(() => {
         this._initScroll()
       })
-      // }
     },
     methods: {
       _initScroll() {
@@ -223,11 +213,6 @@
            invert: false
           }
         })
-      },
-
-      showNav() {
-        this.first = !this.first
-        this.showNavigation = !this.showNavigation
       }
     },
     components: {

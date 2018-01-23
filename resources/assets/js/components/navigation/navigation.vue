@@ -1,14 +1,22 @@
 <template>
   <div class="navigation">
     <div class="nav-item" :class="{'show': showNavigation}">
-      <div class="navigation-left">
+      <div class="navigation-left" @click="showNav">
         <router-link to="/">XueCong's blog</router-link>
       </div>
       <div class="navigation-right">
-        <router-link class="nav-list" to="/blog">博文</router-link>
-        <a class="nav-list" href="https://weibo.com/3090183841/profile?topnav=1&wvr=6&is_all=1" target="_blank">微博</a>
-        <a class="nav-list" href="https://github.com/overxue" target="_blank">GitHub</a>
-        <router-link class="nav-list" to="/me">关于我</router-link>
+        <div @click="showNav">
+          <router-link class="nav-list" to="/blog">博文</router-link>
+        </div>
+        <div @click="showNav">
+          <a class="nav-list" href="https://weibo.com/3090183841/profile?topnav=1&wvr=6&is_all=1" target="_blank">微博</a>
+        </div>
+        <div @click="showNav">
+          <a class="nav-list" href="https://github.com/overxue" target="_blank">GitHub</a>
+        </div>
+        <div @click="showNav">
+          <router-link class="nav-list" to="/me" @click="showNav">关于我</router-link>
+        </div>
       </div>
     </div>
     <div class="nav-more-btn" @click="showNav">
@@ -24,8 +32,6 @@
     data() {
       return {
           first:false,
-          second:false,
-          three:false,
           showNavigation: false
       }
     },
@@ -133,6 +139,7 @@
           margin: 0
           float: right
           font-size: 0
+          display: flex
           .nav-list
             display: inline-block
             height: 56px
