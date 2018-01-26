@@ -106,22 +106,26 @@
         <v-footer></v-footer>
       </div>
     </div>
-    <!-- 遮罩层 -->
-    <div class="many" v-show="detailShow" @click="hideDetail"></div>
-    <!-- 内容层 -->
-    <div class="modal-dialog" v-show="detailShow">
-      <div class="modal-content">
-        <div class="modal-header" @click="hideDetail">
-          <i class="icon-cross"></i>
-        </div>
-        <div class="modal-boday">
-          <div class="title">如果觉得我的文章对您有用，请随意打赏。你的支持将鼓励我继续创作！</div>
-          <div class="img">
-            <img src="./wechat.jpg" width="300" height="300">
+    <transition name="fade">
+      <!-- 遮罩层 -->
+      <div class="many" v-show="detailShow" @click="hideDetail"></div>
+    </transition>
+      <!-- 内容层 -->
+    <transition name="fade">
+      <div class="modal-dialog" v-show="detailShow">
+        <div class="modal-content">
+          <div class="modal-header" @click="hideDetail">
+            <i class="icon-cross"></i>
+          </div>
+          <div class="modal-boday">
+            <div class="title">如果觉得我的文章对您有用，请随意打赏。你的支持将鼓励我继续创作！</div>
+            <div class="img">
+              <img src="./wechat.jpg" width="300" height="300">
+            </div>
           </div>
         </div>
       </div>
-    </div>
+    </transition>
   </div>
 </template>
 
@@ -349,6 +353,10 @@
       z-index: 50
       background-color: hsla(0,0%,100%,.7)
       text-align: center
+      &.fade-enter-active, &.fade-leave-active
+        transition: opacity .5s
+      &.fade-enter, &.fade-leave-to
+        opacity: 0
     .modal-dialog
       width: 350px;
       position: absolute;
@@ -358,6 +366,10 @@
       margin: 30px auto
       z-index: 100
       text-align: center
+      &.fade-enter-active, &.fade-leave-active
+        transition: opacity .5s
+      &.fade-enter, &.fade-leave-to
+        opacity: 0
       .modal-content
         box-shadow: 0 5px 25px rgba(0,0,0,.1);
         border: 1px solid rgba(0,0,0,.1);
