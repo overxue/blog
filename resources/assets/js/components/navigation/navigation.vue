@@ -1,5 +1,6 @@
 <template>
   <div class="navigation">
+    <div class="top-bar"></div>
     <div class="nav-item" :class="{'show': showNavigation}">
       <div class="navigation-left" @click="showNav">
         <router-link to="/">XueCong's blog</router-link>
@@ -119,12 +120,16 @@
         opacity: 0
       .three
         transform: translateY(-9px) rotate(45deg)
+
   @media screen and (min-width: 768px)
     .navigation
-      height: 58px
+      height: 61px
       box-shadow: 0px 1px 11px 2px rgba(42, 42, 42, 0.1)
-      border-top: 4px solid #ff9800
       background: $color-background
+      .top-bar
+        background: url('top-bar.png') top
+        height: 3px
+        width: 100%
       .nav-item
         width: 750px
         box-shadow: none
