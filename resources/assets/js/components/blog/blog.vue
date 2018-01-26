@@ -33,7 +33,7 @@
             <div class="article-list">
               <div class="label"><span>new</span></div>
               <h1 class="title">
-                <router-link to="/blog/1">诡异的 java.io.IOException</router-link>
+                <a href="javascript:void(0)" @click="goDetail($event)">诡异的 java.io.IOException</a>
               </h1>
               <div class="introduction">
                   <i class="icon-user">
@@ -187,7 +187,6 @@
         <v-footer></v-footer>
       </div>
     </div>
-    <!-- <v-footer></v-footer> -->
   </div>
 </template>
 
@@ -213,6 +212,12 @@
            invert: false
           }
         })
+      },
+      goDetail(event) {
+        if (!event._constructed) {
+          return
+        }
+        this.$router.push('/blog/1')
       }
     },
     components: {

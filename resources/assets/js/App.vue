@@ -1,9 +1,11 @@
 <template>
   <div id="app">
     <navigation ref="navigation"></navigation>
-    <keep-alive>
-      <router-view></router-view>
-    </keep-alive>
+    <transition name="fade">
+      <keep-alive>
+        <router-view></router-view>
+      </keep-alive>
+    </transition>
   </div>
 </template>
 
@@ -23,4 +25,9 @@
 <style scoped lang="stylus" rel="stylesheet/stylus">
   #app
     height: 100%
+    overflow:hidden
+    .fade-enter-active, .fade-leave-active
+      transition: opacity .5s
+    .fade-enter, .fade-leave-to
+      opacity: 0
 </style>

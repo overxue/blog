@@ -13831,7 +13831,7 @@ module.exports = g;
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(8);
-module.exports = __webpack_require__(58);
+module.exports = __webpack_require__(59);
 
 
 /***/ }),
@@ -13946,7 +13946,7 @@ exports = module.exports = __webpack_require__(0)(false);
 
 
 // module
-exports.push([module.i, "\n#app[data-v-66ab2f82] {\n  height: 100%;\n}\n", ""]);
+exports.push([module.i, "\n#app[data-v-66ab2f82] {\n  height: 100%;\n  overflow: hidden;\n}\n#app .fade-enter-active[data-v-66ab2f82],\n#app .fade-leave-active[data-v-66ab2f82] {\n  -webkit-transition: opacity 0.5s;\n  transition: opacity 0.5s;\n}\n#app .fade-enter[data-v-66ab2f82],\n#app .fade-leave-to[data-v-66ab2f82] {\n  opacity: 0;\n}\n", ""]);
 
 // exports
 
@@ -13992,6 +13992,8 @@ module.exports = function listToStyles (parentId, list) {
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_components_navigation_navigation__ = __webpack_require__(14);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_components_navigation_navigation___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_components_navigation_navigation__);
+//
+//
 //
 //
 //
@@ -14274,7 +14276,12 @@ var render = function() {
     [
       _c("navigation", { ref: "navigation" }),
       _vm._v(" "),
-      _c("keep-alive", [_c("router-view")], 1)
+      _c(
+        "transition",
+        { attrs: { name: "fade" } },
+        [_c("keep-alive", [_c("router-view")], 1)],
+        1
+      )
     ],
     1
   )
@@ -14757,6 +14764,7 @@ process.umask = function() { return 0; };
 __WEBPACK_IMPORTED_MODULE_0_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_1_vue_router__["a" /* default */]);
 
 /* harmony default export */ __webpack_exports__["a"] = (new __WEBPACK_IMPORTED_MODULE_1_vue_router__["a" /* default */]({
+  mode: 'history',
   routes: [{
     path: '/',
     component: __WEBPACK_IMPORTED_MODULE_2_components_homepage_homepage___default.a
@@ -19659,7 +19667,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
 
 
 
@@ -19685,6 +19692,12 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
           invert: false
         }
       });
+    },
+    goDetail: function goDetail(event) {
+      if (!event._constructed) {
+        return;
+      }
+      this.$router.push('/blog/1');
     }
   },
   components: {
@@ -19827,16 +19840,20 @@ var render = function() {
               _c("div", { staticClass: "article-list" }, [
                 _vm._m(2),
                 _vm._v(" "),
-                _c(
-                  "h1",
-                  { staticClass: "title" },
-                  [
-                    _c("router-link", { attrs: { to: "/blog/1" } }, [
-                      _vm._v("诡异的 java.io.IOException")
-                    ])
-                  ],
-                  1
-                ),
+                _c("h1", { staticClass: "title" }, [
+                  _c(
+                    "a",
+                    {
+                      attrs: { href: "javascript:void(0)" },
+                      on: {
+                        click: function($event) {
+                          _vm.goDetail($event)
+                        }
+                      }
+                    },
+                    [_vm._v("诡异的 java.io.IOException")]
+                  )
+                ]),
                 _vm._v(" "),
                 _vm._m(3),
                 _vm._v(" "),
@@ -21117,7 +21134,7 @@ var staticRenderFns = [
       _vm._v(" "),
       _c("div", { staticClass: "img" }, [
         _c("img", {
-          attrs: { src: __webpack_require__(67), width: "300", height: "300" }
+          attrs: { src: __webpack_require__(58), width: "300", height: "300" }
         })
       ])
     ])
@@ -21136,21 +21153,13 @@ if (false) {
 /* 58 */
 /***/ (function(module, exports) {
 
-// removed by extract-text-webpack-plugin
+module.exports = "/images/wechat.jpg?506845091620c3b4838fa88fd810d7f3";
 
 /***/ }),
-/* 59 */,
-/* 60 */,
-/* 61 */,
-/* 62 */,
-/* 63 */,
-/* 64 */,
-/* 65 */,
-/* 66 */,
-/* 67 */
+/* 59 */
 /***/ (function(module, exports) {
 
-module.exports = "/images/wechat.jpg?506845091620c3b4838fa88fd810d7f3";
+// removed by extract-text-webpack-plugin
 
 /***/ })
 /******/ ]);
