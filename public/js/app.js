@@ -14130,7 +14130,7 @@ exports = module.exports = __webpack_require__(0)(false);
 
 
 // module
-exports.push([module.i, "\n.navigation[data-v-28f9f3e8] {\n  position: fixed;\n  top: 0;\n  left: 0;\n  width: 100%;\n  z-index: 1;\n  background: #fff;\n}\n.navigation .nav-item[data-v-28f9f3e8] {\n  position: relative;\n  width: 100%;\n  height: 100%;\n  margin: 0 auto;\n  -webkit-box-shadow: 0px 1px 11px 2px rgba(42,42,42,0.1);\n          box-shadow: 0px 1px 11px 2px rgba(42,42,42,0.1);\n  display: none;\n  -webkit-transition: all 0.3s ease-out;\n  transition: all 0.3s ease-out;\n}\n.navigation .nav-item.show[data-v-28f9f3e8] {\n  display: block;\n}\n.navigation .nav-item .navigation-left[data-v-28f9f3e8] {\n  height: 55px;\n  text-align: center;\n  line-height: 55px;\n}\n.navigation .nav-item .navigation-left a[data-v-28f9f3e8] {\n  display: inline-block;\n  font-size: 18px;\n  font-weight: 700;\n}\n.navigation .nav-item .navigation-right[data-v-28f9f3e8] {\n  margin: 10px 80px 20px;\n  text-align: center;\n}\n.navigation .nav-item .navigation-right .nav-list[data-v-28f9f3e8] {\n  display: block;\n  height: 40px;\n  line-height: 40px;\n  padding: 0 20px;\n  text-align: center;\n  font-size: 14px;\n  color: #333;\n}\n.navigation .nav-item .navigation-right .nav-list[data-v-28f9f3e8]:hover {\n  color: #ff9800;\n}\n.navigation .nav-item .navigation-right .nav-list.router-link-active[data-v-28f9f3e8] {\n  border-bottom: 2px solid #ff9800;\n  color: #ff9800;\n}\n.navigation .nav-more-btn[data-v-28f9f3e8] {\n  position: absolute;\n  top: 10px;\n  left: 10px;\n  width: 42px;\n  height: 42px;\n  border-radius: 4px;\n  -webkit-box-shadow: 1px 1px 4px rgba(0,0,0,0.2);\n          box-shadow: 1px 1px 4px rgba(0,0,0,0.2);\n  z-index: 1;\n  background: #fff;\n}\n.navigation .nav-more-btn>i[data-v-28f9f3e8] {\n  position: absolute;\n  left: 8px;\n  display: block;\n  width: 26px;\n  height: 4px;\n  -webkit-transition: all 0.2s linear;\n  transition: all 0.2s linear;\n  border-radius: 4px;\n  background: #444;\n}\n.navigation .nav-more-btn>i[data-v-28f9f3e8]:first-child {\n  top: 10px;\n}\n.navigation .nav-more-btn>i[data-v-28f9f3e8]:nth-child(2) {\n  top: 19px;\n}\n.navigation .nav-more-btn>i[data-v-28f9f3e8]:nth-child(3) {\n  top: 28px;\n}\n.navigation .nav-more-btn .first[data-v-28f9f3e8] {\n  -webkit-transform: translateY(9px) rotate(-45deg);\n          transform: translateY(9px) rotate(-45deg);\n}\n.navigation .nav-more-btn .second[data-v-28f9f3e8] {\n  opacity: 0;\n}\n.navigation .nav-more-btn .three[data-v-28f9f3e8] {\n  -webkit-transform: translateY(-9px) rotate(45deg);\n          transform: translateY(-9px) rotate(45deg);\n}\n@media screen and (min-width: 768px) {\n.navigation[data-v-28f9f3e8] {\n    height: 61px;\n    -webkit-box-shadow: 0px 1px 11px 2px rgba(42,42,42,0.1);\n            box-shadow: 0px 1px 11px 2px rgba(42,42,42,0.1);\n    background: #fff;\n}\n.navigation .top-bar[data-v-28f9f3e8] {\n    background: url(" + escape(__webpack_require__(18)) + ") top;\n    height: 3px;\n    width: 100%;\n}\n.navigation .nav-item[data-v-28f9f3e8] {\n    width: 750px;\n    -webkit-box-shadow: none;\n            box-shadow: none;\n    display: block;\n}\n.navigation .nav-item .navigation-left[data-v-28f9f3e8] {\n    float: left;\n    height: 58px;\n    line-height: 58px;\n}\n.navigation .nav-item .navigation-left a[data-v-28f9f3e8] {\n    display: block;\n}\n.navigation .nav-item .navigation-right[data-v-28f9f3e8] {\n    margin: 0;\n    float: right;\n    font-size: 0;\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n}\n.navigation .nav-item .navigation-right .nav-list[data-v-28f9f3e8] {\n    display: inline-block;\n    height: 56px;\n    line-height: 55px;\n}\n.navigation .nav-more-btn[data-v-28f9f3e8] {\n    display: none;\n}\n}\n@media screen and (min-width: 992px) {\n.navigation .nav-item[data-v-28f9f3e8] {\n    width: 970px;\n}\n}\n@media screen and (min-width: 1200px) {\n.navigation .nav-item[data-v-28f9f3e8] {\n    width: 1170px;\n}\n}\n", ""]);
+exports.push([module.i, "\n.navigation[data-v-28f9f3e8] {\n  position: fixed;\n  top: 0;\n  left: 0;\n  width: 100%;\n  z-index: 1;\n}\n.navigation .nav-item[data-v-28f9f3e8] {\n  position: relative;\n  width: 100%;\n  height: 100%;\n  margin: 0 auto;\n  -webkit-box-shadow: 0px 1px 11px 2px rgba(42,42,42,0.1);\n          box-shadow: 0px 1px 11px 2px rgba(42,42,42,0.1);\n  -webkit-transition: all 0.3s ease-out;\n  transition: all 0.3s ease-out;\n  background: #fff;\n  -webkit-animation: bounceInDown-data-v-28f9f3e8 1.2s;\n          animation: bounceInDown-data-v-28f9f3e8 1.2s;\n}\n.navigation .nav-item .navigation-left[data-v-28f9f3e8] {\n  height: 55px;\n  text-align: center;\n  line-height: 55px;\n}\n.navigation .nav-item .navigation-left a[data-v-28f9f3e8] {\n  display: inline-block;\n  font-size: 18px;\n  font-weight: 700;\n}\n.navigation .nav-item .navigation-right[data-v-28f9f3e8] {\n  margin: 10px 80px 20px;\n  text-align: center;\n}\n.navigation .nav-item .navigation-right .nav-list[data-v-28f9f3e8] {\n  display: block;\n  height: 40px;\n  line-height: 40px;\n  padding: 0 20px;\n  text-align: center;\n  font-size: 14px;\n  color: #333;\n}\n.navigation .nav-item .navigation-right .nav-list[data-v-28f9f3e8]:hover {\n  color: #ff9800;\n}\n.navigation .nav-item .navigation-right .nav-list.router-link-active[data-v-28f9f3e8] {\n  border-bottom: 2px solid #ff9800;\n  color: #ff9800;\n}\n@-webkit-keyframes bounceInDown-data-v-28f9f3e8 {\nfrom, 60%, 75%, 90%, to {\n    -webkit-animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);\n            animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);\n}\n0% {\n    opacity: 0;\n    -webkit-transform: translate3d(0, -3000px, 0);\n            transform: translate3d(0, -3000px, 0);\n}\n60% {\n    opacity: 1;\n    -webkit-transform: translate3d(0, 25px, 0);\n            transform: translate3d(0, 25px, 0);\n}\n75% {\n    -webkit-transform: translate3d(0, -10px, 0);\n            transform: translate3d(0, -10px, 0);\n}\n90% {\n    -webkit-transform: translate3d(0, 5px, 0);\n            transform: translate3d(0, 5px, 0);\n}\nto {\n    -webkit-transform: none;\n            transform: none;\n}\n}\n@keyframes bounceInDown-data-v-28f9f3e8 {\nfrom, 60%, 75%, 90%, to {\n    -webkit-animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);\n            animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);\n}\n0% {\n    opacity: 0;\n    -webkit-transform: translate3d(0, -3000px, 0);\n            transform: translate3d(0, -3000px, 0);\n}\n60% {\n    opacity: 1;\n    -webkit-transform: translate3d(0, 25px, 0);\n            transform: translate3d(0, 25px, 0);\n}\n75% {\n    -webkit-transform: translate3d(0, -10px, 0);\n            transform: translate3d(0, -10px, 0);\n}\n90% {\n    -webkit-transform: translate3d(0, 5px, 0);\n            transform: translate3d(0, 5px, 0);\n}\nto {\n    -webkit-transform: none;\n            transform: none;\n}\n}\n.navigation .nav-more-btn[data-v-28f9f3e8] {\n  position: absolute;\n  top: 10px;\n  left: 10px;\n  width: 42px;\n  height: 42px;\n  border-radius: 4px;\n  -webkit-box-shadow: 1px 1px 4px rgba(0,0,0,0.2);\n          box-shadow: 1px 1px 4px rgba(0,0,0,0.2);\n  z-index: 1;\n  background: #fff;\n}\n.navigation .nav-more-btn>i[data-v-28f9f3e8] {\n  position: absolute;\n  left: 8px;\n  display: block;\n  width: 26px;\n  height: 4px;\n  -webkit-transition: all 0.2s linear;\n  transition: all 0.2s linear;\n  border-radius: 4px;\n  background: #444;\n}\n.navigation .nav-more-btn>i[data-v-28f9f3e8]:first-child {\n  top: 10px;\n}\n.navigation .nav-more-btn>i[data-v-28f9f3e8]:nth-child(2) {\n  top: 19px;\n}\n.navigation .nav-more-btn>i[data-v-28f9f3e8]:nth-child(3) {\n  top: 28px;\n}\n.navigation .nav-more-btn .first[data-v-28f9f3e8] {\n  -webkit-transform: translateY(9px) rotate(-45deg);\n          transform: translateY(9px) rotate(-45deg);\n}\n.navigation .nav-more-btn .second[data-v-28f9f3e8] {\n  opacity: 0;\n}\n.navigation .nav-more-btn .three[data-v-28f9f3e8] {\n  -webkit-transform: translateY(-9px) rotate(45deg);\n          transform: translateY(-9px) rotate(45deg);\n}\n.navigation .hide[data-v-28f9f3e8] {\n  position: fixed;\n  top: 0;\n  right: 0;\n  bottom: 0;\n  left: 0;\n  background-color: rgba(255,255,255,0.7);\n  z-index: -1;\n}\n.navigation .hide.fade-enter-active[data-v-28f9f3e8],\n.navigation .hide.fade-leave-active[data-v-28f9f3e8] {\n  -webkit-transition: opacity 0.5s;\n  transition: opacity 0.5s;\n}\n.navigation .hide.fade-enter[data-v-28f9f3e8],\n.navigation .hide.fade-leave-to[data-v-28f9f3e8] {\n  opacity: 0;\n}\n@media screen and (min-width: 768px) {\n.navigation[data-v-28f9f3e8] {\n    -webkit-box-shadow: 0px 1px 11px 2px rgba(42,42,42,0.1);\n            box-shadow: 0px 1px 11px 2px rgba(42,42,42,0.1);\n    background: #fff;\n}\n.navigation .top-bar[data-v-28f9f3e8] {\n    background: url(" + escape(__webpack_require__(18)) + ") top;\n    height: 3px;\n    width: 100%;\n}\n.navigation .nav-item[data-v-28f9f3e8] {\n    width: 750px;\n    -webkit-box-shadow: none;\n            box-shadow: none;\n    display: block !important;\n}\n.navigation .nav-item .navigation-left[data-v-28f9f3e8] {\n    float: left;\n    height: 58px;\n    line-height: 58px;\n}\n.navigation .nav-item .navigation-left a[data-v-28f9f3e8] {\n    display: block;\n}\n.navigation .nav-item .navigation-right[data-v-28f9f3e8] {\n    margin: 0;\n    float: right;\n    font-size: 0;\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n}\n.navigation .nav-item .navigation-right .nav-list[data-v-28f9f3e8] {\n    display: inline-block;\n    height: 56px;\n    line-height: 55px;\n}\n.navigation .nav-more-btn[data-v-28f9f3e8] {\n    display: none;\n}\n}\n@media screen and (min-width: 992px) {\n.navigation .nav-item[data-v-28f9f3e8] {\n    width: 970px;\n}\n}\n@media screen and (min-width: 1200px) {\n.navigation .nav-item[data-v-28f9f3e8] {\n    width: 1170px;\n}\n}\n", ""]);
 
 // exports
 
@@ -14177,6 +14177,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
@@ -14188,8 +14192,15 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
   methods: {
     showNav: function showNav() {
-      this.first = !this.first;
-      this.showNavigation = !this.showNavigation;
+      var isMobile = !!navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i);
+      if (isMobile) {
+        this.first = !this.first;
+        this.showNavigation = !this.showNavigation;
+        return;
+      }
+      this.first = false;
+      this.showNavigation = false;
+      return;
     }
   }
 });
@@ -14202,92 +14213,125 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "navigation" }, [
-    _c("div", { staticClass: "top-bar" }),
-    _vm._v(" "),
-    _c(
-      "div",
-      { staticClass: "nav-item", class: { show: _vm.showNavigation } },
-      [
-        _c(
-          "div",
-          { staticClass: "navigation-left", on: { click: _vm.showNav } },
-          [
-            _c("router-link", { attrs: { to: "/" } }, [
-              _vm._v("XueCong's blog")
-            ])
+  return _c(
+    "div",
+    { staticClass: "navigation" },
+    [
+      _c("div", { staticClass: "top-bar" }),
+      _vm._v(" "),
+      _c(
+        "div",
+        {
+          directives: [
+            {
+              name: "show",
+              rawName: "v-show",
+              value: _vm.showNavigation,
+              expression: "showNavigation"
+            }
           ],
-          1
-        ),
-        _vm._v(" "),
-        _c("div", { staticClass: "navigation-right" }, [
+          staticClass: "nav-item"
+        },
+        [
           _c(
             "div",
-            { on: { click: _vm.showNav } },
+            { staticClass: "navigation-left", on: { click: _vm.showNav } },
             [
-              _c(
-                "router-link",
-                { staticClass: "nav-list", attrs: { to: "/blog" } },
-                [_vm._v("博文")]
-              )
+              _c("router-link", { attrs: { to: "/" } }, [
+                _vm._v("XueCong's blog")
+              ])
             ],
             1
           ),
           _vm._v(" "),
-          _c("div", { on: { click: _vm.showNav } }, [
+          _c("div", { staticClass: "navigation-right" }, [
             _c(
-              "a",
-              {
-                staticClass: "nav-list",
-                attrs: {
-                  href:
-                    "https://weibo.com/3090183841/profile?topnav=1&wvr=6&is_all=1",
-                  target: "_blank"
-                }
-              },
-              [_vm._v("微博")]
-            )
-          ]),
-          _vm._v(" "),
-          _c("div", { on: { click: _vm.showNav } }, [
-            _c(
-              "a",
-              {
-                staticClass: "nav-list",
-                attrs: { href: "https://github.com/overxue", target: "_blank" }
-              },
-              [_vm._v("GitHub")]
-            )
-          ]),
-          _vm._v(" "),
-          _c(
-            "div",
-            { on: { click: _vm.showNav } },
-            [
+              "div",
+              { on: { click: _vm.showNav } },
+              [
+                _c(
+                  "router-link",
+                  { staticClass: "nav-list", attrs: { to: "/blog" } },
+                  [_vm._v("博文")]
+                )
+              ],
+              1
+            ),
+            _vm._v(" "),
+            _c("div", { on: { click: _vm.showNav } }, [
               _c(
-                "router-link",
+                "a",
                 {
                   staticClass: "nav-list",
-                  attrs: { to: "/me" },
-                  on: { click: _vm.showNav }
+                  attrs: {
+                    href:
+                      "https://weibo.com/3090183841/profile?topnav=1&wvr=6&is_all=1",
+                    target: "_blank"
+                  }
                 },
-                [_vm._v("关于我")]
+                [_vm._v("微博")]
               )
-            ],
-            1
-          )
-        ])
-      ]
-    ),
-    _vm._v(" "),
-    _c("div", { staticClass: "nav-more-btn", on: { click: _vm.showNav } }, [
-      _c("i", { class: { first: _vm.first } }),
+            ]),
+            _vm._v(" "),
+            _c("div", { on: { click: _vm.showNav } }, [
+              _c(
+                "a",
+                {
+                  staticClass: "nav-list",
+                  attrs: {
+                    href: "https://github.com/overxue",
+                    target: "_blank"
+                  }
+                },
+                [_vm._v("GitHub")]
+              )
+            ]),
+            _vm._v(" "),
+            _c(
+              "div",
+              { on: { click: _vm.showNav } },
+              [
+                _c(
+                  "router-link",
+                  {
+                    staticClass: "nav-list",
+                    attrs: { to: "/me" },
+                    on: { click: _vm.showNav }
+                  },
+                  [_vm._v("关于我")]
+                )
+              ],
+              1
+            )
+          ])
+        ]
+      ),
       _vm._v(" "),
-      _c("i", { class: { second: _vm.first } }),
+      _c("div", { staticClass: "nav-more-btn", on: { click: _vm.showNav } }, [
+        _c("i", { class: { first: _vm.first } }),
+        _vm._v(" "),
+        _c("i", { class: { second: _vm.first } }),
+        _vm._v(" "),
+        _c("i", { class: { three: _vm.first } })
+      ]),
       _vm._v(" "),
-      _c("i", { class: { three: _vm.first } })
-    ])
-  ])
+      _c("transition", { attrs: { name: "fade" } }, [
+        _c("div", {
+          directives: [
+            {
+              name: "show",
+              rawName: "v-show",
+              value: _vm.showNavigation,
+              expression: "showNavigation"
+            }
+          ],
+          staticClass: "hide",
+          on: { click: _vm.showNav }
+        })
+      ])
+    ],
+    1
+  )
 }
 var staticRenderFns = []
 render._withStripped = true
