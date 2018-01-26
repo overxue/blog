@@ -70,7 +70,7 @@
           overflow: hidden;
           border-radius: 50%;
           background: $color-background
-          box-shadow: rgba(255, 255, 255, 0.1) 0 0 0 5px, rgba(0, 0, 0, 0.15) 0 0 5px 4px
+          box-shadow: rgba(255, 255, 255, 0.1) 0 0 0 5px, rgba(0, 0, 0, 0.1) 0 0 5px 4px
           transition: transform .4s ease-out
         img:hover
           transform: rotate(360deg)
@@ -89,4 +89,7 @@
             color: $color-index-item
             font-size: $font-size-medium
             font-weight: 600
+          a:hover
+            color: $color-index
+            font-weight: 700
 </style>

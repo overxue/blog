@@ -32,9 +32,6 @@
         <script src="{{ asset('js/app.js') }}"></script>
     </body>
     <script type="text/javascript">
-        document.addEventListener('visibilitychange', function() {
-          document.title = document.hidden ? '出BUG了，快看！':'Blog'
-        });
         $(document).ready(function() {
           $("#id_comment").emojioneArea();
         });
