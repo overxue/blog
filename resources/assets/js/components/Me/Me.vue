@@ -40,14 +40,22 @@
         <v-footer></v-footer>
       </div>
     </div>
+    <top v-show="goback" @go="goBack"></top>
   </div>
 </template>
 
 <script type="text/ecmascript-6">
   import BScroll from 'better-scroll'
   import Footer from 'components/footer/footer'
+  import Top from 'components/top/top'
 
   export default {
+    data() {
+      return {
+        scrollY: 0,
+        goback: false
+      }
+    },
     created(){
       this.$nextTick(() => {
         this._initScroll()
@@ -55,17 +63,29 @@
     },
     methods: {
       _initScroll() {
-        this.meunScroll = new BScroll(this.$refs.aboutme, {
+        this.meScroll = new BScroll(this.$refs.aboutme, {
           click: true,
           mouseWheel: {
            speed: 20,
            invert: false
+          },
+          probeType: 3
+        })
+
+        this.meScroll.on('scroll', (pos) => {
+          if (pos.y <= 0) {
+            this.scrollY = Math.abs(Math.round(pos.y))
+            this.scrollY > 300 ? this.goback = true : this.goback = false
           }
         })
+      },
+      goBack() {
+         this.meScroll.scrollTo(0, 0, 1000)
       }
     },
     components: {
-      'v-footer': Footer
+      'v-footer': Footer,
+      Top
     }
   }
 </script>

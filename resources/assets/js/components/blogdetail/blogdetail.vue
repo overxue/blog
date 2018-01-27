@@ -126,17 +126,21 @@
         </div>
       </div>
     </transition>
+    <top v-show="goback" @go="goBack"></top>
   </div>
 </template>
 
 <script type="text/ecmascript-6">
   import BScroll from 'better-scroll'
   import Footer from 'components/footer/footer'
+  import Top from 'components/top/top'
 
   export default {
     data() {
       return {
-        detailShow: false
+        detailShow: false,
+        scrollY: 0,
+        goback: false
       }
     },
     created(){
@@ -146,7 +150,7 @@
     },
     methods: {
       _initScroll() {
-        this.meunScroll = new BScroll(this.$refs.blogdetail, {
+        this.detailScroll = new BScroll(this.$refs.blogdetail, {
           click: true,
           mouseWheel: {
            speed: 20,
@@ -154,6 +158,14 @@
           },
           preventDefaultException: {
             tagName: /^(INPUT|TEXTAREA|BUTTON|SELECT|IMG|DIV)$/
+          },
+          probeType: 3
+        })
+
+        this.detailScroll.on('scroll', (pos) => {
+          if (pos.y <= 0) {
+            this.scrollY = Math.abs(Math.round(pos.y))
+            this.scrollY > 300 ? this.goback = true : this.goback = false
           }
         })
       },
@@ -162,10 +174,14 @@
       },
       hideDetail() {
         this.detailShow = false
+      },
+      goBack() {
+         this.detailScroll.scrollTo(0, 0, 1000)
       }
     },
     components: {
-      'v-footer': Footer
+      'v-footer': Footer,
+      Top
     }
   }
 </script>

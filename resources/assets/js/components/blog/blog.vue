@@ -187,29 +187,42 @@
         <v-footer></v-footer>
       </div>
     </div>
+    <top v-show="goback" @go="goBack"></top>
   </div>
 </template>
 
 <script type="text/ecmascript-6">
   import BScroll from 'better-scroll'
   import Footer from 'components/footer/footer'
+  import Top from 'components/top/top'
 
   export default {
+    data() {
+      return {
+        scrollY: 0,
+        goback: false
+      }
+    },
     created() {
-      // 判断设备
-      // var isMobile = !!navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i)
-
       this.$nextTick(() => {
         this._initScroll()
       })
     },
     methods: {
       _initScroll() {
-        this.meunScroll = new BScroll(this.$refs.blog, {
+        this.blogScroll = new BScroll(this.$refs.blog, {
           click: true,
           mouseWheel: {
            speed: 20,
            invert: false
+          },
+          probeType: 3
+        })
+
+        this.blogScroll.on('scroll', (pos) => {
+          if (pos.y <= 0) {
+            this.scrollY = Math.abs(Math.round(pos.y))
+            this.scrollY > 300 ? this.goback = true : this.goback = false
           }
         })
       },
@@ -218,10 +231,14 @@
           return
         }
         this.$router.push('/blog/1')
+      },
+      goBack() {
+         this.blogScroll.scrollTo(0, 0, 1000)
       }
     },
     components: {
-      'v-footer': Footer
+      'v-footer': Footer,
+      Top
     }
   }
 </script>
