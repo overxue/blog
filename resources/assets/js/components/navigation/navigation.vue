@@ -42,15 +42,10 @@
     },
     methods: {
       showNav() {
-        let isMobile = !!navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i)
-        if(isMobile){
+
           this.first = !this.first
           this.showNavigation = !this.showNavigation
-          return
-        }
-        this.first = false
-        this.showNavigation = false
-        return
+
       }
     }
   }
@@ -196,6 +191,8 @@
             height: 56px
             line-height: 55px
       .nav-more-btn
+        display: none
+      .hide
         display: none
   // >= 992
   @media screen and (min-width: 992px)
