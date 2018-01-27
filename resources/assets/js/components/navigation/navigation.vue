@@ -42,10 +42,8 @@
     },
     methods: {
       showNav() {
-
-          this.first = !this.first
-          this.showNavigation = !this.showNavigation
-
+        this.first = !this.first
+        this.showNavigation = !this.showNavigation
       }
     }
   }

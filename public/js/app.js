@@ -14192,7 +14192,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
   methods: {
     showNav: function showNav() {
-
       this.first = !this.first;
       this.showNavigation = !this.showNavigation;
     }
@@ -14424,18 +14423,13 @@ exports = module.exports = __webpack_require__(0)(false);
 
 
 // module
-exports.push([module.i, "\n.music[data-v-16a117f4] {\n  position: relative;\n}\n.music.hide[data-v-16a117f4] {\n  display: none;\n}\n.music .music-item[data-v-16a117f4] {\n  position: absolute;\n  top: 10px;\n  right: 10px;\n  width: 30px;\n  height: 30px;\n  background-image: url(" + escape(__webpack_require__(24)) + ");\n  background-size: 30px 30px;\n  background-repeat: no-repeat;\n  z-index: 100;\n}\n.music .music-item.rotate[data-v-16a117f4] {\n  -webkit-animation: rotating-data-v-16a117f4 1.2s linear infinite;\n          animation: rotating-data-v-16a117f4 1.2s linear infinite;\n}\n@-webkit-keyframes rotating-data-v-16a117f4 {\nfrom {\n    -webkit-transform: rotate(0);\n            transform: rotate(0);\n}\nto {\n    -webkit-transform: rotate(360deg);\n            transform: rotate(360deg);\n}\n}\n@keyframes rotating-data-v-16a117f4 {\nfrom {\n    -webkit-transform: rotate(0);\n            transform: rotate(0);\n}\nto {\n    -webkit-transform: rotate(360deg);\n            transform: rotate(360deg);\n}\n}\n", ""]);
+exports.push([module.i, "\n.music[data-v-16a117f4] {\n  position: relative;\n}\n.music.hide[data-v-16a117f4] {\n  display: none;\n}\n.music .music-item[data-v-16a117f4] {\n  position: absolute;\n  top: 10px;\n  right: 10px;\n  width: 36px;\n  height: 36px;\n  background-image: url(" + escape(__webpack_require__(76)) + ");\n  background-size: 36px 36px;\n  background-repeat: no-repeat;\n  z-index: 100;\n}\n.music .music-item.rotate[data-v-16a117f4] {\n  background-image: url(" + escape(__webpack_require__(75)) + ");\n}\n", ""]);
 
 // exports
 
 
 /***/ }),
-/* 24 */
-/***/ (function(module, exports) {
-
-module.exports = "/images/music.png?6057282896f72fa5d82411da91559dd0";
-
-/***/ }),
+/* 24 */,
 /* 25 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -14505,7 +14499,8 @@ var render = function() {
           ref: "audio",
           attrs: {
             loop: "",
-            src: "/music/The Rose.mp3",
+            src:
+              "http://m10.music.126.net/20180127183959/0f4c5620d1698667748ce88599a44a69/ymusic/83f4/aee5/211b/2e480210390afc8cddd52b8aa2d2c2c8.mp3",
             id: "media",
             autoplay: "",
             preload: ""
@@ -21436,6 +21431,25 @@ module.exports = "/images/wechat.jpg?506845091620c3b4838fa88fd810d7f3";
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 68 */,
+/* 69 */,
+/* 70 */,
+/* 71 */,
+/* 72 */,
+/* 73 */,
+/* 74 */,
+/* 75 */
+/***/ (function(module, exports) {
+
+module.exports = "/images/music.gif?ffdef8240f2da1993e7b666e1a731826";
+
+/***/ }),
+/* 76 */
+/***/ (function(module, exports) {
+
+module.exports = "/images/music_pause.png?f9dbc05c41f7d878d3f8bcee3036df80";
 
 /***/ })
 /******/ ]);

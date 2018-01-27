@@ -1,7 +1,7 @@
 <template>
   <div class="music" :class="{'hide': hide}">
     <div class="music-item" :class="{'rotate': listen}" @click="playMusic">
-      <audio loop src="/music/The Rose.mp3" id="media" autoplay="" preload="" ref="audio"></audio>
+      <audio loop src="http://m10.music.126.net/20180127183959/0f4c5620d1698667748ce88599a44a69/ymusic/83f4/aee5/211b/2e480210390afc8cddd52b8aa2d2c2c8.mp3" id="media" autoplay="" preload="" ref="audio"></audio>
     </div>
   </div>
 </template>
@@ -48,18 +48,20 @@
       position: absolute
       top: 10px
       right: 10px
-      width: 30px
-      height: 30px
-      background-image: url(music.png)
-      background-size: 30px 30px
+      width: 36px
+      height: 36px
+      background-image: url(music_pause.png)
+      background-size: 36px 36px
       background-repeat: no-repeat
       z-index: 100
       &.rotate
-        animation: rotating 1.2s linear infinite
-        @keyframes rotating
-            from {
-                transform: rotate(0)
-            }to {
-                transform: rotate(360deg)
-            }
+        background-image: url(music.gif)
+        // 不是gif图，让图片自己转动
+      //   animation: rotating 1.2s linear infinite
+      //   @keyframes rotating
+      //       from {
+      //           transform: rotate(0)
+      //       }to {
+      //           transform: rotate(360deg)
+      //       }
 </style>
