@@ -19,6 +19,7 @@
         "stylus": "^0.54.5",
         "stylus-loader": "^3.0.1",
         "particles.js": "^2.0.0",
-        "better-scroll": "^1.8.0"
+        "better-scroll": "^1.8.0",
+        "element-ui": "^2.0.11"
     }
 }

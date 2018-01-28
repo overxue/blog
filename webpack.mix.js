@@ -14,4 +14,5 @@ mix.webpackConfig({
 })
 
 mix.js('resources/assets/js/app.js', 'public/js')
+   .js('resources/assets/js/admin.js', 'public/js')
    .stylus('resources/assets/stylus/app.styl', 'public/css');
