@@ -17696,8 +17696,7 @@ var render = function() {
           ref: "audio",
           attrs: {
             loop: "",
-            src:
-              "http://dl.stream.qqmusic.qq.com/C4000043k1gl0FIr5T.m4a?vkey=DC5B6A5799FCBE186589D01290A108D84E3F86B35DE8B4BC49269B0405664D1C8410750B16F5CB6F3FFC227AC6EB2D3AC00DE13DC05A2599&guid=1325418346&uin=409771385&fromtag=66",
+            src: "http://music.163.com/song/media/outer/url?id=38358214.mp3",
             id: "media",
             autoplay: "",
             preload: ""

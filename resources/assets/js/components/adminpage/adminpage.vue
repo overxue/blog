@@ -1,82 +1,94 @@
 <template>
-  <div class="adminpage">
-    <el-container>
-      <el-header>
-        <el-row>
-          <el-col :span="10" class="logo" :class="collapsed ? 'logo-collapse-width' : 'logo-width'">{{collapsed ? '':'XueCong\'s blog'}}</el-col>
-          <el-col :span="10">
-            <div class="icon" @click="collapse">
-              <i class="el-icon-caret-left"></i>
-            </div>
-          </el-col>
-          <el-col :span="4" class="userinfo">
-            <el-dropdown trigger="hover">
-              <span class="el-dropdown-link userinfo-inner">
-                薛聪<img src="./avatar.jpg" width="40" height="40">
-              </span>
-              <el-dropdown-menu slot="dropdown">
-                <el-dropdown-item>退出</el-dropdown-item>
-              </el-dropdown-menu>
-            </el-dropdown>
-          </el-col>
-        </el-row>
-      </el-header>
-      <el-container>
-        <el-aside style="width:230px">
-          侧边
-        </el-aside>
-        <el-main>Main</el-main>
-      </el-container>
-    </el-container>
-  </div>
+  <el-container>
+    <el-aside width="200px">
+      <div class="header">
+        <div class="logo">Yike Dashboard</div>
+        <div class="bar"><i class="bar material-icons">graphic_eq</i></div>
+      </div>
+      <div class="user-info">
+        <img src="./avatar.jpg">
+        <div class="info">
+          <span class="username">name</span>
+          <span class="email">email</span>
+        </div>
+      </div>
+      <el-menu router :default-active="$route.path" background-color="#545c64" text-color="#fff" active-text-color="#ffd04b" class="el-menu-bar">
+        <el-menu-item-group title="Content Management">
+          <el-menu-item index="/dashboard"><i class="material-icons">palette</i><span>Dashboard</span></el-menu-item>
+          <el-menu-item index="/dashboard/user"><i class="material-icons">people</i><span>Users</span></el-menu-item>
+          <el-menu-item index="/dashboard/post"><i class="material-icons">description</i><span>Posts</span></el-menu-item>
+          <el-menu-item index="/dashboard/comment"><i class="material-icons">question_answer</i><span>Comments</span></el-menu-item>
+          <el-menu-item index="/dashboard/series"><i class="material-icons">featured_play_list</i><span>Series</span></el-menu-item>
+          <el-menu-item index="/dashboard/tag"><i class="material-icons">label</i><span>Tags</span></el-menu-item>
+          <el-menu-item index="/dashboard/role"><i class="material-icons">security</i><span>Roles</span></el-menu-item>
+          <el-menu-item index="/dashboard/banner"><i class="material-icons">view_carousel</i><span>Banners</span></el-menu-item>
+          <el-menu-item index="/dashboard/report"><i class="material-icons">report</i><span>Reports</span></el-menu-item>
+          <el-menu-item index="/dashboard/feedback"><i class="material-icons">feedback</i><span>Feedback</span></el-menu-item>
+        </el-menu-item-group>
+        <el-menu-item-group title="System Management">
+          <el-submenu index="/dashboard/settings">
+            <template slot="title"><i class="material-icons">settings</i><span>Settings</span></template>
+            <el-menu-item index="/dashboard/settings/system">System</el-menu-item>
+            <el-menu-item index="/dashboard/settings/rank">Rank</el-menu-item>
+          </el-submenu>
+          <el-menu-item index="/dashboard/log"><i class="material-icons">warning</i><span>Logs</span></el-menu-item>
+        </el-menu-item-group>
+      </el-menu>
+    </el-aside>
+    <el-main>Main</el-main>
+  </el-container>
 </template>
 
-<script type="text/ecmascript-6">
-  export default {
-    data() {
-      return {
-        collapsed: false
-      }
-    },
-    methods: {
-      collapse() {
-        this.collapsed = !this.collapsed
-      }
-    }
-  }
-</script>
+<script type="text/ecmascript-6"></script>
 
 <style scoped lang="stylus" rel="stylesheet/stylus">
-  .adminpage
-    height: 100%
-    .el-header
-      background-color: #20a0ff
+  .header
+    height: 60px
+    line-height: 60px
+    padding: 0 10px 0 20px
+    font-size: .9rem
+    font-weight: bold
+    background-color: #30304D
+    color: #fff
+    position: relative
+
+    div
+      display: inline-block
+
+    .bar
+      position: absolute
+      right: 10px
+      font-size: 18px
+      cursor: pointer
+
+
+  // User Info
+  .user-info
+    height: 100px
+
+    img
+      float: left
+      width: 40px
+      height: 40px
+      border-radius: 50%
+      display: inline-block
+      vertical-align: middle
+      margin: 30px 15px 30px 20px
+
+    .info
+      display: inline-block
+      font-size: 12px
       color: #fff
-      line-height: 60px
-      padding: 0
-      .logo
-        padding: 0 20px
-        border-right: 1px solid rgba(238,241,146,0.3)
-        height: 60px
-        font-size: 20px
-        &.logo-width
-          width: 230px
-        &.logo-collapse-width
-          width: 60px
-      .icon
-        padding: 0 20px
-        width: 14px
-        cursor: pointer
-      .userinfo
-        float: right
-        text-align: right
-        padding-right: 35px
-        color: #fff
-        .userinfo-inner
-          cursor: pointer
-          color: #fff
-          img
-            border-radius: 20px
-            margin: 10px 0px 10px 10px
-            float: right
+      height: 50px
+      margin-top: 25px
+      margin-bottom: 25px
+      padding-top: 5px
+      padding-bottom: 5px
+
+      span
+        display: block
+        line-height: 20px
+
+      .email
+        font-weight: 200
 </style>
