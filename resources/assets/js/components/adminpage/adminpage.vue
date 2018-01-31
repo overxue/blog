@@ -1,7 +1,7 @@
 <template>
   <el-container style="height: 100%">
     <el-aside width="220px">
-      <el-menu router :default-active="$route.path" background-color="rgb(57,53,88)" text-color="#fff" active-text-color="#fff" class="el-menu-bar" style="height: 100%">
+      <el-menu router :default-active="$route.path" background-color="rgb(57,53,88)" text-color="#fff" class="el-menu-bar" style="height: 100%;border-right: none">
         <div class="header">
           <div class="logo">XueCong's blog</div>
           <div class="bar">
@@ -39,8 +39,18 @@
         </el-menu-item-group>
       </el-menu>
     </el-aside>
-    <el-main>
-      <router-view></router-view>
+    <el-main style="padding: 0">
+      <!-- <div class="pull-right">
+        <div class="right-item">
+          <span>Logout</span>
+          <i class="el-icon-location"></i>
+        </div>
+      </div> -->
+      <div class="el-content">
+        <div class="el-content-inner">
+          <router-view></router-view>
+        </div>
+      </div>
     </el-main>
   </el-container>
 </template>
@@ -93,4 +103,34 @@
         font-weight: 200
   .is-active
     background: #30304D !important
+
+
+  .pull-right
+    float: right
+    z-index: 99
+    height: 60px
+    width: 100%
+    background: red
+
+    // .el-menu-item:last-child
+    //   margin-right: 35px
+    // .el-menu-item:hover
+    //   background-color: transparent !important
+  .el-content
+    background: url('https://pigjian.com/uploads/bg.png');
+    background-position: 0% 0%;
+    background-repeat: no-repeat;
+    background-size: 100%;
+    position: relative;
+    bottom: 0;
+    min-height: 350px;
+    padding: 0 25px;
+    .el-content-inner
+      background-color: #fff;
+      min-height: 600px;
+      margin-bottom: 20px;
+      border-top-left-radius: 5px;
+      border-top-right-radius: 5px;
+
+
 </style>

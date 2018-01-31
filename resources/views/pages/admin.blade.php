@@ -12,6 +12,9 @@
         <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
         <!-- Styles -->
         <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+
+        <link rel="stylesheet" href="https://unpkg.com/mditor@1.0.5/dist/css/mditor.min.css" />
+        <script src="https://unpkg.com/mditor@1.0.5/dist/js/mditor.min.js"></script>
     </head>
     <body>
         <div id="app"></div>
@@ -19,4 +22,13 @@
         <!-- Scripts -->
         <script src="{{ asset('js/admin.js') }}"></script>
     </body>
+    <script type="text/javascript">
+        var mditor =  Mditor.fromTextarea(document.getElementById('editor'));
+
+        //获取或设置编辑器的值
+        mditor.on('ready',function(){
+          console.log(mditor.value);
+          mditor.value = '** hello **';
+        });
+    </script>
 </html>

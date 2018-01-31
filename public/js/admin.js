@@ -19000,7 +19000,7 @@ exports = module.exports = __webpack_require__(1)(false);
 
 
 // module
-exports.push([module.i, "\n.header[data-v-a082ffb4] {\n  height: 60px;\n  line-height: 60px;\n  padding: 0 10px 0 20px;\n  font-size: 0.9rem;\n  font-weight: bold;\n  background-color: #30304d;\n  color: #fff;\n  position: relative;\n}\n.header div[data-v-a082ffb4] {\n  display: inline-block;\n  font-size: 16px;\n  font-weight: 600;\n}\n.header .bar[data-v-a082ffb4] {\n  position: absolute;\n  right: 10px;\n  font-size: 18px;\n  cursor: pointer;\n  line-height: 60px;\n}\n.user-info[data-v-a082ffb4] {\n  height: 100px;\n}\n.user-info img[data-v-a082ffb4] {\n  float: left;\n  width: 40px;\n  height: 40px;\n  border-radius: 50%;\n  display: inline-block;\n  vertical-align: middle;\n  margin: 30px 15px 30px 20px;\n}\n.user-info .info[data-v-a082ffb4] {\n  display: inline-block;\n  font-size: 12px;\n  color: #fff;\n  height: 50px;\n  margin-top: 25px;\n  margin-bottom: 25px;\n  padding-top: 5px;\n  padding-bottom: 5px;\n}\n.user-info .info span[data-v-a082ffb4] {\n  display: block;\n  line-height: 20px;\n}\n.user-info .info .email[data-v-a082ffb4] {\n  font-weight: 200;\n}\n.is-active[data-v-a082ffb4] {\n  background: #30304d !important;\n}\n", ""]);
+exports.push([module.i, "\n.header[data-v-a082ffb4] {\n  height: 60px;\n  line-height: 60px;\n  padding: 0 10px 0 20px;\n  font-size: 0.9rem;\n  font-weight: bold;\n  background-color: #30304d;\n  color: #fff;\n  position: relative;\n}\n.header div[data-v-a082ffb4] {\n  display: inline-block;\n  font-size: 16px;\n  font-weight: 600;\n}\n.header .bar[data-v-a082ffb4] {\n  position: absolute;\n  right: 10px;\n  font-size: 18px;\n  cursor: pointer;\n  line-height: 60px;\n}\n.user-info[data-v-a082ffb4] {\n  height: 100px;\n}\n.user-info img[data-v-a082ffb4] {\n  float: left;\n  width: 40px;\n  height: 40px;\n  border-radius: 50%;\n  display: inline-block;\n  vertical-align: middle;\n  margin: 30px 15px 30px 20px;\n}\n.user-info .info[data-v-a082ffb4] {\n  display: inline-block;\n  font-size: 12px;\n  color: #fff;\n  height: 50px;\n  margin-top: 25px;\n  margin-bottom: 25px;\n  padding-top: 5px;\n  padding-bottom: 5px;\n}\n.user-info .info span[data-v-a082ffb4] {\n  display: block;\n  line-height: 20px;\n}\n.user-info .info .email[data-v-a082ffb4] {\n  font-weight: 200;\n}\n.is-active[data-v-a082ffb4] {\n  background: #30304d !important;\n}\n.pull-right[data-v-a082ffb4] {\n  float: right;\n  z-index: 99;\n  height: 60px;\n  width: 100%;\n  background: #f00;\n}\n.el-content[data-v-a082ffb4] {\n  background: url(\"https://pigjian.com/uploads/bg.png\");\n  background-position: 0% 0%;\n  background-repeat: no-repeat;\n  background-size: 100%;\n  position: relative;\n  bottom: 0;\n  min-height: 350px;\n  padding: 0 25px;\n}\n.el-content .el-content-inner[data-v-a082ffb4] {\n  background-color: #fff;\n  min-height: 600px;\n  margin-bottom: 20px;\n  border-top-left-radius: 5px;\n  border-top-right-radius: 5px;\n}\n", ""]);
 
 // exports
 
@@ -19009,6 +19009,16 @@ exports.push([module.i, "\n.header[data-v-a082ffb4] {\n  height: 60px;\n  line-h
 /* 155 */
 /***/ (function(module, exports) {
 
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -19077,13 +19087,12 @@ var render = function() {
             "el-menu",
             {
               staticClass: "el-menu-bar",
-              staticStyle: { height: "100%" },
+              staticStyle: { height: "100%", "border-right": "none" },
               attrs: {
                 router: "",
                 "default-active": _vm.$route.path,
                 "background-color": "rgb(57,53,88)",
-                "text-color": "#fff",
-                "active-text-color": "#fff"
+                "text-color": "#fff"
               }
             },
             [
@@ -19150,7 +19159,11 @@ var render = function() {
         1
       ),
       _vm._v(" "),
-      _c("el-main", [_c("router-view")], 1)
+      _c("el-main", { staticStyle: { padding: "0" } }, [
+        _c("div", { staticClass: "el-content" }, [
+          _c("div", { staticClass: "el-content-inner" }, [_c("router-view")], 1)
+        ])
+      ])
     ],
     1
   )
@@ -19400,6 +19413,48 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({});
 
@@ -19411,7 +19466,146 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "tag" }, [_vm._v("\n  标签页面\n")])
+  return _c(
+    "el-form",
+    {
+      ref: "form",
+      staticStyle: { width: "60%" },
+      attrs: { model: _vm.form, "label-width": "80px" }
+    },
+    [
+      _c("el-form-item", { attrs: { label: "活动名称" } }, [_c("el-input")], 1),
+      _vm._v(" "),
+      _c(
+        "el-form-item",
+        { attrs: { label: "活动区域" } },
+        [
+          _c(
+            "el-select",
+            { attrs: { placeholder: "请选择活动区域" } },
+            [
+              _c("el-option", { attrs: { label: "区域一" } }),
+              _vm._v(" "),
+              _c("el-option", { attrs: { label: "区域二" } })
+            ],
+            1
+          )
+        ],
+        1
+      ),
+      _vm._v(" "),
+      _c(
+        "el-form-item",
+        { attrs: { label: "活动时间" } },
+        [
+          _c(
+            "el-col",
+            { attrs: { span: 11 } },
+            [
+              _c("el-date-picker", {
+                staticStyle: { width: "100%" },
+                attrs: { type: "date", placeholder: "选择日期" }
+              })
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c("el-col", { staticClass: "line", attrs: { span: 2 } }, [
+            _vm._v("-")
+          ]),
+          _vm._v(" "),
+          _c(
+            "el-col",
+            { attrs: { span: 11 } },
+            [
+              _c("el-time-picker", {
+                staticStyle: { width: "100%" },
+                attrs: { type: "fixed-time", placeholder: "选择时间" }
+              })
+            ],
+            1
+          )
+        ],
+        1
+      ),
+      _vm._v(" "),
+      _c("el-form-item", { attrs: { label: "文章内容" } }, [
+        _c("textarea", { attrs: { name: "editor", id: "editor" } })
+      ]),
+      _vm._v(" "),
+      _c(
+        "el-form-item",
+        { attrs: { label: "活动性质" } },
+        [
+          _c(
+            "el-checkbox-group",
+            [
+              _c("el-checkbox", {
+                attrs: { label: "美食/餐厅线上活动", name: "type" }
+              }),
+              _vm._v(" "),
+              _c("el-checkbox", { attrs: { label: "地推活动", name: "type" } }),
+              _vm._v(" "),
+              _c("el-checkbox", {
+                attrs: { label: "线下主题活动", name: "type" }
+              }),
+              _vm._v(" "),
+              _c("el-checkbox", {
+                attrs: { label: "单纯品牌曝光", name: "type" }
+              })
+            ],
+            1
+          )
+        ],
+        1
+      ),
+      _vm._v(" "),
+      _c(
+        "el-form-item",
+        { attrs: { label: "特殊资源" } },
+        [
+          _c(
+            "el-radio-group",
+            [
+              _c("el-radio", { attrs: { label: "线上品牌商赞助" } }),
+              _vm._v(" "),
+              _c("el-radio", { attrs: { label: "线下场地免费" } })
+            ],
+            1
+          )
+        ],
+        1
+      ),
+      _vm._v(" "),
+      _c(
+        "el-form-item",
+        { attrs: { label: "活动形式" } },
+        [_c("el-input", { attrs: { type: "textarea" } })],
+        1
+      ),
+      _vm._v(" "),
+      _c(
+        "el-form-item",
+        [
+          _c("el-button", { attrs: { type: "primary" } }, [_vm._v("立即创建")]),
+          _vm._v(" "),
+          _c(
+            "el-button",
+            {
+              nativeOn: {
+                click: function($event) {
+                  $event.preventDefault()
+                }
+              }
+            },
+            [_vm._v("取消")]
+          )
+        ],
+        1
+      )
+    ],
+    1
+  )
 }
 var staticRenderFns = []
 render._withStripped = true
