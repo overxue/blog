@@ -1,41 +1,47 @@
 <template>
-  <el-container>
-    <el-aside width="200px">
-      <div class="header">
-        <div class="logo">Yike Dashboard</div>
-        <div class="bar"><i class="bar material-icons">graphic_eq</i></div>
-      </div>
-      <div class="user-info">
-        <img src="./avatar.jpg">
-        <div class="info">
-          <span class="username">name</span>
-          <span class="email">email</span>
+  <el-container style="height: 100%">
+    <el-aside width="220px">
+      <el-menu router :default-active="$route.path" background-color="rgb(57,53,88)" text-color="#fff" active-text-color="#fff" class="el-menu-bar" style="height: 100%">
+        <div class="header">
+          <div class="logo">XueCong's blog</div>
+          <div class="bar">
+            <i class="bar el-icon-location"></i>
+          </div>
         </div>
-      </div>
-      <el-menu router :default-active="$route.path" background-color="#545c64" text-color="#fff" active-text-color="#ffd04b" class="el-menu-bar">
-        <el-menu-item-group title="Content Management">
-          <el-menu-item index="/dashboard"><i class="material-icons">palette</i><span>Dashboard</span></el-menu-item>
-          <el-menu-item index="/dashboard/user"><i class="material-icons">people</i><span>Users</span></el-menu-item>
-          <el-menu-item index="/dashboard/post"><i class="material-icons">description</i><span>Posts</span></el-menu-item>
-          <el-menu-item index="/dashboard/comment"><i class="material-icons">question_answer</i><span>Comments</span></el-menu-item>
-          <el-menu-item index="/dashboard/series"><i class="material-icons">featured_play_list</i><span>Series</span></el-menu-item>
-          <el-menu-item index="/dashboard/tag"><i class="material-icons">label</i><span>Tags</span></el-menu-item>
-          <el-menu-item index="/dashboard/role"><i class="material-icons">security</i><span>Roles</span></el-menu-item>
-          <el-menu-item index="/dashboard/banner"><i class="material-icons">view_carousel</i><span>Banners</span></el-menu-item>
-          <el-menu-item index="/dashboard/report"><i class="material-icons">report</i><span>Reports</span></el-menu-item>
-          <el-menu-item index="/dashboard/feedback"><i class="material-icons">feedback</i><span>Feedback</span></el-menu-item>
-        </el-menu-item-group>
-        <el-menu-item-group title="System Management">
-          <el-submenu index="/dashboard/settings">
-            <template slot="title"><i class="material-icons">settings</i><span>Settings</span></template>
-            <el-menu-item index="/dashboard/settings/system">System</el-menu-item>
-            <el-menu-item index="/dashboard/settings/rank">Rank</el-menu-item>
-          </el-submenu>
-          <el-menu-item index="/dashboard/log"><i class="material-icons">warning</i><span>Logs</span></el-menu-item>
+        <div class="user-info">
+          <img src="./avatar.jpg">
+          <div class="info">
+            <span class="username">XueCong</span>
+            <span class="email">409771385@qq.com</span>
+          </div>
+        </div>
+        <el-menu-item-group title="你是猪啊">
+          <el-menu-item index="/admin/main">
+            <i class="el-icon-location"></i>
+            <span>首页</span>
+          </el-menu-item>
+          <el-menu-item index="/admin/tag">
+            <i class="el-icon-location"></i>
+            <span>标签</span>
+          </el-menu-item>
+          <el-menu-item index="/admin/blog">
+            <i class="el-icon-location"></i>
+            <span>博文</span>
+          </el-menu-item>
+          <el-menu-item index="/admin/comment">
+            <i class="el-icon-location"></i>
+            <span>评论</span>
+          </el-menu-item>
+          <el-menu-item index="/admin/users">
+            <i class="el-icon-location"></i>
+            <span>用户</span>
+          </el-menu-item>
         </el-menu-item-group>
       </el-menu>
     </el-aside>
-    <el-main>Main</el-main>
+    <el-main>
+      <router-view></router-view>
+    </el-main>
   </el-container>
 </template>
 
@@ -51,21 +57,18 @@
     background-color: #30304D
     color: #fff
     position: relative
-
     div
       display: inline-block
-
+      font-size: 16px
+      font-weight: 600
     .bar
       position: absolute
       right: 10px
       font-size: 18px
       cursor: pointer
-
-
-  // User Info
+      line-height: 60px
   .user-info
     height: 100px
-
     img
       float: left
       width: 40px
@@ -74,7 +77,6 @@
       display: inline-block
       vertical-align: middle
       margin: 30px 15px 30px 20px
-
     .info
       display: inline-block
       font-size: 12px
@@ -84,11 +86,11 @@
       margin-bottom: 25px
       padding-top: 5px
       padding-bottom: 5px
-
       span
         display: block
         line-height: 20px
-
       .email
         font-weight: 200
+  .is-active
+    background: #30304D !important
 </style>
