@@ -13,6 +13,11 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
+$api = app('Dingo\Api\Routing\Router');
+
+$api->version('v1', [
+    'namespace' => 'App\Http\Controllers\Api'
+], function($api) {
+    $api->get('categories', 'CategoriesController@index')
+        ->name('api.categories.index');
 });
