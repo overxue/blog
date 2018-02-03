@@ -5,6 +5,7 @@ mix.webpackConfig({
     extensions: ['.js', '.vue', '.json'],
     alias: {
       'components': 'assets/js/components',
+      'api': 'assets/js/api'
     },
     modules: [
       'node_modules',

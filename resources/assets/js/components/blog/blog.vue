@@ -16,13 +16,7 @@
               <div class="grid-row">
                 <div class="content">
                   <a href="" class="active">全部标签</a>
-                  <a href="">作品<span>19</span></a>
-                  <a href="">作品<span>19</span></a>
-                  <a href="">作品<span>19</span></a>
-                  <a href="">作品<span>19</span></a>
-                  <a href="">作品<span>19</span></a>
-                  <a href="">作品<span>19</span></a>
-                  <a href="">作品<span>19</span></a>
+                  <a v-for="(item, index) in categories" href="">{{item.name}}<span>{{item.post_count}}</span></a>
                 </div>
               </div>
             </div>
@@ -195,18 +189,21 @@
   import BScroll from 'better-scroll'
   import Footer from 'components/footer/footer'
   import Top from 'components/top/top'
+  import { getCategory } from 'api/category'
 
   export default {
     data() {
       return {
         scrollY: 0,
-        goback: false
+        goback: false,
+        categories: []
       }
     },
     created() {
       this.$nextTick(() => {
         this._initScroll()
       })
+      this._getCategory()
     },
     methods: {
       _initScroll() {
@@ -234,6 +231,13 @@
       },
       goBack() {
          this.blogScroll.scrollTo(0, 0, 1000)
+      },
+      _getCategory() {
+        getCategory().then((res) => {
+          this.categories = res.data
+          res.data.unshift({'name':'全部标签'})
+          console.log(res.data)
+        })
       }
     },
     components: {
@@ -370,6 +374,9 @@
                 &.active
                   background: #f70
                   color: #fff
+                span
+                  opacity: 0.3
+                  padding: 0 0 0 5px
       .article
         margin: 0 10px
         .article-item
