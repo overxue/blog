@@ -17,6 +17,15 @@ $api->version('v1', [
     'namespace' => 'App\Http\Controllers\Api',
     'middleware' => ['serializer:array', 'bindings']
 ], function($api) {
+    //登录
+    $api->post('authorizations', 'AuthorizationsController@store')
+        ->name('api.authorizations.store');
+    // 刷新token
+    $api->put('authorizations/current', 'AuthorizationsController@update')
+        ->name('api.authorizations.update');
+    // 删除token
+    $api->delete('authorizations/current', 'AuthorizationsController@destroy')
+        ->name('api.authorizations.destroy');
     // 游客可以访问的接口
     // 博文分类列表
     $api->get('categories', 'CategoriesController@index')
