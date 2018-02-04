@@ -27,4 +27,10 @@ class CategoriesController extends Controller
         $category->update($request->all());
         return $this->response->item($category, new CategoryTransformer());
     }
+
+    public function destory(Category $category)
+    {
+        $category->delete();
+        return $this->response->noContent();
+    }
 }

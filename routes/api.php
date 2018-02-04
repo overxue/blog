@@ -28,4 +28,7 @@ $api->version('v1', [
     // 修改博文分类
     $api->patch('categories/{category}', 'CategoriesController@update')
         ->name('api.categories.update');
+    // 删除博文分类
+    $api->delete('categories/{category}', 'CategoriesController@destory')
+        ->name('api.categories.destory');
 });
