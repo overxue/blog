@@ -21,4 +21,10 @@ class CategoriesController extends Controller
         return $this->response->item($category, new CategoryTransformer())->setStatusCode(201);
         // return $this->response->created();
     }
+
+    public function update(CategoryRequest $request, Category $category)
+    {
+        $category->update($request->all());
+        return $this->response->item($category, new CategoryTransformer());
+    }
 }

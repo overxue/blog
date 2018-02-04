@@ -15,7 +15,7 @@ $api = app('Dingo\Api\Routing\Router');
 
 $api->version('v1', [
     'namespace' => 'App\Http\Controllers\Api',
-    'middleware' => 'serializer:array'
+    'middleware' => ['serializer:array', 'bindings']
 ], function($api) {
     // 游客可以访问的接口
     // 博文分类列表
@@ -25,4 +25,7 @@ $api->version('v1', [
     // 添加博文分类
     $api->post('categories', 'CategoriesController@store')
         ->name('api.categories.store');
+    // 修改博文分类
+    $api->patch('categories/{category}', 'CategoriesController@update')
+        ->name('api.categories.update');
 });
