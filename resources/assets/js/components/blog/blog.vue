@@ -27,7 +27,7 @@
             <div class="article-list">
               <div class="label"><span>new</span></div>
               <h1 class="title">
-                <a href="javascript:void(0)" @click="goDetail($event)">诡异的 java.io.IOException</a>
+                <router-link tag="div" to="/blog/1">诡异的 java.io.IOException</router-link>
               </h1>
               <div class="introduction">
                   <i class="icon-user">
@@ -223,12 +223,12 @@
           }
         })
       },
-      goDetail(event) {
-        if (!event._constructed) {
-          return
-        }
-        this.$router.push('/blog/1')
-      },
+      // goDetail(event) {
+      //   if (!event._constructed) {
+      //     return
+      //   }
+      //   this.$router.push('/blog/1')
+      // },
       goBack() {
          this.blogScroll.scrollTo(0, 0, 1000)
       },
@@ -236,7 +236,6 @@
         getCategory().then((res) => {
           this.categories = res.data
           res.data.unshift({'name':'全部标签'})
-          console.log(res.data)
         })
       }
     },
@@ -418,10 +417,11 @@
                 color: #fff
             .title
               line-height: 20px
-              a
+              div
                 font-size: 20px
                 font-weight: 600
                 color: #3d464d!important
+                cursor: pointer
             .introduction
               margin: 15px 0
               .icon-user, .icon-clock, .icon-eye

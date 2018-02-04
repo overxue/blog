@@ -1,6 +1,6 @@
 <template>
   <div class="top">
-    <a @click="gotop()" class="top-item" href="javascript:void(0)"></a>
+    <div @click="gotop()" class="top-item"></div>
   </div>
 </template>
 
@@ -22,6 +22,7 @@
       right: 20px
       width: 38px
       height: 38px
+      cursor: pointer
       background-image: url('./top.png')
       animation: bounceInUp 1s
       @keyframes bounceInUp
