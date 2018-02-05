@@ -28,6 +28,6 @@ class CreateCategoriesTable extends Migration
      */
     public function down()
     {
-        DB::table('categories')->truncate();
+        Schema::dropIfExists('categories');
     }
 }
