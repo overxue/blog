@@ -7,6 +7,14 @@ Vue.use(ElementUI)
 
 Vue.config.productionTip = false
 
+router.beforeEach((to, from, next) => {
+  if(!localStorage.getItem('token') && to.path != '/admin/login') {
+    next({ path: '/admin/login' })
+  } else {
+    next()
+  }
+})
+
 const app = new Vue({
     el: '#app',
     router,

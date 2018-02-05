@@ -17,13 +17,15 @@
 </template>
 
 <script type="text/ecmascript-6">
+  import { login } from 'api/login'
+
   export default {
     data() {
       return {
         logining: false,
         ruleForm: {
-          account: '',
-          password: ''
+          account: '409771385@qq.com',
+          password: 'xuecong'
         },
         rules: {
           account: [
@@ -42,7 +44,18 @@
         this.$refs[formName].validate((valid) => {
           if (valid) {
             this.logining = true
-            alert('submit!')
+            login(this.ruleForm.account, this.ruleForm.password).then((res) => {
+              this.logining = false
+              if(res.status_code == 401) {
+                this.$message({
+                  message: res.message,
+                  type: 'error'
+                })
+                return
+              }
+              localStorage.token = res.access_token
+              this.$router.push({ path: '/admin/main' })
+            })
           } else {
             console.log('error submit!!')
             return false
