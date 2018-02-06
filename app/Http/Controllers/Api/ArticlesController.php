@@ -8,9 +8,13 @@ use App\Transformers\ArticleTransformer;
 
 class ArticlesController extends Controller
 {
-    public function index()
+    public function index(Request $request, Article $article)
     {
-        $articles = Article::all();
+        $query = $article->query();
+        if ($categoryId = $request->category_id) {
+            $query->where('category_id', $categoryId);
+        }
+        $articles = $query->recent()->get();
         return $this->response->collection($articles, new ArticleTransformer());
     }
 }

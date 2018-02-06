@@ -15,8 +15,7 @@
             <div class="articleListPage-tags">
               <div class="grid-row">
                 <div class="content">
-                  <a href="" class="active">全部标签</a>
-                  <a v-for="(item, index) in categories" href="">{{item.name}}<span>{{item.post_count}}</span></a>
+                  <a v-for="(item, index) in categories" href="javascript:void(0)" @click="selectCategory(item.id)" :class="{'active':selectType===item.id}">{{item.name}}<span>{{item.post_count}}</span></a>
                 </div>
               </div>
             </div>
@@ -24,152 +23,29 @@
         </div>
         <div class="article">
           <div class="article-item">
-            <div class="article-list">
-              <div class="label"><span>new</span></div>
+            <div v-for="(item, index) in articles" class="article-list">
+              <div class="label" v-show="index == 0 || index == 1"><span>new</span></div>
               <h1 class="title">
-                <router-link tag="div" to="/blog/1">诡异的 java.io.IOException</router-link>
+                <router-link tag="div" to="/blog/1">{{item.title}}</router-link>
               </h1>
               <div class="introduction">
                   <i class="icon-user">
                     <span class="user">XueCong</span>
                   </i>
                   <i class="icon-clock">
-                    <span class="time">1小时前</span>
+                    <span class="time">{{item.created_at}}</span>
                   </i>
                   <i class="icon-eye">
-                    <span class="view">120</span>
+                    <span class="view">{{item.view_count}}</span>
                   </i>
               </div>
               <div class="article-content">
-                背景 上一篇我们讲到如何获取全民K歌歌曲信息（上一篇：这是一个获取全民K歌歌曲信息的composer包），那么这一篇我将继续带领大家实现一个开箱即用全民K歌版网页播放器。这里我们主要使用的一个开源网页播放器为了方便我们这里直接使用cdn外链的方式来使用。 代码 [……
+                {{item.excerpt}}
               </div>
               <div class="readmore">
                 <div class="left">
                   <i class="icon-price-tags"></i>
-                  <a href="" class="tage">php</a>
-                  <a href="" class="tage">Linux</a>
-                  <a href="" class="tage">javascript</a>
-                </div>
-                <div class="right">
-                  <a href="" class="readmore">阅读全文 <span>>></span></a>
-                </div>
-              </div>
-            </div>
-            <div class="article-list">
-              <div class="label"><span>new</span></div>
-              <h1 class="title">
-                <a href="">诡异的 java.io.IOException</a>
-              </h1>
-              <div class="introduction">
-                  <i class="icon-user">
-                    <span class="user">XueCong</span>
-                  </i>
-                  <i class="icon-clock">
-                    <span class="time">1小时前</span>
-                  </i>
-                  <i class="icon-eye">
-                    <span class="view">120</span>
-                  </i>
-              </div>
-              <div class="article-content">
-                背景 上一篇我们讲到如何获取全民K歌歌曲信息（上一篇：这是一个获取全民K歌歌曲信息的composer包），那么这一篇我将继续带领大家实现一个开箱即用全民K歌版网页播放器。这里我们主要使用的一个开源网页播放器为了方便我们这里直接使用cdn外链的方式来使用。 代码 [……
-              </div>
-              <div class="readmore">
-                <div class="left">
-                  <i class="icon-price-tags"></i>
-                  <a href="" class="tage">php</a>
-                  <a href="" class="tage">Linux</a>
-                  <a href="" class="tage">javascript</a>
-                </div>
-                <div class="right">
-                  <a href="" class="readmore">阅读全文 <span>>></span></a>
-                </div>
-              </div>
-            </div>
-            <div class="article-list">
-              <h1 class="title">
-                <a href="">诡异的 java.io.IOException</a>
-              </h1>
-              <div class="introduction">
-                  <i class="icon-user">
-                    <span class="user">XueCong</span>
-                  </i>
-                  <i class="icon-clock">
-                    <span class="time">1小时前</span>
-                  </i>
-                  <i class="icon-eye">
-                    <span class="view">120</span>
-                  </i>
-              </div>
-              <div class="article-content">
-                背景 上一篇我们讲到如何获取全民K歌歌曲信息（上一篇：这是一个获取全民K歌歌曲信息的composer包），那么这一篇我将继续带领大家实现一个开箱即用全民K歌版网页播放器。这里我们主要使用的一个开源网页播放器为了方便我们这里直接使用cdn外链的方式来使用。 代码 [……
-              </div>
-              <div class="readmore">
-                <div class="left">
-                  <i class="icon-price-tags"></i>
-                  <a href="" class="tage">php</a>
-                  <a href="" class="tage">Linux</a>
-                  <a href="" class="tage">javascript</a>
-                </div>
-                <div class="right">
-                  <a href="" class="readmore">阅读全文 <span>>></span></a>
-                </div>
-              </div>
-            </div>
-            <div class="article-list">
-              <h1 class="title">
-                <a href="">诡异的 java.io.IOException</a>
-              </h1>
-              <div class="introduction">
-                  <i class="icon-user">
-                    <span class="user">XueCong</span>
-                  </i>
-                  <i class="icon-clock">
-                    <span class="time">1小时前</span>
-                  </i>
-                  <i class="icon-eye">
-                    <span class="view">120</span>
-                  </i>
-              </div>
-              <div class="article-content">
-                背景 上一篇我们讲到如何获取全民K歌歌曲信息（上一篇：这是一个获取全民K歌歌曲信息的composer包），那么这一篇我将继续带领大家实现一个开箱即用全民K歌版网页播放器。这里我们主要使用的一个开源网页播放器为了方便我们这里直接使用cdn外链的方式来使用。 代码 [……
-              </div>
-              <div class="readmore">
-                <div class="left">
-                  <i class="icon-price-tags"></i>
-                  <a href="" class="tage">php</a>
-                  <a href="" class="tage">Linux</a>
-                  <a href="" class="tage">javascript</a>
-                </div>
-                <div class="right">
-                  <a href="" class="readmore">阅读全文 <span>>></span></a>
-                </div>
-              </div>
-            </div>
-            <div class="article-list">
-              <h1 class="title">
-                <a href="">诡异的 java.io.IOException</a>
-              </h1>
-              <div class="introduction">
-                  <i class="icon-user">
-                    <span class="user">XueCong</span>
-                  </i>
-                  <i class="icon-clock">
-                    <span class="time">1小时前</span>
-                  </i>
-                  <i class="icon-eye">
-                    <span class="view">120</span>
-                  </i>
-              </div>
-              <div class="article-content">
-                背景 上一篇我们讲到如何获取全民K歌歌曲信息（上一篇：这是一个获取全民K歌歌曲信息的composer包），那么这一篇我将继续带领大家实现一个开箱即用全民K歌版网页播放器。这里我们主要使用的一个开源网页播放器为了方便我们这里直接使用cdn外链的方式来使用。 代码 [……
-              </div>
-              <div class="readmore">
-                <div class="left">
-                  <i class="icon-price-tags"></i>
-                  <a href="" class="tage">php</a>
-                  <a href="" class="tage">Linux</a>
-                  <a href="" class="tage">javascript</a>
+                  <a href="" class="tage">{{item.category.name}}</a>
                 </div>
                 <div class="right">
                   <a href="" class="readmore">阅读全文 <span>>></span></a>
@@ -190,13 +66,16 @@
   import Footer from 'components/footer/footer'
   import Top from 'components/top/top'
   import { getCategory } from 'api/category'
+  import { getArticle } from 'api/article'
 
   export default {
     data() {
       return {
         scrollY: 0,
         goback: false,
-        categories: []
+        selectType: 0,
+        categories: [],
+        articles: []
       }
     },
     created() {
@@ -204,6 +83,7 @@
         this._initScroll()
       })
       this._getCategory()
+      this._getArticle()
     },
     methods: {
       _initScroll() {
@@ -232,10 +112,24 @@
       goBack() {
          this.blogScroll.scrollTo(0, 0, 1000)
       },
+      selectCategory(category_id) {
+        if(this.selectType == category_id) {
+          return
+        }
+        this.selectType = category_id
+        getArticle(category_id).then((res) => {
+          this.articles = res.data
+        })
+      },
       _getCategory() {
         getCategory().then((res) => {
+          res.data.unshift({'id':0, 'name':'全部标签'})
           this.categories = res.data
-          res.data.unshift({'name':'全部标签'})
+        })
+      },
+      _getArticle() {
+        getArticle().then((res) => {
+          this.articles = res.data
         })
       }
     },
