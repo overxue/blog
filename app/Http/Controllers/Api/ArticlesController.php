@@ -14,7 +14,7 @@ class ArticlesController extends Controller
         if ($categoryId = $request->category_id) {
             $query->where('category_id', $categoryId);
         }
-        $articles = $query->recent()->get();
-        return $this->response->collection($articles, new ArticleTransformer());
+        $articles = $query->recent()->paginate(10);
+        return $this->response->paginator($articles, new ArticleTransformer());
     }
 }

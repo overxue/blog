@@ -74,14 +74,17 @@
         scrollY: 0,
         goback: false,
         selectType: 0,
+        page: 2, // 下一页
         categories: [],
         articles: []
       }
     },
-    created() {
-      this.$nextTick(() => {
+    mounted() {
+      setTimeout(() => {
         this._initScroll()
-      })
+      }, 20)
+    },
+    created() {
       this._getCategory()
       this._getArticle()
     },
@@ -93,7 +96,14 @@
            speed: 20,
            invert: false
           },
-          probeType: 3
+          scrollbar: {
+           fade: true,
+           interactive: false
+          },
+          probeType: 3,
+          pullUpLoad: {
+            threshold: 200
+          }
         })
 
         this.blogScroll.on('scroll', (pos) => {
@@ -101,6 +111,18 @@
             this.scrollY = Math.abs(Math.round(pos.y))
             this.scrollY > 300 ? this.goback = true : this.goback = false
           }
+        })
+
+        this.blogScroll.on('pullingUp', () => {
+          getArticle(this.selectType, this.page).then((res) => {
+            let articles = this.articles
+            res.data.forEach((item) => {
+                articles.push(item)
+            })
+            console.log(articles)
+            this.page ++
+            this.blogScroll.finishPullUp()
+          })
         })
       },
       // goDetail(event) {

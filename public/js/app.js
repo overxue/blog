@@ -20570,16 +20570,19 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       scrollY: 0,
       goback: false,
       selectType: 0,
+      page: 2, // 下一页
       categories: [],
       articles: []
     };
   },
-  created: function created() {
+  mounted: function mounted() {
     var _this = this;
 
-    this.$nextTick(function () {
+    setTimeout(function () {
       _this._initScroll();
-    });
+    }, 20);
+  },
+  created: function created() {
     this._getCategory();
     this._getArticle();
   },
@@ -20594,7 +20597,14 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
           speed: 20,
           invert: false
         },
-        probeType: 3
+        scrollbar: {
+          fade: true,
+          interactive: false
+        },
+        probeType: 3,
+        pullUpLoad: {
+          threshold: 200
+        }
       });
 
       this.blogScroll.on('scroll', function (pos) {
@@ -20602,6 +20612,18 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
           _this2.scrollY = Math.abs(Math.round(pos.y));
           _this2.scrollY > 300 ? _this2.goback = true : _this2.goback = false;
         }
+      });
+
+      this.blogScroll.on('pullingUp', function () {
+        Object(__WEBPACK_IMPORTED_MODULE_4_api_article__["a" /* getArticle */])(_this2.selectType, _this2.page).then(function (res) {
+          var articles = _this2.articles;
+          res.data.forEach(function (item) {
+            articles.push(item);
+          });
+          console.log(articles);
+          _this2.page++;
+          _this2.blogScroll.finishPullUp();
+        });
       });
     },
 
@@ -21775,8 +21797,9 @@ module.exports = function spread(callback) {
 
 function getArticle() {
   var category_id = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 0;
+  var page = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 1;
 
-  var url = __WEBPACK_IMPORTED_MODULE_1__config__["a" /* http */] + '/api/articles?include=category&category_id=' + category_id;
+  var url = __WEBPACK_IMPORTED_MODULE_1__config__["a" /* http */] + '/api/articles?page=' + page + '&include=category&category_id=' + category_id;
   return __WEBPACK_IMPORTED_MODULE_0_axios___default.a.get(url).then(function (res) {
     return Promise.resolve(res.data);
   }).catch(function (e) {
