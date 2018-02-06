@@ -1,7 +1,7 @@
 <template>
   <div class="music" :class="{'hide': hide}">
     <div class="music-item" :class="{'rotate': listen}" @click="playMusic">
-      <audio loop src="http://music.163.com/song/media/outer/url?id=38358214.mp3" id="media" autoplay="" preload="" ref="audio"></audio>
+      <audio loop :src=link id="media" autoplay="" preload="" ref="audio"></audio>
     </div>
   </div>
 </template>
@@ -11,7 +11,8 @@
     data() {
       return {
         listen: true,
-        hide: false
+        hide: false,
+        link: 'http://music.163.com/song/media/outer/url?id=38358214.mp3'
       }
     },
     created() {
@@ -21,6 +22,7 @@
         this.$nextTick(() => {
           this.hide = true
           this.listen = false
+          this.link = ''
           this.$refs.audio.pause()
         })
       }

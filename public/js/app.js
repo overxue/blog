@@ -15392,7 +15392,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
   data: function data() {
     return {
       listen: true,
-      hide: false
+      hide: false,
+      link: 'http://music.163.com/song/media/outer/url?id=38358214.mp3'
     };
   },
   created: function created() {
@@ -15404,6 +15405,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       this.$nextTick(function () {
         _this.hide = true;
         _this.listen = false;
+        _this.link = '';
         _this.$refs.audio.pause();
       });
     }
@@ -15443,7 +15445,7 @@ var render = function() {
           ref: "audio",
           attrs: {
             loop: "",
-            src: "http://music.163.com/song/media/outer/url?id=38358214.mp3",
+            src: _vm.link,
             id: "media",
             autoplay: "",
             preload: ""
