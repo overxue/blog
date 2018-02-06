@@ -14776,7 +14776,7 @@ module.exports = Cancel;
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return http; });
-var http = 'http://blog.test';
+var http = 'http://api.szhishu.com:10001';
 
 /***/ }),
 /* 19 */
@@ -20571,6 +20571,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       goback: false,
       selectType: 0,
       page: 2, // 下一页
+      totalpage: 0, // 总页数
       categories: [],
       articles: []
     };
@@ -20603,7 +20604,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         },
         probeType: 3,
         pullUpLoad: {
-          threshold: 200
+          threshold: 500
         }
       });
 
@@ -20615,24 +20616,23 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       });
 
       this.blogScroll.on('pullingUp', function () {
-        Object(__WEBPACK_IMPORTED_MODULE_4_api_article__["a" /* getArticle */])(_this2.selectType, _this2.page).then(function (res) {
-          var articles = _this2.articles;
-          res.data.forEach(function (item) {
-            articles.push(item);
-          });
-          console.log(articles);
-          _this2.page++;
+        if (_this2.totalpage < _this2.page) {
           _this2.blogScroll.finishPullUp();
+          return;
+        }
+        Object(__WEBPACK_IMPORTED_MODULE_4_api_article__["a" /* getArticle */])(_this2.selectType, _this2.page).then(function (res) {
+          _this2.articles = _this2.articles.concat(res.data);
+          _this2.blogScroll.refresh();
+          setTimeout(function () {
+            _this2.page++;
+            _this2.blogScroll.finishPullUp();
+          }, 20);
         });
       });
     },
-
-    // goDetail(event) {
-    //   if (!event._constructed) {
-    //     return
-    //   }
-    //   this.$router.push('/blog/1')
-    // },
+    goDetail: function goDetail() {
+      this.$router.push('/blog/1');
+    },
     goBack: function goBack() {
       this.blogScroll.scrollTo(0, 0, 1000);
     },
@@ -20644,6 +20644,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       }
       this.selectType = category_id;
       Object(__WEBPACK_IMPORTED_MODULE_4_api_article__["a" /* getArticle */])(category_id).then(function (res) {
+        console.log(res);
+        _this3.totalpage = res.meta.pagination.total_pages;
+        _this3.page = 2;
         _this3.articles = res.data;
       });
     },
@@ -20659,6 +20662,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       var _this5 = this;
 
       Object(__WEBPACK_IMPORTED_MODULE_4_api_article__["a" /* getArticle */])().then(function (res) {
+        _this5.totalpage = res.meta.pagination.total_pages;
         _this5.articles = res.data;
       });
     }
@@ -21879,18 +21883,20 @@ var render = function() {
                       [_c("span", [_vm._v("new")])]
                     ),
                     _vm._v(" "),
-                    _c(
-                      "h1",
-                      { staticClass: "title" },
-                      [
-                        _c(
-                          "router-link",
-                          { attrs: { tag: "div", to: "/blog/1" } },
-                          [_vm._v(_vm._s(item.title))]
-                        )
-                      ],
-                      1
-                    ),
+                    _c("h1", { staticClass: "title" }, [
+                      _c(
+                        "a",
+                        {
+                          attrs: { href: "javascript:void(0)" },
+                          on: {
+                            click: function($event) {
+                              _vm.goDetail()
+                            }
+                          }
+                        },
+                        [_vm._v(_vm._s(item.title))]
+                      )
+                    ]),
                     _vm._v(" "),
                     _c("div", { staticClass: "introduction" }, [
                       _vm._m(1, true),

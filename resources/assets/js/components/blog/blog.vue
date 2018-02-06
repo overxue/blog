@@ -26,7 +26,7 @@
             <div v-for="(item, index) in articles" class="article-list">
               <div class="label" v-show="index == 0 || index == 1"><span>new</span></div>
               <h1 class="title">
-                <router-link tag="div" to="/blog/1">{{item.title}}</router-link>
+                <a href="javascript:void(0)" @click="goDetail()">{{item.title}}</a>
               </h1>
               <div class="introduction">
                   <i class="icon-user">
@@ -75,6 +75,7 @@
         goback: false,
         selectType: 0,
         page: 2, // 下一页
+        totalpage: 0, // 总页数
         categories: [],
         articles: []
       }
@@ -102,7 +103,7 @@
           },
           probeType: 3,
           pullUpLoad: {
-            threshold: 200
+            threshold: 500
           }
         })
 
@@ -114,23 +115,23 @@
         })
 
         this.blogScroll.on('pullingUp', () => {
-          getArticle(this.selectType, this.page).then((res) => {
-            let articles = this.articles
-            res.data.forEach((item) => {
-                articles.push(item)
-            })
-            console.log(articles)
-            this.page ++
+          if(this.totalpage < this.page){
             this.blogScroll.finishPullUp()
+            return
+          }
+          getArticle(this.selectType, this.page).then((res) => {
+            this.articles = this.articles.concat(res.data)
+            this.blogScroll.refresh()
+            setTimeout(() => {
+              this.page ++
+              this.blogScroll.finishPullUp()
+            }, 20)
           })
         })
       },
-      // goDetail(event) {
-      //   if (!event._constructed) {
-      //     return
-      //   }
-      //   this.$router.push('/blog/1')
-      // },
+      goDetail() {
+        this.$router.push('/blog/1')
+      },
       goBack() {
          this.blogScroll.scrollTo(0, 0, 1000)
       },
@@ -140,6 +141,9 @@
         }
         this.selectType = category_id
         getArticle(category_id).then((res) => {
+          console.log(res)
+          this.totalpage = res.meta.pagination.total_pages
+          this.page = 2
           this.articles = res.data
         })
       },
@@ -151,6 +155,7 @@
       },
       _getArticle() {
         getArticle().then((res) => {
+          this.totalpage = res.meta.pagination.total_pages
           this.articles = res.data
         })
       }
