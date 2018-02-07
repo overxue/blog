@@ -15,15 +15,15 @@
         <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 
 
-        <script type="text/javascript" src="/js/jquery-1.11.3.min.js"></script>
+        <!-- <script type="text/javascript" src="/js/jquery-1.11.3.min.js"></script> -->
 
         <!--emojione v2.1.1 使用bootstrap的cdn-->
-        <link rel="stylesheet" type="text/css" href="http://cdn.bootcss.com/emojione/2.1.1/assets/sprites/emojione.sprites.css">
-        <script type="text/javascript" src="http://cdn.bootcss.com/emojione/2.1.1/lib/js/emojione.min.js"></script>
+        <!-- <link rel="stylesheet" type="text/css" href="http://cdn.bootcss.com/emojione/2.1.1/assets/sprites/emojione.sprites.css"> -->
+        <!-- <script type="text/javascript" src="http://cdn.bootcss.com/emojione/2.1.1/lib/js/emojione.min.js"></script> -->
 
         <!--emojionearea-->
-        <link rel="stylesheet" type="text/css" href="/css/emojionearea-2.1.3.min.css">
-        <script type="text/javascript" src="/js/emojionearea-2.1.3.min.js"></script>
+        <!-- <link rel="stylesheet" type="text/css" href="/css/emojionearea-2.1.3.min.css"> -->
+        <!-- <script type="text/javascript" src="/js/emojionearea-2.1.3.min.js"></script> -->
     </head>
     <body>
         <div id="app"></div>
@@ -31,9 +31,9 @@
         <!-- Scripts -->
         <script src="{{ asset('js/app.js') }}"></script>
     </body>
-    <script type="text/javascript">
+    <!-- <script type="text/javascript">
         $(document).ready(function() {
           $("#id_comment").emojioneArea();
         });
-    </script>
+    </script> -->
 </html>

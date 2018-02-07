@@ -1,1 +1,1 @@
-export const http = 'http://api.szhishu.com:10001'
+export const http = 'http://blog.test'

@@ -6,38 +6,25 @@
           <div class="header">
             <div class="header-cover no-cover"></div>
             <div class="header-body">
-              <div class="tit">VUE如何重载当前视图</div>
+              <div class="tit">{{articledetail.title}}</div>
               <div class="article-info">
-                <span>今天小剧来分享在使用 vue 时遇到一个问题，困扰小剧比较长时间。概括下来就是：vue 项目如何在不修改 URL 的前提下主动 reload 当前 router？
-                </span>
+                <span>{{articledetail.excerpt}}</span>
               </div>
             </div>
           </div>
           <div class="article-section">
             <div class="caption">
-              <h1 class="titl">VUE如何重载当前视图</h1>
-              <p class="time">发布时间：<span>2017-10-09 </span></p>
+              <h1 class="titl">{{articledetail.title}}</h1>
+              <p class="time">发布时间：<span>{{articledetail.created_at}}</span></p>
             </div>
             <div class="article">
-              <p>今天小剧来分享在使用 vue 时遇到一个问题，困扰小剧比较长时间。</p>
-              <p>概括下来就是：vue 项目如何在不修改 URL 的前提下主动 reload 当前 router？</p>
-              <h2 id="">先来说下场景</h2>
-
-              <p>项目的业务模型中有一个独立的模块，用于处理全局数据：project，首先 project list 是一个可以进行切换的列表，其次还有一个当前选中的 project 项。所有 View Model 在初始化时都会依赖当前选中的 project。</p>
-
-              <h2 id="">那么问题来了</h2>
-
-              <p>一个 View Model 已经被渲染完毕后，切换 project 时该如何操作？</p>
-
-              <p>仔细思考之后，发现有三个可行性较高的方案：</p>
-
-              <h3 id="1">1、重新设计路由规则</h3>
-
-              <p>通过场景分析可以看出来 project 是一个基础性字段，因此可以考虑将 project 字段显式地体现在 URL 上。在切换 project 时直接更新当前路由即可实现 View Model 的更新。</p>
-
-              <p>然而实际项目中此类基础字段还不少，如果全部体现在路由上既会导致 URL 冗长，又需要处理各种字符转码的问题。所以此方案暂不考虑。</p>
-
-              <h3 id="2viewmodelproject">2、View Model 监听 project 变动</h3>
+              {{articledetail.body}}
+              {{articledetail.body}}
+              {{articledetail.body}}
+              {{articledetail.body}}
+              {{articledetail.body}}
+              {{articledetail.body}}
+              {{articledetail.body}}
             </div>
             <div class="sns-share" data-text="今天小剧来分享在使用 vue 时遇到一个问题，困扰小剧比较长时间" data-url="http://bh-lay.com/blog/15f0084b4b0" data-title="VUE如何重载当前视图" data-img="">
               <a href="#" title="分享至新浪微博" data-shareto="weibo">
@@ -55,7 +42,7 @@
               <div class="l_comments">
                 <div class="l_com_sendBox">
                   <div class="l_sendBox">
-                    <textarea name="content" id="id_comment" placeholder="评论屌一点，BUG少一点！"></textarea>
+                    <!-- <textarea name="content" id="id_comment" placeholder="评论屌一点，BUG少一点！"></textarea> -->
                     <div class="l_send_footer">
                       <div class="l_send_right">
                         <a href="" class="l_send_submit">评论</a>
@@ -70,8 +57,8 @@
                         <img src="https://dn-lay.qbox.me/build/single-page/images/my-avatar_0b91c8c.jpg">
                       </div>
                       <div class="content">
-                        <div class="caption">剧中人 </div>
-                        <div class="text">@梦梦&nbsp;卧槽神思路啊！是个粗暴的好方法，看起来比我这个方案好多了，可以尝试。
+                        <div class="caption">哈哈 </div>
+                        <div class="text">哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈
                         </div>
                         <div class="footer">
                           <div class="time">22:35 2017-11-28</div>
@@ -86,8 +73,8 @@
                         <img src="https://dn-lay.qbox.me/build/single-page/images/my-avatar_0b91c8c.jpg" onerror="L.gravatar_error_fn(this)">
                       </div>
                       <div class="content">
-                        <div class="caption">剧中人 </div>
-                        <div class="text">@梦梦&nbsp;卧槽神思路啊！是个粗暴的好方法，看起来比我这个方案好多了，可以尝试。
+                        <div class="caption">哈哈 </div>
+                        <div class="text">哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈
                         </div>
                         <div class="footer">
                           <div class="time">22:35 2017-11-28</div>
@@ -134,19 +121,25 @@
   import BScroll from 'better-scroll'
   import Footer from 'components/footer/footer'
   import Top from 'components/top/top'
+  import { getArticledetail } from 'api/article'
 
   export default {
     data() {
       return {
         detailShow: false,
         scrollY: 0,
-        goback: false
+        goback: false,
+        articledetail: []
       }
     },
-    created(){
+    created() {
       this.$nextTick(() => {
         this._initScroll()
       })
+      this._getArticledetail()
+    },
+    activated() {
+      // this._getArticledetail()
     },
     methods: {
       _initScroll() {
@@ -156,10 +149,11 @@
            speed: 20,
            invert: false
           },
-          preventDefaultException: {
-            tagName: /^(INPUT|TEXTAREA|BUTTON|SELECT|IMG|DIV)$/
+          probeType: 3,
+          scrollbar: {
+           fade: true,
+           interactive: false
           },
-          probeType: 3
         })
 
         this.detailScroll.on('scroll', (pos) => {
@@ -177,6 +171,11 @@
       },
       goBack() {
          this.detailScroll.scrollTo(0, 0, 1000)
+      },
+      _getArticledetail() {
+        getArticledetail(this.$route.params.id).then((res) => {
+          this.articledetail = res
+        })
       }
     },
     components: {
@@ -273,7 +272,6 @@
             position: relative
             padding: 2em 1em;
             background: #f5f8fa
-            border: 1px solid #edf0f3
             &:before
               position: absolute
               content: ""
@@ -436,6 +434,7 @@
               padding: 5em 8em
             .comments-section
               padding: 2em 8em 4em
+              border: 1px solid #edf0f3
   // >= 992
   // @media screen and (min-width: 992px)
 

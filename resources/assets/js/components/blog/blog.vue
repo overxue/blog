@@ -26,7 +26,7 @@
             <div v-for="(item, index) in articles" class="article-list">
               <div class="label" v-show="index == 0 || index == 1"><span>new</span></div>
               <h1 class="title">
-                <a href="javascript:void(0)" @click="goDetail()">{{item.title}}</a>
+                <a href="javascript:void(0)" @click="goDetail(item.id)">{{item.title}}</a>
               </h1>
               <div class="introduction">
                   <i class="icon-user">
@@ -80,14 +80,14 @@
         articles: []
       }
     },
+    created() {
+      this._getCategory()
+      this._getArticle()
+    },
     mounted() {
       setTimeout(() => {
         this._initScroll()
       }, 20)
-    },
-    created() {
-      this._getCategory()
-      this._getArticle()
     },
     methods: {
       _initScroll() {
@@ -102,9 +102,9 @@
            interactive: false
           },
           probeType: 3,
-          pullUpLoad: {
-            threshold: 500
-          }
+          // pullUpLoad: {
+          //   threshold: 50
+          // }
         })
 
         this.blogScroll.on('scroll', (pos) => {
@@ -121,7 +121,6 @@
           }
           getArticle(this.selectType, this.page).then((res) => {
             this.articles = this.articles.concat(res.data)
-            this.blogScroll.refresh()
             setTimeout(() => {
               this.page ++
               this.blogScroll.finishPullUp()
@@ -129,8 +128,8 @@
           })
         })
       },
-      goDetail() {
-        this.$router.push('/blog/1')
+      goDetail(id) {
+        this.$router.push(`/blog/${id}`)
       },
       goBack() {
          this.blogScroll.scrollTo(0, 0, 1000)

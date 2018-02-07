@@ -9,3 +9,13 @@ export function getArticle(category_id = 0, page = 1) {
     console.log(e)
   })
 }
+
+export function getArticledetail(id) {
+  const url = `${http}/api/articles/${id}`
+
+  return axios.get(url).then((res) => {
+    return Promise.resolve(res.data)
+  }).catch((e) => {
+    console.log(e)
+  })
+}

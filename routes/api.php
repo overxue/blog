@@ -44,6 +44,9 @@ $api->version('v1', [
         // 博文列表
         $api->get('articles', 'ArticlesController@index')
             ->name('api.aritcles.index');
+        // 博文详情
+        $api->get('articles/{article}', 'ArticlesController@show')
+            ->name('api.articles.show');
         // 需要 token 验证的接口
         $api->group(['middleware' => 'api.auth'], function($api) {
             // 添加博文分类
