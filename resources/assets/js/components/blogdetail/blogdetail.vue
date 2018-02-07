@@ -136,10 +136,9 @@
       this.$nextTick(() => {
         this._initScroll()
       })
-      this._getArticledetail()
     },
     activated() {
-      // this._getArticledetail()
+      this._getArticledetail()
     },
     methods: {
       _initScroll() {
@@ -175,6 +174,9 @@
       _getArticledetail() {
         getArticledetail(this.$route.params.id).then((res) => {
           this.articledetail = res
+          this.$nextTick(() => {
+            this.detailScroll.refresh()
+          });
         })
       }
     },
