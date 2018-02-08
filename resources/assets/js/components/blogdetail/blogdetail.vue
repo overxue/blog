@@ -37,12 +37,12 @@
               </a>
             </div>
           </div>
-          <div class="comments-section">
+          <!-- <div class="comments-section">
             <div class="comments_frame">
               <div class="l_comments">
                 <div class="l_com_sendBox">
                   <div class="l_sendBox">
-                    <!-- <textarea name="content" id="id_comment" placeholder="评论屌一点，BUG少一点！"></textarea> -->
+                    <textarea name="content" id="id_comment" placeholder="评论屌一点，BUG少一点！"></textarea>
                     <div class="l_send_footer">
                       <div class="l_send_right">
                         <a href="" class="l_send_submit">评论</a>
@@ -88,7 +88,7 @@
                 </div>
               </div>
             </div>
-          </div>
+          </div> -->
         </div>
         <v-footer></v-footer>
       </div>
