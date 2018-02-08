@@ -21,6 +21,7 @@
         "particles.js": "^2.0.0",
         "better-scroll": "^1.8.0",
         "element-ui": "^2.0.11",
-        "vuex": "3.0.1"
+        "vuex": "^3.0.1",
+        "timeago.js": "^3.0.2"
     }
 }

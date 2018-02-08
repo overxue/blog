@@ -33,7 +33,7 @@
                     <span class="user">XueCong</span>
                   </i>
                   <i class="icon-clock">
-                    <span class="time">{{item.created_at}}</span>
+                    <span class="time">{{timeago(item.created_at)}}</span>
                   </i>
                   <i class="icon-eye">
                     <span class="view">{{item.view_count}}</span>
@@ -67,6 +67,7 @@
   import Top from 'components/top/top'
   import { getCategory } from 'api/category'
   import { getArticle } from 'api/article'
+  import timeago from 'timeago.js'
 
   export default {
     name: 'Blog',
@@ -104,7 +105,7 @@
           },
           probeType: 3,
           pullUpLoad: {
-            threshold: 50
+            threshold: 500
           }
         })
 
@@ -128,6 +129,9 @@
             }, 20)
           })
         })
+      },
+      timeago(time) {
+        return timeago().format(time, 'zh_CN')
       },
       goDetail(id) {
         this.$router.push(`/blog/${id}`)
@@ -338,7 +342,7 @@
                 color: #fff
             .title
               line-height: 20px
-              div
+              a
                 font-size: 20px
                 font-weight: 600
                 color: #3d464d!important
