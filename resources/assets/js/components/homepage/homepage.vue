@@ -30,6 +30,7 @@
   import Opening from 'components/opening/opening'
 
   export default {
+    'name': 'Homepage',
     mounted() {
       particlesJS.load('particles', '/particles/particles.json')
     },

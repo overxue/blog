@@ -50,16 +50,17 @@
   import Top from 'components/top/top'
 
   export default {
+    name: 'Me',
     data() {
       return {
         scrollY: 0,
         goback: false
       }
     },
-    created(){
-      this.$nextTick(() => {
+    mounted() {
+      setTimeout(() => {
         this._initScroll()
-      })
+      }, 20)
     },
     methods: {
       _initScroll() {

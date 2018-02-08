@@ -19348,7 +19348,14 @@ var render = function() {
       _c(
         "transition",
         { attrs: { name: "fade" } },
-        [_c("keep-alive", [_c("router-view")], 1)],
+        [
+          _c(
+            "keep-alive",
+            { attrs: { include: "Homepage,Blog,Me" } },
+            [_c("router-view")],
+            1
+          )
+        ],
         1
       )
     ],
@@ -19540,6 +19547,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
+  'name': 'Homepage',
   mounted: function mounted() {
     particlesJS.load('particles', '/particles/particles.json');
   },
@@ -21547,6 +21555,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
+  name: 'Blog',
   data: function data() {
     return {
       scrollY: 0,
@@ -21584,10 +21593,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
           fade: true,
           interactive: false
         },
-        probeType: 3
-        // pullUpLoad: {
-        //   threshold: 50
-        // }
+        probeType: 3,
+        pullUpLoad: {
+          threshold: 50
+        }
       });
 
       this.blogScroll.on('scroll', function (pos) {
@@ -22239,18 +22248,19 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
+  name: 'Me',
   data: function data() {
     return {
       scrollY: 0,
       goback: false
     };
   },
-  created: function created() {
+  mounted: function mounted() {
     var _this = this;
 
-    this.$nextTick(function () {
+    setTimeout(function () {
       _this._initScroll();
-    });
+    }, 20);
   },
 
   methods: {
@@ -22653,14 +22663,14 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     };
   },
   created: function created() {
+    this._getArticledetail();
+  },
+  mounted: function mounted() {
     var _this = this;
 
-    this.$nextTick(function () {
+    setTimeout(function () {
       _this._initScroll();
-    });
-  },
-  activated: function activated() {
-    this._getArticledetail();
+    }, 20);
   },
 
   methods: {

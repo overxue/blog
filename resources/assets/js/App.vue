@@ -3,7 +3,7 @@
     <navigation ref="navigation"></navigation>
     <music></music>
     <transition name="fade">
-      <keep-alive>
+      <keep-alive include="Homepage,Blog,Me">
         <router-view></router-view>
       </keep-alive>
     </transition>

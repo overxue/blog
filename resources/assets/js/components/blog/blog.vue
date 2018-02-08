@@ -69,6 +69,7 @@
   import { getArticle } from 'api/article'
 
   export default {
+    name: 'Blog',
     data() {
       return {
         scrollY: 0,
@@ -102,9 +103,9 @@
            interactive: false
           },
           probeType: 3,
-          // pullUpLoad: {
-          //   threshold: 50
-          // }
+          pullUpLoad: {
+            threshold: 50
+          }
         })
 
         this.blogScroll.on('scroll', (pos) => {
