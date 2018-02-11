@@ -22,6 +22,8 @@
         "better-scroll": "^1.8.0",
         "element-ui": "^2.0.11",
         "vuex": "^3.0.1",
-        "timeago.js": "^3.0.2"
+        "timeago.js": "^3.0.2",
+        "vue-simplemde": "^0.4.6",
+        "github-markdown-css": "^2.10.0"
     }
 }

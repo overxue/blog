@@ -12,7 +12,8 @@
           </el-select>
         </el-form-item>
         <el-form-item label="文章内容">
-          <el-input type="textarea"></el-input>
+          <!-- <el-input type="textarea"></el-input> -->
+          <markdown-editor v-model="content" ref="markdownEditor" preview-class="markdown-body"></markdown-editor>
         </el-form-item>
         <el-form-item>
           <el-button type="primary">立即创建</el-button>
@@ -23,9 +24,12 @@
 </template>
 
 <script type="text/ecmascript-6">
+  import markdownEditor from 'vue-simplemde/src/markdown-editor'
+
   export default {
     data() {
       return {
+        content: '',
         options: [
           {
             value: '选项1',
@@ -51,9 +55,14 @@
         value5: [],
         value11: []
       }
+    },
+    components: {
+      markdownEditor
     }
   }
 </script>
 
 <style scoped lang="stylus" rel="stylesheet/stylus">
+  @import '../../../../../node_modules/simplemde/dist/simplemde.min.css'
+  @import '../../../../../node_modules/github-markdown-css/github-markdown.css'
 </style>
