@@ -1,22 +1,21 @@
 <template>
   <el-row :gutter="20" style="margin-top: 100px">
     <el-col :span="12" :offset="4">
-      <el-form label-width="80px">
+      <el-form label-width="80px" :model="ruleForm" ref="ruleForm">
         <el-form-item label="文章标题">
-          <el-input type="text"></el-input>
+          <el-input type="text" v-model="ruleForm.title"></el-input>
         </el-form-item>
         <el-form-item label="文章分类">
-          <el-select v-model="value5" multiple placeholder="请选择" size="100%">
-            <el-option v-for="item in options" :key="item.value" :label="item.label" :value="item.value">
-            </el-option>
+          <el-select v-model="ruleForm.category" placeholder="请选择分类">
+            <el-option label="区域一" value="shanghai"></el-option>
+            <el-option label="区域二" value="beijing"></el-option>
           </el-select>
         </el-form-item>
         <el-form-item label="文章内容">
-          <!-- <el-input type="textarea"></el-input> -->
-          <markdown-editor v-model="content" ref="markdownEditor" preview-class="markdown-body"></markdown-editor>
+          <markdown-editor v-model="ruleForm.content" ref="markdownEditor" preview-class="markdown-body"></markdown-editor>
         </el-form-item>
         <el-form-item>
-          <el-button type="primary">立即创建</el-button>
+          <el-button type="primary" :loading="logining" @click="submitForm('ruleForm')">立即创建</el-button>
         </el-form-item>
       </el-form>
     </el-col>
@@ -29,31 +28,24 @@
   export default {
     data() {
       return {
-        content: '',
-        options: [
-          {
-            value: '选项1',
-            label: '黄金糕'
-          },
-          {
-            value: '选项2',
-            label: '双皮奶'
-          },
-          {
-            value: '选项3',
-            label: '蚵仔煎'
-          },
-          {
-            value: '选项4',
-            label: '龙须面'
-          },
-          {
-            value: '选项5',
-            label: '北京烤鸭'
-          }
-        ],
-        value5: [],
-        value11: []
+        logining: false,
+        ruleForm: {
+          title: '',
+          category: '',
+          content: '',
+        }
+      }
+    },
+    computed: {
+      simplemde () {
+        return this.$refs.markdownEditor.simplemde
+      }
+    },
+    methods: {
+      submitForm(formName) {
+        console.log(this.ruleForm.title)
+        console.log(this.ruleForm.category)
+        console.log(this.simplemde.markdown(this.ruleForm.content))
       }
     },
     components: {
