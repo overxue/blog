@@ -24,8 +24,8 @@
       return {
         logining: false,
         ruleForm: {
-          account: '409771385@qq.com',
-          password: 'xuecong'
+          account: '',
+          password: ''
         },
         rules: {
           account: [
@@ -56,9 +56,6 @@
               localStorage.token = res.access_token
               this.$router.push({ path: '/admin/main' })
             })
-          } else {
-            console.log('error submit!!')
-            return false
           }
         });
       },

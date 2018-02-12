@@ -37,27 +37,34 @@ $api->version('v1', [
         'limit' => config('api.rate_limits.access.limit'),
         'expires' => config('api.rate_limits.access.expires'),
     ], function ($api) {
-        // 游客可以访问的接口
-        // 博文分类列表
+        /**
+        *   游客可以访问的接口
+        **/
+        // 文章分类列表
         $api->get('categories', 'CategoriesController@index')
             ->name('api.categories.index');
-        // 博文列表
+        // 文章列表
         $api->get('articles', 'ArticlesController@index')
             ->name('api.aritcles.index');
-        // 博文详情
+        // 文章详情
         $api->get('articles/{article}', 'ArticlesController@show')
             ->name('api.articles.show');
-        // 需要 token 验证的接口
+        /**
+        *   需要 token 验证的接口
+        **/
         $api->group(['middleware' => 'api.auth'], function($api) {
-            // 添加博文分类
+            // 添加文章分类
             $api->post('categories', 'CategoriesController@store')
                 ->name('api.categories.store');
-            // 修改博文分类
+            // 修改文章分类
             $api->patch('categories/{category}', 'CategoriesController@update')
                 ->name('api.categories.update');
-            // 删除博文分类
+            // 删除文章分类
             $api->delete('categories/{category}', 'CategoriesController@destory')
                 ->name('api.categories.destory');
-            });
+            // 添加文章
+            $api->post('articles', 'ArticlesController@store')
+                ->name('api.articles.store');
+        });
     });
 });
