@@ -17,14 +17,7 @@
               <h1 class="titl">{{articledetail.title}}</h1>
               <p class="time">发布时间：<span>{{articledetail.created_at}}</span></p>
             </div>
-            <div class="article">
-              {{articledetail.body}}
-              {{articledetail.body}}
-              {{articledetail.body}}
-              {{articledetail.body}}
-              {{articledetail.body}}
-              {{articledetail.body}}
-              {{articledetail.body}}
+            <div class="article markdown-body" v-html="articledetail.body">
             </div>
             <div class="sns-share" data-text="今天小剧来分享在使用 vue 时遇到一个问题，困扰小剧比较长时间" data-url="http://bh-lay.com/blog/15f0084b4b0" data-title="VUE如何重载当前视图" data-img="">
               <a href="#" title="分享至新浪微博" data-shareto="weibo">
@@ -122,6 +115,7 @@
   import Footer from 'components/footer/footer'
   import Top from 'components/top/top'
   import { getArticledetail } from 'api/article'
+  import prism from 'common/js/prism'
 
   export default {
     data() {
@@ -176,6 +170,7 @@
           this.articledetail = res
           this.$nextTick(() => {
             this.detailScroll.refresh()
+            prism.highlightAll()
           });
         })
       }
@@ -188,6 +183,9 @@
 </script>
 
 <style scoped lang="stylus" rel="stylesheet/stylus">
+  @import '../../common/css/prism.css'
+  @import '../../../../../node_modules/github-markdown-css/github-markdown.css'
+
   .blogdetail
     position:relative
     min-height:100%
@@ -240,8 +238,6 @@
             .article
               padding: 40px 20px;
               font-size: 1rem;
-              line-height: 1.6;
-              word-wrap: break-word;
               background: #fff;
               &:before
                 display: table;

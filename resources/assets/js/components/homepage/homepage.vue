@@ -85,6 +85,7 @@
           height: 40px
           line-height: 40px
           text-align: center
+          list-style: none
           .tab-link
             padding: 10px
             color: $color-index-item

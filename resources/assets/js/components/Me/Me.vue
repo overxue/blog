@@ -14,26 +14,20 @@
             </div>
           </div>
           <div class="article-section">
-            <div class="article">
-              <p>今天小剧来分享在使用 vue 时遇到一个问题，困扰小剧比较长时间。</p>
-              <p>概括下来就是：vue 项目如何在不修改 URL 的前提下主动 reload 当前 router？</p>
-              <h2 id="">先来说下场景</h2>
-
-              <p>项目的业务模型中有一个独立的模块，用于处理全局数据：project，首先 project list 是一个可以进行切换的列表，其次还有一个当前选中的 project 项。所有 View Model 在初始化时都会依赖当前选中的 project。</p>
-
-              <h2 id="">那么问题来了</h2>
-
-              <p>一个 View Model 已经被渲染完毕后，切换 project 时该如何操作？</p>
-
-              <p>仔细思考之后，发现有三个可行性较高的方案：</p>
-
-              <h3 id="1">1、重新设计路由规则</h3>
-
-              <p>通过场景分析可以看出来 project 是一个基础性字段，因此可以考虑将 project 字段显式地体现在 URL 上。在切换 project 时直接更新当前路由即可实现 View Model 的更新。</p>
-
-              <p>然而实际项目中此类基础字段还不少，如果全部体现在路由上既会导致 URL 冗长，又需要处理各种字符转码的问题。所以此方案暂不考虑。</p>
-
-              <h3 id="2viewmodelproject">2、View Model 监听 project 变动sfsldfjls数量开房记录时代峻峰了基拉水电费垃圾地方了设计费暗杀令肌肤；大楼附近；阿萨德飞机；阿拉丁会计；阿来得及；阿萨德积分；阿萨德积分；奥斯卡大家；啊速度快解放；大框架房；阿萨德积分来得及发；阿萨德积分；阿萨德积分；阿萨德积分</h3>
+            <div class="article markdown-body">
+              <ul>
+                <li>我不是大神，我只是一枚有点帅的普通php开发者，擅长写各类bug，专业制造bug 30年！</li>
+                <li>爱编程，爱开源，爱分享，爱赚钱，爱生活！</li>
+                <li>我的人生格言：<strong>不要怂，就是干！</strong></li>
+                <li>我很认真，对于任何事！</li>
+                <li>我比较直爽，性格幽默！</li>
+                <li>我很帅，不管你信不信！</li>
+                <li>从17年开始搭建博客，希望这件事可以一直坚持下去！</li>
+                <li>这里不仅是我的技术分享，也是我人生路的记载！</li>
+                <li>这个博客其实帮助不了你什么，除了能让你变得跟我一样帅！</li>
+                <li>认真生活，认真扯淡！</li>
+                <li>完。</li>
+              </ul>
             </div>
           </div>
         </div>
@@ -92,6 +86,8 @@
 </script>
 
 <style scoped lang="stylus" rel="stylesheet/stylus">
+  @import '../../../../../node_modules/github-markdown-css/github-markdown.css'
+
   .me
     position:relative
     min-height:100%
@@ -160,9 +156,7 @@
                 font-size: 14px
             .article
               padding: 40px 20px
-              font-size: 1rem
-              line-height: 1.6
-              word-wrap: break-word
+              font-size: 1rem;
               background: #fff
               &:before
                 display: table
