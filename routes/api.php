@@ -68,6 +68,9 @@ $api->version('v1', [
             // 删除文章
             $api->delete('articles/{article}', 'ArticlesController@destory')
                 ->name('api.articles.destory');
+            // 修改文章
+            $api->patch('articles/{article}', 'ArticlesController@update')
+                ->name('api.articles.update');
         });
     });
 });

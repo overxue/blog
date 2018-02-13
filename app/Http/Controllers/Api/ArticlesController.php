@@ -37,4 +37,10 @@ class ArticlesController extends Controller
         $article->delete();
         return $this->response->noContent();
     }
+
+    public function update(ArticleRequest $request, Article $article)
+    {
+        $article->update($request->all());
+        return $this->response->item($article, new ArticleTransformer());
+    }
 }

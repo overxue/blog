@@ -11,12 +11,24 @@ class ArticleRequest extends FormRequest
      */
     public function rules()
     {
-        return [
-            'title' => 'required|string',
-            'body' => 'required|string',
-            'category_id' => 'required|exists:categories,id',
-            'excerpt' => 'required|string'
-        ];
+        switch($this->method()) {
+            case 'POST':
+                return [
+                    'title' => 'required|string',
+                    'body' => 'required|string',
+                    'category_id' => 'required|exists:categories,id',
+                    'excerpt' => 'required|string'
+                ];
+                break;
+            case 'PATCH':
+                return [
+                    'title' => 'string',
+                    'body' => 'string',
+                    'category_id' => 'exists:categories,id',
+                    'excerpt' => 'string'
+                ];
+                break;
+        }
     }
 
     public function attributes()
