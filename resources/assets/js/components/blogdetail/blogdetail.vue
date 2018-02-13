@@ -19,8 +19,8 @@
             </div>
             <div class="article markdown-body" v-html="articledetail.body">
             </div>
-            <div class="sns-share" data-text="今天小剧来分享在使用 vue 时遇到一个问题，困扰小剧比较长时间" data-url="http://bh-lay.com/blog/15f0084b4b0" data-title="VUE如何重载当前视图" data-img="">
-              <a href="#" title="分享至新浪微博" data-shareto="weibo">
+            <div class="sns-share">
+              <a href="javascript:void(0)" title="分享至新浪微博">
                 <i class="l-icon icon-sina-weibo"></i>
                 <span>分享</span>
               </a>
@@ -173,6 +173,17 @@
             prism.highlightAll()
           });
         })
+      },
+      shareweibo() {
+        var _shareUrl = 'http://v.t.sina.com.cn/share/share.php?&appkey=3830043697';
+             //真实的appkey，必选参数
+        _shareUrl += '&url='+ encodeURIComponent(_url||document.location);     //参数url设置分享的内容链接|默认当前页location，可选参数
+        _shareUrl += '&title=' + encodeURIComponent(_title||document.title);    //参数title设置分享的标题|默认当前页标题，可选参数
+        _shareUrl += '&source=' + encodeURIComponent(_source||'');
+        _shareUrl += '&sourceUrl=' + encodeURIComponent(_sourceUrl||'');
+        _shareUrl += '&content=' + 'utf-8';   //参数content设置页面编码gb2312|utf-8，可选参数
+        _shareUrl += '&pic=' + encodeURIComponent(_pic||'');  //参数pic设置图片链接|默认为空，可选参数
+        window.open(_shareUrl,'_blank','width='+_width+',height='+_height+',top='+_top+',left='+_left+',toolbar=no,menubar=no,scrollbars=no, resizable=1,location=no,status=0');
       }
     },
     components: {

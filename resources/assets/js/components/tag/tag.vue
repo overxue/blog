@@ -1,7 +1,5 @@
 <template>
-  <div class="tag">
 
-  </div>
 </template>
 
 <script type="text/ecmascript-6">

@@ -31,4 +31,10 @@ class ArticlesController extends Controller
         $article->save();
         return $this->response->item($article, new ArticleTransformer())->setStatusCode(201);
     }
+
+    public function destory(Article $article)
+    {
+        $article->delete();
+        return $this->response->noContent();
+    }
 }

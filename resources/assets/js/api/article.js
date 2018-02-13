@@ -25,9 +25,8 @@ export function insertArticle(params) {
   const url = `${http}/api/articles`
 
   return axios.post(url, params, {headers:{'Authorization':`Bearer ${token}`}}).then((res) => {
-    console.log(res.data)
+    return Promise.resolve(res.status)
   }).catch((error) => {
-    console.log(error.response.data)
-    // return Promise.resolve(error.response.data)
+    return Promise.resolve(error.response.data)
   })
 }

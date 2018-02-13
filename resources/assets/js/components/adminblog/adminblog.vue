@@ -71,7 +71,20 @@
           if (valid) {
             this.logining = true
             var params = { title: this.ruleForm.title, category_id: this.ruleForm.category, body: this.simplemde.markdown(this.ruleForm.content), excerpt: this.ruleForm.excerpt};
-            insertArticle(params)
+            insertArticle(params).then((res) => {
+              this.logining = false
+              if (res == 201) {
+                this.$message({
+                  message: '添加成功！',
+                  type: 'success'
+                })
+              } else if(res.status_code == 401) {
+                this.$message({
+                  message: 'Token 无效',
+                  type: 'error'
+                })
+              }
+            })
           }
         });
       },

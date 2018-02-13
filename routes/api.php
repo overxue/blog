@@ -65,6 +65,9 @@ $api->version('v1', [
             // 添加文章
             $api->post('articles', 'ArticlesController@store')
                 ->name('api.articles.store');
+            // 删除文章
+            $api->delete('articles/{article}', 'ArticlesController@destory')
+                ->name('api.articles.destory');
         });
     });
 });
