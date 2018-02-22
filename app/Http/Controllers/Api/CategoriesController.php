@@ -9,9 +9,10 @@ use App\Http\Requests\Api\CategoryRequest;
 
 class CategoriesController extends Controller
 {
-    public function index()
+    public function index(Category $category)
     {
-        return $this->response->collection(Category::all(), new CategoryTransformer());
+        $categories = $category->getAllCached();
+        return $this->response->collection($categories, new CategoryTransformer());
     }
 
     public function store(CategoryRequest $request, Category $category)
