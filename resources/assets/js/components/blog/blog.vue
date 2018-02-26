@@ -45,7 +45,7 @@
               <div class="readmore">
                 <div class="left">
                   <i class="icon-price-tags"></i>
-                  <a href="" class="tage">{{item.category.name}}</a>
+                  <a href="" class="tage" v-for="category in item.categories">{{category.name}}</a>
                 </div>
                 <div class="right">
                   <a href="" class="readmore">阅读全文 <span>>></span></a>
@@ -65,7 +65,7 @@
   import BScroll from 'better-scroll'
   import Footer from 'components/footer/footer'
   import Top from 'components/top/top'
-  import { getCategory } from 'api/category'
+  import { getCategory,getCategoryArticle } from 'api/category'
   import { getArticle } from 'api/article'
   import timeago from 'timeago.js'
 
@@ -144,10 +144,14 @@
           return
         }
         this.selectType = category_id
-        getArticle(category_id).then((res) => {
-          console.log(res)
-          this.totalpage = res.meta.pagination.total_pages
-          this.page = 2
+        if(this.selectType === 0){
+          this._getArticle()
+          return
+        }
+        getCategoryArticle(category_id).then((res) => {
+          // console.log(res)
+          // this.totalpage = res.meta.pagination.total_pages
+          // this.page = 2
           this.articles = res.data
         })
       },

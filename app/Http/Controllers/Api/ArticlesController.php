@@ -11,11 +11,7 @@ class ArticlesController extends Controller
 {
     public function index(Request $request, Article $article)
     {
-        $query = $article->query();
-        if ($categoryId = $request->category_id) {
-            $query->where('category_id', $categoryId);
-        }
-        $articles = $query->recent()->paginate(10);
+        $articles = $article->recent()->paginate(10);
         return $this->response->paginator($articles, new ArticleTransformer());
     }
 
@@ -29,6 +25,7 @@ class ArticlesController extends Controller
     {
         $article->fill($request->all());
         $article->save();
+        $article->categories()->attach($request->input('category_id'));
         return $this->response->item($article, new ArticleTransformer())->setStatusCode(201);
     }
 

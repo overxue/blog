@@ -8,12 +8,12 @@ use App\Models\Category;
 class Article extends Model
 {
     protected $fillable = [
-        'title', 'body', 'category_id', 'reply_count', 'view_count', 'excerpt'
+        'title', 'body', 'reply_count', 'view_count', 'excerpt'
     ];
 
-    public function category()
+    public function categories()
     {
-        return $this->belongsTo(Category::class);
+        return $this->belongsToMany(Category::class);
     }
 
     public function scopeRecent($query)

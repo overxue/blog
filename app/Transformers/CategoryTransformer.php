@@ -12,7 +12,7 @@ class CategoryTransformer extends TransformerAbstract
         return [
             'id' => $category->id,
             'name' => $category->name,
-            'post_count' => $category->post_count == null ? 0: $category->post_count
+            'post_count' => count($category->articles)
         ];
     }
 }

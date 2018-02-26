@@ -7,7 +7,7 @@ use League\Fractal\TransformerAbstract;
 
 class ArticleTransformer extends TransformerAbstract
 {
-    protected $availableIncludes = ['category'];
+    // protected $availableIncludes = ['categories'];
 
     public function transform(Article $article)
     {
@@ -15,7 +15,7 @@ class ArticleTransformer extends TransformerAbstract
             'id' => $article->id,
             'title' => $article->title,
             'body' => $article->body,
-            'category_id' => (int) $article->category_id,
+            'categories' => $article->categories,
             'reply_count' => (int) $article->reply_count,
             'view_count' => (int) $article->view_count,
             'excerpt' => $article->excerpt,
@@ -24,8 +24,8 @@ class ArticleTransformer extends TransformerAbstract
         ];
     }
 
-    public function includeCategory(Article $article)
-    {
-        return $this->item($article->category, new CategoryTransformer());
-    }
+    // public function includeCategory(Article $article)
+    // {
+    //     return $this->item($article->category, new CategoryTransformer());
+    // }
 }

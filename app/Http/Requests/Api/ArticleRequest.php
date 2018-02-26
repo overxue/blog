@@ -16,7 +16,7 @@ class ArticleRequest extends FormRequest
                 return [
                     'title' => 'required|string',
                     'body' => 'required|string',
-                    'category_id' => 'required|exists:categories,id',
+                    // 'category_id' => 'required|exists:categories,id',
                     'excerpt' => 'required|string'
                 ];
                 break;
@@ -24,7 +24,7 @@ class ArticleRequest extends FormRequest
                 return [
                     'title' => 'string',
                     'body' => 'string',
-                    'category_id' => 'exists:categories,id',
+                    // 'category_id' => 'exists:categories,id',
                     'excerpt' => 'string'
                 ];
                 break;

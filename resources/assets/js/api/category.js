@@ -9,3 +9,12 @@ export function getCategory() {
     console.log(e)
   })
 }
+
+export function getCategoryArticle(category_id) {
+  const url = `${http}/api/categories/${category_id}/articles`;
+  return axios.get(url).then((res) => {
+    return Promise.resolve(res.data)
+  }).catch((e) => {
+    console.log(e)
+  })
+}
