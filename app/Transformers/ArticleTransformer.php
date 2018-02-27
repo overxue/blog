@@ -7,7 +7,7 @@ use League\Fractal\TransformerAbstract;
 
 class ArticleTransformer extends TransformerAbstract
 {
-    // protected $availableIncludes = ['categories'];
+    protected $availableIncludes = ['categories'];
 
     public function transform(Article $article)
     {
@@ -15,7 +15,7 @@ class ArticleTransformer extends TransformerAbstract
             'id' => $article->id,
             'title' => $article->title,
             'body' => $article->body,
-            'categories' => $article->categories,
+            // 'categories' => $article->categories,
             'reply_count' => (int) $article->reply_count,
             'view_count' => (int) $article->view_count,
             'excerpt' => $article->excerpt,
