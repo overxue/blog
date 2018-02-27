@@ -44,7 +44,7 @@ $api->version('v1', [
         $api->get('categories', 'CategoriesController@index')
             ->name('api.categories.index');
         // 文章分类下面的文章
-        $api->get('categories/{id}/articles', 'CategoriesController@article');
+        $api->get('categories/{category}/articles', 'CategoriesController@article');
         // 文章列表
         $api->get('articles', 'ArticlesController@index')
             ->name('api.aritcles.index');
@@ -71,7 +71,7 @@ $api->version('v1', [
             $api->delete('articles/{article}', 'ArticlesController@destory')
                 ->name('api.articles.destory');
             // 修改文章
-            $api->patch('articles/{id}', 'ArticlesController@update')
+            $api->patch('articles/{article}', 'ArticlesController@update')
                 ->name('api.articles.update');
         });
     });

@@ -36,9 +36,9 @@ class CategoriesController extends Controller
         return $this->response->noContent();
     }
 
-    public function article(Category $category, $id)
+    public function article(Category $category)
     {
-        $categories = $category->find($id)->articles;
+        $categories = $category->articles;
         return $this->response->collection($categories, new ArticleTransformer());
     }
 }

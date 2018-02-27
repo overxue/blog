@@ -38,6 +38,7 @@ class ArticlesController extends Controller
     public function update(ArticleRequest $request, Article $article)
     {
         $article->update($request->all());
+        $article->categories()->sync($request->input('category_id'));
         return $this->response->item($article, new ArticleTransformer());
     }
 }
