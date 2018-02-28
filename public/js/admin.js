@@ -33669,6 +33669,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
 
 
 
@@ -33681,7 +33686,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       categories: [],
       ruleForm: {
         title: '',
-        category: '',
+        category: [],
         excerpt: '',
         content: ''
       },
@@ -39889,7 +39894,7 @@ var render = function() {
                   _c(
                     "el-select",
                     {
-                      attrs: { placeholder: "请选择分类" },
+                      attrs: { multiple: "", placeholder: "请选择文章分类" },
                       model: {
                         value: _vm.ruleForm.category,
                         callback: function($$v) {
@@ -39898,10 +39903,10 @@ var render = function() {
                         expression: "ruleForm.category"
                       }
                     },
-                    _vm._l(_vm.categories, function(category, index) {
+                    _vm._l(_vm.categories, function(item) {
                       return _c("el-option", {
-                        key: index,
-                        attrs: { label: category.name, value: category.id }
+                        key: item.id,
+                        attrs: { label: item.name, value: item.id }
                       })
                     })
                   )

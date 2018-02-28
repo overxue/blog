@@ -38,7 +38,7 @@ class CategoriesController extends Controller
 
     public function article(Category $category)
     {
-        $categories = $category->articles;
+        $categories = $category->articles()->recent()->get();
         return $this->response->collection($categories, new ArticleTransformer());
     }
 }

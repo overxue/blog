@@ -6,8 +6,13 @@
           <el-input type="text" v-model="ruleForm.title" placeholder="请输入文章标题"></el-input>
         </el-form-item>
         <el-form-item label="文章分类" prop="category">
-          <el-select v-model="ruleForm.category" placeholder="请选择分类">
-            <el-option v-for="(category,index) in categories" :label="category.name" :value="category.id" :key="index"></el-option>
+          <el-select v-model="ruleForm.category" multiple placeholder="请选择文章分类">
+            <el-option
+              v-for="item in categories"
+              :key="item.id"
+              :label="item.name"
+              :value="item.id">
+            </el-option>
           </el-select>
         </el-form-item>
         <el-form-item label="文章摘要" prop="excerpt">
@@ -36,7 +41,7 @@
         categories: [],
         ruleForm: {
           title: '',
-          category: '',
+          category: [],
           excerpt: '',
           content: '',
         },
