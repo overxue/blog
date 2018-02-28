@@ -12,7 +12,7 @@ class CategoriesController extends Controller
 {
     public function index(Category $category)
     {
-        $categories = $category->getAllCached();
+        $categories = $category->withCount('articles')->get();
         return $this->response->collection($categories, new CategoryTransformer());
     }
 

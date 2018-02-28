@@ -15,7 +15,7 @@
             <div class="articleListPage-tags">
               <div class="grid-row">
                 <div class="content">
-                  <a v-for="(item, index) in categories" href="javascript:void(0)" @click="selectCategory(item.id)" :class="{'active':selectType===item.id}">{{item.name}}<span>{{item.post_count}}</span></a>
+                  <a v-for="(item, index) in categories" href="javascript:void(0)" @click="selectCategory(item.id)" :class="{'active':selectType===item.id}">{{item.name}}<span>{{item.articles_count}}</span></a>
                 </div>
               </div>
             </div>
@@ -45,7 +45,7 @@
               <div class="readmore">
                 <div class="left">
                   <i class="icon-price-tags"></i>
-                  <a href="" class="tage" v-for="category in item.categories">{{category.name}}</a>
+                  <a href="" class="tage" v-for="category in item.categories.data">{{category.name}}</a>
                 </div>
                 <div class="right">
                   <a href="" class="readmore">阅读全文 <span>>></span></a>

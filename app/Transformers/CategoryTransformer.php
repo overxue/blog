@@ -9,10 +9,17 @@ class CategoryTransformer extends TransformerAbstract
 {
     public function transform(Category $category)
     {
-        return [
-            'id' => $category->id,
-            'name' => $category->name,
-            'post_count' => count($category->articles)
-        ];
+        if($category->articles_count) {
+            return [
+                'id' => $category->id,
+                'name' => $category->name,
+                'articles_count' => $category->articles_count
+            ];
+        } else {
+            return [
+                'id' => $category->id,
+                'name' => $category->name
+            ];
+        }
     }
 }

@@ -2,7 +2,7 @@ import axios from 'axios'
 import {http} from './config'
 
 export function getArticle(page = 1) {
-  const url = `${http}/api/articles?page=${page}`
+  const url = `${http}/api/articles?page=${page}&include=categories`
   return axios.get(url).then((res) => {
     return Promise.resolve(res.data)
   }).catch((e) => {
