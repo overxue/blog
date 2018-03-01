@@ -45,10 +45,10 @@
               <div class="readmore">
                 <div class="left">
                   <i class="icon-price-tags"></i>
-                  <a href="" class="tage" v-for="category in item.categories.data">{{category.name}}</a>
+                  <a href="javascript:void(0)" @click="selectCategory(category.id)" class="tage" v-for="category in item.categories.data">{{category.name}}</a>
                 </div>
                 <div class="right">
-                  <a href="" class="readmore">阅读全文 <span>>></span></a>
+                  <a href="javascript:void(0)" @click="goDetail(item.id)" class="readmore">阅读全文 <span>>></span></a>
                 </div>
               </div>
             </div>

@@ -21961,6 +21961,7 @@ module.exports = __webpack_require__(49);
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return http; });
+// export const http = 'https://xuecong.me'
 var http = 'http://blog.test';
 
 /***/ }),

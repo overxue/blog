@@ -411,6 +411,7 @@
           font-size: 15px
           margin-top: 20px
           margin-right: 20px
+          cursor: pointer
         .modal-boday
           padding: 20px 20px 10px 20px
           .title
