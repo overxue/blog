@@ -15,8 +15,8 @@ export function getArticledetail(id) {
 
   return axios.get(url).then((res) => {
     return Promise.resolve(res.data)
-  }).catch((e) => {
-    console.log(e)
+  }).catch((error) => {
+    return Promise.resolve(error.response.data)
   })
 }
 

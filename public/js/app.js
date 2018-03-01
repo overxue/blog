@@ -12265,8 +12265,8 @@ function getArticledetail(id) {
 
   return __WEBPACK_IMPORTED_MODULE_0_axios___default.a.get(url).then(function (res) {
     return Promise.resolve(res.data);
-  }).catch(function (e) {
-    console.log(e);
+  }).catch(function (error) {
+    return Promise.resolve(error.response.data);
   });
 }
 
@@ -19460,7 +19460,7 @@ __WEBPACK_IMPORTED_MODULE_0_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_1_vue_
 
 /* harmony default export */ __webpack_exports__["a"] = (new __WEBPACK_IMPORTED_MODULE_1_vue_router__["a" /* default */]({
   mode: 'history',
-  routes: [{
+  routes: [{ path: '*', component: __WEBPACK_IMPORTED_MODULE_2_components_homepage_homepage___default.a }, {
     path: '/',
     component: __WEBPACK_IMPORTED_MODULE_2_components_homepage_homepage___default.a
   }, {
@@ -22765,6 +22765,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       var _this3 = this;
 
       Object(__WEBPACK_IMPORTED_MODULE_3_api_article__["b" /* getArticledetail */])(this.$route.params.id).then(function (res) {
+        if (res.status_code === 404) {
+          _this3.$router.push('/');
+          return;
+        }
         _this3.articledetail = res;
         _this3.$nextTick(function () {
           _this3.detailScroll.refresh();

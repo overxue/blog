@@ -22609,8 +22609,8 @@ function getArticledetail(id) {
 
   return __WEBPACK_IMPORTED_MODULE_0_axios___default.a.get(url).then(function (res) {
     return Promise.resolve(res.data);
-  }).catch(function (e) {
-    console.log(e);
+  }).catch(function (error) {
+    return Promise.resolve(error.response.data);
   });
 }
 
@@ -32708,7 +32708,7 @@ __WEBPACK_IMPORTED_MODULE_0_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_1_vue_
 
 /* harmony default export */ __webpack_exports__["a"] = (new __WEBPACK_IMPORTED_MODULE_1_vue_router__["a" /* default */]({
   mode: 'history',
-  routes: [{
+  routes: [{ path: '*', component: __WEBPACK_IMPORTED_MODULE_2_components_login_login___default.a }, {
     path: '/admin',
     component: __WEBPACK_IMPORTED_MODULE_3_components_adminpage_adminpage___default.a,
     redirect: '/admin/main',

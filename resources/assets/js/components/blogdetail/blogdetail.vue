@@ -167,6 +167,10 @@
       },
       _getArticledetail() {
         getArticledetail(this.$route.params.id).then((res) => {
+          if(res.status_code === 404) {
+            this.$router.push('/')
+            return
+          }
           this.articledetail = res
           this.$nextTick(() => {
             this.detailScroll.refresh()
