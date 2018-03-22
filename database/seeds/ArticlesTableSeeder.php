@@ -18,6 +18,7 @@ class ArticlesTableSeeder extends Seeder
 
         // 获取 Faker 实例
         $faker = app(Faker\Generator::class);
+        // $faker = Faker\Factory::create('zh_CN');
 
         $articles = factory(Article::class)
                             ->times(100)

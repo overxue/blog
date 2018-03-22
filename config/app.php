@@ -80,6 +80,9 @@ return [
 
     'locale' => 'zh-CN',
 
+    // faker生成假数据支持中文   目前不支持生成随机中文句子或者段落
+    'faker_locale' => 'zh_CN',
+
     /*
     |--------------------------------------------------------------------------
     | Application Fallback Locale
