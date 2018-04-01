@@ -1,13 +1,28 @@
 
 ## 项目概述
 
-这是我的个人博客，使用laravel5.5和vue2.0编写而成。
+这是我的个人博客，使用 [laravel5.5](https://laravel.com/) 和 [vue2.0](https://cn.vuejs.org/) 编写而成，小程序版请访问 [mpblog](https://github.com/overxue/mpblog)。
 
-博客的后台采用 [element-ui](http://element-cn.eleme.io/)，目前只实现发帖功能，后台我还在不断完善中。
+博客的后台采用 [element-ui](http://element-cn.eleme.io/)，目前只实现发帖功能，后台我还在更新中。
 
 后续我会不断完善这个博客，添加一些新的功能，比如文章评论，点赞，分享朋友圈。欢迎小伙伴关注。
 
 如果你发现bugs，或者有一些好的建议，欢迎 issue。
+
+## PC端截图展示
+<p>
+  <img alt="博文列表" src="http://p5vnm2kox.bkt.clouddn.com/github/pc-blog.png" />
+</p>
+<p>
+  <img alt="博文详情" src="http://p5vnm2kox.bkt.clouddn.com/github/pc-detail.png" />
+</p>
+
+## 移动端截图展示
+<p>
+  <img alt="博客首页" src="http://p5vnm2kox.bkt.clouddn.com/github/mobile-index.jpg" width="32%" />
+  <img alt="博文列表" src="http://p5vnm2kox.bkt.clouddn.com/github/mobile-blog.jpg" width="32%"/>
+  <img alt="博文详情" src="http://p5vnm2kox.bkt.clouddn.com/github/mobile-detail.png" width="32%" />
+</p>
 
 ## 运行环境要求
 
