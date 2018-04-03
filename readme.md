@@ -11,9 +11,6 @@
 
 ## PC端截图展示
 <p>
-  <img alt="博文列表" src="http://p5vnm2kox.bkt.clouddn.com/github/pc-blog.png" />
-</p>
-<p>
   <img alt="博文详情" src="http://p5vnm2kox.bkt.clouddn.com/github/pc-detail.png" />
 </p>
 
