@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers\Api;
 
-use Illuminate\Http\Request;
 use App\Models\Category;
 use App\Transformers\CategoryTransformer;
 use App\Http\Requests\Api\CategoryRequest;

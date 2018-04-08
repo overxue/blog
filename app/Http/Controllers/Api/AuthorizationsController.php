@@ -3,7 +3,6 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Requests\Api\AuthorizationRequest;
-use App\Models\User;
 use Auth;
 
 class AuthorizationsController extends Controller

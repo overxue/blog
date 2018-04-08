@@ -9,7 +9,7 @@ class CategoryTransformer extends TransformerAbstract
 {
     public function transform(Category $category)
     {
-        if($category->articles_count) {
+        if(isset($category->articles_count)) {
             return [
                 'id' => $category->id,
                 'name' => $category->name,
