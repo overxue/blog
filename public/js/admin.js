@@ -21961,8 +21961,9 @@ module.exports = __webpack_require__(49);
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return http; });
-// export const http = 'https://xuecong.me'
-var http = 'http://blog.test';
+// 判断当前环境是development还是production
+var debug = "development" !== 'production';
+var http = debug ? 'http://blog.test' : 'https://www.overxue.com';
 
 /***/ }),
 /* 16 */
