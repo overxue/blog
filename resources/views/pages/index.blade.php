@@ -8,16 +8,22 @@
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
         <title>薛聪的博客</title>
-        <meta name="description" content="薛聪的博客--分享原创技术文章，记录生活点滴；专注于CentOS系统运维、服务端PHP开发、前端HTML、Css、Js开发，点滴的积累，你也可以成为那个曾经你羡慕的人，你的坚持终将美好" />
+        <meta name="description" content="薛聪的博客,开源爱好者,laravel爱好者,从事PHP开发,热爱分享" />
         <meta name="keyword" content="薛聪的博客,php,Laravel,ThinkPHP,小程序,微信小程序,centos,Linux,ubuntu,vagrant,javascript,nginx,mysql,redis,面向对象,lnmp,php7,html,css,vuejs,composer" />
         <link rel="icon" type="image/x-icon" href="images/avatar.jpg" />
         <!-- Styles -->
         <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+        <link rel="stylesheet" href="people/hello.css" type="text/css" media="all">
+        <script src="people/js/jquery-1.11.3.min.js"></script>
     </head>
     <body>
         <div id="app"></div>
 
         <!-- Scripts -->
         <script src="{{ asset('js/app.js') }}"></script>
+        <script type="text/javascript">
+            var isindex=true;var title="";var visitor="游客";
+        </script>
+        <script src="people/js/spig.js" type="text/javascript"></script>
     </body>
 </html>
